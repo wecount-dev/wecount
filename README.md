@@ -1,6 +1,6 @@
-# Svelte Typescript Template
+# WeCount
 
-[![CI](https://github.com/hyochan/svelte-typescript-template/actions/workflows/ci.yml/badge.svg)](https://github.com/hyochan/svelte-typescript-template/actions/workflows/ci.yml)
+[![CI](https://github.com/wecount-dev/wecount/actions/workflows/ci.yml/badge.svg)](https://github.com/wecount-dev/wecount/actions/workflows/ci.yml)
 
 ## Sepecification
 
