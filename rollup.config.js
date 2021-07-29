@@ -51,10 +51,9 @@ export default {
 				}),
 				postcss({
 					plugins: [
-						require('autoprefixer'),
 						require('precss'),
 						require('postcss-import'),
-        		require('postcss-cssnext')
+						require('postcss-cssnext')
 					],
 				}),
 			],

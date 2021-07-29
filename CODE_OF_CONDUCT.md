@@ -3,7 +3,7 @@
 > Followed by `dooboolab.com`'s [code-of-conduct](https://github.com/dooboolab/dooboolab.com/edit/master/code-of-conduct.md)
 > @copyright by dooboolab
 
-We expect `dooboolab`'s contributors to act professionally and respectfully. All contributors should have their own `self-observation` ability so that our environment can go wisely.
+We expect `wecount`'s contributors to act professionally and respectfully. All contributors should have their own `self-observation` ability so that our environment can go wisely.
 
 Since we are moving forward for an `ideal` society, we expect all contributors to avoid bad behaviors affected by (believed to be inherited/still existing) bad culture (examples below).
 
@@ -19,7 +19,7 @@ Since we are moving forward for an `ideal` society, we expect all contributors t
 9. Being tricky
 10. Any behavior considered harmful to the community
 
-Please contact `dooboolab`'s member if you face any of above in our community. We won't tolerate for those behavior inside and outside our community.
+Please contact [dooboolab](github.com/dooboolab)'s member if you face any of above in our community. We won't tolerate for those behavior inside and outside our community.
 
 We hope we can work like future in our community.
 
