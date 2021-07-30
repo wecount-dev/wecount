@@ -1,6 +1,5 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
-
   "include": [
     "./src/**/*",
     "babel.config.js",
@@ -11,6 +10,7 @@
   ],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
   "compilerOptions": {
+    "types": ["node", "svelte"],
     "outDir": "build",
     "lib": ["DOM", "ES2017", "WebWorker"],
     "resolveJsonModule": true,

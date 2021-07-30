@@ -2,12 +2,16 @@ import sveltePreprocess, {postcss} from 'svelte-preprocess';
 
 import commonjs from '@rollup/plugin-commonjs';
 import css from 'rollup-plugin-css-only';
+import dotenv from 'dotenv';
 import json from "@rollup/plugin-json";
 import livereload from 'rollup-plugin-livereload';
+import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 import {terser} from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
+
+dotenv.config();
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -43,6 +47,14 @@ export default {
 		file: 'public/build/bundle.js',
 	},
 	plugins: [
+		replace({
+			include: ['src/**/*.ts'],
+			preventAssignment: true,
+			SUPABASE_URL: JSON.stringify(process.env.SUPABASE_URL),
+			SUPABASE_PUBLIC_KEY: JSON.stringify(process.env.SUPABASE_PUBLIC_KEY),
+			SUPABASE_PRIVATE_KEY: JSON.stringify(process.env.SUPABASE_PRIVATE_KEY),
+			SUPABASE_JWT_SECRET: JSON.stringify(process.env.SUPABASE_JWT_SECRET),
+		}),
 		svelte({
 			preprocess: [
 				sveltePreprocess({
