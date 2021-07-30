@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import supabase from '../../lib/db';
   import {_} from 'svelte-i18n';
   import Button from '../uis/Button.svelte';
