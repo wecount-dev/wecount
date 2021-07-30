@@ -22,7 +22,6 @@
   const handleSignUp = async () => {
     try {
       loading = true;
-      loading = true;
       const {error} = await supabase.auth.signUp({email, password});
 
       if (error) throw error;
