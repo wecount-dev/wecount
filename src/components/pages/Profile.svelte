@@ -1,5 +1,5 @@
 <script lang="ts">
-  import supabase from "../../lib/db";
+  import supabase from '../../lib/db';
   import {user} from '../../stores/sessionStore';
 
   let loading = true;
@@ -68,8 +68,8 @@
     try {
       loading = true;
       let {error} = await supabase.auth.signOut();
- 
-     if (error) throw error;
+
+      if (error) throw error;
     } catch (error) {
       alert(error.message);
     } finally {
@@ -78,30 +78,31 @@
   }
 </script>
 
-<form use:getProfile class="form-widget" on:submit|preventDefault={updateProfile}>
+<form
+  use:getProfile
+  class="form-widget"
+  on:submit|preventDefault={updateProfile}
+>
   <div>
     <label for="email">Email</label>
     <input id="email" type="text" value={$user?.email} disabled />
   </div>
   <div>
     <label for="username">Name</label>
-    <input
-      id="username"
-      type="text"
-      bind:value={username}
-    />
+    <input id="username" type="text" bind:value={username} />
   </div>
   <div>
     <label for="website">Website</label>
-    <input
-      id="website"
-      type="website"
-      bind:value={website}
-    />
+    <input id="website" type="website" bind:value={website} />
   </div>
 
   <div>
-    <input type="submit" class="button block primary" value={loading ? 'Loading ...' : 'Update'} disabled={loading}/>
+    <input
+      type="submit"
+      class="button block primary"
+      value={loading ? 'Loading ...' : 'Update'}
+      disabled={loading}
+    />
   </div>
 
   <div>
