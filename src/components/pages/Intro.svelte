@@ -1,18 +1,12 @@
-<script>
+<script lang="ts">
   import supabase from '../../lib/db';
   import {_} from 'svelte-i18n';
   import Button from '../uis/Button.svelte';
 
-  async function signOut() {
-    supabase.auth.signOut();
-  }
+  const signOut = () => supabase.auth.signOut();
 
   function toggleTheme() {
     window.document.body.classList.toggle('dark-mode');
-  }
-
-  function getUser() {
-    setName('Hyo', 'Jang');
   }
 </script>
 

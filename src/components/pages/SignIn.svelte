@@ -1,25 +1,16 @@
-<script>
+<script lang="ts">
   import supabase from '../../lib/db';
   import Button from '../uis/Button.svelte';
 
   let loading = false;
-  let email;
-  let password;
-
-  async function signUp() {
-    const {user, error} = await supabase.auth.signUp({
-      email: 'support@dooboolab.com',
-      password: 'password',
-    });
-
-    console.log('user', user);
-    console.log('error', error);
-  }
+  let email: string;
+  let password: string;
 
   const handleLogin = async () => {
     try {
       loading = true;
-      const {user, error} = await supabase.auth.signIn({email, password});
+      const {error} = await supabase.auth.signIn({email, password});
+
       if (error) throw error;
     } catch (error) {
       alert(error.error_description || error.message);
@@ -32,14 +23,15 @@
     try {
       loading = true;
       loading = true;
-      const {user, error} = await supabase.auth.signUp({email, password});
+      const {error} = await supabase.auth.signUp({email, password});
+
       if (error) throw error;
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
       loading = false;
     }
-  }
+  };
 </script>
 
 <form class="row flex flex-center" on:submit|preventDefault={handleLogin}>
