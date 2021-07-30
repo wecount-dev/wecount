@@ -20,6 +20,6 @@
 
 </script>
 
-<button on:click={handleClick}>
+<button on:click|preventDefault={handleClick}>
   <slot />
 </button>

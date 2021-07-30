@@ -8,37 +8,30 @@
     transition: background-color 0.3s;
   }
   :global(body.dark-mode) {
-    --button: #069ccd
+    --button: #069ccd;
     --text: white;
 
     background-color: black;
     color: white;
   }
-
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
 </style>
 
 <script>
   import './i18n';
-  import Router from 'svelte-spa-router';
-  import routes from './components/navigations/root';
+  import {user} from './stores/sessionStore';
+  import supabase from './lib/db';
+  import Auth from './components/navigations/Auth.svelte';
+  import Main from './components/navigations/Main.svelte';
+
+  supabase.auth.onAuthStateChange((_, session) => {
+    user.set(session?.user);
+  });
 </script>
 
 <main>
-  <nav>
-    <a href="/">Intro</a> |
-    <a href="/#/temp">Temp</a>
-  </nav>
-  <Router routes={routes} />
+  {#if $user}
+    <Main />
+  {:else}
+    <Auth />
+  {/if}
 </main>
