@@ -9,6 +9,10 @@ module.exports = {
   modulePathIgnorePatterns: ['dist', 'build'],
   testEnvironment: 'jsdom',
   globals: {
+    SUPABASE_URL: '1234',
+    SUPABASE_PUBLIC_KEY: '1234',
+    SUPABASE_PRIVATE_KEY: '1234',
+    SUPABASE_JWT_SECRET: '1234',
     window: {},
     'ts-jest': {
       babelConfig: true,
