@@ -20,10 +20,21 @@
       justify-content: center;
       align-items: center;
 
-      .input-icon {
-        width: 20px;
-        height: 20px;
-        background-color: red;
+      a {
+        margin-top: 8px;
+        align-self: flex-end;
+        margin-right: 10%;
+        text-decoration: underline;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: var(--link);
+
+        display: flex;
+        align-items: center;
+        text-align: right;
+        letter-spacing: -0.5px;
+        text-decoration-line: underline;
       }
     }
   }
@@ -97,6 +108,7 @@
     >
       <SvgKey slot="leftElement"/>
     </EditText>
+    <a href="/#/sign_up">{$_('SignIn.forgot_your_password')}?</a>
     <input
       type="submit"
       value={loading ? $_('loading') : $_('SignIn.sign_in')}

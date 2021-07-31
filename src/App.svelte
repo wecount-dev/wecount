@@ -33,10 +33,12 @@
 
     --button: var(--green80);
     --text: var(--gray100);
+    --link: var(--gray60);
     --input-border: var(--gray30);
     --input-focus: var(--gray80);
+    --background-color: white;
 
-    background-color: var(--gray10);
+    background-color: var(--background-color);
     color: var(--gray100);
     transition: background-color 0.3s;
   }
@@ -44,7 +46,7 @@
     --button: var(--green30);
     --text: var(--gray10);
 
-    background-color: var(--gray100);
+    background-color: var(--background-color);
     color: var(--gray10);
   }
 

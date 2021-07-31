@@ -17,10 +17,12 @@
 <script>
   import Router from 'svelte-spa-router';
   import SignIn from '../pages/SignIn.svelte';
+  import SignUp from '../pages/SignUp.svelte';
   import Temp from '../pages/Temp.svelte';
 
   const routes = {
     '/': SignIn,
+    '/sign_up': SignUp,
     '/temp': Temp,
     '*': SignIn,
   };
