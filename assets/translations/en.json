@@ -22,10 +22,10 @@
     "terms_and_agreement": "I agree with &nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>&nbsp;and&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
     "missing_inputs": "Some information is missing. Please fill all information."
   },
-  "intro": {
-    "title": "Intro"
+  "Intro": {
+    "welcome": "Hello there ~ 🙌 Welcome to WeCount."
   },
-  "temp": {
+  "Temp": {
     "title": "Template"
   }
 }

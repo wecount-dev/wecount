@@ -3,27 +3,31 @@
 exports[`should render without error 1`] = `
 <body>
   <div>
-    <p>
-      Intro
-    </p>
-     
-    <button
-      class="svelte-15wiqim"
-      style=""
-      type=""
-      value=""
+    <main
+      class="svelte-1veuz41"
     >
-      Sign Out
-    </button>
-     
-    <button
-      class="svelte-15wiqim"
-      style=""
-      type=""
-      value=""
-    >
-      Toggle Theme
-    </button>
+      <p>
+        Hello there ~ 🙌 Welcome to WeCount.
+      </p>
+       
+      <button
+        class="svelte-15wiqim"
+        style=""
+        type=""
+        value=""
+      >
+        Sign Out
+      </button>
+       
+      <button
+        class="svelte-15wiqim"
+        style=""
+        type=""
+        value=""
+      >
+        Toggle Theme
+      </button>
+    </main>
   </div>
 </body>
 `;
