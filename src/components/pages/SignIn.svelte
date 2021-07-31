@@ -6,7 +6,7 @@
   let email: string;
   let password: string;
 
-  const handleAuthExeption = async (callback: () => Promise<Error | null>) => {
+  const handleAuthException = async (callback: () => Promise<Error | null>) => {
     try {
       loading = true;
       const error = await callback();
@@ -20,7 +20,7 @@
   };
 
   const handleLogin = async () => {
-    await handleAuthExeption(async () => {
+    await handleAuthException(async () => {
       const {error} = await supabase.auth.signIn({email, password});
 
       return error;
@@ -28,7 +28,7 @@
   };
 
   const handleSignUp = async () => {
-    await handleAuthExeption(async () => {
+    await handleAuthException(async () => {
       const {error} = await supabase.auth.signUp({email, password});
 
       return error;
