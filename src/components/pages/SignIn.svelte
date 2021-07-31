@@ -65,8 +65,13 @@
   let email: string;
   let password: string;
 
-  const onChangeEmail = (e: CustomEvent) => { email = e.detail; };
-  const onChangePassword = (e: CustomEvent) => { password = e.detail; };
+  const onChangeEmail = (e: CustomEvent) => {
+    email = e.detail;
+  };
+ 
+ const onChangePassword = (e: CustomEvent) => {
+    password = e.detail;
+  };
 
   const handleAuthException = async (callback: () => Promise<Error | null>) => {
     try {
@@ -94,7 +99,6 @@
   const handleSignInWithGoogle = async () => {
     // await handleAuthException(async () => {
     //   const {error} = await supabase.auth.signUp({email, password});
-
     //   return error;
     // });
   };
@@ -102,7 +106,6 @@
   const handleSignInWithFacebook = async () => {
     // await handleAuthException(async () => {
     //   const {error} = await supabase.auth.signUp({email, password});
-
     //   return error;
     // });
   };
@@ -119,7 +122,7 @@
       placeholder={$_('SignIn.email_hint')}
       on:changed={onChangeEmail}
     >
-      <SvgMail slot="leftElement"/>
+      <SvgMail slot="leftElement" />
     </EditText>
     <EditText
       containerStyle="width: 80%; margin-top: 8px"
@@ -128,7 +131,7 @@
       placeholder={$_('SignIn.pw_hint')}
       on:changed={onChangePassword}
     >
-      <SvgKey slot="leftElement"/>
+      <SvgKey slot="leftElement" />
     </EditText>
     <div class="container-options">
       <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
@@ -153,6 +156,8 @@
     >
       <div class="text">{$_('SignIn.sign_in_with_facebook')}</div>
     </Button>
-    <a class="link" href="/#" style="margin-top: 16px;">{$_('SignIn.look_around')}?</a>
+    <a class="link" href="/#" style="margin-top: 8px;"
+      >{$_('SignIn.look_around')}</a
+    >
   </form>
 </main>

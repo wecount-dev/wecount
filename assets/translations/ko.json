@@ -11,6 +11,16 @@
     "sign_in_with_facebook": "Facebook 계정으로 로그인",
     "look_around": "둘러보기"
   },
+  "SignUp": {
+    "title": "회원가입",
+    "email": "이메일",
+    "email_hint": "이메일 주소를 입력하세요",
+    "pw": "비밀번호",
+    "pw_hint": "비밀번호를 입력하세요",
+    "pw_confirm": "비밀번호 확인",
+    "pw_confirm_hint": "비밀번호를 한번 더 입력하세요",
+    "terms_and_agreement": "위카운트 <a href=\"https://legacy.dooboolab.com/termsofservice\">이용약관</a> 및 <a href=\"https://legacy.dooboolab.com/privacyandpolicy\">개인정보취급방침</a>에 모두 동의합니다."
+  },
   "intro": {
     "title": "소개"
   },
