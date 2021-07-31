@@ -47,6 +47,7 @@ module.exports = {
   ],
   settings: {
     'svelte3/typescript': require('typescript'),
+    'svelte3/ignore-styles': () => true,
   },
   plugins: ['svelte3', '@typescript-eslint'],
   ignorePatterns: ['node_modules'],

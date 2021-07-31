@@ -1,16 +1,11 @@
 <style>
   main {
-    background-color: black;
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
 
   @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+    main { }
   }
 </style>
 

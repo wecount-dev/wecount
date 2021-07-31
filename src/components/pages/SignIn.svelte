@@ -1,3 +1,28 @@
+<style lang="scss">
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+      padding: 60px 70px;
+      width: 60%;
+      height: 654px;
+      background: #FFFFFF;
+      box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+</style>
+
 <script lang="ts">
   import supabase from '../../lib/db';
   import Button from '../uis/Button.svelte';
@@ -36,34 +61,33 @@
   };
 </script>
 
-<form class="row flex flex-center" on:submit|preventDefault={handleLogin}>
-  <div class="col-6 form-widget">
-    <h1 class="header">Supabase + Svelte</h1>
-    <p class="description">Sign in via magic link with your email below</p>
-    <div>
-      <input
-        class="inputField"
-        type="email"
-        placeholder="Your email"
-        bind:value={email}
-        required
-      />
-      <input
-        class="inputField"
-        type="password"
-        placeholder="Your password"
-        bind:value={password}
-        required
-      />
-    </div>
-    <div>
-      <input
-        type="submit"
-        class="button block"
-        value={loading ? 'Loading' : 'Sign In'}
-        disabled={loading}
-      />
-      <Button on:click={handleSignUp}>Sign Up</Button>
-    </div>
+<main>
+  <div class="card">
+    <form on:submit|preventDefault={handleLogin}>
+      <div>
+        <h1>Supabase + Svelte</h1>
+        <p>Sign in via magic link with your email below</p>
+        <div>
+          <input
+            type="email"
+            placeholder="Your email"
+            bind:value={email}
+          />
+          <input
+            type="password"
+            placeholder="Your password"
+            bind:value={password}
+          />
+        </div>
+        <div>
+          <input
+            type="submit"
+            value={loading ? 'Loading' : 'Sign In'}
+            disabled={loading}
+          />
+          <Button on:click={handleSignUp}>Sign Up</Button>
+        </div>
+      </div>
+    </form>
   </div>
-</form>
+</main>

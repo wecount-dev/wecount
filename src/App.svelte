@@ -1,4 +1,4 @@
-<style>
+<style global lang="postcss">
   :global(body) {
     --green20: #CBFFDD;
     --green30: #7EE2D3;
@@ -45,6 +45,8 @@
     background-color: var(--gray100);
     color: var(--gray10);
   }
+
+  main { display: grid; }
 </style>
 
 <script>
