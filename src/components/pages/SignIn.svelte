@@ -19,19 +19,29 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      .input-icon {
+        width: 20px;
+        height: 20px;
+        background-color: red;
+      }
     }
   }
 </style>
 
 <script lang="ts">
   import supabase from '../../lib/db';
-  import {SvgLogo} from '../../utils/Icon';
+  import {SvgKey, SvgLogo, SvgMail} from '../../utils/Icon';
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
+  import EditText from '../uis/EditText.svelte';
 
   let loading = false;
   let email: string;
   let password: string;
+
+  const onChangeEmail = (e: CustomEvent) => { email = e.detail; };
+  const onChangePassword = (e: CustomEvent) => { password = e.detail; };
 
   const handleAuthException = async (callback: () => Promise<Error | null>) => {
     try {
@@ -46,12 +56,14 @@
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/require-await
   const handleLogin = async () => {
-    await handleAuthException(async () => {
-      const {error} = await supabase.auth.signIn({email, password});
+    console.log('email', email);
+    // await handleAuthException(async () => {
+    //   const {error} = await supabase.auth.signIn({email, password});
 
-      return error;
-    });
+    //   return error;
+    // });
   };
 
   const handleSignUp = async () => {
@@ -66,9 +78,25 @@
 <main>
   <form on:submit|preventDefault={handleLogin}>
     <SvgLogo />
-    <h1>{$_('SignIn.login')}</h1>
-    <input type="email" placeholder="Your email" bind:value={email} />
-    <input type="password" placeholder="Your password" bind:value={password} />
+    <h1 style="margin-bottom: 60px;">{$_('SignIn.login')}</h1>
+    <EditText
+      containerStyle="width: 80%;"
+      inputStyle="font-size: 14px;"
+      type="email"
+      placeholder={$_('SignIn.email_hint')}
+      on:changed={onChangeEmail}
+    >
+      <SvgMail slot="leftElement"/>
+    </EditText>
+    <EditText
+      containerStyle="width: 80%; margin-top: 8px"
+      inputStyle="font-size: 14px;"
+      type="password"
+      placeholder={$_('SignIn.pw_hint')}
+      on:changed={onChangePassword}
+    >
+      <SvgKey slot="leftElement"/>
+    </EditText>
     <input
       type="submit"
       value={loading ? $_('loading') : $_('SignIn.sign_in')}

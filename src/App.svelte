@@ -33,6 +33,8 @@
 
     --button: var(--green80);
     --text: var(--gray100);
+    --input-border: var(--gray30);
+    --input-focus: var(--gray80);
 
     background-color: var(--gray10);
     color: var(--gray100);
