@@ -8,6 +8,7 @@ import livereload from 'rollup-plugin-livereload';
 import replace from '@rollup/plugin-replace';
 import resolve from '@rollup/plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
+import { svelteSVG } from "rollup-plugin-svelte-svg";
 import {terser} from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 
@@ -47,6 +48,9 @@ export default {
 		file: 'public/build/bundle.js',
 	},
 	plugins: [
+		svelteSVG({
+			svgo: {}
+		}),
 		replace({
 			include: ['src/**/*.ts'],
 			preventAssignment: true,

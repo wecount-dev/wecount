@@ -1,0 +1,19 @@
+{
+  "loading": "loading",
+  "SignIn": {
+    "login": "Login",
+    "email_hint": "Write your email address",
+    "pw_hint": "Write your password",
+    "forgot_your_password": "Forgot your password",
+    "sign_in": "Sign In",
+    "sign_in_with_google": "Sign In with Google",
+    "sign_in_with_facebook": "Sign In with Facebook",
+    "look_around": "Look around"
+  },
+  "intro": {
+    "title": "Intro"
+  },
+  "temp": {
+    "title": "Template"
+  }
+}

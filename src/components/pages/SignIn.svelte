@@ -7,16 +7,16 @@
     align-items: center;
     justify-content: center;
 
-    .card {
+    form {
       padding: 60px 70px;
       width: 60%;
       height: 654px;
-      background: #FFFFFF;
+      background: #ffffff;
       box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
 
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
@@ -25,7 +25,9 @@
 
 <script lang="ts">
   import supabase from '../../lib/db';
+  import {SvgLogo} from '../../utils/Icon';
   import Button from '../uis/Button.svelte';
+  import {_} from 'svelte-i18n';
 
   let loading = false;
   let email: string;
@@ -62,32 +64,16 @@
 </script>
 
 <main>
-  <div class="card">
-    <form on:submit|preventDefault={handleLogin}>
-      <div>
-        <h1>Supabase + Svelte</h1>
-        <p>Sign in via magic link with your email below</p>
-        <div>
-          <input
-            type="email"
-            placeholder="Your email"
-            bind:value={email}
-          />
-          <input
-            type="password"
-            placeholder="Your password"
-            bind:value={password}
-          />
-        </div>
-        <div>
-          <input
-            type="submit"
-            value={loading ? 'Loading' : 'Sign In'}
-            disabled={loading}
-          />
-          <Button on:click={handleSignUp}>Sign Up</Button>
-        </div>
-      </div>
-    </form>
-  </div>
+  <form on:submit|preventDefault={handleLogin}>
+    <SvgLogo />
+    <h1>{$_('SignIn.login')}</h1>
+    <input type="email" placeholder="Your email" bind:value={email} />
+    <input type="password" placeholder="Your password" bind:value={password} />
+    <input
+      type="submit"
+      value={loading ? $_('loading') : $_('SignIn.sign_in')}
+      disabled={loading}
+    />
+    <Button on:click={handleSignUp}>Sign Up</Button>
+  </form>
 </main>
