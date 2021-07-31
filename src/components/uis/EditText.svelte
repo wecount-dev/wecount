@@ -1,6 +1,6 @@
 <style lang="scss">
   main {
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--border);
     box-sizing: border-box;
     border-radius: 4px;
     padding: 11px 16px;

@@ -1,29 +1,29 @@
 <style global lang="postcss">
   :global(body) {
-    --green20: #CBFFDD;
-    --green30: #7EE2D3;
-    --green40: #28DB98;
-    --green70: #0DB293;
-    --green80: #00715B;
+    --green20: #cbffdd;
+    --green30: #7ee2d3;
+    --green40: #28db98;
+    --green70: #0db293;
+    --green80: #00715b;
     --green90: #074539;
-    --gray10: #F9F9F9;
-    --gray20: #F3F4F5;
-    --gray30: #E3E4E5;
-    --gray40: #D0D1D3;
-    --gray50: #B5B6B9;
-    --gray60: #8E9095;
-    --gray70: #76777D;
-    --gray80: #4C4D53;
-    --gray90: #2A2A2C;
-    --gray100: #1B1B1C;
-    --blue10: #F0F5FF;
-    --blue50: #3A74E7;
+    --gray10: #f9f9f9;
+    --gray20: #f3f4f5;
+    --gray30: #e3e4e5;
+    --gray40: #d0d1d3;
+    --gray50: #b5b6b9;
+    --gray60: #8e9095;
+    --gray70: #76777d;
+    --gray80: #4c4d53;
+    --gray90: #2a2a2c;
+    --gray100: #1b1b1c;
+    --blue10: #f0f5ff;
+    --blue50: #3a74e7;
     --blue90: #061178;
-    --yellow10: #FFFBE6;
-    --yellow50: #FFC53D;
-    --yellow90: #874D00;
-    --red10: #FFF2E8;
-    --red50: #F15454;
+    --yellow10: #fffbe6;
+    --yellow50: #ffc53d;
+    --yellow90: #874d00;
+    --red10: #fff2e8;
+    --red50: #f15454;
     --red90: #871400;
 
     --positive: var(--green50);
@@ -31,12 +31,13 @@
     --info: var(--blue50);
     --warn: var(--yellow50);
 
-    --button: var(--green80);
+    --button: var(--gray10);
     --text: var(--gray100);
     --link: var(--gray60);
-    --input-border: var(--gray30);
+    --border: var(--gray30);
     --input-focus: var(--gray80);
     --background-color: white;
+    --primary: var(--green70);
 
     background-color: var(--background-color);
     color: var(--gray100);
@@ -50,7 +51,9 @@
     color: var(--gray10);
   }
 
-  main { display: grid; }
+  main {
+    display: grid;
+  }
 </style>
 
 <script>

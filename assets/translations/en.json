@@ -5,6 +5,7 @@
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",
     "forgot_your_password": "Forgot your password",
+    "do_not_have_account": "Don't have an account",
     "sign_in": "Sign In",
     "sign_in_with_google": "Sign In with Google",
     "sign_in_with_facebook": "Sign In with Facebook",

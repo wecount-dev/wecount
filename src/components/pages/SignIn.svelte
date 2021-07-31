@@ -7,6 +7,14 @@
     align-items: center;
     justify-content: center;
 
+    .link {
+      text-decoration: underline;
+      color: var(--link);
+
+      display: flex;
+      align-items: center;
+    }
+
     form {
       padding: 60px 70px;
       width: 60%;
@@ -20,21 +28,27 @@
       justify-content: center;
       align-items: center;
 
-      a {
-        margin-top: 8px;
-        align-self: flex-end;
-        margin-right: 10%;
-        text-decoration: underline;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        color: var(--link);
+      .container-options {
+        align-self: stretch;
+        margin: 0 10%;
 
+        margin-top: 8px;
         display: flex;
-        align-items: center;
-        text-align: right;
-        letter-spacing: -0.5px;
-        text-decoration-line: underline;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .btn-sign-in {
+        height: 40px;
+        margin: 40px 10% 0 10%;
+        align-self: stretch;
+        background-color: var(--green70);
+        border-radius: 4px;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 0.7;
+        }
       }
     }
   }
@@ -77,12 +91,20 @@
     // });
   };
 
-  const handleSignUp = async () => {
-    await handleAuthException(async () => {
-      const {error} = await supabase.auth.signUp({email, password});
+  const handleSignInWithGoogle = async () => {
+    // await handleAuthException(async () => {
+    //   const {error} = await supabase.auth.signUp({email, password});
 
-      return error;
-    });
+    //   return error;
+    // });
+  };
+
+  const handleSignInWithFacebook = async () => {
+    // await handleAuthException(async () => {
+    //   const {error} = await supabase.auth.signUp({email, password});
+
+    //   return error;
+    // });
   };
 </script>
 
@@ -108,12 +130,29 @@
     >
       <SvgKey slot="leftElement"/>
     </EditText>
-    <a href="/#/sign_up">{$_('SignIn.forgot_your_password')}?</a>
+    <div class="container-options">
+      <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
+      <a class="link" href="/#/sign_up">{$_('SignIn.forgot_your_password')}?</a>
+    </div>
     <input
+      class="btn-sign-in"
+      style="color: white; font-size: 14px;"
       type="submit"
       value={loading ? $_('loading') : $_('SignIn.sign_in')}
       disabled={loading}
     />
-    <Button on:click={handleSignUp}>Sign Up</Button>
+    <Button
+      on:click={handleSignInWithGoogle}
+      style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+    >
+      <div class="text">{$_('SignIn.sign_in_with_google')}</div>
+    </Button>
+    <Button
+      on:click={handleSignInWithFacebook}
+      style="color: black; font-size: 14px; align-self: stretch; margin: 0 10%;"
+    >
+      <div class="text">{$_('SignIn.sign_in_with_facebook')}</div>
+    </Button>
+    <a class="link" href="/#" style="margin-top: 16px;">{$_('SignIn.look_around')}?</a>
   </form>
 </main>
