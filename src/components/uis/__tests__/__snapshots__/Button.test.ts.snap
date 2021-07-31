@@ -3,27 +3,12 @@
 exports[`should render without error 1`] = `
 <body>
   <div>
-    <p>
-      Intro
-    </p>
-     
     <button
       class="svelte-15wiqim"
       style=""
       type=""
       value=""
-    >
-      Sign Out
-    </button>
-     
-    <button
-      class="svelte-15wiqim"
-      style=""
-      type=""
-      value=""
-    >
-      Toggle Theme
-    </button>
+    />
   </div>
 </body>
 `;

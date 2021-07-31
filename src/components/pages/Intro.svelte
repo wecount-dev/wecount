@@ -13,4 +13,3 @@
 <p>{$_('intro.title')}</p>
 <Button on:click={signOut}>Sign Out</Button>
 <Button on:click={toggleTheme}>Toggle Theme</Button>
-<!-- <p>{$fullname}</p> -->
