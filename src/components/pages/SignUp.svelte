@@ -169,12 +169,18 @@
 
   // eslint-disable-next-line @typescript-eslint/require-await
   const handleSignUp = async () => {
-    console.log('email', email);
-    // await handleAuthException(async () => {
-    //   const {error} = await supabase.auth.signIn({email, password});
+    if (!email || !password || !passwordConfirm || !checked) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      alert($_('SignUp.missing_inputs'));
 
-    //   return error;
-    // });
+      return;
+    }
+
+    await handleAuthException(async () => {
+      const {error} = await supabase.auth.signUp({email, password});
+
+      return error;
+    });
   };
 </script>
 

@@ -88,12 +88,11 @@
 
   // eslint-disable-next-line @typescript-eslint/require-await
   const handleLogin = async () => {
-    console.log('email', email);
-    // await handleAuthException(async () => {
-    //   const {error} = await supabase.auth.signIn({email, password});
+    await handleAuthException(async () => {
+      const {error} = await supabase.auth.signIn({email, password});
 
-    //   return error;
-    // });
+      return error;
+    });
   };
 
   const handleSignInWithGoogle = async () => {
