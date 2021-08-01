@@ -1,3 +1,19 @@
+<!--
+* Usage
+
+<script>
+  let visible = false
+</script>
+
+<Modal 
+  visible={visible} // required
+  onBackdropClick={() => visible = !visible}
+  style='background-color: red' 
+>
+  <p>hello modal</p>
+<Modal />
+-->
+
 <style>
   .backdrop {
     width: 100%;
