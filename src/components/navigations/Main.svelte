@@ -18,7 +18,7 @@
       justify-content: space-between;
       padding: 0 10%;
       border-bottom: solid 1px;
-      border-bottom-color: #F3F4F5;
+      border-bottom-color: #f3f4f5;
 
       .nav-menu {
         flex: 1;

@@ -2,7 +2,7 @@
   main {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    background: linear-gradient(136.71deg, #17B87C 21.32%, #01886F 96.51%);
+    background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
 
     display: grid;
     justify-content: center;
@@ -10,7 +10,8 @@
   }
 
   @media (min-width: 640px) {
-    main { }
+    main {
+    }
   }
 </style>
 

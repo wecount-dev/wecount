@@ -1,0 +1,106 @@
+<style lang="postcss">
+  .container {
+    background-color: #72e6ff;
+    height: 210px;
+    width: 330px;
+    padding: 28px 24px;
+    border-radius: 24px;
+    box-shadow: 0px 4px 10px rgba(52, 52, 52, 0.16);
+  }
+
+  .profile-img-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 9px;
+  }
+
+  .profile-img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .crown {
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    background-color: #ffc53d;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .community {
+    margin-bottom: 13px;
+  }
+
+  .community-name {
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  .community-introduction {
+    color: #f0f5ff;
+    text-transform: uppercase;
+  }
+
+  .user-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .user-role {
+    color: #f3f4f5;
+    font-size: 0.7rem;
+  }
+
+  .user-name {
+    color: white;
+    font-size: 0.8rem;
+  }
+</style>
+
+<script lang="ts">
+  import {SvgCrown} from '../../../utils/Icon';
+
+  type CommunityType = {
+    name: string;
+    introduction: string;
+  };
+
+  type User = {
+    name: string;
+    role: string;
+    imageUrl: string;
+  };
+
+  export let community: CommunityType;
+  export let user: User;
+  export let selectedColor: string;
+</script>
+
+<div class="container">
+  <div class="community">
+    <div class="community-name">
+      {community.name}
+    </div>
+    <div class="community-introduction">
+      {community.introduction}
+    </div>
+  </div>
+  <div class="user-container">
+    <div class="profile-img-container">
+      <img class="profile-img" src={user.imageUrl} alt={user.name} />
+      <div class="crown">
+        <SvgCrown />
+      </div>
+    </div>
+    <div>
+      <div class="user-role">{user.role}</div>
+      <div class="user-name">{user.name}</div>
+    </div>
+  </div>
+</div>
