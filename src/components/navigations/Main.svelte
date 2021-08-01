@@ -1,21 +1,49 @@
 <style>
   main {
-    background-color: black;
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    .link {
+      text-decoration: underline;
+      color: var(--link);
+
+      display: flex;
+      align-items: center;
+    }
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 56px 1fr;
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10%;
+      border-bottom: solid 1px;
+      border-bottom-color: #F3F4F5;
+
+      .nav-menu {
+        flex: 1;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        a {
+          margin-left: 18px;
+          font-size: 14px;
+        }
+      }
+    }
   }
 
   @media (min-width: 640px) {
     main {
-      max-width: none;
     }
   }
 </style>
 
 <script>
   import Router from 'svelte-spa-router';
+  import {SvgLogo} from '../../utils/Icon';
   import Intro from '../pages/Intro.svelte';
   import Profile from '../pages/Profile.svelte';
 
@@ -28,8 +56,11 @@
 
 <main>
   <nav>
-    <a href="/">Intro</a> |
-    <a href="/#/profile">Profile</a>
+    <SvgLogo width="34.29" />
+    <div class="nav-menu">
+      <a class="link" href="/">Intro</a>
+      <a class="link" href="/#/profile">Profile</a>
+    </div>
   </nav>
   <Router routes={routes} />
 </main>

@@ -1,35 +1,33 @@
 <style>
   main {
-    background-color: green;
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    background: linear-gradient(136.71deg, #17B87C 21.32%, #01886F 96.51%);
+
+    display: grid;
+    justify-content: center;
+    align-content: center;
   }
 
   @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+    main { }
   }
 </style>
 
 <script>
   import Router from 'svelte-spa-router';
   import SignIn from '../pages/SignIn.svelte';
+  import SignUp from '../pages/SignUp.svelte';
   import Temp from '../pages/Temp.svelte';
 
   const routes = {
     '/': SignIn,
+    '/sign_up': SignUp,
     '/temp': Temp,
     '*': SignIn,
   };
 </script>
 
 <main>
-  <nav>
-    <a href="/">SignIn</a> |
-    <a href="/#/temp">Temp</a>
-  </nav>
   <Router routes={routes} />
 </main>

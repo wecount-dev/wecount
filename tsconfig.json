@@ -26,5 +26,6 @@
     "noImplicitReturns": true,
     "noUnusedLocals": false,
     "typeRoots": ["./@types", "./node_modules/@types"]
-  }
+  },
+  "files": ["environment.d.ts"]
 }

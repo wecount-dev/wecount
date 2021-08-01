@@ -1,7 +1,7 @@
 import {addMessages, getLocaleFromNavigator, init} from 'svelte-i18n';
 
-import en from '../assets/en.json';
-import ko from '../assets/ko.json';
+import en from '../assets/translations/en.json';
+import ko from '../assets/translations/ko.json';
 
 addMessages('en', en);
 addMessages('ko', ko);

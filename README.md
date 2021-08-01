@@ -1,6 +1,7 @@
 # WeCount
 
 [![CI](https://github.com/wecount-dev/wecount/actions/workflows/ci.yml/badge.svg)](https://github.com/wecount-dev/wecount/actions/workflows/ci.yml)
+[![Deploy Staging](https://github.com/wecount-dev/wecount/actions/workflows/deploy-staging.yml/badge.svg)](https://github.com/wecount-dev/wecount/actions/workflows/deploy-staging.yml)
 
 ## Sepecification
 

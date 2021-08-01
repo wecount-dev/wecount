@@ -1,0 +1,31 @@
+{
+  "loading": "loading",
+  "email": "Email",
+  "pw": "Password",
+  "SignIn": {
+    "login": "Login",
+    "email_hint": "Write your email address",
+    "pw_hint": "Write your password",
+    "forgot_your_password": "Forgot your password",
+    "do_not_have_account": "Don't have an account",
+    "sign_in": "Sign In",
+    "sign_in_with_google": "Sign In with Google",
+    "sign_in_with_facebook": "Sign In with Facebook",
+    "look_around": "Look around"
+  },
+  "SignUp": {
+    "title": "Sign Up",
+    "email_hint": "Write your email address",
+    "pw_hint": "Write your password",
+    "pw_confirm": "Confirm password",
+    "pw_confirm_hint": "Confirm your password",
+    "terms_and_agreement": "I agree with &nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>&nbsp;and&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
+    "missing_inputs": "Some information is missing. Please fill all information."
+  },
+  "Intro": {
+    "welcome": "Hello there ~ 🙌 Welcome to WeCount."
+  },
+  "Temp": {
+    "title": "Template"
+  }
+}
