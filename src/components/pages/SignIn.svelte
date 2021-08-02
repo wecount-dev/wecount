@@ -69,6 +69,7 @@
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
+  import {pop} from 'svelte-spa-router';
 
   let loading = false;
   let email: string;
@@ -99,6 +100,9 @@
   const handleLogin = async () => {
     await handleAuthException(async () => {
       const {error} = await supabase.auth.signIn({email, password});
+
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      if (!error) pop();
 
       return error;
     });

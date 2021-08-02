@@ -18,7 +18,7 @@
       justify-content: space-between;
       padding: 0 10%;
       border-bottom: solid 1px;
-      border-bottom-color: #F3F4F5;
+      border-bottom-color: #f3f4f5;
 
       .nav-menu {
         flex: 1;
@@ -46,9 +46,11 @@
   import {SvgLogo} from '../../utils/Icon';
   import Intro from '../pages/Intro.svelte';
   import Profile from '../pages/Profile.svelte';
+  import AuthRoute from './Auth.svelte';
 
   const routes = {
     '/': Intro,
+    '/auth': AuthRoute,
     // '/lorem/:repeat': Lorem,
     '*': Profile,
   };
