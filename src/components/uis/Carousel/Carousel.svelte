@@ -2,93 +2,167 @@
   .carousel {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    width: 700px;
+    height: 300px;
   }
 
   .place-navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
   }
 
   .navigation-btn {
     cursor: pointer;
-    padding: 5px;
+    padding: 10px;
   }
 
   .dots {
+    margin-top: 15px;
     display: flex;
     justify-content: center;
   }
 
   .dot {
-    background-color: #72e6ff;
+    background-color: gray;
     width: 16px;
     height: 16px;
     border-radius: 50%;
+    margin: 0px 5px;
+  }
+
+  .layout {
+    position: relative;
+    flex-grow: 1;
+    height: 100%;
+    margin: 25px;
+  }
+
+  .left {
+    margin: auto;
+    position: absolute;
+    height: calc(100% - 50px);
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .center {
+    position: absolute;
+    height: 100%;
+    top: 0px;
+    left: 25%;
+    z-index: 3;
+  }
+
+  .right {
+    margin: auto;
+    position: absolute;
+    height: calc(100% - 50px);
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  .hidden {
+    visibility: hidden;
   }
 </style>
 
 <script lang="ts">
   import Item from './Item.svelte';
-  import ItemContainer from './ItemContainer.svelte';
   import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../../../utils/Icon';
 
+  type CommunityType = {
+    name: string;
+    description: string;
+  };
+
+  type UserType = {
+    name: string;
+    role: string;
+    imageUrl: string;
+  };
+
+  type ItemType = {
+    user: UserType;
+    community: CommunityType;
+    isPublic: boolean;
+    selectedColor: string;
+  };
+
+  export let items: ItemType[];
+
+  type PositionType = {
+    [key: string]: number;
+  };
+
+  let position: PositionType = {
+    left: -1,
+    center: 0,
+    right: 1,
+  };
+
   function moveToPreviousItem() {
-    console.log('Click previous button');
+    Object.keys(position).map((key) =>
+      position['right'] === 1 ? position[key] : (position[key] -= 1),
+    );
   }
 
   function moveToNextItem() {
-    console.log('Click next button');
+    Object.keys(position).map((key) =>
+      position['right'] === items.length ? position[key] : (position[key] += 1),
+    );
   }
 </script>
 
 <div>
   <div class="carousel">
     <div class="place-navigation">
-      <div class="navigation-btn" on:click={moveToPreviousItem}>
+      <div
+        class="navigation-btn"
+        class:hidden={position['right'] === 1}
+        on:click={moveToPreviousItem}
+      >
         <SvgLeftAngleBracket />
       </div>
-      <div style="flex-grow: 1;">
-        <ItemContainer>
-          <Item
-            slot="left"
-            user={{
-              name: 'Jay-flow',
-              imageUrl: 'https://source.unsplash.com/random/50x50',
-              role: '최고 관리자',
-            }}
-            community={{name: 'dooboolab', introduction: 'PREMIUM ACCOUNT'}}
-            selectedColor="#72E6FF"
-          />
-          <Item
-            slot="center"
-            user={{
-              name: 'Jay-flow',
-              imageUrl: 'https://source.unsplash.com/random/50x50',
-              role: '최고 관리자',
-            }}
-            community={{name: 'dooboolab', introduction: 'PREMIUM ACCOUNT'}}
-            selectedColor="#72E6FF"
-          />
-          <Item
-            slot="right"
-            user={{
-              name: 'Jay-flow',
-              imageUrl: 'https://source.unsplash.com/random/50x50',
-              role: '최고 관리자',
-            }}
-            community={{name: 'dooboolab', introduction: 'PREMIUM ACCOUNT'}}
-            selectedColor="#72E6FF"
-          />
-        </ItemContainer>
+
+      <div class="layout">
+        {#each items as item, i}
+          {#if i === position.left || i === position.center || i === position.right}
+            <div
+              class:left={position.left === i}
+              class:center={position.center === i}
+              class:right={position.right === i}
+            >
+              <Item
+                user={item.user}
+                community={item.community}
+                selectedColor={item.selectedColor}
+              />
+            </div>
+          {/if}
+        {/each}
       </div>
-      <div class="navigation-btn" on:click={moveToNextItem}>
+
+      <div
+        class="navigation-btn"
+        class:hidden={position['right'] === items.length}
+        on:click={moveToNextItem}
+      >
         <SvgRightAngleBracket />
       </div>
     </div>
     <div class="dots">
-      <div class="dot" />
+      {#each items as {selectedColor}, i}
+        <div
+          style={position.center === i
+            ? `background-color: ${selectedColor}`
+            : 'background-color: gray'}
+          class="dot"
+        />
+      {/each}
     </div>
   </div>
 </div>
