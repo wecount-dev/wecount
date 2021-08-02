@@ -1,28 +1,3 @@
-<!-- 
-* Usage
-
-<script>
-  import Modal from '../uis/Modal.svelte';
- 
-  let visible = false;
-
-  const onOpen = () => {
-      visible=true;
-  };
-
-  const onClose = () => {
-      visible=false;
-  };
-</script>
-
-<button on:click={onOpen} >modal</button>
-<Modal 
-  visible={visible}
-  on:backdropClick={onClose}
->
-  <p>hello modal</p>
-</Modal> 
--->
 <style>
   .backdrop {
     width: 100%;
@@ -42,16 +17,19 @@
 
   export let visible;
   export let style = '';
+  export let disableBackdropClickToClose = false;
 
   const dispatch = createEventDispatcher();
 
-  const click = () => {
-    dispatch('backdropClick');
+  const handleBackdropClick = () => {
+    if(disableBackdropClickToClose) return;
+ 
+   dispatch('close');
   };
 </script>
 
 {#if visible}
-  <div class="backdrop" style={style} on:click|self={click}>
+  <div class="backdrop" style={style} on:click|self={handleBackdropClick}>
     <slot />
   </div>
 {/if}
