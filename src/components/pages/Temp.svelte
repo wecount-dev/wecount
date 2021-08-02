@@ -11,10 +11,15 @@
     },
     community: {name: 'dooboolab', description: 'PREMIUM ACCOUNT'},
     isPublic: true,
-    selectedColor: '#28DB98',
   };
 
-  const items = [item, item, item, item, item, item];
+  const items = [
+    {...item, selectedColor: '#28DB98'},
+    {...item, selectedColor: '#72E6FF'},
+    {...item, selectedColor: '#3A74E7'},
+    {...item, selectedColor: '#834FF3'},
+    {...item, selectedColor: '#2A2A2C'},
+  ];
 </script>
 
 <div style="padding: 30px; background-color:white;">
