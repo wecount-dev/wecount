@@ -1,11 +1,13 @@
 <style lang="postcss">
   .container {
-    background-color: #72e6ff;
-    height: 210px;
+    background-color: var(selectedColor);
     width: 330px;
-    padding: 28px 24px;
+    height: 100%;
     border-radius: 24px;
     box-shadow: 0px 4px 10px rgba(52, 52, 52, 0.16);
+  }
+  .content-layout {
+    padding: 28px 24px;
   }
 
   .profile-img-container {
@@ -68,39 +70,41 @@
 
   type CommunityType = {
     name: string;
-    introduction: string;
+    description: string;
   };
 
-  type User = {
+  type UserType = {
     name: string;
     role: string;
     imageUrl: string;
   };
 
   export let community: CommunityType;
-  export let user: User;
+  export let user: UserType;
   export let selectedColor: string;
 </script>
 
-<div class="container">
-  <div class="community">
-    <div class="community-name">
-      {community.name}
-    </div>
-    <div class="community-introduction">
-      {community.introduction}
-    </div>
-  </div>
-  <div class="user-container">
-    <div class="profile-img-container">
-      <img class="profile-img" src={user.imageUrl} alt={user.name} />
-      <div class="crown">
-        <SvgCrown />
+<div class="container" style="background-color:{selectedColor}">
+  <div class="content-layout">
+    <div class="community">
+      <div class="community-name">
+        {community.name}
+      </div>
+      <div class="community-introduction">
+        {community.description}
       </div>
     </div>
-    <div>
-      <div class="user-role">{user.role}</div>
-      <div class="user-name">{user.name}</div>
+    <div class="user-container">
+      <div class="profile-img-container">
+        <img class="profile-img" src={user.imageUrl} alt={user.name} />
+        <div class="crown">
+          <SvgCrown />
+        </div>
+      </div>
+      <div>
+        <div class="user-role">{user.role}</div>
+        <div class="user-name">{user.name}</div>
+      </div>
     </div>
   </div>
 </div>
