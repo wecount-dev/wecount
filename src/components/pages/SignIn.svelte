@@ -1,5 +1,6 @@
-<style lang="scss">
+<style lang="postcss">
   main {
+    background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 
@@ -22,11 +23,20 @@
       background: #ffffff;
       box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
+      max-height: 654px;
+      max-width: 640px;
+      align-self: center;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 640px) {
+        width: 100%;
+        border-radius: 0;
+        padding: 0;
+      }
 
       .container-options {
         align-self: stretch;
@@ -60,10 +70,17 @@
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
+  import {onMount} from 'svelte';
+  import {replace} from 'svelte-spa-router';
+  import {user} from '../../stores/sessionStore';
 
   let loading = false;
   let email: string;
   let password: string;
+
+  onMount(async () => {
+    if ($user) await replace('/');
+  });
 
   const onChangeEmail = (e: CustomEvent) => {
     email = e.detail;
@@ -91,6 +108,9 @@
     await handleAuthException(async () => {
       const {error} = await supabase.auth.signIn({email, password});
 
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
+      if (!error) replace('/');
+
       return error;
     });
   };
@@ -113,7 +133,7 @@
 <main>
   <form on:submit|preventDefault={handleLogin}>
     <SvgLogo />
-    <h1 style="margin-bottom: 60px;">{$_('SignIn.login')}</h1>
+    <h1 style="margin-bottom: 60px;">{$_('login')}</h1>
     <EditText
       containerStyle="width: 80%;"
       inputStyle="font-size: 14px;"
@@ -140,7 +160,7 @@
       class="btn-sign-in"
       style="color: white; font-size: 14px;"
       type="submit"
-      value={loading ? $_('loading') : $_('SignIn.sign_in')}
+      value={loading ? $_('loading') : $_('sign_in')}
       disabled={loading}
     />
     <Button

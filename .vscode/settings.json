@@ -20,8 +20,13 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
+  "svelte.plugin.css.enable": false,
   "svelte.plugin.css.diagnostics.enable": false,
   "css.validate": false,
   "less.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "i18n-ally.localesPaths": [
+    "assets/translations"
+  ],
+  "i18n-ally.keystyle": "nested"
 }

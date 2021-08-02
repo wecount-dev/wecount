@@ -1,4 +1,5 @@
-<style lang="scss">
+<!-- svelte-ignore css-unused-selector -->
+<style lang="postcss">
   main {
     border: 1px solid var(--border);
     box-sizing: border-box;
@@ -8,6 +9,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    &:focus-within {
+      border: 1px solid var(--input-focus);
+    }
 
     input {
       flex: 1;
@@ -29,10 +34,6 @@
         -webkit-box-shadow: 0 0 0 1000px var(--background-color) inset !important;
       }
     }
-  }
-
-  main:focus-within {
-    border: 1px solid var(--input-focus);
   }
 </style>
 

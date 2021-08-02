@@ -1,3 +1,4 @@
+// @ts-ignore
 import Intro from '../Intro.svelte';
 import {render} from '@testing-library/svelte';
 

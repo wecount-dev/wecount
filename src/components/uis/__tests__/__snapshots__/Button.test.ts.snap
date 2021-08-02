@@ -4,9 +4,8 @@ exports[`should render without error 1`] = `
 <body>
   <div>
     <button
-      class="svelte-15wiqim"
+      class=" svelte-ty676r"
       style=""
-      type=""
       value=""
     />
   </div>

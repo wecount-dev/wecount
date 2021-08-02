@@ -60,7 +60,6 @@
   import './i18n';
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
-  import Auth from './components/navigations/Auth.svelte';
   import Main from './components/navigations/Main.svelte';
 
   supabase.auth.onAuthStateChange((_, session) => {
@@ -68,10 +67,4 @@
   });
 </script>
 
-<main>
-  {#if $user}
-    <Main />
-  {:else}
-    <Auth />
-  {/if}
-</main>
+<main><Main /></main>
