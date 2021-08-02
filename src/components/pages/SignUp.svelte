@@ -33,9 +33,21 @@
       background: #ffffff;
       box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
+      max-height: 488px;
+      max-width: 640px;
+      align-self: center;
+
+      @media (max-width: 640px) {
+        max-height: none;
+        border-radius: 0;
+        padding: 80px 24px;
+
+        flex: 1;
+      }
 
       display: grid;
       grid-template-areas:
+        ' . . . '
         'header header header '
         ' . . . '
         'label input input'
@@ -43,9 +55,15 @@
         'label input input'
         'terms terms terms'
         ' . . . '
-        'btn-sign btn-sign btn-sign';
-      grid-template-columns: 1fr 1fr 1fr;
+        'btn-sign btn-sign btn-sign'
+        ' . . . ';
       justify-content: stretch;
+
+      @media (max-width: 640px) {
+        grid-template-columns: none;
+        grid-template-rows: min-content;
+        align-content: stretch;
+      }
 
       .header {
         grid-area: header;
@@ -59,13 +77,16 @@
       .label {
         grid-area: label;
 
-        display: grid;
-        align-items: stretch;
+        display: flex;
+        flex-direction: column;
 
         p {
           font-size: 14px;
-          line-height: 260%;
           letter-spacing: -0.5px;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
       }
 
@@ -88,7 +109,7 @@
           align-items: center;
 
           p {
-            margin-left: 6px;
+            margin-left: 8px;
             font-style: normal;
             letter-spacing: -0.5px;
             font-weight: normal;
@@ -96,8 +117,7 @@
             line-height: 21px;
 
             display: flex;
-            flex-direction: row;
-            align-items: center;
+            flex-wrap: wrap;
           }
         }
       }
@@ -219,7 +239,7 @@
     </div>
     <div class="terms">
       <div class="container icon" on:click={handleCheck}>
-        <SvgCheck fill={checked ? '#0DB293' : 'none'} />
+        <SvgCheck width={34} fill={checked ? '#0DB293' : 'none'} />
         <p>
           {@html $_('SignUp.terms_and_agreement')}
         </p>

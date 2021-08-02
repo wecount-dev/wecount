@@ -22,11 +22,20 @@
       background: #ffffff;
       box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
+      max-height: 654px;
+      max-width: 640px;
+      align-self: center;
 
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      @media (max-width: 640px) {
+        width: 100%;
+        border-radius: 0;
+        padding: 0;
+      }
 
       .container-options {
         align-self: stretch;
