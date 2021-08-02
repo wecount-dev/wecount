@@ -152,12 +152,19 @@
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
   import {SvgCheck} from '../../utils/Icon';
+  import {onMount} from 'svelte';
+  import {user} from '../../stores/sessionStore';
+  import {replace} from 'svelte-spa-router';
 
   let loading = false;
   let checked = false;
   let email: string;
   let password: string;
   let passwordConfirm: string;
+
+  onMount(async () => {
+    if ($user) await replace('/');
+  });
 
   const onChangeEmail = (e: CustomEvent) => {
     email = e.detail;

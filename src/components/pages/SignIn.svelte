@@ -70,11 +70,17 @@
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
+  import {onMount} from 'svelte';
   import {replace} from 'svelte-spa-router';
+  import {user} from '../../stores/sessionStore';
 
   let loading = false;
   let email: string;
   let password: string;
+
+  onMount(async () => {
+    if ($user) await replace('/');
+  });
 
   const onChangeEmail = (e: CustomEvent) => {
     email = e.detail;
