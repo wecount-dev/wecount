@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     width: 700px;
-    height: 300px;
+    height: 250px;
   }
 
   .place-navigation {
