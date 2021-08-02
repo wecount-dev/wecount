@@ -51,9 +51,8 @@
       <a class="link" href="/#/profile">Profile</a>
     {:else}
       <Button
-        on:click={() => {
-          // eslint-disable-next-line @typescript-eslint/no-floating-promises
-          push('/sign_in');
+        on:click={async () => {
+          await push('/sign_in');
         }}
         style="color: black; font-size: 14px; align-self: stretch;"
       >
@@ -64,6 +63,7 @@
           // eslint-disable-next-line @typescript-eslint/no-floating-promises
           push('/sign_up');
         }}
+        type="primary"
         style="font-size: 14px; margin-left: 12px; align-self: stretch;"
       >
         <div class="text">{$_('SignUp.title')}</div>

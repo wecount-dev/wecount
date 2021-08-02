@@ -1,4 +1,9 @@
 <style lang="postcss">
+  .primary {
+    background-color: var(--primary);
+    color: white;
+  }
+
   button {
     background-color: var(--button);
     color: var(--text);
@@ -14,10 +19,10 @@
   }
 </style>
 
-<script>
+<script lang="ts">
   import {createEventDispatcher} from 'svelte';
 
-  export let type = '';
+  export let type: 'primary' | undefined = undefined;
   export let style = '';
   export let value = '';
   export let disabled = false;
@@ -31,6 +36,7 @@
 
 <button
   type={type}
+  class={type === 'primary' ? 'primary' : ''}
   style={style}
   value={value}
   disabled={disabled}
