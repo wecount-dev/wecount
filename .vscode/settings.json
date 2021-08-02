@@ -27,5 +27,6 @@
   "scss.validate": false,
   "i18n-ally.localesPaths": [
     "assets/translations"
-  ]
+  ],
+  "i18n-ally.keystyle": "nested"
 }

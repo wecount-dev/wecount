@@ -1,12 +1,15 @@
 {
   "loading": "로딩중",
+  "email": "이메일",
+  "pw": "비밀번호",
+  "sign_out": "로그아웃",
+  "login": "로그인",
+  "sign_in": "로그인하기",
   "SignIn": {
-    "login": "로그인",
     "email_hint": "이메일을 입력하세요",
     "pw_hint": "비밀번호를 입력하세요",
     "forgot_your_password": "비밀번호를 잊으셨나요",
     "do_not_have_account": "계정이 없으신가요",
-    "sign_in": "로그인하기",
     "sign_in_with_google": "Google 계정으로 로그인",
     "sign_in_with_facebook": "Facebook 계정으로 로그인",
     "look_around": "둘러보기"

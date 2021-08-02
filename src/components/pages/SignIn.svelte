@@ -1,5 +1,6 @@
 <style lang="postcss">
   main {
+    background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 
@@ -69,7 +70,7 @@
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
-  import {pop} from 'svelte-spa-router';
+  import {replace} from 'svelte-spa-router';
 
   let loading = false;
   let email: string;
@@ -102,7 +103,7 @@
       const {error} = await supabase.auth.signIn({email, password});
 
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      if (!error) pop();
+      if (!error) replace('/');
 
       return error;
     });
@@ -126,7 +127,7 @@
 <main>
   <form on:submit|preventDefault={handleLogin}>
     <SvgLogo />
-    <h1 style="margin-bottom: 60px;">{$_('SignIn.login')}</h1>
+    <h1 style="margin-bottom: 60px;">{$_('login')}</h1>
     <EditText
       containerStyle="width: 80%;"
       inputStyle="font-size: 14px;"
@@ -153,7 +154,7 @@
       class="btn-sign-in"
       style="color: white; font-size: 14px;"
       type="submit"
-      value={loading ? $_('loading') : $_('SignIn.sign_in')}
+      value={loading ? $_('loading') : $_('sign_in')}
       disabled={loading}
     />
     <Button

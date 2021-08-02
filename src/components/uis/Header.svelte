@@ -57,7 +57,7 @@
         }}
         style="color: black; font-size: 14px; align-self: stretch;"
       >
-        <div class="text">{$_('SignIn.login')}</div>
+        <div class="text">{$_('login')}</div>
       </Button>
       <Button
         on:click={() => {
