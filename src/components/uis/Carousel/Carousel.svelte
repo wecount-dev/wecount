@@ -12,9 +12,10 @@
     height: 210px;
   }
 
-  .dots {
+  .dot-container {
     margin-top: 15px;
     display: flex;
+    align-items: center;
     justify-content: center;
   }
 
@@ -23,7 +24,6 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    margin: 0px 5px;
   }
 
   .card-layout {
@@ -66,7 +66,9 @@
   import ArrowButton from './ArrowButton.svelte';
   import type {ItemType} from './types.svelte';
 
-  export let items: ItemType[];
+  export let item: ItemType;
+  export let onChange: (selectedColor: string) => void;
+  const colors = item.colors as string[];
 
   type PositionType = {
     [key: string]: number;
@@ -82,12 +84,18 @@
     Object.keys(position).map((key) =>
       position['right'] === 1 ? position[key] : (position[key] -= 1),
     );
+
+    onChange(item.colors[position.center]);
   }
 
   function moveToNextItem() {
     Object.keys(position).map((key) =>
-      position['right'] === items.length ? position[key] : (position[key] += 1),
+      position['right'] === colors.length
+        ? position[key]
+        : (position[key] += 1),
     );
+
+    onChange(item.colors[position.center]);
   }
 </script>
 
@@ -100,7 +108,7 @@
         onClick={moveToPreviousItem}
       />
       <div class="card-layout">
-        {#each items as item, i}
+        {#each colors as color, i}
           {#if i === position.left || i === position.center || i === position.right}
             <div
               class:left-card={position.left === i}
@@ -110,7 +118,7 @@
               <Card
                 user={item.user}
                 community={item.community}
-                selectedColor={item.selectedColor}
+                selectedColor={color}
               />
             </div>
           {/if}
@@ -118,19 +126,12 @@
       </div>
       <ArrowButton
         direction={'right'}
-        hidden={position['right'] === items.length}
+        hidden={position['right'] === colors.length}
         onClick={moveToNextItem}
       />
     </div>
-    <div class="dots">
-      {#each items as {selectedColor}, i}
-        <div
-          style={position.center === i
-            ? `background-color: ${selectedColor}`
-            : 'background-color: gray'}
-          class="dot"
-        />
-      {/each}
+    <div class="dot-container">
+      <div style={`background-color: ${colors[position.center]}`} class="dot" />
     </div>
   </div>
 </div>
