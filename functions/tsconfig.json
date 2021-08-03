@@ -11,5 +11,6 @@
   "compileOnSave": true,
   "include": [
     "src"
-  ]
+  ],
+  "files": ["environment.d.ts"]
 }
