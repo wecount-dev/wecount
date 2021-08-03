@@ -2,20 +2,14 @@
   .carousel {
     display: flex;
     flex-direction: column;
-    width: 800px;
-    height: 241px;
+    max-width: 600px;
   }
 
-  .place-navigation {
+  .wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-  }
-
-  .navigation-btn {
-    cursor: pointer;
-    padding: 10px;
+    height: 210px;
   }
 
   .dots {
@@ -32,47 +26,44 @@
     margin: 0px 5px;
   }
 
-  .layout {
+  .card-layout {
     position: relative;
     flex-grow: 1;
     height: 100%;
-    margin: 25px;
+    margin: 15.5px;
   }
 
-  .left {
+  .left-card {
     margin: auto;
     position: absolute;
-    height: calc(100% - 50px);
+    height: calc(100% - 15%);
     top: 0px;
     bottom: 0px;
     left: 0px;
   }
 
-  .center {
+  .center-card {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 100%;
-    top: 0px;
-    left: 25%;
     z-index: 3;
   }
 
-  .right {
+  .right-card {
     margin: auto;
     position: absolute;
-    height: calc(100% - 50px);
+    height: calc(100% - 15%);
     top: 0px;
     bottom: 0px;
     right: 0px;
   }
-
-  .hidden {
-    visibility: hidden;
-  }
 </style>
 
 <script lang="ts">
-  import Item from './Item.svelte';
-  import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../../../utils/Icon';
+  import Card from './Card.svelte';
+  import ArrowButton from './ArrowButton.svelte';
   import type {ItemType} from './types.svelte';
 
   export let items: ItemType[];
@@ -102,24 +93,21 @@
 
 <div>
   <div class="carousel">
-    <div class="place-navigation">
-      <div
-        class="navigation-btn"
-        class:hidden={position['right'] === 1}
-        on:click={moveToPreviousItem}
-      >
-        <SvgLeftAngleBracket />
-      </div>
-
-      <div class="layout">
+    <div class="wrap">
+      <ArrowButton
+        direction={'left'}
+        hidden={position['right'] === 1}
+        onClick={moveToPreviousItem}
+      />
+      <div class="card-layout">
         {#each items as item, i}
           {#if i === position.left || i === position.center || i === position.right}
             <div
-              class:left={position.left === i}
-              class:center={position.center === i}
-              class:right={position.right === i}
+              class:left-card={position.left === i}
+              class:center-card={position.center === i}
+              class:right-card={position.right === i}
             >
-              <Item
+              <Card
                 user={item.user}
                 community={item.community}
                 selectedColor={item.selectedColor}
@@ -128,14 +116,11 @@
           {/if}
         {/each}
       </div>
-
-      <div
-        class="navigation-btn"
-        class:hidden={position['right'] === items.length}
-        on:click={moveToNextItem}
-      >
-        <SvgRightAngleBracket />
-      </div>
+      <ArrowButton
+        direction={'right'}
+        hidden={position['right'] === items.length}
+        onClick={moveToNextItem}
+      />
     </div>
     <div class="dots">
       {#each items as {selectedColor}, i}
