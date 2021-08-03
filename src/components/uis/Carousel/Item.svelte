@@ -67,17 +67,7 @@
 
 <script lang="ts">
   import {SvgCrown} from '../../../utils/Icon';
-
-  type CommunityType = {
-    name: string;
-    description: string;
-  };
-
-  type UserType = {
-    name: string;
-    role: string;
-    imageUrl: string;
-  };
+  import type {CommunityType, UserType} from './types.svelte';
 
   export let community: CommunityType;
   export let user: UserType;
