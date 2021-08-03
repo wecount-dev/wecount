@@ -2,8 +2,8 @@
   .carousel {
     display: flex;
     flex-direction: column;
-    width: 700px;
-    height: 250px;
+    width: 800px;
+    height: 241px;
   }
 
   .place-navigation {
