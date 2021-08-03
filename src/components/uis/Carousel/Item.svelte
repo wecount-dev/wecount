@@ -4,7 +4,7 @@
     width: 330px;
     height: 100%;
     border-radius: 24px;
-    box-shadow: 0px 4px 10px rgba(52, 52, 52, 0.16);
+    box-shadow: 0px 4px 10px #d1f1ff, inset 0px 0px 142px #ebfbff;
   }
   .content-layout {
     padding: 28px 24px;
