@@ -73,24 +73,7 @@
 <script lang="ts">
   import Item from './Item.svelte';
   import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../../../utils/Icon';
-
-  type CommunityType = {
-    name: string;
-    description: string;
-  };
-
-  type UserType = {
-    name: string;
-    role: string;
-    imageUrl: string;
-  };
-
-  type ItemType = {
-    user: UserType;
-    community: CommunityType;
-    isPublic: boolean;
-    selectedColor: string;
-  };
+  import type {ItemType} from './types.svelte';
 
   export let items: ItemType[];
 
