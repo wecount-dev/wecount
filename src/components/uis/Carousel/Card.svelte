@@ -1,16 +1,17 @@
 <style lang="postcss">
-  .container {
+  .card {
     background-color: var(selectedColor);
     width: 330px;
     height: 100%;
     border-radius: 24px;
     box-shadow: 0px 4px 10px #d1f1ff, inset 0px 0px 142px #ebfbff;
   }
-  .content-layout {
+
+  .wrap {
     padding: 28px 24px;
   }
 
-  .profile-img-container {
+  .profile-img-layout {
     position: relative;
     display: inline-block;
     margin-right: 9px;
@@ -35,7 +36,7 @@
     align-items: center;
   }
 
-  .community {
+  .community-layout {
     margin-bottom: 13px;
   }
 
@@ -44,12 +45,12 @@
     font-size: 1.2rem;
   }
 
-  .community-introduction {
+  .community-description {
     color: #f0f5ff;
     text-transform: uppercase;
   }
 
-  .user-container {
+  .user-layout {
     display: flex;
     align-items: center;
   }
@@ -74,18 +75,18 @@
   export let selectedColor: string;
 </script>
 
-<div class="container" style="background-color:{selectedColor}">
-  <div class="content-layout">
-    <div class="community">
+<div class="card" style="background-color:{selectedColor}">
+  <div class="wrap">
+    <div class="community-layout">
       <div class="community-name">
         {community.name}
       </div>
-      <div class="community-introduction">
+      <div class="community-description">
         {community.description}
       </div>
     </div>
-    <div class="user-container">
-      <div class="profile-img-container">
+    <div class="user-layout">
+      <div class="profile-img-layout">
         <img class="profile-img" src={user.imageUrl} alt={user.name} />
         <div class="crown">
           <SvgCrown />
