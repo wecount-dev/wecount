@@ -13,8 +13,8 @@ interface Config {
 let config: Config = functions.config().env;
 
 if (process.env.NODE_ENV !== 'production')
-  if (fs.existsSync(path.resolve(__dirname, './env.json'))) {
-    const env = require(path.resolve(__dirname, './env.json'));
+  if (fs.existsSync(path.resolve(__dirname, '/env.json'))) {
+    const env = require(path.resolve(__dirname, '/env.json'));
 
     config = env;
   }
