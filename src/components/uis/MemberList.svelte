@@ -1,0 +1,159 @@
+<!-- svelte-ignore css-unused-selector -->
+<style lang="postcss">
+  main {
+    background: #ffffff;
+    box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  .labelContainer {
+    display: flex;
+    width: 100%;
+    background-color: var(--gray10);
+    height: 29px;
+    border-radius: 6px;
+    align-items: center;
+    font-size: 14px;
+    color: var(--gray70);
+  }
+  .label-name {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-right: 31px;
+  }
+  .label-role {
+    display: flex;
+    justify-content: center;
+    margin-right: 31px;
+    width: 118px;
+  }
+  .label-customRole {
+    display: flex;
+    justify-content: center;
+    margin-right: 91px;
+    width: 118px;
+  }
+  .itemContainer {
+    flex: 1;
+    padding-top: 16px;
+  }
+  .member-container {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    margin-bottom: 16px;
+  }
+  .member-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 12px;
+  }
+  .member-name {
+    flex: 1;
+  }
+  .member-role {
+    width: 118px;
+    margin-right: 31px;
+    font-size: 14px;
+    color: var(--gray90);
+    display: flex;
+    justify-content: center;
+  }
+  .member-customRole {
+    width: 118px;
+    margin-right: 31px;
+    font-size: 14px;
+    color: var(--gray90);
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<script lang="ts">
+  import {createEventDispatcher} from 'svelte';
+  import {_} from 'svelte-i18n';
+  import Select from './Select.svelte';
+
+  interface Member {
+    image: string;
+    name: string;
+    isRepresentativeAdmin: boolean;
+    role: string;
+    customRole: string;
+  }
+
+  export let data: Member[];
+  export let editable;
+  export let containerStyle = '';
+  let threshold = 100;
+  let roleList = ['Admin', 'Writer', 'Reader'];
+  let customRoleList = ['Admin', 'Writer', 'Reader'];
+
+  const dispatch = createEventDispatcher();
+
+  const onEndReached = () => {
+    dispatch('endReached');
+  };
+
+  const onMemeberChange = (member: Member) => {
+    dispatch('memberChange', member);
+  };
+
+  const onMemberDelete = (member: Member) => {
+    dispatch('memberDelete', member);
+  };
+</script>
+
+<main style={containerStyle}>
+  <div class="title">{$_('member')}</div>
+  <div class="labelContainer">
+    <div class="label-name">{$_('Member.name')}</div>
+    <div class="label-role">{$_('Member.permission')}</div>
+    <div class="label-customRole">{$_('Member.role')}</div>
+  </div>
+  <div class="itemContainer">
+    {#each data as member}
+      <div class="member-container">
+        <img src={member.image} alt="profileImage" class="member-image" />
+        <div class="member-name">{member.name}</div>
+        <div class="member-role">
+          {#if member.isRepresentativeAdmin}
+            <div>{$_('Member.role_representative')}</div>
+          {:else}
+            <Select
+              value={member.role}
+              options={roleList}
+              placeholder=""
+              titleContainerStyle="width:118px;"
+              titleStyle="color: var(--gray70)"
+              on:change={() => onMemeberChange(member)}
+            />
+          {/if}
+        </div>
+        <div class="member-customRole">
+          {#if member.isRepresentativeAdmin}
+            <div>{$_('Member.role_all')}</div>
+          {:else}
+            <Select
+              value={member.customRole}
+              options={customRoleList}
+              placeholder=""
+              titleContainerStyle="width:118px;"
+              titleStyle="color: var(--gray70)"
+              on:change={() => onMemeberChange(member)}
+            />
+          {/if}
+        </div>
+      </div>
+    {/each}
+  </div>
+</main>

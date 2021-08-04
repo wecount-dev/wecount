@@ -5,6 +5,7 @@
   "sign_out": "로그아웃",
   "login": "로그인",
   "sign_in": "로그인하기",
+  "member": "멤버",
   "SignIn": {
     "email_hint": "이메일을 입력하세요",
     "pw_hint": "비밀번호를 입력하세요",
@@ -30,5 +31,12 @@
   },
   "temp": {
     "title": "템플릿"
+  },
+  "Member": {
+    "name":"이름",
+    "permission":"권한",
+    "role":"역할",
+    "role_representative": "대표관리자",
+    "role_all": "전체"
   }
 }

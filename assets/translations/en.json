@@ -5,6 +5,7 @@
   "login": "Login",
   "sign_out": "Sign Out",
   "sign_in": "Sign In",
+  "member": "Member",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",
@@ -28,5 +29,12 @@
   },
   "Temp": {
     "title": "Template"
+  },
+  "Member": {
+    "name":"Name",
+    "permission":"Permission",
+    "role":"Role",
+    "role_representative": "Representative",
+    "role_all": "All"
   }
 }
