@@ -68,6 +68,8 @@
 
   export let item: ItemType;
   export let onChange: (selectedColor: string) => void;
+  export let style: string | undefined = undefined;
+
   const colors = item.colors as string[];
 
   type PositionType = {
@@ -99,39 +101,37 @@
   }
 </script>
 
-<div>
-  <div class="carousel">
-    <div class="wrap">
-      <ArrowButton
-        direction={'left'}
-        hidden={position['right'] === 1}
-        onClick={moveToPreviousItem}
-      />
-      <div class="card-layout">
-        {#each colors as color, i}
-          {#if i === position.left || i === position.center || i === position.right}
-            <div
-              class:left-card={position.left === i}
-              class:center-card={position.center === i}
-              class:right-card={position.right === i}
-            >
-              <Card
-                user={item.user}
-                community={item.community}
-                selectedColor={color}
-              />
-            </div>
-          {/if}
-        {/each}
-      </div>
-      <ArrowButton
-        direction={'right'}
-        hidden={position['right'] === colors.length}
-        onClick={moveToNextItem}
-      />
+<div class="carousel" style={style}>
+  <div class="wrap">
+    <ArrowButton
+      direction={'left'}
+      hidden={position['right'] === 1}
+      onClick={moveToPreviousItem}
+    />
+    <div class="card-layout">
+      {#each colors as color, i}
+        {#if i === position.left || i === position.center || i === position.right}
+          <div
+            class:left-card={position.left === i}
+            class:center-card={position.center === i}
+            class:right-card={position.right === i}
+          >
+            <Card
+              user={item.user}
+              community={item.community}
+              selectedColor={color}
+            />
+          </div>
+        {/if}
+      {/each}
     </div>
-    <div class="dot-container">
-      <div style={`background-color: ${colors[position.center]}`} class="dot" />
-    </div>
+    <ArrowButton
+      direction={'right'}
+      hidden={position['right'] === colors.length}
+      onClick={moveToNextItem}
+    />
+  </div>
+  <div class="dot-container">
+    <div style={`background-color: ${colors[position.center]}`} class="dot" />
   </div>
 </div>
