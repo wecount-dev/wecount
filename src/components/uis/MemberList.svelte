@@ -44,6 +44,18 @@
   .itemContainer {
     flex: 1;
     padding-top: 16px;
+    overflow-y: scroll;
+  }
+  .itemContainer::-webkit-scrollbar {
+    width: 4px;
+  }
+  .itemContainer::-webkit-scrollbar-track {
+    margin-top: 24px;
+  }
+  .itemContainer::-webkit-scrollbar-thumb {
+    width: 4px;
+    background: var(--gray30);
+    border-radius: 2px;
   }
   .member-container {
     display: flex;
@@ -84,7 +96,7 @@
 </style>
 
 <script lang="ts">
-  import {createEventDispatcher} from 'svelte';
+  import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
   import {SvgBadgeCrown, SvgTrashcan} from '../../utils/Icon';
   import Button from './Button.svelte';
@@ -105,10 +117,34 @@
   let customRoleList = ['Admin', 'Writer', 'Reader']; // Update Me
 
   const dispatch = createEventDispatcher();
+  let scrollComponent: HTMLElement;
+  let lastLength = 0;
 
-  const onEndReached = () => {
-    dispatch('endReached');
+  const onScroll = (e: Event) => {
+    const offset =
+      //@ts-ignore
+      e.target.scrollHeight - e.target.clientHeight - e.target.scrollTop;
+
+    if (offset <= threshold && lastLength !== data.length) {
+      dispatch('endReached');
+      lastLength = data.length;
+    }
   };
+
+  onMount(() => {
+    scrollComponent.addEventListener('scroll', onScroll);
+    scrollComponent.addEventListener('resize', onScroll);
+    if (
+      scrollComponent.scrollHeight <=
+      scrollComponent.clientHeight - scrollComponent.scrollTop
+    )
+      dispatch('endReached');
+  });
+
+  onDestroy(() => {
+    scrollComponent.removeEventListener('scroll', onScroll);
+    scrollComponent.removeEventListener('resize', onScroll);
+  });
 
   const onMemeberChange = (member: Member) => {
     dispatch('memberChange', member);
@@ -126,7 +162,7 @@
     <div class="label-role">{$_('Member.permission')}</div>
     <div class="label-customRole">{$_('Member.role')}</div>
   </div>
-  <div class="itemContainer">
+  <div class="itemContainer" bind:this={scrollComponent}>
     {#each data as member}
       <div class="member-container">
         <img src={member.image} alt="profileImage" class="member-image" />
