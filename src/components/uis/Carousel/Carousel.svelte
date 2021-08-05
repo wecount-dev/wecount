@@ -54,7 +54,7 @@
   .right-card {
     margin: auto;
     position: absolute;
-    height: calc(100% - 15%);
+    height: 85%;
     top: 0px;
     bottom: 0px;
     right: 0px;
