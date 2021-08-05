@@ -68,7 +68,8 @@
 
   export let item: ItemType;
   export let onChange: (selectedColor: string) => void;
-  export let style: string | undefined = undefined;
+  export let carouselStyle: string | undefined = undefined;
+  export let dotStyle: string | undefined = undefined;
 
   const colors = item.colors as string[];
 
@@ -101,7 +102,7 @@
   }
 </script>
 
-<div class="carousel" style={style}>
+<div class="carousel" style={carouselStyle}>
   <div class="wrap">
     <ArrowButton
       direction={'left'}
@@ -131,7 +132,7 @@
       onClick={moveToNextItem}
     />
   </div>
-  <div class="dot-container">
+  <div class="dot-container" style={dotStyle}>
     <div style={`background-color: ${colors[position.center]}`} class="dot" />
   </div>
 </div>
