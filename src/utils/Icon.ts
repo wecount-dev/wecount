@@ -1,3 +1,4 @@
+import svgArrowDown from '../../assets/svgs/arrow-down.svg';
 import svgCheck from '../../assets/svgs/check.svg';
 import svgCrown from '../../assets/svgs/crown.svg';
 import svgKey from '../../assets/svgs/key.svg';
@@ -13,3 +14,4 @@ export const SvgMail = svgMail;
 export const SvgCrown = svgCrown;
 export const SvgLeftAngleBracket = svgLeftAngleBracket;
 export const SvgRightAngleBracket = svgRightAngleBracket;
+export const SvgArrowDown = svgArrowDown;
