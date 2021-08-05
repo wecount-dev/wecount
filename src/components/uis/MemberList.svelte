@@ -56,6 +56,7 @@
     height: 48px;
     border-radius: 24px;
     margin-right: 12px;
+    object-fit: cover;
   }
   .member-name {
     flex: 1;
@@ -76,11 +77,17 @@
     display: flex;
     justify-content: center;
   }
+  .member-delete {
+    width: 36px;
+    height: 36px;
+  }
 </style>
 
 <script lang="ts">
   import {createEventDispatcher} from 'svelte';
   import {_} from 'svelte-i18n';
+  import {SvgBadgeCrown, SvgTrashcan} from '../../utils/Icon';
+  import Button from './Button.svelte';
   import Select from './Select.svelte';
 
   interface Member {
@@ -92,11 +99,10 @@
   }
 
   export let data: Member[];
-  export let editable;
   export let containerStyle = '';
   let threshold = 100;
-  let roleList = ['Admin', 'Writer', 'Reader'];
-  let customRoleList = ['Admin', 'Writer', 'Reader'];
+  let roleList = ['Admin', 'Writer', 'Reader']; // Update Me
+  let customRoleList = ['Admin', 'Writer', 'Reader']; // Update Me
 
   const dispatch = createEventDispatcher();
 
@@ -127,7 +133,12 @@
         <div class="member-name">{member.name}</div>
         <div class="member-role">
           {#if member.isRepresentativeAdmin}
-            <div>{$_('Member.role_representative')}</div>
+            <div style="display:flex; align-items:center;">
+              <SvgBadgeCrown />
+              <div style="margin-left: 4px;">
+                {$_('Member.role_representative')}
+              </div>
+            </div>
           {:else}
             <Select
               value={member.role}
@@ -135,7 +146,7 @@
               placeholder=""
               titleContainerStyle="width:118px;"
               titleStyle="color: var(--gray70)"
-              on:change={() => onMemeberChange(member)}
+              on:change={(e) => onMemeberChange({...member, role: e.detail})}
             />
           {/if}
         </div>
@@ -149,8 +160,21 @@
               placeholder=""
               titleContainerStyle="width:118px;"
               titleStyle="color: var(--gray70)"
-              on:change={() => onMemeberChange(member)}
+              on:change={(e) =>
+                onMemeberChange({...member, customRole: e.detail})}
             />
+          {/if}
+        </div>
+        <div class="member-delete">
+          {#if member.isRepresentativeAdmin}
+            <div />
+          {:else}
+            <Button
+              on:click={() => onMemberDelete(member)}
+              style="background-color: #fff; width:36px; height:36px;"
+            >
+              <SvgTrashcan />
+            </Button>
           {/if}
         </div>
       </div>
