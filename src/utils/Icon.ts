@@ -1,4 +1,5 @@
 import svgArrowDown from '../../assets/svgs/arrow-down.svg';
+import svgBadgeCrown from '../../assets/svgs/badge-crown.svg';
 import svgCheck from '../../assets/svgs/check.svg';
 import svgKey from '../../assets/svgs/key.svg';
 import svgLogo from '../../assets/svgs/logo.svg';
@@ -11,3 +12,4 @@ export const SvgLogo = svgLogo;
 export const SvgMail = svgMail;
 export const SvgArrowDown = svgArrowDown;
 export const SvgTrashcan = svgTrashCan;
+export const SvgBadgeCrown = svgBadgeCrown;
