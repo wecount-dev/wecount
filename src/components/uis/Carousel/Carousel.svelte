@@ -36,7 +36,7 @@
   .left-card {
     margin: auto;
     position: absolute;
-    height: calc(100% - 15%);
+    height: 85%;
     top: 0px;
     bottom: 0px;
     left: 0px;
@@ -69,6 +69,7 @@
   export let item: ItemType;
   export let onChange: (selectedColor: string) => void;
   export let carouselStyle: string | undefined = undefined;
+  export let communityNameStyle: string | undefined = undefined;
   export let dotStyle: string | undefined = undefined;
 
   const colors = item.colors as string[];
@@ -118,6 +119,7 @@
             class:right-card={position.right === i}
           >
             <Card
+              communityNameStyle={communityNameStyle}
               user={item.user}
               community={item.community}
               selectedColor={color}
