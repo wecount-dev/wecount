@@ -73,12 +73,13 @@
   export let community: CommunityType;
   export let user: UserType;
   export let selectedColor: string;
+  export let communityNameStyle: string | undefined = undefined;
 </script>
 
 <div class="card" style="background-color:{selectedColor}">
   <div class="wrap">
     <div class="community-layout">
-      <div class="community-name">
+      <div class="community-name" style={communityNameStyle}>
         {community.name}
       </div>
       <div class="community-description">
