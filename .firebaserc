@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "wecount-bf552"
+    "default": "wecount-bf552",
+    "wecount-dean": "wecount-9c03c"
   }
 }

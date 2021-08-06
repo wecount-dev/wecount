@@ -50,7 +50,7 @@
   import {createEventDispatcher, onMount, onDestroy} from 'svelte';
   import {SvgArrowDown} from '../../utils/Icon';
 
-  export let placeholder: string;
+  export let placeholder = '';
   export let value: string | null;
   export let options: string[];
 
