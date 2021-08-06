@@ -1,7 +1,7 @@
 <!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
   main {
-    background: #ffffff;
+    background: var(--background-color);
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
     padding: 28px;
@@ -77,7 +77,6 @@
     width: 118px;
     margin-right: 31px;
     font-size: 14px;
-    color: var(--gray90);
     display: flex;
     justify-content: center;
   }
@@ -85,7 +84,6 @@
     width: 118px;
     margin-right: 31px;
     font-size: 14px;
-    color: var(--gray90);
     display: flex;
     justify-content: center;
   }
@@ -207,7 +205,7 @@
           {:else}
             <Button
               on:click={() => onMemberDelete(member)}
-              style="background-color: #fff; width:36px; height:36px;"
+              style="background-color: ; width:36px; height:36px;"
             >
               <SvgTrashcan />
             </Button>
