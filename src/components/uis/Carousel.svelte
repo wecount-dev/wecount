@@ -122,7 +122,7 @@
               communityNameStyle={communityNameStyle}
               user={item.user}
               community={item.community}
-              selectedColor={color}
+              cardStyle={`background-color:${color}; height:100%`}
             />
           </div>
         {/if}

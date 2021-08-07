@@ -2,12 +2,9 @@
   .card {
     background-color: var(selectedColor);
     width: 330px;
-    height: 100%;
+    height: 210px;
     border-radius: 24px;
     box-shadow: 0px 4px 10px #d1f1ff, inset 0px 0px 142px #ebfbff;
-  }
-
-  .wrap {
     padding: 28px 24px;
   }
 
@@ -82,38 +79,36 @@
 
   export let community: CommunityType;
   export let user: UserType;
-  export let selectedColor: string;
   export let communityNameStyle: string | undefined = undefined;
+  export let cardStyle: string | undefined = undefined;
 </script>
 
-<div class="card" style="background-color:{selectedColor}">
-  <div class="wrap">
-    <div class="community-layout">
-      <div class="coummunity-name-layout">
-        {#if !community.isPublic}
-          <div class="lock">
-            <SvgLock />
-          </div>
-        {/if}
-        <div class="community-name" style={communityNameStyle}>
-          {community.name}
+<div class="card" style={cardStyle}>
+  <div class="community-layout">
+    <div class="coummunity-name-layout">
+      {#if !community.isPublic}
+        <div class="lock">
+          <SvgLock />
         </div>
-      </div>
-      <div class="community-description">
-        {community.description}
+      {/if}
+      <div class="community-name" style={communityNameStyle}>
+        {community.name}
       </div>
     </div>
-    <div class="user-layout">
-      <div class="profile-img-layout">
-        <img class="profile-img" src={user.imageUrl} alt={user.name} />
-        <div class="crown">
-          <SvgCrown />
-        </div>
+    <div class="community-description">
+      {community.description}
+    </div>
+  </div>
+  <div class="user-layout">
+    <div class="profile-img-layout">
+      <img class="profile-img" src={user.imageUrl} alt={user.name} />
+      <div class="crown">
+        <SvgCrown />
       </div>
-      <div>
-        <div class="user-role">{user.role}</div>
-        <div class="user-name">{user.name}</div>
-      </div>
+    </div>
+    <div>
+      <div class="user-role">{user.role}</div>
+      <div class="user-name">{user.name}</div>
     </div>
   </div>
 </div>
