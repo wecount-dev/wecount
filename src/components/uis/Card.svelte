@@ -25,7 +25,7 @@
     position: absolute;
     top: -2px;
     right: -5px;
-    background-color: #ffc53d;
+    background-color: #0db293;
     border-radius: 50%;
     width: 14px;
     height: 14px;
