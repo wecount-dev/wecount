@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   String    @id @default(cuid()) @db.VarChar(50)
+  aud                  String    @db.VarChar(255)
+  confirmation_sent_at DateTime?
+  recovery_sent_at     DateTime?
+  email                String?   @db.VarChar(255)
+  phone                String?   @db.VarChar(255)
+
+  created_at         DateTime  @default(now())
+  updated_at         DateTime? @default(now())
+  confirmed_at       DateTime?
+  email_confirmed_at DateTime?
+  phone_confirmed_at DateTime?
+  last_sign_in_at    DateTime?
+  role               String?   @db.VarChar(255)
+
+  communities Community[]
+}
+
+model Community {
+  id          String   @id @default(cuid()) @db.VarChar(50)
+  isPublic    Boolean?
+  name        String
+  description String
+  currency    String
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @db.VarChar(50)
+}
