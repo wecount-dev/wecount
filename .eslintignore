@@ -2,3 +2,4 @@ __mocks__
 *.js
 *.html
 *.css
+generated
