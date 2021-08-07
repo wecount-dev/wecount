@@ -72,6 +72,22 @@
     align-items: center;
     margin-right: 2px;
   }
+
+  .balance-layout {
+    text-align: right;
+    margin-top: 7px;
+  }
+
+  .balance-title {
+    font-size: 14px;
+    color: #f0f5ff;
+  }
+
+  .balance {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+  }
 </style>
 
 <script lang="ts">
@@ -80,8 +96,15 @@
 
   export let community: CommunityType;
   export let user: UserType;
+  export let balance: number | undefined = undefined;
   export let communityNameStyle: string | undefined = undefined;
   export let cardStyle: string | undefined = undefined;
+
+  const addCommaForBalance = (): string | void => {
+    if (balance !== undefined) return balance.toLocaleString();
+  };
+
+  const displayBalance = addCommaForBalance();
 </script>
 
 <div class="card" style={cardStyle}>
@@ -112,4 +135,10 @@
       <div class="user-name">{user.name}</div>
     </div>
   </div>
+  {#if balance}
+    <div class="balance-layout">
+      <div class="balance-title">현재잔액</div>
+      <div class="balance">{displayBalance} 원</div>
+    </div>
+  {/if}
 </div>
