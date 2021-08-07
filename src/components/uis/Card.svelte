@@ -3,6 +3,7 @@
     background-color: var(selectedColor);
     width: 330px;
     height: 210px;
+    box-sizing: border-box;
     border-radius: 24px;
     box-shadow: 0px 4px 10px #d1f1ff, inset 0px 0px 142px #ebfbff;
     padding: 28px 24px;
