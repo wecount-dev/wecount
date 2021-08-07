@@ -73,6 +73,7 @@
   import {onMount} from 'svelte';
   import {replace} from 'svelte-spa-router';
   import {user} from '../../stores/sessionStore';
+  import {upsertUser} from '../../services/userService';
 
   let loading = false;
   let email: string;
@@ -106,10 +107,12 @@
   // eslint-disable-next-line @typescript-eslint/require-await
   const handleLogin = async () => {
     await handleAuthException(async () => {
-      const {error} = await supabase.auth.signIn({email, password});
+      const {error, user} = await supabase.auth.signIn({email, password});
+
+      if (user) await upsertUser(user);
 
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      if (!error) replace('/');
+      if (!error && user) replace('/');
 
       return error;
     });
