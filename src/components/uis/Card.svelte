@@ -45,6 +45,10 @@
     font-size: 1.2rem;
   }
 
+  .coummunity-name-layout {
+    display: flex;
+  }
+
   .community-description {
     color: #f0f5ff;
     text-transform: uppercase;
@@ -64,10 +68,16 @@
     color: white;
     font-size: 0.8rem;
   }
+
+  .lock {
+    display: flex;
+    align-items: center;
+    margin-right: 2px;
+  }
 </style>
 
 <script lang="ts">
-  import {SvgCrown} from '../../utils/Icon';
+  import {SvgCrown, SvgLock} from '../../utils/Icon';
   import type {CommunityType, UserType} from '../../types/index.svelte';
 
   export let community: CommunityType;
@@ -79,8 +89,15 @@
 <div class="card" style="background-color:{selectedColor}">
   <div class="wrap">
     <div class="community-layout">
-      <div class="community-name" style={communityNameStyle}>
-        {community.name}
+      <div class="coummunity-name-layout">
+        {#if !community.isPublic}
+          <div class="lock">
+            <SvgLock />
+          </div>
+        {/if}
+        <div class="community-name" style={communityNameStyle}>
+          {community.name}
+        </div>
       </div>
       <div class="community-description">
         {community.description}
