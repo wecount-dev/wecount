@@ -93,6 +93,7 @@
 <script lang="ts">
   import {SvgCrown, SvgLock} from '../../utils/Icon';
   import type {CommunityType, UserType} from '../../types/index.svelte';
+  import {_} from 'svelte-i18n';
 
   export let community: CommunityType;
   export let user: UserType;
@@ -101,7 +102,12 @@
   export let cardStyle: string | undefined = undefined;
 
   const addCommaForBalance = (): string | void => {
-    if (balance !== undefined) return balance.toLocaleString();
+    if (balance !== undefined) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      const localCurrency = String($_('card.local_currency'));
+
+      return `${balance.toLocaleString()}  ${localCurrency}`;
+    }
   };
 
   const displayBalance = addCommaForBalance();
@@ -137,8 +143,10 @@
   </div>
   {#if balance}
     <div class="balance-layout">
-      <div class="balance-title">현재잔액</div>
-      <div class="balance">{displayBalance} 원</div>
+      <div class="balance-title">{$_('card.current_balance')}</div>
+      <div class="balance">
+        {displayBalance}
+      </div>
     </div>
   {/if}
 </div>

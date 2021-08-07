@@ -27,6 +27,10 @@
   "Intro": {
     "welcome": "Hello there ~ 🙌 Welcome to WeCount."
   },
+  "card": {
+    "current_balance": "Current Balance",
+    "local_currency": "$"
+  },
   "Temp": {
     "title": "Template"
   },
