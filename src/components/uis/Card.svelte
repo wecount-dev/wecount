@@ -67,8 +67,8 @@
 </style>
 
 <script lang="ts">
-  import {SvgCrown} from '../../../utils/Icon';
-  import type {CommunityType, UserType} from './types.svelte';
+  import {SvgCrown} from '../../utils/Icon';
+  import type {CommunityType, UserType} from '../../types/index.svelte';
 
   export let community: CommunityType;
   export let user: UserType;

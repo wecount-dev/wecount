@@ -1,7 +1,7 @@
 <script lang="ts">
   let string = `This is <strong>Temp!</strong>`;
 
-  import Carousel from '../uis/Carousel/Carousel.svelte';
+  import Carousel from '../uis/Carousel.svelte';
 
   const item = {
     user: {
@@ -9,8 +9,11 @@
       imageUrl: 'https://source.unsplash.com/random/50x50',
       role: '최고 관리자',
     },
-    community: {name: 'dooboolab', description: 'PREMIUM ACCOUNT'},
-    isPublic: true,
+    community: {
+      name: 'dooboolab',
+      description: 'PREMIUM ACCOUNT',
+      isPublic: true,
+    },
     colors: ['#28DB98', '#72E6FF', '#3A74E7', '#834FF3', '#2A2A2C'],
   };
 

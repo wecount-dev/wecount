@@ -7,13 +7,13 @@
 
   export type CommunityType = {
     name: string;
+    isPublic: boolean;
     description: string;
   };
 
-  export type ItemType = {
+  export type CarouselItemType = {
     user: UserType;
     community: CommunityType;
-    isPublic: boolean;
     colors: string[];
   };
 </script>

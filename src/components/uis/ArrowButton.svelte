@@ -10,7 +10,7 @@
 </style>
 
 <script lang="ts">
-  import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../../../utils/Icon';
+  import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../../utils/Icon';
 
   export let direction: 'left' | 'right';
   export let hidden: boolean;
