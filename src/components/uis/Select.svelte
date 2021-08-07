@@ -13,6 +13,7 @@
     border-color: var(--gray30);
     box-sizing: border-box;
     border-radius: 4px;
+    background-color: var(--background-color);
 
     &:hover {
       cursor: pointer;
@@ -32,6 +33,7 @@
     box-shadow: 0px 4px 10px 0px rgba(196, 196, 196, 0.5);
     border-radius: 4px;
     overflow: hidden;
+    z-index: 99;
   }
   .option {
     height: 36px;
