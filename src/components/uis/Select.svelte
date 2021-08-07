@@ -22,6 +22,7 @@
     flex: 1;
     font-size: 14px;
     margin-right: 20px;
+    overflow: hidden;
   }
   .options-container {
     top: 0;
@@ -48,12 +49,14 @@
 
 <script lang="ts">
   import {createEventDispatcher, onMount, onDestroy} from 'svelte';
-  import {SvgArrowDown} from '../../utils/Icon';
+  import {SvgArrowDown, SvgCheck} from '../../utils/Icon';
 
   export let placeholder = '';
-  export let value: string | null;
+  export let value: string | string[] | null;
   export let options: string[];
+  export let multiple = false;
 
+  export let style = '';
   export let titleContainerStyle = '';
   export let titleStyle = '';
   export let optionContainerStyle = '';
@@ -76,8 +79,15 @@
   });
 
   const handleOnChange = (_value: string) => {
-    dispatch('change', _value);
-    open = false;
+    if (!multiple) dispatch('change', _value);
+    else if (value?.includes(_value))
+      dispatch(
+        'change',
+        (value as string[]).filter((v) => v !== _value),
+      );
+    else dispatch('change', [...(value as string[]), _value]);
+
+    open = multiple;
   };
 
   const handleOnOpen = () => {
@@ -85,13 +95,15 @@
   };
 </script>
 
-<main>
+<main style={style}>
   <div
     style={titleContainerStyle}
     on:click|stopPropagation={handleOnOpen}
     class="selector"
   >
-    <div style={titleStyle} class="title">{value || placeholder}</div>
+    <div style={titleStyle} class="title">
+      {value?.length ? value : placeholder}
+    </div>
     <slot name="rightElement">
       <SvgArrowDown />
     </slot>
@@ -104,6 +116,12 @@
           class="option"
           on:click|stopPropagation={() => handleOnChange(option)}
         >
+          {#if multiple}
+            <SvgCheck
+              width={34}
+              fill={value?.includes(option) ? '#0DB293' : 'none'}
+            />
+          {/if}
           {option}
         </div>
       {/each}
