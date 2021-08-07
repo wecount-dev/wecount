@@ -64,9 +64,9 @@
 <script lang="ts">
   import Card from './Card.svelte';
   import ArrowButton from './ArrowButton.svelte';
-  import type {ItemType} from './types.svelte';
+  import type {CarouselItemType} from '../../types/index.svelte';
 
-  export let item: ItemType;
+  export let item: CarouselItemType;
   export let onChange: (selectedColor: string) => void;
   export let carouselStyle: string | undefined = undefined;
   export let communityNameStyle: string | undefined = undefined;
