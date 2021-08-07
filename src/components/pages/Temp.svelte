@@ -12,7 +12,7 @@
     community: {
       name: 'dooboolab',
       description: 'PREMIUM ACCOUNT',
-      isPublic: true,
+      isPublic: false,
     },
     colors: ['#28DB98', '#72E6FF', '#3A74E7', '#834FF3', '#2A2A2C'],
   };
