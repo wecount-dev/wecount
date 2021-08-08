@@ -1,6 +1,7 @@
 <style lang="postcss">
   .carousel {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     max-width: 600px;
   }
@@ -69,7 +70,6 @@
   export let item: CarouselItemType;
   export let onChange: (selectedColor: string) => void;
   export let carouselStyle: string | undefined = undefined;
-  export let communityNameStyle: string | undefined = undefined;
   export let dotStyle: string | undefined = undefined;
 
   const colors = item.colors as string[];
@@ -119,7 +119,6 @@
             class:right-card={position.right === i}
           >
             <Card
-              communityNameStyle={communityNameStyle}
               user={item.user}
               community={item.community}
               cardStyle={`background-color:${color}; height:100%`}
