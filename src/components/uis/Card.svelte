@@ -98,7 +98,6 @@
   export let community: CommunityType;
   export let user: UserType;
   export let balance: number | undefined = undefined;
-  export let communityNameStyle: string | undefined = undefined;
   export let cardStyle: string | undefined = undefined;
 
   const addCommaForBalance = (): string | void => {
@@ -121,7 +120,7 @@
           <SvgLock />
         </div>
       {/if}
-      <div class="community-name" style={communityNameStyle}>
+      <div class="community-name">
         {community.name}
       </div>
     </div>
