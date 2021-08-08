@@ -3,7 +3,7 @@ import {User} from '@supabase/gotrue-js';
 import supabase from "../lib/db";
 
 export const upsertUser = async (user: User | null): Promise<PrismaUser | null> => {
-  if (!user) return null;
+  if (!user || !user.id) return null;
 
   const prismaUser: PrismaUser = {
     aud: user.aud,

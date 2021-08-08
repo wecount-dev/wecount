@@ -61,8 +61,12 @@
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
   import Main from './components/navigations/Main.svelte';
+  import {upsertUser} from './services/userService';
 
   supabase.auth.onAuthStateChange((_, session) => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    if (user) upsertUser(user);
+
     user.set(session?.user);
   });
 </script>

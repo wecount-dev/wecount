@@ -107,12 +107,10 @@
   // eslint-disable-next-line @typescript-eslint/require-await
   const handleLogin = async () => {
     await handleAuthException(async () => {
-      const {error, user} = await supabase.auth.signIn({email, password});
-
-      if (user) await upsertUser(user);
+      const {error} = await supabase.auth.signIn({email, password});
 
       // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      if (!error && user) replace('/');
+      if (!error) replace('/');
 
       return error;
     });
