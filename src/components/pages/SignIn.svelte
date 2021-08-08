@@ -73,7 +73,6 @@
   import {onMount} from 'svelte';
   import {replace} from 'svelte-spa-router';
   import {user} from '../../stores/sessionStore';
-  import {upsertUser} from '../../services/userService';
 
   let loading = false;
   let email: string;
@@ -132,7 +131,7 @@
 </script>
 
 <main>
-  <form on:submit|preventDefault={handleLogin}>
+  <form>
     <SvgLogo />
     <h1 style="margin-bottom: 60px;">{$_('login')}</h1>
     <EditText
@@ -157,13 +156,15 @@
       <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
       <a class="link" href="/#/sign_up">{$_('SignIn.forgot_your_password')}?</a>
     </div>
-    <input
-      class="btn-sign-in"
-      style="color: white; font-size: 14px;"
+    <Button
+      on:click={handleLogin}
+      primary
+      style="font-size: 14px; align-self: stretch; margin: 40px 10% 0 10%"
       type="submit"
-      value={loading ? $_('loading') : $_('sign_in')}
       disabled={loading}
-    />
+    >
+      <div class="text">{loading ? $_('loading') : $_('sign_in')}</div>
+    </Button>
     <Button
       on:click={handleSignInWithGoogle}
       style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"

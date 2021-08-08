@@ -7,19 +7,6 @@
       }
     }
 
-    .btn-sign-up {
-      height: 40px;
-      margin-top: 40px;
-      align-self: stretch;
-      background-color: var(--green70);
-      border-radius: 4px;
-
-      &:hover {
-        cursor: pointer;
-        opacity: 0.7;
-      }
-    }
-
     background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -130,17 +117,12 @@
         align-items: center;
         justify-content: center;
 
-        input {
+        :global(.btn-sign-up) {
           flex: 1;
           height: 40px;
           margin-top: 40px;
-          background-color: var(--green70);
-          border-radius: 4px;
-
-          &:hover {
-            cursor: pointer;
-            opacity: 0.7;
-          }
+          color: white;
+          font-size: 14px;
         }
       }
     }
@@ -155,6 +137,7 @@
   import {onMount} from 'svelte';
   import {user} from '../../stores/sessionStore';
   import {replace} from 'svelte-spa-router';
+  import Button from '../uis/Button.svelte';
 
   let loading = false;
   let checked = false;
@@ -213,7 +196,7 @@
 </script>
 
 <main>
-  <form on:submit|preventDefault={handleSignUp}>
+  <form>
     <div class="header">
       <h1 style="align-self: center;">{$_('SignUp.title')}</h1>
     </div>
@@ -254,13 +237,15 @@
       </div>
     </div>
     <div class="btn-sign">
-      <input
+      <Button
+        on:click={handleSignUp}
+        primary
         class="btn-sign-up"
-        style="color: white; font-size: 14px;"
         type="submit"
-        value={loading ? $_('loading') : $_('SignUp.title')}
         disabled={loading}
-      />
+      >
+        <div class="text">{loading ? $_('loading') : $_('SignUp.title')}</div>
+      </Button>
     </div>
   </form>
 </main>

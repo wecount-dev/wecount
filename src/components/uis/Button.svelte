@@ -4,6 +4,11 @@
     color: white;
   }
 
+  .secondary {
+    background-color: var(--secondary);
+    color: white;
+  }
+
   button {
     background-color: var(--button);
     color: var(--text);
@@ -22,9 +27,10 @@
 <script lang="ts">
   import {createEventDispatcher} from 'svelte';
 
-  export let type: 'primary' | undefined = undefined;
+  export let primary = false;
+  export let secondary = false;
+  export let type: 'submit' | undefined = undefined;
   export let style = '';
-  export let value = '';
   export let disabled = false;
 
   const dispatch = createEventDispatcher();
@@ -35,10 +41,11 @@
 </script>
 
 <button
+  class:primary
+  class:secondary
+  class={$$props.class}
   type={type}
-  class={type === 'primary' ? 'primary' : ''}
   style={style}
-  value={value}
   disabled={disabled}
   on:click|preventDefault={handleClick}
 >
