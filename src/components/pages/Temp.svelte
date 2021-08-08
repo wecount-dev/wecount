@@ -20,7 +20,7 @@
         currency: 'KRW',
         description: 'Hi dooboolab',
         isPublic: true,
-        userId: $user?.id,
+        userId: $user.id,
       });
 
       console.log('community', community);

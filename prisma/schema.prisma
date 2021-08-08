@@ -9,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id                   String    @id @default(cuid()) @db.VarChar(50)
+  id                   String    @id @default(cuid()) @db.Uuid
   aud                  String    @db.VarChar(255)
   confirmation_sent_at DateTime?
   recovery_sent_at     DateTime?
@@ -28,12 +28,12 @@ model User {
 }
 
 model Community {
-  id          String   @id @default(cuid()) @db.VarChar(50)
+  id          String   @id @default(cuid()) @db.Uuid
   isPublic    Boolean?
   name        String
   description String
   currency    String
 
   user   User   @relation(fields: [userId], references: [id])
-  userId String @db.VarChar(50)
+  userId String @db.Uuid
 }
