@@ -26,5 +26,5 @@
 <div>
   <p>{@html string}</p>
 
-  <Carousel item={item} onChange={getColor} carouselStyle={'margin:30px;'} />
+  <Carousel item={item} onChange={getColor} />
 </div>

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    max-width: 600px;
+    width: 600px;
   }
 
   .wrap {
@@ -14,10 +14,10 @@
   }
 
   .dot-container {
-    margin-top: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 15px;
   }
 
   .dot {
@@ -29,8 +29,8 @@
 
   .card-layout {
     position: relative;
-    flex-grow: 1;
     height: 100%;
+    flex-grow: 1;
     margin: 15.5px;
   }
 
@@ -70,6 +70,8 @@
   export let item: CarouselItemType;
   export let onChange: (selectedColor: string) => void;
   export let carouselStyle: string | undefined = undefined;
+  export let cardLayoutStyle: string | undefined = undefined;
+  export let cardStyle: string | undefined = undefined;
   export let dotStyle: string | undefined = undefined;
 
   const colors = item.colors as string[];
@@ -104,7 +106,7 @@
 </script>
 
 <div class="carousel" style={carouselStyle}>
-  <div class="wrap">
+  <div class="wrap" style={cardLayoutStyle}>
     <ArrowButton
       direction={'left'}
       hidden={position['right'] === 1}
@@ -121,7 +123,9 @@
             <Card
               user={item.user}
               community={item.community}
-              cardStyle={`background-color:${color}; height:100%`}
+              cardStyle={`background-color:${color}; height:100%; ${
+                cardStyle ? cardStyle : ''
+              }`}
             />
           </div>
         {/if}
