@@ -5,20 +5,20 @@
     height: 100%;
   }
 
-  .menu {
+  .community-layout {
     z-index: 2;
     min-width: 56px;
     box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.12);
   }
 
-  .sub-menu-open {
+  .menu-open {
     display: flex;
     flex-direction: column;
     min-width: 144px;
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
   }
 
-  .sub-menu-close {
+  .menu-close {
     display: none;
   }
 
@@ -41,10 +41,7 @@
     cursor: pointer;
   }
 
-  .menu-layout {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .community-menu-layout {
     padding: 6px;
   }
 
@@ -54,17 +51,37 @@
 </style>
 
 <script lang="ts">
+  import type {DrawerType, MenuType} from '../../../types/index.svelte';
   import {SvgChevronsLeft, SvgMenu} from '../../../utils/Icon';
+  import CommunityMenu from './CommunityMenu.svelte';
+  import Menu from './Menu.svelte';
 
   export let isOpen = true;
+  export let items: DrawerType[];
 
-  function toggleMenuWindow() {
-    isOpen = !isOpen;
-  }
+  const menus: {
+    [id: string]: MenuType[];
+  } = {};
+
+  let selectedCommunityId: string = items[0].community.imageUrl;
+  const selectCommunity = (id: string) => (selectedCommunityId = id);
+
+  $: seletedMenuUrl = menus[selectedCommunityId][0].url;
+  const selectMenu = (url: string) => (seletedMenuUrl = url);
+
+  const toggleMenuWindow = () => (isOpen = !isOpen);
+
+  const setMenus = (items: DrawerType[]) => {
+    items.forEach((item: DrawerType) => {
+      menus[item.community.imageUrl] = item.menu;
+    });
+  };
+
+  setMenus(items);
 </script>
 
 <div class="drawer">
-  <div class="menu">
+  <div class="community-layout">
     <div class="menu-button-container">
       <div
         class="menu-button"
@@ -74,14 +91,28 @@
         <SvgMenu />
       </div>
     </div>
-    <div class="menu-layout">
-      <slot name="menu" />
+    <div class="community-menu-layout">
+      {#each items as {community}}
+        <CommunityMenu
+          imageUrl={community.imageUrl}
+          isSelected={community.imageUrl === selectedCommunityId}
+          selectCommunity={selectCommunity}
+        />
+      {/each}
     </div>
   </div>
-  <div class:sub-menu-open={isOpen} class:sub-menu-close={!isOpen}>
+  <div class:menu-open={isOpen} class:menu-close={!isOpen}>
     <div class="close-button" on:click={toggleMenuWindow}>
       <SvgChevronsLeft />
     </div>
-    <slot name="subMenu" />
+    {#each menus[selectedCommunityId] as menu}
+      <Menu
+        name={menu.name}
+        notificationCounts={menu.notificationCounts}
+        url={menu.url}
+        selectMenu={selectMenu}
+        isSelected={menu.url === seletedMenuUrl}
+      />
+    {/each}
   </div>
 </div>
