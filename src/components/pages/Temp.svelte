@@ -11,12 +11,12 @@
     menu: [
       {
         name: '대시보드',
-        url: 'https://localhost:5000/dashboard',
+        url: 'https://localhost:5000/money/dashboard',
       },
       {
         name: '피드',
         notificationCounts: 99,
-        url: 'https://localhost:5000/feed',
+        url: 'https://localhost:5000/money/feed',
       },
     ],
   };
@@ -29,23 +29,27 @@
     menu: [
       {
         name: '커밋',
-        url: 'https://localhost:5000/commit',
+        url: 'https://localhost:5000/github/commit',
       },
       {
         name: '이슈',
         notificationCounts: 99,
-        url: 'https://localhost:5000/issue',
+        url: 'https://localhost:5000/github/issue',
       },
     ],
   };
 
   let items = [item, item2];
+
+  const onSelectMenu = (url: string) => {
+    console.log(`Selected URL: ${url}`);
+  };
 </script>
 
 <div style="padding: 30px; background-color:#F2F5F6;">
   <p>{@html string}</p>
 
   <div>
-    <Drawer items={items} />
+    <Drawer items={items} onSelectMenu={onSelectMenu} />
   </div>
 </div>

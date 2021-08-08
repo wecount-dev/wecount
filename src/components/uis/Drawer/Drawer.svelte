@@ -58,6 +58,7 @@
 
   export let isOpen = true;
   export let items: DrawerType[];
+  export let onSelectMenu: (url: string) => void;
 
   const menus: {
     [id: string]: MenuType[];
@@ -67,6 +68,9 @@
   const selectCommunity = (id: string) => (selectedCommunityId = id);
 
   $: seletedMenuUrl = menus[selectedCommunityId][0].url;
+  $: {
+    onSelectMenu(seletedMenuUrl);
+  }
   const selectMenu = (url: string) => (seletedMenuUrl = url);
 
   const toggleMenuWindow = () => (isOpen = !isOpen);
