@@ -7,6 +7,10 @@
     padding: 28px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 640px) {
+      border-radius: 0px;
+    }
   }
   .title {
     font-weight: bold;
@@ -132,6 +136,7 @@
   onMount(() => {
     scrollComponent.addEventListener('scroll', onScroll);
     scrollComponent.addEventListener('resize', onScroll);
+
     if (
       scrollComponent.scrollHeight <=
       scrollComponent.clientHeight - scrollComponent.scrollTop
@@ -205,7 +210,7 @@
           {:else}
             <Button
               on:click={() => onMemberDelete(member)}
-              style="background-color: ; width:36px; height:36px;"
+              style="width:36px; height:36px;"
             >
               <SvgTrashcan />
             </Button>
