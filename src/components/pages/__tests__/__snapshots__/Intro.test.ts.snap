@@ -11,18 +11,16 @@ exports[`should render without error 1`] = `
       </p>
        
       <button
-        class=" svelte-ty676r"
+        class="svelte-1i07g1p"
         style=""
-        value=""
       >
         Login
         
       </button>
        
       <button
-        class=" svelte-ty676r"
+        class="svelte-1i07g1p"
         style=""
-        value=""
       >
         Toggle Theme
       </button>
