@@ -1,6 +1,6 @@
 import * as Paypal from '@paypal/checkout-server-sdk';
 
-import config from '../../config';
+import config from '../../../config';
 import {client as paypalClient} from './client';
 
 // api doc : https://developer.paypal.com/docs/api/orders/v2/#orders_create

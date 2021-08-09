@@ -1,6 +1,6 @@
 import * as Paypal from '@paypal/checkout-server-sdk';
 
-import config from '../../config';
+import config from '../../../config';
 
 /**
  * Setting up and Returns PayPal SDK environment with PayPal Access credentials.

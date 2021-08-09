@@ -12,6 +12,30 @@ export const createApp = (): Express => {
     res.send('It works');
   });
 
+  app.get('/paypal-get-access-token', (_, res) => {
+    Paypal.getAccessToken()
+      .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
+      .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
+  });
+
+  app.get('/paypal-create-product', (_, res) => {
+    Paypal.createProduct()
+      .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
+      .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
+  });
+
+  app.get('/paypal-create-plan', (_, res) => {
+    Paypal.createPlan()
+      .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
+      .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
+  });
+
+  app.get('/paypal-create-subscription', (_, res) => {
+    Paypal.createPlan()
+      .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
+      .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
+  });
+
   app.get('/paypal-create-order', (_, res) => {
     Paypal.createOrder()
       .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
