@@ -11,3 +11,9 @@ node_modules/
 
 firebase-debug.log
 ui-debug.log
+yarn-error.log
+
+# firebase runtime env info
+.runtimeconfig.json
+
+env.json
