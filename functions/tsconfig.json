@@ -6,13 +6,10 @@
     "outDir": "lib",
     "sourceMap": true,
     "strict": true,
-    "target": "es2017",
-    "esModuleInterop": true
+    "target": "es2017"
   },
   "compileOnSave": true,
   "include": [
-    "src",
-    "./index.ts"
-  ],
-  "files": ["environment.d.ts"]
+    "src"
+  ]
 }
