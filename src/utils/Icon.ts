@@ -19,3 +19,5 @@ export const SvgTrashcan = svgTrashCan;
 export const SvgBadgeCrown = svgBadgeCrown;
 export const SvgLeftAngleBracket = svgLeftAngleBracket;
 export const SvgRightAngleBracket = svgRightAngleBracket;
+export const SvgLock = svgLock;
+export const SvgCrown = svgCrown;
