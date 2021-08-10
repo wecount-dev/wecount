@@ -54,6 +54,7 @@
   import type {DrawerType, MenuType} from '../../../types/index.svelte';
   import {SvgChevronsLeft, SvgMenu} from '../../../utils/Icon';
   import CommunityMenu from './CommunityMenu.svelte';
+  import CommunityPlusMenu from './CommunityPlusMenu.svelte';
   import Menu from './Menu.svelte';
 
   export let isOpen = true;
@@ -64,6 +65,9 @@
     [id: string]: MenuType[];
   } = {};
 
+  const addCommunityUrl =
+    'https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png/';
+
   let selectedCommunityId: string = items[0].community.imageUrl;
   const selectCommunity = (id: string) => (selectedCommunityId = id);
 
@@ -72,6 +76,8 @@
     onSelectMenu(seletedMenuUrl);
   }
   const selectMenu = (url: string) => (seletedMenuUrl = url);
+
+  const selectAddCommunity = (url: string) => onSelectMenu(url);
 
   const toggleMenuWindow = () => (isOpen = !isOpen);
 
@@ -103,6 +109,10 @@
           selectCommunity={selectCommunity}
         />
       {/each}
+      <CommunityPlusMenu
+        redirectUrl={addCommunityUrl}
+        onSelectAddCommunity={selectAddCommunity}
+      />
     </div>
   </div>
   <div class:menu-open={isOpen} class:menu-close={!isOpen}>
