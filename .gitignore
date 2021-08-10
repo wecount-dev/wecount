@@ -1,0 +1,12 @@
+/node_modules/
+/public/build/
+generated
+
+.DS_Store
+
+build
+coverage
+
+yarn-error.log
+
+.env
