@@ -1,6 +1,3 @@
-<style lang="postcss">
-</style>
-
 <script lang="ts">
   import SelectIconButton from './SelectIconButton.svelte';
   import {SvgPlus} from '../../../utils/Icon';
@@ -10,7 +7,6 @@
 </script>
 
 <SelectIconButton
-  class="ripple"
   selectValue={redirectUrl}
   style={`background-color: var(--gray20)`}
   onSelect={onSelectAddCommunity}

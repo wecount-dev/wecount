@@ -26,7 +26,7 @@
 </script>
 
 <div
-  class="{$$props.class} menu"
+  class="menu"
   class:seleted-menu={isSelected}
   style={style}
   on:click={() => onSelect(selectValue)}
