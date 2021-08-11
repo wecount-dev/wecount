@@ -10,13 +10,13 @@
   .selexted-name {
     font-size: 0.875rem;
     font-weight: 700;
-    color: #2a2a2c;
+    color: var(--gray90);
   }
 
   .unselected-name {
     font-size: 0.875rem;
     font-size: 400;
-    color: #4c4d53;
+    color: var(--gray80);
   }
 
   .notification-counts {
