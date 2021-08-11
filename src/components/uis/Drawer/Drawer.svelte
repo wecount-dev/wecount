@@ -11,15 +11,18 @@
     box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.12);
   }
 
-  .menu-open {
+  .menu {
     display: flex;
     flex-direction: column;
-    min-width: 144px;
+    width: 144px;
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
+    transition: width 0.15s;
+    transition-timing-function: ease-in-out;
   }
 
   .menu-close {
-    display: none;
+    visibility: hidden;
+    width: 0px;
   }
 
   .close-button {
@@ -28,7 +31,7 @@
     cursor: pointer;
   }
 
-  .menu-button-container {
+  .open-menu-button-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +39,7 @@
     margin-top: 5px;
   }
 
-  .menu-button {
+  .open-menu-button {
     padding: 5px;
     cursor: pointer;
   }
@@ -51,6 +54,8 @@
 </style>
 
 <script lang="ts">
+  import {onMount} from 'svelte';
+
   import type {DrawerType, MenuType} from '../../../types/index.svelte';
   import {SvgChevronsLeft, SvgMenu} from '../../../utils/Icon';
   import CommunityMenu from './CommunityMenu.svelte';
@@ -60,6 +65,7 @@
   export let isOpen = true;
   export let items: DrawerType[];
   export let onSelectMenu: (url: string) => void;
+  export let menuStyle: string | undefined = undefined;
 
   const menus: {
     [id: string]: MenuType[];
@@ -88,13 +94,22 @@
   };
 
   setMenus(items);
+
+  let menu: HTMLDivElement;
+  let showMenuText = isOpen;
+
+  onMount(() => {
+    menu.addEventListener('transitionend', () => {
+      showMenuText = isOpen;
+    });
+  });
 </script>
 
 <div class="drawer">
   <div class="community-layout">
-    <div class="menu-button-container">
+    <div class="open-menu-button-container">
       <div
-        class="menu-button"
+        class="open-menu-button"
         class:hidden={isOpen}
         on:click={toggleMenuWindow}
       >
@@ -115,18 +130,25 @@
       />
     </div>
   </div>
-  <div class:menu-open={isOpen} class:menu-close={!isOpen}>
+  <div
+    bind:this={menu}
+    class="menu"
+    class:menu-close={!isOpen}
+    style={menuStyle}
+  >
     <div class="close-button" on:click={toggleMenuWindow}>
       <SvgChevronsLeft />
     </div>
-    {#each menus[selectedCommunityId] as menu}
-      <Menu
-        name={menu.name}
-        notificationCounts={menu.notificationCounts}
-        url={menu.url}
-        selectMenu={selectMenu}
-        isSelected={menu.url === seletedMenuUrl}
-      />
-    {/each}
+    {#if showMenuText}
+      {#each menus[selectedCommunityId] as menu}
+        <Menu
+          name={menu.name}
+          notificationCounts={menu.notificationCounts}
+          url={menu.url}
+          selectMenu={selectMenu}
+          isSelected={menu.url === seletedMenuUrl}
+        />
+      {/each}
+    {/if}
   </div>
 </div>

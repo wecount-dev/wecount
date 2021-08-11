@@ -1,9 +1,4 @@
 <style lang="postcss">
-  .icon {
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
-  }
 </style>
 
 <script lang="ts">
@@ -15,8 +10,9 @@
 </script>
 
 <SelectIconButton
+  class="ripple"
   selectValue={redirectUrl}
-  style={'background-color: #F3F4F5'}
+  style={`background-color: var(--gray20)`}
   onSelect={onSelectAddCommunity}
 >
   <SvgPlus />

@@ -23,13 +23,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff2e8;
+    background-color: var(--red10);
     min-width: 25px;
     height: 14px;
     border-radius: 1000px;
     font-size: 0.688rem;
     font-weight: bold;
-    color: #f15454;
+    color: var(--red50);
     padding: 3px 1px;
   }
 </style>
@@ -44,7 +44,7 @@
 
 <div
   class="sub-menu"
-  style="background-color: {isSelected ? '#F9F9F9' : '#FFFF'}"
+  style="background-color: {isSelected ? 'var(--gray10)' : 'white'}"
   on:click={() => selectMenu(url)}
 >
   <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>

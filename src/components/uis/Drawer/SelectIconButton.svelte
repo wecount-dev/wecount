@@ -14,7 +14,7 @@
   }
 
   .seleted-menu {
-    border: 1.5px solid #28db98;
+    border: 1.5px solid var(--green40);
   }
 </style>
 
@@ -26,7 +26,7 @@
 </script>
 
 <div
-  class="menu"
+  class="{$$props.class} menu"
   class:seleted-menu={isSelected}
   style={style}
   on:click={() => onSelect(selectValue)}
