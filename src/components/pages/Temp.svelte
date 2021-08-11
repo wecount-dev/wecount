@@ -7,4 +7,17 @@
   }
 </style>
 
-<main>Temp</main>
+<script lang="ts">
+  import ImageUpload from '../uis/ImageUpload.svelte';
+
+  let uris: string[] = [];
+</script>
+
+<main>
+  <ImageUpload
+    uris={uris}
+    option={{
+      bucket: 'image',
+    }}
+  />
+</main>
