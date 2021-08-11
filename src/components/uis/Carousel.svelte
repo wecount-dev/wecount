@@ -80,7 +80,7 @@
     [key: string]: number;
   };
 
-  let position: PositionType = {
+  const position: PositionType = {
     left: -1,
     center: 0,
     right: 1,
