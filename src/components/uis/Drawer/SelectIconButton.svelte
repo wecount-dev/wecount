@@ -5,12 +5,12 @@
     align-items: center;
     width: 44px;
     height: 44px;
-    background-color: white;
     box-sizing: border-box;
     border-radius: 10px;
     margin-bottom: 16px;
     cursor: pointer;
     border: 1.5px solid white;
+    user-select: none;
   }
 
   .seleted-menu {
@@ -26,7 +26,7 @@
 </script>
 
 <div
-  class="menu"
+  class="menu {$$props.class}"
   class:seleted-menu={isSelected}
   style={style}
   on:click={() => onSelect(selectValue)}
