@@ -14,10 +14,13 @@
 </script>
 
 <main>
-  <ImageUpload
-    uris={uris}
-    option={{
-      bucket: 'image',
-    }}
-  />
+  <div style="width:30%">
+    <ImageUpload
+      uris={uris}
+      option={{
+        bucket: 'image',
+        maxSizeMB: 1,
+      }}
+    />
+  </div>
 </main>
