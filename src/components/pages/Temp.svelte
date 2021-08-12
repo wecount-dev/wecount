@@ -16,7 +16,7 @@
 <main>
   <div style="width:30%">
     <ImageUpload
-      uris={uris}
+      bind:uris
       option={{
         bucket: 'image',
         maxSizeMB: 1,
