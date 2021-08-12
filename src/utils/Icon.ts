@@ -9,6 +9,8 @@ import svgLogo from '../../assets/svgs/logo.svg';
 import svgMail from '../../assets/svgs/mail.svg';
 import svgRightAngleBracket from '../../assets/svgs/right_angle_bracket.svg';
 import svgTrashCan from '../../assets/svgs/trash_can.svg';
+import svgUploadClose from '../../assets/svgs/upload-close.svg';
+import svgUploadPlus from '../../assets/svgs/upload-plus.svg';
 
 export const SvgCheck = svgCheck;
 export const SvgKey = svgKey;
@@ -21,3 +23,5 @@ export const SvgLeftAngleBracket = svgLeftAngleBracket;
 export const SvgRightAngleBracket = svgRightAngleBracket;
 export const SvgLock = svgLock;
 export const SvgCrown = svgCrown;
+export const SvgUploadPlus = svgUploadPlus;
+export const SvgUploadClose = svgUploadClose;
