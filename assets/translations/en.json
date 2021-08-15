@@ -31,10 +31,27 @@
     "title": "Template"
   },
   "Member": {
-    "name":"Name",
-    "permission":"Permission",
-    "role":"Role",
+    "name": "Name",
+    "permission": "Permission",
+    "role": "Role",
     "role_representative": "Representative",
     "role_all": "All"
+  },
+  "Feed": {
+    "CreateFeedPopup": {
+      "category": "Category",
+      "income": "Income",
+      "spending": "Spending",
+      "price": "Price",
+      "price_hint": "Write price",
+      "title": "Title",
+      "title_hint": "Write title",
+      "content": "Contnet",
+      "content_hint": "Write content",
+      "image": "image",
+      "image_hint": "Up to 7 images can be add",
+      "cancel": "Cancel",
+      "submit": "Submit"
+    }
   }
 }

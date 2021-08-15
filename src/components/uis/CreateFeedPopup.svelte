@@ -83,6 +83,7 @@
   import EditText from './EditText.svelte';
   import EditTextArea from './EditTextArea.svelte';
   import Modal from './Modal.svelte';
+  import {_} from 'svelte-i18n';
 
   export let visible: boolean;
   export let communityInfo: {
@@ -117,27 +118,31 @@
     </div>
     <!-- type -->
     <div class="content-item-container">
-      <div class="label">구분</div>
+      <div class="label">{$_('Feed.CreateFeedPopup.category')}</div>
       <div class="content">
         <div class="type-btn">
           <SvgPlusCircle />
-          <div style="margin-left:3px;">수입</div>
+          <div style="margin-left:3px;">
+            {$_('Feed.CreateFeedPopup.income')}
+          </div>
         </div>
 
         <div style="width:6px;" />
 
         <div class="type-btn">
           <SvgMinusCircle />
-          <div style="margin-left:3px;">지출</div>
+          <div style="margin-left:3px;">
+            {$_('Feed.CreateFeedPopup.spending')}
+          </div>
         </div>
       </div>
     </div>
     <!-- price -->
     <div class="content-item-container">
-      <div class="label">금액</div>
+      <div class="label">{$_('Feed.CreateFeedPopup.price')}</div>
       <div class="content">
         <EditText
-          placeholder="금액을 입력하세요."
+          placeholder={$_('Feed.CreateFeedPopup.price_hint')}
           containerStyle="height:40px; flex:1;"
           inputStyle="margin:0px;"
         />
@@ -145,10 +150,10 @@
     </div>
     <!-- title -->
     <div class="content-item-container">
-      <div class="label">수입처</div>
+      <div class="label">{$_('Feed.CreateFeedPopup.title')}</div>
       <div class="content">
         <EditText
-          placeholder="수입처를 알려주세요."
+          placeholder={$_('Feed.CreateFeedPopup.title_hint')}
           containerStyle="height:40px; flex:1;"
           inputStyle="margin:0px;"
         />
@@ -156,26 +161,29 @@
     </div>
     <!-- content -->
     <div class="content-item-container">
-      <div class="label">내용</div>
+      <div class="label">{$_('Feed.CreateFeedPopup.content')}</div>
       <div class="content">
-        <EditTextArea placeholder="내용을 작성하세요." style="height:162px;" />
+        <EditTextArea
+          placeholder={$_('Feed.CreateFeedPopup.content_hint')}
+          style="height:162px;"
+        />
       </div>
     </div>
     <!-- images -->
     <div class="content-item-container">
-      <div class="label">사진</div>
+      <div class="label">{$_('Feed.CreateFeedPopup.image')}</div>
       <div class="content" />
     </div>
 
     <div class="submit-container">
       <Button
         style="background-color:transparent; border:none; width:72px; height:40px;"
-        >취소</Button
+        >{$_('Feed.CreateFeedPopup.cancel')}</Button
       >
       <Button
         style="width:72px; height:40px; margin-left:8px;: border:none;"
         primary
-        disabled>확인</Button
+        disabled>{$_('Feed.CreateFeedPopup.submit')}</Button
       >
     </div>
   </div>

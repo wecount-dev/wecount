@@ -33,10 +33,27 @@
     "title": "템플릿"
   },
   "Member": {
-    "name":"이름",
-    "permission":"권한",
-    "role":"역할",
+    "name": "이름",
+    "permission": "권한",
+    "role": "역할",
     "role_representative": "대표관리자",
     "role_all": "전체"
+  },
+  "Feed": {
+    "CreateFeedPopup": {
+      "category": "구분",
+      "income": "수입",
+      "spending": "지출",
+      "price": "금액",
+      "price_hint": "금액을 입력하세요.",
+      "title": "수입처",
+      "title_hint": "수입처를 알려주세요.",
+      "content": "내용",
+      "content_hint": "내용을 작성하세요",
+      "image": "사진",
+      "image_hint": "최대 7장 첨부 가능",
+      "cancel": "취소",
+      "submit": "확인"
+    }
   }
 }
