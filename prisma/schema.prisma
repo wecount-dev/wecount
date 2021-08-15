@@ -24,16 +24,207 @@ model User {
   last_sign_in_at    DateTime?
   role               String?   @db.VarChar(255)
 
-  communities Community[]
+  Permission Permission[]
+  Deposit    Deposit[]
+  Feed        Feed[]
+  Reply       Reply[]
+  Reaction    Reaction[]
 }
 
 model Community {
-  id          String   @id @default(cuid()) @db.Uuid
+  id          String   @id @default(cuid()) @db.VarChar(50)
   isPublic    Boolean?
   name        String
   description String
   currency    String
 
-  user   User   @relation(fields: [userId], references: [id])
-  userId String @db.Uuid
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @default(now())
+  deletedAt DateTime?
+
+  Permission Permission[]
+  Topic      Topic[]
+  Deposit    Deposit[]
+  Category    Category[]
+  CreditCard  CreditCard[]
+  Feed        Feed[]
+  Reply       Reply[]
+}
+
+enum PermissionType {
+  owner
+  admin
+  member
+}
+
+model Permission {
+  type      PermissionType
+  createdAt DateTime       @default(now())
+
+  userId      String    @db.Uuid
+  user        User      @relation(fields: [userId], references: [id])
+  communityId String    @db.VarChar(50)
+  community   Community @relation(fields: [communityId], references: [id])
+
+  @@unique([userId, communityId])
+}
+
+enum DepositType {
+  sponsoring
+  deposit
+}
+
+enum PaymentType {
+  onetime
+  subscription
+}
+
+enum SubscriptionPeriodUnit {
+  day
+  week
+  month
+  year
+}
+
+model Topic {
+  id      String  @id @default(cuid())
+  name    String  @db.VarChar(255)
+  iconUrl String?
+
+  communityId String    @db.VarChar(50)
+  community   Community @relation(fields: [communityId], references: [id])
+
+  Deposit Deposit[]
+}
+
+model Deposit {
+  id                     String                  @id @default(cuid())
+  depositType            DepositType             @default(sponsoring)
+  paymentType            PaymentType             @default(onetime)
+  title                  String                  @db.VarChar(255)
+  description            String?
+  price                  Float
+  localizedPrice         String                  @db.VarChar(50)
+  currency               String                  @db.VarChar(10)
+  subscriptionPeriodUnit SubscriptionPeriodUnit?
+  subscriptionPeriod     Int?                    @db.SmallInt
+  createdAt              DateTime?               @default(now())
+  updatedAt              DateTime?               @default(now()) @updatedAt
+  deletedAt              DateTime?
+
+  userId      String?    @db.Uuid
+  user        User?      @relation(fields: [userId], references: [id])
+  communityId String?    @db.VarChar(50)
+  community   Community? @relation(fields: [communityId], references: [id])
+  topicId     String?
+  topic       Topic?     @relation(fields: [topicId], references: [id])
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  color       String    @default("#AAAAAA")
+  name        String
+  iconUrl     String?
+  description String?
+
+  Feed       Feed[]
+
+  createdAt   DateTime? @default(now())
+  updatedAt   DateTime? @default(now()) @updatedAt
+  communityId String    @db.VarChar(50)
+  community   Community @relation(fields: [communityId], references: [id])
+}
+
+enum CardType {
+  amex
+  master
+  visa
+  discover
+}
+
+model CreditCard {
+  id                 String    @id @default(cuid())
+  cardNumber         String?
+  validDateMonth     String?
+  validDateYear      String?
+  twoLetterPassword  String?
+  registrationNumber String?
+  description        String?
+  cvv                String?
+  cardType           CardType?
+  createdAt          DateTime? @default(now())
+  updatedAt          DateTime? @default(now()) @updatedAt
+  deletedAt          DateTime?
+
+  Feed              Feed[]
+
+  communityId String    @db.VarChar(50)
+  community   Community @relation(fields: [communityId], references: [id])
+}
+
+model Feed {
+  id             String    @id @default(cuid()) @db.VarChar(50)
+  isPublic       Boolean   @default(true)
+  title          String    @db.VarChar(255)
+  date           DateTime?
+  price          Float
+  localizedPrice String?   @db.VarChar(255)
+  latitude       Float?
+  longitude      Float?
+  createdAt      DateTime? @default(now())
+  updatedAt      DateTime? @default(now()) @updatedAt
+  deletedAt      DateTime?
+
+  Reply    Reply[]
+  Category Category[]
+  Reaction Reaction[]
+
+  communityId  String      @db.VarChar(50)
+  community    Community   @relation(fields: [communityId], references: [id])
+  userId       String      @db.Uuid
+  user         User        @relation(fields: [userId], references: [id])
+  creditCard   CreditCard? @relation(fields: [creditCardId], references: [id])
+  creditCardId String?
+}
+
+enum MessageType {
+  text
+  photo
+  movie
+  file
+}
+
+model Reply {
+  id          String      @id @default(cuid()) @db.VarChar(50)
+  messageType MessageType @default(text)
+  photoURL    String?
+  movieURL    String?
+  fileURL     String?
+  text        String?
+  createdAt   DateTime?   @default(now())
+  updatedAt   DateTime?   @default(now()) @updatedAt
+
+  Reaction   Reaction[]
+
+  communityId String?    @db.VarChar(50)
+  community   Community? @relation(fields: [communityId], references: [id])
+  feedId      String?    @db.VarChar(50)
+  feed        Feed?      @relation(fields: [feedId], references: [id])
+  userId      String     @db.Uuid
+  user        User       @relation(fields: [userId], references: [id])
+}
+
+model Reaction {
+  id    String @id @default(cuid()) @db.Uuid
+  emoji String @default("😀")
+
+  feedId  String? @db.VarChar(50)
+  feed    Feed?   @relation(fields: [feedId], references: [id])
+  replyId String? @db.VarChar(50)
+  reply   Reply?  @relation(fields: [replyId], references: [id])
+  userId  String  @db.Uuid
+  user    User    @relation(fields: [userId], references: [id])
+
+  @@unique([replyId, userId, emoji])
+  @@unique([feedId, userId, emoji])
 }

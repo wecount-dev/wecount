@@ -11,6 +11,7 @@ export const createCommunity = async (community: Omit<Community, 'id'>): Promise
 
     if (error) throw error;
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     console.error(err);
@@ -29,6 +30,7 @@ export const updateCommunity = async (community: Community): Promise<Community |
 
     if (error) throw error;
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     console.error(err);
@@ -47,6 +49,7 @@ export const deleteCommunity = async (id: string): Promise<Community | null> => 
 
     if (error) throw error;
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     console.error(err);
