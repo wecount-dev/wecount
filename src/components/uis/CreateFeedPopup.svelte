@@ -5,6 +5,8 @@
     border-radius: 16px;
     position: relative;
     width: 472px;
+    display: flex;
+    flex-direction: column;
     @media (max-width: 640px) {
       border-radius: 0px;
       width: 100%;
@@ -64,6 +66,11 @@
       cursor: pointer;
     }
   }
+  .submit-container {
+    display: flex;
+    margin-top: 24px;
+    align-self: center;
+  }
 </style>
 
 <script lang="ts">
@@ -72,6 +79,9 @@
     SvgMinusCircle,
     SvgPlusCircle,
   } from '../../utils/Icon';
+  import Button from './Button.svelte';
+  import EditText from './EditText.svelte';
+  import EditTextArea from './EditTextArea.svelte';
   import Modal from './Modal.svelte';
 
   export let visible: boolean;
@@ -100,11 +110,12 @@
     <div on:click={onClose} class="close">
       <SvgCreateFeedPopupClose />
     </div>
+    <!-- community-info -->
     <div class="community-info-container">
       <img class="icon" alt="communityIcon" src={communityInfo.iconUri} />
       <div class="name">{communityInfo.name}</div>
     </div>
-
+    <!-- type -->
     <div class="content-item-container">
       <div class="label">구분</div>
       <div class="content">
@@ -120,6 +131,52 @@
           <div style="margin-left:3px;">지출</div>
         </div>
       </div>
+    </div>
+    <!-- price -->
+    <div class="content-item-container">
+      <div class="label">금액</div>
+      <div class="content">
+        <EditText
+          placeholder="금액을 입력하세요."
+          containerStyle="height:40px; flex:1;"
+          inputStyle="margin:0px;"
+        />
+      </div>
+    </div>
+    <!-- title -->
+    <div class="content-item-container">
+      <div class="label">수입처</div>
+      <div class="content">
+        <EditText
+          placeholder="수입처를 알려주세요."
+          containerStyle="height:40px; flex:1;"
+          inputStyle="margin:0px;"
+        />
+      </div>
+    </div>
+    <!-- content -->
+    <div class="content-item-container">
+      <div class="label">내용</div>
+      <div class="content">
+        <EditTextArea placeholder="내용을 작성하세요." style="height:162px;" />
+      </div>
+    </div>
+    <!-- images -->
+    <div class="content-item-container">
+      <div class="label">사진</div>
+      <div class="content" />
+    </div>
+
+    <div class="submit-container">
+      <Button
+        style="background-color:transparent; border:none; width:72px; height:40px;"
+        >취소</Button
+      >
+      <Button
+        style="width:72px; height:40px; margin-left:8px;: border:none;"
+        primary
+        disabled>확인</Button
+      >
     </div>
   </div>
 </Modal>
