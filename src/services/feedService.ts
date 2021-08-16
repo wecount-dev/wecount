@@ -1,7 +1,11 @@
 import {Feed} from "../generated/client";
 import supabase from "../lib/db";
 
-export const createFeed = async (userId: string, communityId: string, feed: Omit<Feed, 'id'>): Promise<Feed | null> => {
+export const createFeed = async (
+  userId: string,
+  communityId: string,
+  feed: Omit<Feed, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt'>,
+  ): Promise<Feed | null> => {
   if (!userId || !communityId || !feed) {
     // eslint-disable-next-line no-console
     console.error('All arguments are not specified');
@@ -11,14 +15,14 @@ export const createFeed = async (userId: string, communityId: string, feed: Omit
 
   try {
     const {data, error} = await supabase
-    .from<Feed>('Feed')
-    .insert([
-      {...feed},
-    ])
-    .match({
-      communityId,
-      userId,
-    }).single();
+      .from<Feed>('Feed')
+      .insert([
+        {...feed},
+      ])
+      .match({
+        communityId,
+        userId,
+      }).single();
 
     if (error) throw error;
 
@@ -32,13 +36,15 @@ export const createFeed = async (userId: string, communityId: string, feed: Omit
   }
 };
 
-export const updateFeed = async (feed: Feed): Promise<Feed | null> => {
+export const updateFeed = async (
+  feed: Omit<Feed, 'createdAt' | 'updatedAt' | 'deletedAt'>,
+): Promise<Feed | null> => {
   try {
     const {data, error} = await supabase
-    .from<Feed>('Community')
-    .update({...feed})
-    .match({id: feed.id})
-    .single();
+      .from<Feed>('Community')
+      .update({...feed})
+      .match({id: feed.id})
+      .single();
 
     if (error) throw error;
 
@@ -55,10 +61,10 @@ export const updateFeed = async (feed: Feed): Promise<Feed | null> => {
 export const deleteFeed = async (id: string): Promise<Feed | null> => {
   try {
     const {data, error} = await supabase
-    .from<Feed>('Feed')
-    .delete()
-    .match({id})
-    .single();
+      .from<Feed>('Feed')
+      .delete()
+      .match({id})
+      .single();
 
     if (error) throw error;
 
@@ -107,8 +113,6 @@ export const getFeed = async (id: string): Promise<Feed | null> => {
         id
         email
         phone
-        role
-        
       )
     `)
     .match({id})

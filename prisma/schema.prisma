@@ -147,7 +147,7 @@ enum CardType {
 }
 
 model CreditCard {
-  id                 String    @id @default(cuid())
+  id                 String    @id @default(cuid()) @db.VarChar(50)
   cardNumber         String?   @db.VarChar(50)
   validDateMonth     String?   @db.VarChar(4)
   validDateYear      String?   @db.VarChar(4)
@@ -188,7 +188,7 @@ model Feed {
   userId       String      @db.Uuid
   user         User        @relation(fields: [userId], references: [id])
   creditCard   CreditCard? @relation(fields: [creditCardId], references: [id])
-  creditCardId String?
+  creditCardId String?     @db.VarChar(50)
 }
 
 enum MessageType {

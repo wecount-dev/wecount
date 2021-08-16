@@ -15,10 +15,10 @@ export const createCommunity = async (
 
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .insert([
-      {...community},
-    ]).single();
+      .from<Community>('Community')
+      .insert([
+        {...community},
+      ]).single();
 
     if (error) throw error;
 
@@ -43,10 +43,10 @@ export const createCommunity = async (
 export const updateCommunity = async (community: Community): Promise<Community | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .update({...community})
-    .match({id: community.id})
-    .single();
+      .from<Community>('Community')
+      .update({...community})
+      .match({id: community.id})
+      .single();
 
     if (error) throw error;
 
@@ -63,10 +63,10 @@ export const updateCommunity = async (community: Community): Promise<Community |
 export const deleteCommunity = async (id: string): Promise<Community | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .delete()
-    .match({id})
-    .single();
+      .from<Community>('Community')
+      .delete()
+      .match({id})
+      .single();
 
     if (error) throw error;
 
@@ -83,25 +83,25 @@ export const deleteCommunity = async (id: string): Promise<Community | null> => 
 export const getMyCommunites = async (userId: string): Promise<Community[] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .select(`
-      isPublic
-      name
-      description
-      currency
-      color
-      Permission (
-        type
-        accepted
-        userId
-      )
-    `)
-    .match({
-      Permission: {
-        accepted: true,
-        userId,
-      },
-    });
+      .from<Community>('Community')
+      .select(`
+        isPublic
+        name
+        description
+        currency
+        color
+        Permission (
+          type
+          accepted
+          userId
+        )
+      `)
+      .match({
+        Permission: {
+          accepted: true,
+          userId,
+        },
+      });
 
     if (error) throw error;
 
@@ -118,10 +118,10 @@ export const getMyCommunites = async (userId: string): Promise<Community[] | nul
 export const getCommunity = async (id: string): Promise<Community | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .select()
-    .match({id})
-    .single();
+      .from<Community>('Community')
+      .select()
+      .match({id})
+      .single();
 
     if (error) throw error;
 
