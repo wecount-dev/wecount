@@ -7,4 +7,10 @@
   }
 </style>
 
-<main>Temp</main>
+<script lang="ts">
+  import ProgressBar from '../uis/ProgressBar.svelte';
+</script>
+
+<main>
+  <ProgressBar completed={60} />
+</main>
