@@ -8,17 +8,17 @@
 
 <script lang="ts">
   import SelectIconButton from './SelectIconButton.svelte';
+  import type {CommunityType} from '../../../types/index.svelte';
 
-  export let id: string;
-  export let imageUrl: string;
+  export let community: CommunityType;
   export let isSelected = false;
   export let selectCommunity: (id: string) => void;
 </script>
 
 <SelectIconButton
-  selectValue={id}
+  selectValue={community.id}
   isSelected={isSelected}
   onSelect={selectCommunity}
 >
-  <img class="icon" src={imageUrl} alt="icon" style="icon" />
+  <img class="icon" src={community.imageUrl} alt="icon" style="icon" />
 </SelectIconButton>

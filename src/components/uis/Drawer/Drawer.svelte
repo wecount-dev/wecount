@@ -61,52 +61,55 @@
   import CommunityPlusMenu from './CommunityPlusMenu.svelte';
   import Menu from './Menu.svelte';
 
-  const addCommunityUrl = 'https://google.com';
-  export let isOpen = true;
   export let communites: CommunityType[];
   export let onSelectMenu: (url: string) => void;
   export let menuStyle: string | undefined = undefined;
 
-  let isLoading = false;
-  let showMenuText = isOpen;
-  let selectedCommunityId = communites[0].id;
-  let seletedMenuUrl: string;
-  let menuLayoutElement: HTMLDivElement;
+  const addCommunityUrl = 'https://google.com';
   const menus: {
     [communityId: string]: MenuType[];
   } = {};
 
-  const toggleMenuWindow = () => (isOpen = !isOpen);
-  const selectCommunity = (id: string) => (selectedCommunityId = id);
-  const selectAddCommunity = (url: string) => onSelectMenu(url);
+  let isOpen = true;
+  let isLoading = false;
+  let isMenuVisible = isOpen;
+  let selectedCommunityId = communites[0].id;
+  let menuLayoutElement: HTMLDivElement;
+  let seletedMenuUrl: string;
 
-  const selectMenu = (url: string) => {
-    seletedMenuUrl = url;
-    onSelectMenu(seletedMenuUrl);
+  $: onSelectMenu(seletedMenuUrl);
+
+  const toggleMenuWindow = () => (isOpen = !isOpen);
+  const selectAddCommunity = (url: string) => onSelectMenu(url);
+  const selectMenu = (url: string) => (seletedMenuUrl = url);
+
+  const selectCommunity = (id: string) => {
+    selectedCommunityId = id;
+    selectMenu(menus[selectedCommunityId][0].url);
   };
 
   const requestMenuAPI = (communityId: string) => {
     // eslint-disable-next-line no-console
-    console.debug(`Call menu API (comminity id: ${communityId})`);
+    console.debug(`Bind Menu via API Call (comminity id: ${communityId})`);
 
+    // Temporary Data
     return [
       {
-        name: '커밋',
-        url: 'https://github.com/wecount-dev/wecount/commits',
+        name: 'Commits',
+        url: `https://github.com/wecount-dev/wecount/commits/${communityId}`,
       },
       {
-        name: '이슈',
+        name: 'Issues',
         notificationCounts: 99,
-        url: 'https://github.com/wecount-dev/wecount/issues',
+        url: `https://github.com/wecount-dev/wecount/issues/${communityId}`,
       },
     ];
   };
 
   const setInitMenu = () => {
-    const InitCommunity = communites[0];
     const menuIndex = 0;
 
-    seletedMenuUrl = menus[InitCommunity.id][menuIndex].url;
+    seletedMenuUrl = menus[selectedCommunityId][menuIndex].url;
   };
 
   const setMenus = (communites: CommunityType[]) => {
@@ -122,7 +125,7 @@
 
   const outPutsMenusAfterEndOfTransitionAnimation = () => {
     menuLayoutElement.addEventListener('transitionend', () => {
-      showMenuText = isOpen;
+      isMenuVisible = isOpen;
     });
   };
 
@@ -144,8 +147,7 @@
     <div class="community-menu-layout">
       {#each communites as community}
         <CommunityMenu
-          id={community.id}
-          imageUrl={community.imageUrl}
+          community={community}
           isSelected={community.id === selectedCommunityId}
           selectCommunity={selectCommunity}
         />
@@ -165,12 +167,10 @@
     <div class="close-button" on:click={toggleMenuWindow}>
       <SvgChevronsLeft />
     </div>
-    {#if !isLoading && showMenuText}
+    {#if !isLoading && isMenuVisible}
       {#each menus[selectedCommunityId] as menu}
         <Menu
-          name={menu.name}
-          notificationCounts={menu.notificationCounts}
-          url={menu.url}
+          menu={menu}
           selectMenu={selectMenu}
           isSelected={menu.url === seletedMenuUrl}
         />

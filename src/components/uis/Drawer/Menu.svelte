@@ -35,24 +35,24 @@
 </style>
 
 <script lang="ts">
-  export let name: string;
+  import type {MenuType} from '../../../types/index.svelte';
+
+  export let menu: MenuType;
   export let isSelected: boolean;
-  export let url: string;
-  export let notificationCounts: number | undefined = undefined;
   export let selectMenu: (url: string) => void;
 </script>
 
 <div
   class="sub-menu"
   style="background-color: {isSelected ? 'var(--gray10)' : 'white'}"
-  on:click={() => selectMenu(url)}
+  on:click={() => selectMenu(menu.url)}
 >
   <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>
-    {name}
+    {menu.name}
   </span>
-  {#if notificationCounts}
+  {#if menu.notificationCounts}
     <span class="notification-counts">
-      +{notificationCounts}
+      +{menu.notificationCounts}
     </span>
   {/if}
 </div>
