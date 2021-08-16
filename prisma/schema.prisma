@@ -31,6 +31,7 @@ model User {
   Feed       Feed[]
   Reply      Reply[]
   Reaction   Reaction[]
+  Image      Image[]
 }
 
 model Community {
@@ -52,6 +53,7 @@ model Community {
   CreditCard CreditCard[]
   Feed       Feed[]
   Reply      Reply[]
+  Image      Image[]
 }
 
 enum PermissionType {
@@ -182,6 +184,7 @@ model Feed {
   Reply    Reply[]
   Category Category[]
   Reaction Reaction[]
+  Image    Image[]
 
   communityId  String      @db.VarChar(50)
   community    Community   @relation(fields: [communityId], references: [id])
@@ -189,6 +192,18 @@ model Feed {
   user         User        @relation(fields: [userId], references: [id])
   creditCard   CreditCard? @relation(fields: [creditCardId], references: [id])
   creditCardId String?     @db.VarChar(50)
+}
+
+model Image {
+  id  String @id @default(cuid()) @db.VarChar(50)
+  url String
+
+  communityId String?    @db.VarChar(50)
+  community   Community? @relation(fields: [communityId], references: [id])
+  userId      String?    @db.Uuid
+  user        User?      @relation(fields: [userId], references: [id])
+  feedId      String?    @db.VarChar(50)
+  feed        Feed?      @relation(fields: [feedId], references: [id])
 }
 
 enum MessageType {
