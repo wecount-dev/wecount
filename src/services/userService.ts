@@ -5,7 +5,7 @@ import supabase from "../lib/db";
 export const upsertUser = async (user: User | null): Promise<PrismaUser | null> => {
   if (!user || !user.id) return null;
 
-  const prismaUser: PrismaUser = {
+  const prismaUser: Partial<PrismaUser> = {
     aud: user.aud,
     confirmation_sent_at: new Date(user.confirmation_sent_at as string),
     confirmed_at: new Date(user.confirmed_at as string),
@@ -21,8 +21,6 @@ export const upsertUser = async (user: User | null): Promise<PrismaUser | null> 
     updated_at: new Date(user.updated_at as string),
   };
 
-  console.log('prismaUser', prismaUser);
-
   try {
     const {data, error} = await supabase
     .from<PrismaUser>('User')
@@ -35,6 +33,29 @@ export const upsertUser = async (user: User | null): Promise<PrismaUser | null> 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+
+    return null;
+  }
+};
+
+export const updateUserAvatar = async (avatarURL: string, userId: string): Promise<PrismaUser | null> => {
+  try {
+    const {data, error} = await supabase
+    .from<PrismaUser>('User')
+    .update({
+      avatar_url: avatarURL,
+    })
+    .match({id: userId})
+    .single();
+
+    if (error) throw error;
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return data;
+  } catch (err) {
+    // eslint-disable-next-line no-console
     console.error(err);
 
     return null;

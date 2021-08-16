@@ -1,32 +1,26 @@
-import {Community, Permission, PermissionType} from "../generated/client";
-
+import {Feed} from "../generated/client";
 import supabase from "../lib/db";
 
-export const createCommunity = async (userId: string, community: Omit<Community, 'id'>): Promise<Community | null> => {
-  if (!userId || !community) {
+export const createFeed = async (userId: string, communityId: string, feed: Omit<Feed, 'id'>): Promise<Feed | null> => {
+  if (!userId || !communityId || !feed) {
     // eslint-disable-next-line no-console
-    console.error('no userId or community');
+    console.error('All arguments are not specified');
 
     return null;
   }
 
-
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
+    .from<Feed>('Feed')
     .insert([
-      {...community},
-    ]).single();
+      {...feed},
+    ])
+    .match({
+      communityId,
+      userId,
+    }).single();
 
     if (error) throw error;
-
-    await supabase.from<Permission>('Permission').insert([
-      {
-        communityId: data?.id,
-        type: PermissionType.owner,
-        userId,
-      },
-    ]);
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
@@ -38,12 +32,12 @@ export const createCommunity = async (userId: string, community: Omit<Community,
   }
 };
 
-export const updateCommunity = async (community: Community): Promise<Community | null> => {
+export const updateFeed = async (feed: Feed): Promise<Feed | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .update({...community})
-    .match({id: community.id})
+    .from<Feed>('Community')
+    .update({...feed})
+    .match({id: feed.id})
     .single();
 
     if (error) throw error;
@@ -58,10 +52,10 @@ export const updateCommunity = async (community: Community): Promise<Community |
   }
 };
 
-export const deleteCommunity = async (id: string): Promise<Community | null> => {
+export const deleteFeed = async (id: string): Promise<Feed | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
+    .from<Feed>('Feed')
     .delete()
     .match({id})
     .single();
@@ -78,28 +72,12 @@ export const deleteCommunity = async (id: string): Promise<Community | null> => 
   }
 };
 
-export const getMyCommunites = async (userId: string): Promise<Community[] | null> => {
+export const feeds = async (communityId: string): Promise<Feed[] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .select(`
-      isPublic
-      name
-      description
-      currency
-      color
-      Permission (
-        type
-        accepted
-        userId
-      )
-    `)
-    .match({
-      Permission: {
-        accepted: true,
-        userId,
-      },
-    });
+    .from<Feed>('Feed')
+    .select()
+    .match({communityId});
 
     if (error) throw error;
 
@@ -113,11 +91,26 @@ export const getMyCommunites = async (userId: string): Promise<Community[] | nul
   }
 };
 
-export const getCommunity = async (id: string): Promise<Community | null> => {
+export const getFeed = async (id: string): Promise<Feed | null> => {
   try {
     const {data, error} = await supabase
-    .from<Community>('Community')
-    .select()
+    .from<Feed>('Feed')
+    .select(`
+      isPublic
+      title
+      date
+      price
+      localizedPrice
+      latitude
+      longitude
+      user (
+        id
+        email
+        phone
+        role
+        
+      )
+    `)
     .match({id})
     .single();
 

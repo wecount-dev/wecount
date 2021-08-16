@@ -15,6 +15,8 @@ model User {
   recovery_sent_at     DateTime?
   email                String?   @db.VarChar(255)
   phone                String?   @db.VarChar(255)
+  avatar_url           String?   @db.VarChar(255)
+  avatar_thumb_url     String?   @db.VarChar(255)
 
   created_at         DateTime  @default(now())
   updated_at         DateTime? @default(now())
@@ -26,9 +28,9 @@ model User {
 
   Permission Permission[]
   Deposit    Deposit[]
-  Feed        Feed[]
-  Reply       Reply[]
-  Reaction    Reaction[]
+  Feed       Feed[]
+  Reply      Reply[]
+  Reaction   Reaction[]
 }
 
 model Community {
@@ -37,6 +39,7 @@ model Community {
   name        String
   description String
   currency    String
+  color       String?  @default("#28DB98")
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @default(now())
@@ -45,10 +48,10 @@ model Community {
   Permission Permission[]
   Topic      Topic[]
   Deposit    Deposit[]
-  Category    Category[]
-  CreditCard  CreditCard[]
-  Feed        Feed[]
-  Reply       Reply[]
+  Category   Category[]
+  CreditCard CreditCard[]
+  Feed       Feed[]
+  Reply      Reply[]
 }
 
 enum PermissionType {
@@ -59,6 +62,7 @@ enum PermissionType {
 
 model Permission {
   type      PermissionType
+  accepted  Boolean?       @default(false)
   createdAt DateTime       @default(now())
 
   userId      String    @db.Uuid
@@ -121,13 +125,13 @@ model Deposit {
 }
 
 model Category {
-  id          String    @id @default(cuid())
-  color       String    @default("#AAAAAA")
+  id          String  @id @default(cuid())
+  color       String  @default("#AAAAAA")
   name        String
   iconUrl     String?
   description String?
 
-  Feed       Feed[]
+  Feed Feed[]
 
   createdAt   DateTime? @default(now())
   updatedAt   DateTime? @default(now()) @updatedAt
@@ -156,7 +160,7 @@ model CreditCard {
   updatedAt          DateTime? @default(now()) @updatedAt
   deletedAt          DateTime?
 
-  Feed              Feed[]
+  Feed Feed[]
 
   communityId String    @db.VarChar(50)
   community   Community @relation(fields: [communityId], references: [id])
@@ -204,7 +208,7 @@ model Reply {
   createdAt   DateTime?   @default(now())
   updatedAt   DateTime?   @default(now()) @updatedAt
 
-  Reaction   Reaction[]
+  Reaction Reaction[]
 
   communityId String?    @db.VarChar(50)
   community   Community? @relation(fields: [communityId], references: [id])
