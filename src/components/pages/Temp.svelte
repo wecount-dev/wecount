@@ -21,5 +21,5 @@
 </script>
 
 <main>
-  <TabNavigation tabs={tabs} tabNavigationStyle="height: 90%;" />
+  <TabNavigation tabs={tabs} tabNavigationStyle="height: 95%;" />
 </main>
