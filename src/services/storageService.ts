@@ -29,7 +29,7 @@ export const uploadMultipleImage =
         const fileType = splitedFilename[splitedFilename.length - 1];
         const path = dirs + '/' + filename + '.' + fileType;
   
-        const {error}=await supabase.storage.from(bucket).upload(path, file, {upsert:false});
+        const {error} = await supabase.storage.from(bucket).upload(path, file, {upsert:false});
         
         if(error) throw error;
 
