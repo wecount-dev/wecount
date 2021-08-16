@@ -45,7 +45,8 @@
   export let containerStyle = '';
   export let inputStyle = '';
 
-  let value = '';
+  export let value = '';
+
   const dispatch = createEventDispatcher();
 
   // @ts-ignore
@@ -64,5 +65,5 @@
     placeholder={placeholder}
     on:input={onChanged}
   />
-  <div class="test" />
+  <slot name="rightElement" />
 </main>
