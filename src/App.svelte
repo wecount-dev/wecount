@@ -1,4 +1,6 @@
 <style global lang="postcss">
+  @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
   :global(body) {
     --green20: #cbffdd;
     --green30: #7ee2d3;
@@ -49,6 +51,61 @@
 
     background-color: var(--background-color);
     color: var(--gray10);
+  }
+
+  * {
+    font-family: 'Spoqa Han Sans Neo';
+    color: var(--gray100);
+  }
+
+  :global(h1) {
+    font-size: 2.625rem;
+    line-height: 63px;
+  }
+
+  :global(h2) {
+    font-size: 2rem;
+    line-height: 48px;
+  }
+
+  :global(h3) {
+    font-size: 1.75rem;
+    line-height: 42px;
+  }
+
+  :global(h4) {
+    font-size: 1.625rem;
+    line-height: 40px;
+  }
+
+  :global(h5) {
+    font-size: 1.5rem;
+    line-height: 36px;
+  }
+
+  :global(h6) {
+    font-size: 1.25rem;
+    line-height: 30px;
+  }
+
+  :global(p) {
+    font-size: 1rem;
+    line-height: 32px;
+  }
+
+  :global(.p2) {
+    font-size: 0.875rem;
+    line-height: 22px;
+  }
+
+  :global(.sub-heading) {
+    font-size: 1.125rem;
+    line-height: 31px;
+  }
+
+  :global(caption) {
+    font-size: 0.75rem;
+    line-height: 21px;
   }
 
   main {
