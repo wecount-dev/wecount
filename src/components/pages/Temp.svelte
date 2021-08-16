@@ -7,21 +7,4 @@
   }
 </style>
 
-<script lang="ts">
-  import ImageUpload from '../uis/ImageUpload.svelte';
-
-  let uris: string[] = [];
-</script>
-
-<main>
-  <div style="width:30%">
-    <ImageUpload
-      bind:uris
-      option={{
-        bucket: 'staging',
-        dirs: 'feeds',
-        maxSizeMB: 1,
-      }}
-    />
-  </div>
-</main>
+<main>Temp</main>
