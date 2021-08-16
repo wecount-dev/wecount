@@ -8,22 +8,18 @@
 </style>
 
 <script lang="ts">
-  import Button from '../uis/Button.svelte';
+  import TabNavigation from '../uis/TabNavigation.svelte';
+  import Intro from '../pages/Intro.svelte';
+  import SignIn from './SignIn.svelte';
+  import SignUp from './SignUp.svelte';
 
-  import FeedCreatePopup from '../uis/FeedCreatePopup.svelte';
-
-  let visible = true;
+  export let tabs = [
+    {name: '최근 1주', component: Intro},
+    {name: '최근 1개월', component: SignIn},
+    {name: '최근 3개월', component: SignUp},
+  ];
 </script>
 
 <main>
-  <Button on:click={() => (visible = true)}>Open Feed Create Popup</Button>
-  <FeedCreatePopup
-    bind:visible
-    on:submit={(event) => console.log(event.detail)}
-    communityInfo={{
-      iconUri: 'https://avatars.githubusercontent.com/u/45788556?s=200&v=4',
-      name: 'dooboolab',
-      currency: 'USD',
-    }}
-  />
+  <TabNavigation tabs={tabs} tabNavigationStyle="height: 90%;" />
 </main>

@@ -1,3 +1,5 @@
+import type {SvelteComponent} from 'svelte';
+
 export type UserType = {
   name: string;
   role: string;
@@ -14,4 +16,9 @@ export type CarouselItemType = {
   user: UserType;
   community: CommunityType;
   colors: string[];
+};
+
+export type TabNavigationType = {
+  name: string;
+  component: typeof SvelteComponent;
 };
