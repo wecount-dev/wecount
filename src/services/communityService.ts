@@ -2,14 +2,16 @@ import {Community, Permission, PermissionType} from "../generated/client";
 
 import supabase from "../lib/db";
 
-export const createCommunity = async (userId: string, community: Omit<Community, 'id'>): Promise<Community | null> => {
+export const createCommunity = async (
+  userId: string,
+  community: Omit<Community, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt'>,
+): Promise<Community | null> => {
   if (!userId || !community) {
     // eslint-disable-next-line no-console
     console.error('no userId or community');
 
     return null;
   }
-
 
   try {
     const {data, error} = await supabase

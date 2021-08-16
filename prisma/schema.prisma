@@ -36,9 +36,9 @@ model User {
 model Community {
   id          String   @id @default(cuid()) @db.VarChar(50)
   isPublic    Boolean?
-  name        String
+  name        String   @db.VarChar(50)
   description String
-  currency    String
+  currency    String   @db.VarChar(4)
   color       String?  @default("#28DB98")
 
   createdAt DateTime  @default(now())
@@ -91,7 +91,7 @@ enum SubscriptionPeriodUnit {
 }
 
 model Topic {
-  id      String  @id @default(cuid())
+  id      String  @id @default(cuid()) @db.VarChar(50)
   name    String  @db.VarChar(255)
   iconUrl String?
 
@@ -102,7 +102,7 @@ model Topic {
 }
 
 model Deposit {
-  id                     String                  @id @default(cuid())
+  id                     String                  @id @default(cuid()) @db.VarChar(50)
   depositType            DepositType             @default(sponsoring)
   paymentType            PaymentType             @default(onetime)
   title                  String                  @db.VarChar(255)
@@ -120,15 +120,15 @@ model Deposit {
   user        User?      @relation(fields: [userId], references: [id])
   communityId String?    @db.VarChar(50)
   community   Community? @relation(fields: [communityId], references: [id])
-  topicId     String?
+  topicId     String?    @db.VarChar(50)
   topic       Topic?     @relation(fields: [topicId], references: [id])
 }
 
 model Category {
   id          String  @id @default(cuid())
   color       String  @default("#AAAAAA")
-  name        String
-  iconUrl     String?
+  name        String  @db.VarChar(255)
+  iconUrl     String? @db.VarChar(1024)
   description String?
 
   Feed Feed[]
@@ -148,13 +148,13 @@ enum CardType {
 
 model CreditCard {
   id                 String    @id @default(cuid())
-  cardNumber         String?
-  validDateMonth     String?
-  validDateYear      String?
-  twoLetterPassword  String?
-  registrationNumber String?
+  cardNumber         String?   @db.VarChar(50)
+  validDateMonth     String?   @db.VarChar(4)
+  validDateYear      String?   @db.VarChar(4)
+  twoLetterPassword  String?   @db.VarChar(2)
+  registrationNumber String?   @db.VarChar(50)
   description        String?
-  cvv                String?
+  cvv                String?   @db.VarChar(4)
   cardType           CardType?
   createdAt          DateTime? @default(now())
   updatedAt          DateTime? @default(now()) @updatedAt
@@ -201,9 +201,9 @@ enum MessageType {
 model Reply {
   id          String      @id @default(cuid()) @db.VarChar(50)
   messageType MessageType @default(text)
-  photoURL    String?
-  movieURL    String?
-  fileURL     String?
+  photoURL    String?     @db.VarChar(1024)
+  movieURL    String?     @db.VarChar(1024)
+  fileURL     String?     @db.VarChar(1024)
   text        String?
   createdAt   DateTime?   @default(now())
   updatedAt   DateTime?   @default(now()) @updatedAt
