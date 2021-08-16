@@ -7,6 +7,11 @@
     width: 472px;
     display: flex;
     flex-direction: column;
+    max-height: 100vh;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
     @media (max-width: 640px) {
       border-radius: 0px;
       width: 100%;
@@ -71,6 +76,11 @@
     margin-top: 24px;
     align-self: center;
   }
+  .image-hint {
+    font-size: 12px;
+    color: var(--gray50);
+    margin-top: 3px;
+  }
 </style>
 
 <script lang="ts">
@@ -84,25 +94,41 @@
   import EditTextArea from './EditTextArea.svelte';
   import Modal from './Modal.svelte';
   import {_} from 'svelte-i18n';
+  import {createEventDispatcher} from 'svelte';
+  import EditNumber from './EditNumber.svelte';
+
+  const dispatch = createEventDispatcher();
 
   export let visible: boolean;
   export let communityInfo: {
     iconUri: string;
     name: string;
+    currency: string;
   };
 
   interface Data {
-    type?: 'income' | 'spending';
     price?: number;
     title?: string;
     content?: string;
     uris: string[];
   }
 
-  let data: Data = {};
+  let data: Data = {uris: []};
+  let type: 'income' | 'spending' | null = null;
+
+  $: submitButtonActive =
+    data.content && data.price && data.title && data.uris && type;
 
   const onClose = () => {
     visible = false;
+    // init value
+    data = {uris: []};
+    type = null;
+  };
+
+  const onSubmit = (data: Data) => {
+    dispatch('submit', data);
+    onClose();
   };
 </script>
 
@@ -120,7 +146,14 @@
     <div class="content-item-container">
       <div class="label">{$_('Feed.FeedCreatePopup.category')}</div>
       <div class="content">
-        <div class="type-btn">
+        <div
+          class="type-btn"
+          on:click={() => (type = 'income')}
+          style={type === 'income'
+            ? 'background-color:var(--blue10); color: var(--blue50)'
+            : ''}
+        >
+          <!-- TODO : Icon color -->
           <SvgPlusCircle />
           <div style="margin-left:3px;">
             {$_('Feed.FeedCreatePopup.income')}
@@ -129,7 +162,14 @@
 
         <div style="width:6px;" />
 
-        <div class="type-btn">
+        <div
+          class="type-btn"
+          on:click={() => (type = 'spending')}
+          style={type === 'spending'
+            ? 'background-color:var(--red10); color: var(--red50)'
+            : ''}
+        >
+          <!-- TODO : Icon color -->
           <SvgMinusCircle />
           <div style="margin-left:3px;">
             {$_('Feed.FeedCreatePopup.spending')}
@@ -141,11 +181,21 @@
     <div class="content-item-container">
       <div class="label">{$_('Feed.FeedCreatePopup.price')}</div>
       <div class="content">
-        <EditText
+        <EditNumber
           placeholder={$_('Feed.FeedCreatePopup.price_hint')}
           containerStyle="height:40px; flex:1;"
-          inputStyle="margin:0px;"
-        />
+          inputStyle={`margin:0px; ${
+            data.price
+              ? 'text-align:right; font-weight:bold;'
+              : 'text-align:left; font-weight:normal;'
+          }`}
+          bind:value={data.price}
+          isMoneyFormat
+        >
+          <div style="font-size:14px;" slot="rightElement">
+            {communityInfo.currency}
+          </div>
+        </EditNumber>
       </div>
     </div>
     <!-- title -->
@@ -156,6 +206,7 @@
           placeholder={$_('Feed.FeedCreatePopup.title_hint')}
           containerStyle="height:40px; flex:1;"
           inputStyle="margin:0px;"
+          bind:value={data.title}
         />
       </div>
     </div>
@@ -166,13 +217,20 @@
         <EditTextArea
           placeholder={$_('Feed.FeedCreatePopup.content_hint')}
           style="height:162px;"
+          bind:value={data.content}
         />
       </div>
     </div>
     <!-- images -->
     <div class="content-item-container">
-      <div class="label">{$_('Feed.FeedCreatePopup.image')}</div>
-      <div class="content" />
+      <div class="label">
+        {$_('Feed.FeedCreatePopup.image')}
+        <div class="image-hint">{$_('Feed.FeedCreatePopup.image_hint')}</div>
+      </div>
+      <div class="content">
+        <!-- TODO -->
+        <!-- Please insert ImageUpload Componnet this line -->
+      </div>
     </div>
 
     <div class="submit-container">
@@ -182,9 +240,15 @@
         >{$_('Feed.FeedCreatePopup.cancel')}</Button
       >
       <Button
-        style="width:72px; height:40px; margin-left:8px;: border:none;"
+        style={`width:72px; height:40px; margin-left:8px;: border:none; ${
+          !submitButtonActive
+            ? 'color: var(--gray10); background-color: var(--gray40);'
+            : ''
+        }`}
         primary
-        disabled>{$_('Feed.FeedCreatePopup.submit')}</Button
+        on:click={() => onSubmit(data)}
+        disabled={!submitButtonActive}
+        >{$_('Feed.FeedCreatePopup.submit')}</Button
       >
     </div>
   </div>
