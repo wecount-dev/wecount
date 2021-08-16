@@ -9,15 +9,14 @@
 <script lang="ts">
   import SelectIconButton from './SelectIconButton.svelte';
 
+  export let id: string;
   export let imageUrl: string;
-  export let style: string | undefined = undefined;
   export let isSelected = false;
   export let selectCommunity: (id: string) => void;
 </script>
 
 <SelectIconButton
-  selectValue={imageUrl}
-  style={style}
+  selectValue={id}
   isSelected={isSelected}
   onSelect={selectCommunity}
 >

@@ -6,9 +6,11 @@
   };
 
   export type CommunityType = {
-    name: string;
-    isPublic: boolean;
-    description: string;
+    id: string;
+    name?: string;
+    isPublic?: boolean;
+    description?: string;
+    imageUrl: string;
   };
 
   export type CarouselItemType = {

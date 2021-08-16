@@ -16,6 +16,23 @@
   .seleted-menu {
     border: 1.5px solid var(--green40);
   }
+
+  .plus-menu {
+    background-color: var(--gray20);
+    background-position: center;
+    transition: background 0.8s;
+  }
+
+  .plus-menu:hover {
+    background: var(--gray30)
+      radial-gradient(circle, transparent 1%, var(--gray30) 1%) center/15000%;
+  }
+
+  .plus-menu:active {
+    background-color: var(--gray20);
+    background-size: 100%;
+    transition: background 0s;
+  }
 </style>
 
 <script lang="ts">

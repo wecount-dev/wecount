@@ -11,7 +11,7 @@
     box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.12);
   }
 
-  .menu {
+  .menu-layout {
     display: flex;
     flex-direction: column;
     width: 144px;
@@ -20,7 +20,7 @@
     transition-timing-function: ease-in-out;
   }
 
-  .menu-close {
+  .menu-layout-close {
     visibility: hidden;
     width: 0px;
   }
@@ -55,54 +55,79 @@
 
 <script lang="ts">
   import {onMount} from 'svelte';
-
-  import type {DrawerType, MenuType} from '../../../types/index.svelte';
+  import type {CommunityType, MenuType} from '../../../types/index.svelte';
   import {SvgChevronsLeft, SvgMenu} from '../../../utils/Icon';
   import CommunityMenu from './CommunityMenu.svelte';
   import CommunityPlusMenu from './CommunityPlusMenu.svelte';
   import Menu from './Menu.svelte';
 
+  const addCommunityUrl = 'https://google.com';
   export let isOpen = true;
-  export let items: DrawerType[];
+  export let communites: CommunityType[];
   export let onSelectMenu: (url: string) => void;
   export let menuStyle: string | undefined = undefined;
 
+  let isLoading = false;
+  let showMenuText = isOpen;
+  let selectedCommunityId = communites[0].id;
+  let seletedMenuUrl: string;
+  let menuLayoutElement: HTMLDivElement;
   const menus: {
-    [id: string]: MenuType[];
+    [communityId: string]: MenuType[];
   } = {};
 
-  const addCommunityUrl =
-    'https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png/';
-
-  let selectedCommunityId: string = items[0].community.imageUrl;
+  const toggleMenuWindow = () => (isOpen = !isOpen);
   const selectCommunity = (id: string) => (selectedCommunityId = id);
-
-  $: seletedMenuUrl = menus[selectedCommunityId][0].url;
-  $: {
-    onSelectMenu(seletedMenuUrl);
-  }
-  const selectMenu = (url: string) => (seletedMenuUrl = url);
-
   const selectAddCommunity = (url: string) => onSelectMenu(url);
 
-  const toggleMenuWindow = () => (isOpen = !isOpen);
+  const selectMenu = (url: string) => {
+    seletedMenuUrl = url;
+    onSelectMenu(seletedMenuUrl);
+  };
 
-  const setMenus = (items: DrawerType[]) => {
-    items.forEach((item: DrawerType) => {
-      menus[item.community.imageUrl] = item.menu;
+  const requestMenuAPI = (communityId: string) => {
+    // eslint-disable-next-line no-console
+    console.debug(`Call menu API (comminity id: ${communityId})`);
+
+    return [
+      {
+        name: '커밋',
+        url: 'https://github.com/wecount-dev/wecount/commits',
+      },
+      {
+        name: '이슈',
+        notificationCounts: 99,
+        url: 'https://github.com/wecount-dev/wecount/issues',
+      },
+    ];
+  };
+
+  const setInitMenu = () => {
+    const InitCommunity = communites[0];
+    const menuIndex = 0;
+
+    seletedMenuUrl = menus[InitCommunity.id][menuIndex].url;
+  };
+
+  const setMenus = (communites: CommunityType[]) => {
+    communites.forEach((community: CommunityType) => {
+      const menu = requestMenuAPI(community.id);
+
+      menus[community.id] = menu;
+    });
+
+    setInitMenu();
+    isLoading = false;
+  };
+
+  const outPutsMenusAfterEndOfTransitionAnimation = () => {
+    menuLayoutElement.addEventListener('transitionend', () => {
+      showMenuText = isOpen;
     });
   };
 
-  setMenus(items);
-
-  let menu: HTMLDivElement;
-  let showMenuText = isOpen;
-
-  onMount(() => {
-    menu.addEventListener('transitionend', () => {
-      showMenuText = isOpen;
-    });
-  });
+  setMenus(communites);
+  onMount(outPutsMenusAfterEndOfTransitionAnimation);
 </script>
 
 <div class="drawer">
@@ -117,10 +142,11 @@
       </div>
     </div>
     <div class="community-menu-layout">
-      {#each items as {community}}
+      {#each communites as community}
         <CommunityMenu
+          id={community.id}
           imageUrl={community.imageUrl}
-          isSelected={community.imageUrl === selectedCommunityId}
+          isSelected={community.id === selectedCommunityId}
           selectCommunity={selectCommunity}
         />
       {/each}
@@ -131,15 +157,15 @@
     </div>
   </div>
   <div
-    bind:this={menu}
-    class="menu"
-    class:menu-close={!isOpen}
+    bind:this={menuLayoutElement}
+    class="menu-layout"
+    class:menu-layout-close={!isOpen}
     style={menuStyle}
   >
     <div class="close-button" on:click={toggleMenuWindow}>
       <SvgChevronsLeft />
     </div>
-    {#if showMenuText}
+    {#if !isLoading && showMenuText}
       {#each menus[selectedCommunityId] as menu}
         <Menu
           name={menu.name}
