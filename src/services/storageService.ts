@@ -1,4 +1,5 @@
 import imageCompression from 'browser-image-compression';
+import {nanoid} from 'nanoid';
 import supabase from "../lib/db";
 
 export interface UploadMultipleImageOption { 
@@ -11,22 +12,22 @@ export interface UploadMultipleImageOption {
   fileType?: string           // optional, fileType override
   initialQuality?: number      // optional, initial quality value between 0 and 1 (default: 1)
 
-  path?:string // must end with "/"
-  bucket:string
+  dirs: 'communities' | 'profiles' | 'replies' | 'feeds' 
+  bucket: 'staging' | 'production'
 }
 
 export const uploadMultipleImage = 
-  async (files:File[] | FileList , {path:_path='', bucket, ...option}: UploadMultipleImageOption): Promise<string[]> =>
+  async (files:File[] | FileList , {dirs, bucket, ...option}: UploadMultipleImageOption): Promise<string[]> =>
 {
     // Iamge compress
     const compressedFiles = await Promise.all(Array.from(files).map((file) => imageCompression(file, option)));
 
     // Image Upload to supabase
-    const uris = await Promise.all(compressedFiles.map((file, i) => (async () => {
-        const filename = Date.now().toString() + '@' + i.toString(); // TODO
+    const uris = await Promise.all(compressedFiles.map((file) => (async () => {
+        const filename = Date.now().toString() + '@' + nanoid(4);
         const splitedFilename = file.name.split('.');
         const fileType = splitedFilename[splitedFilename.length - 1];
-        const path = _path + filename + '.' + fileType;
+        const path = dirs + '/' + filename + '.' + fileType;
   
         const {error}=await supabase.storage.from(bucket).upload(path, file, {upsert:false});
         

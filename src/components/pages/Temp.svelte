@@ -18,7 +18,8 @@
     <ImageUpload
       bind:uris
       option={{
-        bucket: 'image',
+        bucket: 'staging',
+        dirs: 'feeds',
         maxSizeMB: 1,
       }}
     />

@@ -39,6 +39,9 @@
     position: absolute;
     top: 4px;
     right: 4px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .image-empty-container {
     width: 72px;
@@ -55,11 +58,11 @@
   import type {UploadMultipleImageOption} from '../../services/storageService';
   import {SvgUploadClose, SvgUploadPlus} from '../../utils/Icon';
 
-  let fileInput: HTMLInputElement;
   export let max = 7;
   export let uris: string[];
   export let option: UploadMultipleImageOption;
 
+  let fileInput: HTMLInputElement;
   let loading = false;
 
   const onChange = async (
@@ -68,11 +71,7 @@
     files: FileList | null,
   ) => {
     try {
-      if (loading) return;
-
-      if (!files) return;
-
-      if (uris.length >= max) return;
+      if (loading || !files || uris.length >= max) return;
 
       loading = true;
 
