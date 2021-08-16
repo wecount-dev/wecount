@@ -40,7 +40,7 @@
     "role_all": "전체"
   },
   "Feed": {
-    "CreateFeedPopup": {
+    "FeedCreatePopup": {
       "category": "구분",
       "income": "수입",
       "spending": "지출",

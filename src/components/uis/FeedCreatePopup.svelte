@@ -75,7 +75,7 @@
 
 <script lang="ts">
   import {
-    SvgCreateFeedPopupClose,
+    SvgFeedCreatePopupClose,
     SvgMinusCircle,
     SvgPlusCircle,
   } from '../../utils/Icon';
@@ -92,7 +92,7 @@
   };
 
   interface Data {
-    type?: 'income' | 'expenditure';
+    type?: 'income' | 'spending';
     price?: number;
     title?: string;
     content?: string;
@@ -109,7 +109,7 @@
 <Modal visible={visible} on:close={onClose} disableBackdropClickToClose>
   <div class="container">
     <div on:click={onClose} class="close">
-      <SvgCreateFeedPopupClose />
+      <SvgFeedCreatePopupClose />
     </div>
     <!-- community-info -->
     <div class="community-info-container">
@@ -118,12 +118,12 @@
     </div>
     <!-- type -->
     <div class="content-item-container">
-      <div class="label">{$_('Feed.CreateFeedPopup.category')}</div>
+      <div class="label">{$_('Feed.FeedCreatePopup.category')}</div>
       <div class="content">
         <div class="type-btn">
           <SvgPlusCircle />
           <div style="margin-left:3px;">
-            {$_('Feed.CreateFeedPopup.income')}
+            {$_('Feed.FeedCreatePopup.income')}
           </div>
         </div>
 
@@ -132,17 +132,17 @@
         <div class="type-btn">
           <SvgMinusCircle />
           <div style="margin-left:3px;">
-            {$_('Feed.CreateFeedPopup.spending')}
+            {$_('Feed.FeedCreatePopup.spending')}
           </div>
         </div>
       </div>
     </div>
     <!-- price -->
     <div class="content-item-container">
-      <div class="label">{$_('Feed.CreateFeedPopup.price')}</div>
+      <div class="label">{$_('Feed.FeedCreatePopup.price')}</div>
       <div class="content">
         <EditText
-          placeholder={$_('Feed.CreateFeedPopup.price_hint')}
+          placeholder={$_('Feed.FeedCreatePopup.price_hint')}
           containerStyle="height:40px; flex:1;"
           inputStyle="margin:0px;"
         />
@@ -150,10 +150,10 @@
     </div>
     <!-- title -->
     <div class="content-item-container">
-      <div class="label">{$_('Feed.CreateFeedPopup.title')}</div>
+      <div class="label">{$_('Feed.FeedCreatePopup.title')}</div>
       <div class="content">
         <EditText
-          placeholder={$_('Feed.CreateFeedPopup.title_hint')}
+          placeholder={$_('Feed.FeedCreatePopup.title_hint')}
           containerStyle="height:40px; flex:1;"
           inputStyle="margin:0px;"
         />
@@ -161,29 +161,30 @@
     </div>
     <!-- content -->
     <div class="content-item-container">
-      <div class="label">{$_('Feed.CreateFeedPopup.content')}</div>
+      <div class="label">{$_('Feed.FeedCreatePopup.content')}</div>
       <div class="content">
         <EditTextArea
-          placeholder={$_('Feed.CreateFeedPopup.content_hint')}
+          placeholder={$_('Feed.FeedCreatePopup.content_hint')}
           style="height:162px;"
         />
       </div>
     </div>
     <!-- images -->
     <div class="content-item-container">
-      <div class="label">{$_('Feed.CreateFeedPopup.image')}</div>
+      <div class="label">{$_('Feed.FeedCreatePopup.image')}</div>
       <div class="content" />
     </div>
 
     <div class="submit-container">
       <Button
+        on:click={onClose}
         style="background-color:transparent; border:none; width:72px; height:40px;"
-        >{$_('Feed.CreateFeedPopup.cancel')}</Button
+        >{$_('Feed.FeedCreatePopup.cancel')}</Button
       >
       <Button
         style="width:72px; height:40px; margin-left:8px;: border:none;"
         primary
-        disabled>{$_('Feed.CreateFeedPopup.submit')}</Button
+        disabled>{$_('Feed.FeedCreatePopup.submit')}</Button
       >
     </div>
   </div>

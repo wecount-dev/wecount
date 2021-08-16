@@ -38,7 +38,7 @@
     "role_all": "All"
   },
   "Feed": {
-    "CreateFeedPopup": {
+    "FeedCreatePopup": {
       "category": "Category",
       "income": "Income",
       "spending": "Spending",

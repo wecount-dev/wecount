@@ -10,14 +10,14 @@
 <script lang="ts">
   import Button from '../uis/Button.svelte';
 
-  import CreateFeedPopup from '../uis/CreateFeedPopup.svelte';
+  import FeedCreatePopup from '../uis/FeedCreatePopup.svelte';
 
   let visible = true;
 </script>
 
 <main>
-  <Button on:click={() => (visible = true)}>Create Feed Popup</Button>
-  <CreateFeedPopup
+  <Button on:click={() => (visible = true)}>Open Feed Create Popup</Button>
+  <FeedCreatePopup
     bind:visible
     communityInfo={{
       iconUri: 'https://avatars.githubusercontent.com/u/45788556?s=200&v=4',
