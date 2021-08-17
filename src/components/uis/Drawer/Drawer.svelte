@@ -55,72 +55,44 @@
 
 <script lang="ts">
   import {onMount} from 'svelte';
-  import type {CommunityType, MenuType} from '../../../types/index.svelte';
+  import {_} from 'svelte-i18n';
+  import type {CommunityType} from '../../../types/index.svelte';
   import {SvgChevronsLeft, SvgMenu} from '../../../utils/Icon';
   import CommunityMenu from './CommunityMenu.svelte';
   import CommunityPlusMenu from './CommunityPlusMenu.svelte';
   import Menu from './Menu.svelte';
 
   export let communites: CommunityType[];
-  export let onSelectMenu: (url: string) => void;
+  export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
-  const addCommunityUrl = 'https://google.com';
-  const menus: {
-    [communityId: string]: MenuType[];
-  } = {};
+  const addCommunityPath = '/community/create';
+  const menus = [
+    {name: $_('Drawer.dashboard'), path: '/dashboard'},
+    {name: $_('Drawer.feed'), path: '/feed'},
+    {name: $_('Drawer.setting'), path: '/setting'},
+  ];
 
   let isOpen = true;
   let isLoading = false;
   let isMenuVisible = isOpen;
   let selectedCommunityId = communites[0].id;
   let menuLayoutElement: HTMLDivElement;
-  let seletedMenuUrl: string;
+  let seletedMenuPath = menus[0].path;
 
-  $: onSelectMenu(seletedMenuUrl);
+  $: {
+    const redirectPath = `${seletedMenuPath}/${String(selectedCommunityId)}`;
+
+    onSelectMenu(redirectPath);
+  }
 
   const toggleMenuWindow = () => (isOpen = !isOpen);
-  const selectAddCommunity = (url: string) => onSelectMenu(url);
-  const selectMenu = (url: string) => (seletedMenuUrl = url);
+  const selectAddCommunity = (path: string) => onSelectMenu(path);
+  const selectMenu = (path: string) => (seletedMenuPath = path);
 
   const selectCommunity = (id: string) => {
     selectedCommunityId = id;
-    selectMenu(menus[selectedCommunityId][0].url);
-  };
-
-  const requestMenuAPI = (communityId: string) => {
-    // eslint-disable-next-line no-console
-    console.debug(`Bind Menu via API Call (comminity id: ${communityId})`);
-
-    // Temporary Data
-    return [
-      {
-        name: 'Commits',
-        url: `https://github.com/wecount-dev/wecount/commits/${communityId}`,
-      },
-      {
-        name: 'Issues',
-        notificationCounts: 99,
-        url: `https://github.com/wecount-dev/wecount/issues/${communityId}`,
-      },
-    ];
-  };
-
-  const setInitMenu = () => {
-    const menuIndex = 0;
-
-    seletedMenuUrl = menus[selectedCommunityId][menuIndex].url;
-  };
-
-  const setMenus = (communites: CommunityType[]) => {
-    communites.forEach((community: CommunityType) => {
-      const menu = requestMenuAPI(community.id);
-
-      menus[community.id] = menu;
-    });
-
-    setInitMenu();
-    isLoading = false;
+    selectMenu(menus[0].path);
   };
 
   const outPutsMenusAfterEndOfTransitionAnimation = () => {
@@ -129,7 +101,6 @@
     });
   };
 
-  setMenus(communites);
   onMount(outPutsMenusAfterEndOfTransitionAnimation);
 </script>
 
@@ -153,7 +124,7 @@
         />
       {/each}
       <CommunityPlusMenu
-        redirectUrl={addCommunityUrl}
+        redirectPath={addCommunityPath}
         onSelectAddCommunity={selectAddCommunity}
       />
     </div>
@@ -168,11 +139,11 @@
       <SvgChevronsLeft />
     </div>
     {#if !isLoading && isMenuVisible}
-      {#each menus[selectedCommunityId] as menu}
+      {#each menus as menu}
         <Menu
           menu={menu}
           selectMenu={selectMenu}
-          isSelected={menu.url === seletedMenuUrl}
+          isSelected={menu.path === seletedMenuPath}
         />
       {/each}
     {/if}

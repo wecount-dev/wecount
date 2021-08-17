@@ -53,5 +53,10 @@
       "cancel": "Cancel",
       "submit": "Submit"
     }
+  },
+  "Drawer": {
+    "dashboard": "Dashboard",
+    "feed": "Feed",
+    "setting": "Setting"
   }
 }

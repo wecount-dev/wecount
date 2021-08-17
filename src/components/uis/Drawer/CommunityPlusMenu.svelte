@@ -2,13 +2,13 @@
   import SelectIconButton from './SelectIconButton.svelte';
   import {SvgPlus} from '../../../utils/Icon';
 
-  export let redirectUrl: string;
+  export let redirectPath: string;
   export let onSelectAddCommunity: (id: string) => void;
 </script>
 
 <SelectIconButton
   class="plus-menu"
-  selectValue={redirectUrl}
+  selectValue={redirectPath}
   onSelect={onSelectAddCommunity}
 >
   <SvgPlus />

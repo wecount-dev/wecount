@@ -39,13 +39,13 @@
 
   export let menu: MenuType;
   export let isSelected: boolean;
-  export let selectMenu: (url: string) => void;
+  export let selectMenu: (path: string) => void;
 </script>
 
 <div
   class="sub-menu"
   style="background-color: {isSelected ? 'var(--gray10)' : 'white'}"
-  on:click={() => selectMenu(menu.url)}
+  on:click={() => selectMenu(menu.path)}
 >
   <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>
     {menu.name}

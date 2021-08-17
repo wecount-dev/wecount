@@ -28,7 +28,7 @@
 
   export type MenuType = {
     name: string;
-    url: string;
+    path: string;
     notificationCounts?: number;
   };
 </script>
