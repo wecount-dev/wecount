@@ -8,7 +8,7 @@
 
 <script lang="ts">
   import SelectIconButton from './SelectIconButton.svelte';
-  import type {CommunityType} from '../../../types/index.svelte';
+  import type {CommunityType} from '../../../types';
 
   export let community: CommunityType;
   export let isSelected = false;

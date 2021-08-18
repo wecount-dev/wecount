@@ -56,7 +56,7 @@
 <script lang="ts">
   import {onMount} from 'svelte';
   import {_} from 'svelte-i18n';
-  import type {CommunityType} from '../../../types/index.svelte';
+  import type {CommunityType} from '../../../types';
   import {SvgChevronsLeft, SvgMenu} from '../../../utils/Icon';
   import CommunityMenu from './CommunityMenu.svelte';
   import CommunityPlusMenu from './CommunityPlusMenu.svelte';

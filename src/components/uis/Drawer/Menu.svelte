@@ -35,7 +35,7 @@
 </style>
 
 <script lang="ts">
-  import type {MenuType} from '../../../types/index.svelte';
+  import type {MenuType} from '../../../types';
 
   export let menu: MenuType;
   export let isSelected: boolean;

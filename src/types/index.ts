@@ -7,9 +7,11 @@ export type UserType = {
 };
 
 export type CommunityType = {
-  name: string;
-  isPublic: boolean;
-  description: string;
+  id: string;
+  name?: string;
+  isPublic?: boolean;
+  description?: string;
+  imageUrl: string;
 };
 
 export type CarouselItemType = {
@@ -21,4 +23,17 @@ export type CarouselItemType = {
 export type TabNavigationType = {
   name: string;
   component: typeof SvelteComponent;
+};
+
+export type DrawerType = {
+  community: {
+    imageUrl: string;
+  };
+  menu: MenuType[];
+};
+
+export type MenuType = {
+  name: string;
+  path: string;
+  notificationCounts?: number;
 };
