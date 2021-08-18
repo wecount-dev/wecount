@@ -16,7 +16,7 @@
   .unselected-name {
     font-size: 0.875rem;
     font-size: 400;
-    color: var(--gray80);
+    color: var(--text);
   }
 
   .notification-counts {
@@ -44,7 +44,9 @@
 
 <div
   class="sub-menu"
-  style="background-color: {isSelected ? 'var(--button)' : 'white'}"
+  style="background-color: {isSelected
+    ? 'var(--placeholder)'
+    : 'var(--background)'}"
   on:click={() => selectMenu(menu.path)}
 >
   <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>
