@@ -9,6 +9,8 @@
     flex-direction: column;
     max-height: 100vh;
     overflow: scroll;
+    -ms-overflow-style: none; /* IE 11 */
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }
@@ -66,10 +68,14 @@
     border-radius: 4px;
     background-color: var(--gray10);
     font-weight: bold;
-    color: var(--gray60);
+
     &:hover {
       cursor: pointer;
     }
+  }
+  .type-text {
+    margin-left: 3px;
+    color: var(--gray60);
   }
   .submit-container {
     display: flex;
@@ -132,7 +138,7 @@
   };
 </script>
 
-<Modal visible={visible} on:close={onClose} disableBackdropClickToClose>
+s<Modal visible={visible} on:close={onClose} disableBackdropClickToClose>
   <div class="container">
     <div on:click={onClose} class="close">
       <SvgFeedCreatePopupClose />
@@ -149,13 +155,14 @@
         <div
           class="type-btn"
           on:click={() => (type = 'income')}
-          style={type === 'income'
-            ? 'background-color:var(--blue10); color: var(--blue50)'
-            : ''}
+          style={type === 'income' ? 'background-color:var(--blue10);' : ''}
         >
           <!-- TODO : Icon color -->
           <SvgPlusCircle />
-          <div style="margin-left:3px;">
+          <div
+            class="type-text"
+            style={type === 'income' ? ' color: var(--blue50);' : ''}
+          >
             {$_('Feed.FeedCreatePopup.income')}
           </div>
         </div>
@@ -166,12 +173,15 @@
           class="type-btn"
           on:click={() => (type = 'spending')}
           style={type === 'spending'
-            ? 'background-color:var(--red10); color: var(--red50)'
+            ? 'background-color:var(--red10); color: var(--red50);'
             : ''}
         >
           <!-- TODO : Icon color -->
           <SvgMinusCircle />
-          <div style="margin-left:3px;">
+          <div
+            class="type-text"
+            style={type === 'spending' ? ' color: var(--red50);' : ''}
+          >
             {$_('Feed.FeedCreatePopup.spending')}
           </div>
         </div>
@@ -185,12 +195,12 @@
           placeholder={$_('Feed.FeedCreatePopup.price_hint')}
           containerStyle="height:40px; flex:1;"
           inputStyle={`margin:0px; ${
-            data.price
+            data.price !== undefined
               ? 'text-align:right; font-weight:bold;'
               : 'text-align:left; font-weight:normal;'
           }`}
           bind:value={data.price}
-          isMoneyFormat
+          isLocaleString
         >
           <div style="font-size:14px;" slot="rightElement">
             {communityInfo.currency}

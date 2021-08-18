@@ -38,12 +38,12 @@
 </style>
 
 <script lang="ts">
-  import moneyFormat from '../../utils/moneyFormat';
-
   export let placeholder = '';
   export let containerStyle = '';
   export let inputStyle = '';
-  export let isMoneyFormat = false;
+  export let isLocaleString = false;
+  export let max = 100000000000;
+  export let min = 0;
   export let value: number | undefined = undefined;
 
   let input: HTMLInputElement | null = null;
@@ -53,10 +53,17 @@
     if (!input) return;
 
     const currentValue = input.value;
-    const newValue = Number(currentValue.replace(/[A-Za-z!,@#$%^&*()]/g, '')); // only number
+    let newValue = Number(currentValue.replace(/[A-Za-z!,@#$%^&\-*()]/g, '')); // only number
 
+    if (newValue > max) newValue = max; // clamp
+
+    if (newValue < min) newValue = min;
+
+    // TODO how to support negative number
     value = newValue;
-    input.value = isMoneyFormat ? moneyFormat(newValue) : newValue.toString();
+    input.value = isLocaleString
+      ? newValue.toLocaleString()
+      : newValue.toString();
   };
 </script>
 
