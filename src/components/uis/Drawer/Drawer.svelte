@@ -69,8 +69,8 @@
   const addCommunityPath = '/community/create';
   const menus = [
     {name: $_('Drawer.dashboard'), path: '/dashboard'},
-    {name: $_('Drawer.feed'), path: '/feed'},
-    {name: $_('Drawer.setting'), path: '/setting'},
+    {name: $_('Drawer.feeds'), path: '/feeds'},
+    {name: $_('Drawer.settings'), path: '/settings'},
   ];
 
   let isOpen = true;

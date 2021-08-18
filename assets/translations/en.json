@@ -56,7 +56,7 @@
   },
   "Drawer": {
     "dashboard": "Dashboard",
-    "feed": "Feed",
-    "setting": "Setting"
+    "feeds": "Feed",
+    "settings": "Setting"
   }
 }

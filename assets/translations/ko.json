@@ -58,7 +58,7 @@
   },
   "Drawer": {
     "dashboard": "대시보드",
-    "feed": "피드",
-    "setting": "설정"
+    "feeds": "피드",
+    "settings": "설정"
   }
 }
