@@ -4,13 +4,13 @@
     padding: 28px;
     border-radius: 16px;
     position: relative;
-    width: 472px;
+    width: 440px;
     display: flex;
     flex-direction: column;
     max-height: 100vh;
     overflow: scroll;
     -ms-overflow-style: none; /* IE 11 */
-    scrollbar-width: none;
+    scrollbar-width: none; /* Firefox 64 */
     &::-webkit-scrollbar {
       display: none;
     }
@@ -52,7 +52,7 @@
     .label {
       margin-top: 8px;
       margin-bottom: 8px;
-      width: 112px;
+      width: 120px;
     }
     .content {
       flex: 1;
@@ -102,6 +102,7 @@
   import {_} from 'svelte-i18n';
   import {createEventDispatcher} from 'svelte';
   import EditNumber from './EditNumber.svelte';
+  import ImageUpload from './ImageUpload.svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -238,7 +239,14 @@ s<Modal visible={visible} on:close={onClose} disableBackdropClickToClose>
         <div class="image-hint">{$_('Feed.FeedCreatePopup.image_hint')}</div>
       </div>
       <div class="content">
-        <!-- TODO -->
+        <ImageUpload
+          bind:uris={data.uris}
+          option={{
+            bucket: 'staging',
+            dirs: 'feeds',
+            maxSizeMB: 1,
+          }}
+        />
         <!-- Please insert ImageUpload Componnet this line -->
       </div>
     </div>
