@@ -24,7 +24,7 @@ export const upsertUser = async (user: User | null): Promise<PrismaUser | null> 
   try {
     const {data, error} = await supabase
     .from<PrismaUser>('User')
-    .insert([
+    .upsert([
       {...prismaUser},
     ]).single();
 
