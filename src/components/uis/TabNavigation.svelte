@@ -31,7 +31,7 @@
 </style>
 
 <script lang="ts">
-  import type {TabNavigationType} from '../../types/index.svelte';
+  import type {TabNavigationType} from '../../types';
 
   export let tabs: TabNavigationType[];
   export let tabNavigationStyle: string | undefined = undefined;
