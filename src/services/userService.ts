@@ -1,36 +1,37 @@
-import {User as PrismaUser} from '../generated/client';
 import {User} from '@supabase/gotrue-js';
+import {definitions} from '../types/supabase';
 import supabase from "../lib/db";
 
-export const upsertUser = async (user: User | null): Promise<PrismaUser | null> => {
+export const upsertUser = async (
+  user: User | null,
+): Promise<definitions["User"] | null> => {
   if (!user || !user.id) return null;
 
-  const prismaUser: Partial<PrismaUser> = {
+  const prismaUser: definitions["User"] = {
     aud: user.aud,
-    confirmation_sent_at: new Date(user.confirmation_sent_at as string),
-    confirmed_at: new Date(user.confirmed_at as string),
-    created_at: new Date(user.created_at),
-    email: user.email as string,
-    email_confirmed_at: new Date(user.email_confirmed_at as string),
+    confirmation_sent_at: user.confirmation_sent_at,
+    confirmed_at: user.confirmed_at,
+    created_at: user.created_at,
+    email: user.email,
+    email_confirmed_at: user.email_confirmed_at,
     id: user.id,
-    last_sign_in_at: new Date(user.last_sign_in_at as string),
-    phone: user.phone as string,
-    phone_confirmed_at: new Date(user.phone_confirmed_at as string),
-    recovery_sent_at: new Date(user.recovery_sent_at as string),
-    role: user.role as string,
-    updated_at: new Date(user.updated_at as string),
+    last_sign_in_at: user.last_sign_in_at,
+    phone: user.phone,
+    phone_confirmed_at: user.phone_confirmed_at,
+    recovery_sent_at: user.recovery_sent_at,
+    role: user.role,
+    updated_at: user.updated_at,
   };
 
   try {
     const {data, error} = await supabase
-    .from<PrismaUser>('User')
+    .from<definitions["User"]>('User')
     .upsert([
       {...prismaUser},
     ]).single();
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -40,10 +41,13 @@ export const upsertUser = async (user: User | null): Promise<PrismaUser | null> 
   }
 };
 
-export const updateUserAvatar = async (avatarURL: string, userId: string): Promise<PrismaUser | null> => {
+export const updateUserAvatar = async (
+  avatarURL: string,
+  userId: string,
+): Promise<definitions["User"] | null> => {
   try {
     const {data, error} = await supabase
-    .from<PrismaUser>('User')
+    .from<definitions["User"]>('User')
     .update({
       avatar_url: avatarURL,
     })
@@ -52,7 +56,6 @@ export const updateUserAvatar = async (avatarURL: string, userId: string): Promi
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console

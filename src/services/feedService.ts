@@ -1,11 +1,11 @@
-import {Feed} from "../generated/client";
+import {definitions} from "../types/supabase";
 import supabase from "../lib/db";
 
 export const createFeed = async (
   userId: string,
   communityId: string,
-  feed: Omit<Feed, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt'>,
-  ): Promise<Feed | null> => {
+  feed: definitions["Feed"],
+  ): Promise<definitions["Feed"] | null> => {
   if (!userId || !communityId || !feed) {
     // eslint-disable-next-line no-console
     console.error('All arguments are not specified');
@@ -15,7 +15,7 @@ export const createFeed = async (
 
   try {
     const {data, error} = await supabase
-      .from<Feed>('Feed')
+      .from<definitions["Feed"]>('Feed')
       .insert([
         {...feed},
       ])
@@ -37,11 +37,11 @@ export const createFeed = async (
 };
 
 export const updateFeed = async (
-  feed: Omit<Feed, 'createdAt' | 'updatedAt' | 'deletedAt'>,
-): Promise<Feed | null> => {
+  feed: definitions["Feed"],
+): Promise<definitions["Feed"] | null> => {
   try {
     const {data, error} = await supabase
-      .from<Feed>('Community')
+      .from<definitions["Feed"]>('Community')
       .update({...feed})
       .match({id: feed.id})
       .single();
@@ -58,10 +58,10 @@ export const updateFeed = async (
   }
 };
 
-export const deleteFeed = async (id: string): Promise<Feed | null> => {
+export const deleteFeed = async (id: string): Promise<definitions["Feed"] | null> => {
   try {
     const {data, error} = await supabase
-      .from<Feed>('Feed')
+      .from<definitions["Feed"]>('Feed')
       .delete()
       .match({id})
       .single();
@@ -78,10 +78,10 @@ export const deleteFeed = async (id: string): Promise<Feed | null> => {
   }
 };
 
-export const feeds = async (communityId: string): Promise<Feed[] | null> => {
+export const feeds = async (communityId: string): Promise<definitions["Feed"][] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Feed>('Feed')
+    .from<definitions["Feed"]>('Feed')
     .select()
     .match({communityId});
 
@@ -97,10 +97,10 @@ export const feeds = async (communityId: string): Promise<Feed[] | null> => {
   }
 };
 
-export const getFeed = async (id: string): Promise<Feed | null> => {
+export const getFeed = async (id: string): Promise<definitions["Feed"] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Feed>('Feed')
+    .from<definitions["Feed"]>('Feed')
     .select(`
       isPublic
       title

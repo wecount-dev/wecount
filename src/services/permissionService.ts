@@ -1,11 +1,14 @@
-import {Permission, PermissionType} from "../generated/client";
-
+import {definitions} from "../types/supabase";
 import supabase from "../lib/db";
 
-export const inviteMemberToCommunity = async (type: PermissionType, communityId: string, memberId: string): Promise<Permission | null> => {
+export type PermissionType = 'owner' | 'admin' | 'member';
+
+export const inviteMemberToCommunity = async (
+  type: PermissionType, communityId: string, memberId: string,
+): Promise<definitions["Permission"] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Permission>('Permission')
+    .from<definitions["Permission"]>('Permission')
     .insert([
       {
         type,
@@ -17,7 +20,6 @@ export const inviteMemberToCommunity = async (type: PermissionType, communityId:
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -29,10 +31,10 @@ export const inviteMemberToCommunity = async (type: PermissionType, communityId:
 
 export const sendJoinRequestToCommunity = async (
   type: PermissionType, communityId: string, memberId: string,
-): Promise<Permission | null> => {
+): Promise<definitions["Permission"] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Permission>('Permission')
+    .from<definitions["Permission"]>('Permission')
     .insert([
       {
         type,
@@ -55,10 +57,10 @@ export const sendJoinRequestToCommunity = async (
 
 export const acceptJoinRequestWithinCommunity = async (
   type: PermissionType, communityId: string, memberId: string,
-): Promise<Permission | null> => {
+): Promise<definitions["Permission"] | null> => {
   try {
     const {data, error} = await supabase
-    .from<Permission>('permissions')
+    .from<definitions["Permission"]>('permissions')
     .update({
       accepted: true,
     })

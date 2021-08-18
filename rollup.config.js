@@ -94,7 +94,11 @@ export default {
 			browser: true,
 			dedupe: ['svelte'],
 		}),
-		commonjs(),
+		commonjs({
+			namedExports: {
+				'types/supabase': ['types/supabase'],
+			},
+		}),
 		typescript({
 			sourceMap: !production,
 			inlineSources: !production,

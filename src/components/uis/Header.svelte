@@ -48,7 +48,7 @@
   <div class="nav-menu">
     {#if $user}
       <a class="link" href="/">Intro</a>
-      <a class="link" href="/#/profile">Profile</a>
+      <a class="link" href="/#/service_sample">Service Sample</a>
     {:else}
       <Button
         on:click={async () => {

@@ -1,11 +1,10 @@
-import {Community, Permission, PermissionType} from "../generated/client";
-
+import {definitions} from "../types/supabase";
 import supabase from "../lib/db";
 
 export const createCommunity = async (
   userId: string,
-  community: Omit<Community, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt'>,
-): Promise<Community | null> => {
+  community: Omit<definitions["Community"], 'id' | 'createdAt'>,
+): Promise<definitions["Community"] | null> => {
   if (!userId || !community) {
     // eslint-disable-next-line no-console
     console.error('no userId or community');
@@ -15,22 +14,22 @@ export const createCommunity = async (
 
   try {
     const {data, error} = await supabase
-      .from<Community>('Community')
+      .from<definitions["Community"]>('Community')
       .insert([
         {...community},
       ]).single();
 
     if (error) throw error;
 
-    await supabase.from<Permission>('Permission').insert([
-      {
-        communityId: data?.id,
-        type: PermissionType.owner,
-        userId,
-      },
-    ]);
+    if (data)
+      await supabase.from<definitions["Permission"]>('Permission').insert([
+        {
+          communityId: data.id,
+          type: 'owner',
+          userId,
+        },
+      ]);
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -40,10 +39,12 @@ export const createCommunity = async (
   }
 };
 
-export const updateCommunity = async (community: Community): Promise<Community | null> => {
+export const updateCommunity = async (
+  community: Omit<definitions["Community"], 'createdAt'>,
+): Promise<definitions["Community"] | null> => {
   try {
     const {data, error} = await supabase
-      .from<Community>('Community')
+      .from<definitions["Community"]>('Community')
       .update({...community})
       .match({id: community.id})
       .single();
@@ -60,10 +61,10 @@ export const updateCommunity = async (community: Community): Promise<Community |
   }
 };
 
-export const deleteCommunity = async (id: string): Promise<Community | null> => {
+export const deleteCommunity = async (id: string): Promise<definitions["Community"] | null> => {
   try {
     const {data, error} = await supabase
-      .from<Community>('Community')
+      .from<definitions["Community"]>('Community')
       .delete()
       .match({id})
       .single();
@@ -80,33 +81,28 @@ export const deleteCommunity = async (id: string): Promise<Community | null> => 
   }
 };
 
-export const getMyCommunites = async (userId: string): Promise<Community[] | null> => {
+export const getMyCommunites = async (userId: string): Promise<definitions["Community"][] | null> => {
   try {
     const {data, error} = await supabase
-      .from<Community>('Community')
+      .from<definitions["Permission"]>('Permission')
       .select(`
-        isPublic
-        name
-        description
-        currency
-        color
-        Permission (
-          type
-          accepted
-          userId
+        Community (
+          isPublic,
+          name,
+          description,
+          currency,
+          color
         )
       `)
       .match({
-        Permission: {
-          accepted: true,
-          userId,
-        },
+        userId,
       });
 
     if (error) throw error;
 
+    // @ts-ignore
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return data;
+    return data?.map((el) => el.Community);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);
@@ -115,10 +111,10 @@ export const getMyCommunites = async (userId: string): Promise<Community[] | nul
   }
 };
 
-export const getCommunity = async (id: string): Promise<Community | null> => {
+export const getCommunity = async (id: string): Promise<definitions["Community"] | null> => {
   try {
     const {data, error} = await supabase
-      .from<Community>('Community')
+      .from<definitions["Community"]>('Community')
       .select()
       .match({id})
       .single();
