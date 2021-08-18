@@ -47,7 +47,6 @@
     transition: background-color 0.3s;
   }
   :global(body.dark-mode) {
-    --primary: var(--green70);
     --button: var(--green30);
     --placeholder: var(--gray80);
     --text: var(--gray10);
