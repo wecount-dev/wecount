@@ -46,8 +46,10 @@
     transition: background-color 0.3s;
   }
   :global(body.dark-mode) {
+    --primary: var(--green70);
     --button: var(--green30);
     --text: var(--gray10);
+    --secondary: var(--yellow50)
 
     background-color: var(--background-color);
     color: var(--gray10);

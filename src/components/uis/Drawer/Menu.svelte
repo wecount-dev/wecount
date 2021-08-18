@@ -10,7 +10,7 @@
   .selexted-name {
     font-size: 0.875rem;
     font-weight: 700;
-    color: var(--gray90);
+    color: var(--text);
   }
 
   .unselected-name {
@@ -44,7 +44,7 @@
 
 <div
   class="sub-menu"
-  style="background-color: {isSelected ? 'var(--gray10)' : 'white'}"
+  style="background-color: {isSelected ? 'var(--button)' : 'white'}"
   on:click={() => selectMenu(menu.path)}
 >
   <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>

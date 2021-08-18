@@ -1,7 +1,7 @@
 <style lang="postcss">
   .drawer {
     display: inline-flex;
-    background-color: white;
+    background-color: var(--background-color);
     height: 100%;
   }
 
