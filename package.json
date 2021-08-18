@@ -12,6 +12,7 @@
     "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
     "test": "jest",
     "generate": "prisma generate",
+    "update-types": "npx openapi-typescript $SUPABASE_TYPE_URL --output types/supabase.ts",
     "migrate": "dotenv -e ./dotenv/.env -- prisma migrate deploy",
     "migrate:dev": "dotenv -e ./dotenv/.env -- prisma migrate dev",
     "migrate:reset": "dotenv -e ./dotenv/.env -- prisma migrate reset",

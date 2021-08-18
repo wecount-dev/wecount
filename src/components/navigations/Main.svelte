@@ -17,6 +17,7 @@
   import Header from '../uis/Header.svelte';
   import SignIn from '../pages/SignIn.svelte';
   import SignUp from '../pages/SignUp.svelte';
+  import ServiceSample from '../pages/ServiceSample.svelte';
   import Temp from '../pages/Temp.svelte';
 
   const routes = {
@@ -25,6 +26,7 @@
     '/': Intro,
     // '/lorem/:repeat': Lorem,
     '/profile': Profile,
+    '/service_sample': ServiceSample,
     '/*': Temp,
   };
 </script>

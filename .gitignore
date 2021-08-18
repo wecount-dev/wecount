@@ -10,3 +10,4 @@ coverage
 yarn-error.log
 
 .env
+supabase.ts
