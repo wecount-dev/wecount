@@ -26,7 +26,6 @@ export const createFeed = async (
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -41,14 +40,13 @@ export const updateFeed = async (
 ): Promise<definitions["Feed"] | null> => {
   try {
     const {data, error} = await supabase
-      .from<definitions["Feed"]>('Community')
+      .from<definitions["Feed"]>('Feed')
       .update({...feed})
       .match({id: feed.id})
       .single();
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -68,7 +66,6 @@ export const deleteFeed = async (id: string): Promise<definitions["Feed"] | null
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -87,7 +84,6 @@ export const feeds = async (communityId: string): Promise<definitions["Feed"][] 
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console
@@ -120,7 +116,6 @@ export const getFeed = async (id: string): Promise<definitions["Feed"] | null> =
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console

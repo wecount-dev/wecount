@@ -121,7 +121,6 @@ export const getCommunity = async (id: string): Promise<definitions["Community"]
 
     if (error) throw error;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
   } catch (err) {
     // eslint-disable-next-line no-console

@@ -65,7 +65,7 @@
 <script lang="ts">
   import Card from './Card.svelte';
   import ArrowButton from './ArrowButton.svelte';
-  import type {CarouselItemType} from '../../types/index.svelte';
+  import type {CarouselItemType} from '../../types';
 
   export let item: CarouselItemType;
   export let onChange: (selectedColor: string) => void;
@@ -74,7 +74,7 @@
   export let cardStyle: string | undefined = undefined;
   export let dotStyle: string | undefined = undefined;
 
-  const colors = item.colors as string[];
+  const colors = item.colors;
 
   type PositionType = {
     [key: string]: number;

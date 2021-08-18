@@ -92,7 +92,7 @@
 
 <script lang="ts">
   import {SvgCrown, SvgLock} from '../../utils/Icon';
-  import type {CommunityType, UserType} from '../../types/index.svelte';
+  import type {CommunityType, UserType} from '../../types';
   import {_} from 'svelte-i18n';
 
   export let community: CommunityType;
