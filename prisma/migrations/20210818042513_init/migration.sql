@@ -39,7 +39,7 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Community" (
-    "id" VARCHAR(50) NOT NULL,
+    "id" UUID NOT NULL,
     "isPublic" BOOLEAN,
     "name" VARCHAR(50) NOT NULL,
     "description" TEXT NOT NULL,
@@ -58,22 +58,22 @@ CREATE TABLE "Permission" (
     "accepted" BOOLEAN DEFAULT false,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "userId" UUID NOT NULL,
-    "communityId" VARCHAR(50) NOT NULL
+    "communityId" UUID NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "Topic" (
-    "id" VARCHAR(50) NOT NULL,
+    "id" UUID NOT NULL,
     "name" VARCHAR(255) NOT NULL,
     "iconUrl" TEXT,
-    "communityId" VARCHAR(50) NOT NULL,
+    "communityId" UUID NOT NULL,
 
     PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Deposit" (
-    "id" VARCHAR(50) NOT NULL,
+    "id" UUID NOT NULL,
     "depositType" "DepositType" NOT NULL DEFAULT E'sponsoring',
     "paymentType" "PaymentType" NOT NULL DEFAULT E'onetime',
     "title" VARCHAR(255) NOT NULL,
@@ -87,29 +87,29 @@ CREATE TABLE "Deposit" (
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "deletedAt" TIMESTAMP(3),
     "userId" UUID,
-    "communityId" VARCHAR(50),
-    "topicId" VARCHAR(50),
+    "communityId" UUID,
+    "topicId" UUID,
 
     PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Category" (
-    "id" TEXT NOT NULL,
+    "id" UUID NOT NULL,
     "color" TEXT NOT NULL DEFAULT E'#AAAAAA',
     "name" VARCHAR(255) NOT NULL,
     "iconUrl" VARCHAR(1024),
     "description" TEXT,
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
-    "communityId" VARCHAR(50) NOT NULL,
+    "communityId" UUID NOT NULL,
 
     PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "CreditCard" (
-    "id" TEXT NOT NULL,
+    "id" UUID NOT NULL,
     "cardNumber" VARCHAR(50),
     "validDateMonth" VARCHAR(4),
     "validDateYear" VARCHAR(4),
@@ -121,14 +121,14 @@ CREATE TABLE "CreditCard" (
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "deletedAt" TIMESTAMP(3),
-    "communityId" VARCHAR(50) NOT NULL,
+    "communityId" UUID NOT NULL,
 
     PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Feed" (
-    "id" VARCHAR(50) NOT NULL,
+    "id" UUID NOT NULL,
     "isPublic" BOOLEAN NOT NULL DEFAULT true,
     "title" VARCHAR(255) NOT NULL,
     "date" TIMESTAMP(3),
@@ -139,16 +139,27 @@ CREATE TABLE "Feed" (
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "deletedAt" TIMESTAMP(3),
-    "communityId" VARCHAR(50) NOT NULL,
+    "communityId" UUID NOT NULL,
     "userId" UUID NOT NULL,
-    "creditCardId" TEXT,
+    "creditCardId" UUID,
+
+    PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Image" (
+    "id" UUID NOT NULL,
+    "url" TEXT NOT NULL,
+    "communityId" UUID,
+    "userId" UUID,
+    "feedId" UUID,
 
     PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Reply" (
-    "id" VARCHAR(50) NOT NULL,
+    "id" UUID NOT NULL,
     "messageType" "MessageType" NOT NULL DEFAULT E'text',
     "photoURL" VARCHAR(1024),
     "movieURL" VARCHAR(1024),
@@ -156,8 +167,8 @@ CREATE TABLE "Reply" (
     "text" TEXT,
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
-    "communityId" VARCHAR(50),
-    "feedId" VARCHAR(50),
+    "communityId" UUID,
+    "feedId" UUID,
     "userId" UUID NOT NULL,
 
     PRIMARY KEY ("id")
@@ -167,8 +178,8 @@ CREATE TABLE "Reply" (
 CREATE TABLE "Reaction" (
     "id" UUID NOT NULL,
     "emoji" TEXT NOT NULL DEFAULT E'😀',
-    "feedId" VARCHAR(50),
-    "replyId" VARCHAR(50),
+    "feedId" UUID,
+    "replyId" UUID,
     "userId" UUID NOT NULL,
 
     PRIMARY KEY ("id")
@@ -176,8 +187,8 @@ CREATE TABLE "Reaction" (
 
 -- CreateTable
 CREATE TABLE "_CategoryToFeed" (
-    "A" TEXT NOT NULL,
-    "B" VARCHAR(50) NOT NULL
+    "A" UUID NOT NULL,
+    "B" UUID NOT NULL
 );
 
 -- CreateIndex
@@ -227,6 +238,15 @@ ALTER TABLE "Feed" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE 
 
 -- AddForeignKey
 ALTER TABLE "Feed" ADD FOREIGN KEY ("creditCardId") REFERENCES "CreditCard"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Image" ADD FOREIGN KEY ("communityId") REFERENCES "Community"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Image" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Image" ADD FOREIGN KEY ("feedId") REFERENCES "Feed"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Reply" ADD FOREIGN KEY ("communityId") REFERENCES "Community"("id") ON DELETE SET NULL ON UPDATE CASCADE;
