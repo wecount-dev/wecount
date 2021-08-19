@@ -3,13 +3,14 @@
     position: relative;
     width: var(--circle-size);
     height: var--(circle-size);
-  }
-  .circle-progress {
     transform: rotate(-90deg);
   }
+  /* .circle-progress {
+    transform: rotate(-90deg);
+  } */
   .frame,
   .bar {
-    fill: none;
+    fill: transparent;
   }
   .frame {
     stroke: var(--gray80);
@@ -24,12 +25,12 @@
 
 <script lang="ts">
   export let completed = 30;
-  export let Circlediameter = 200;
+  export let circlediameter = 200;
   export let strokeWidth = 14;
-  export let strokeColor: string | undefined = '#28db98';
+  export let strokeColor: string | undefined = 'var(--green40)';
   export let circleStyle = '';
 
-  const radius = Circlediameter / 2;
+  const radius = circlediameter / 2;
   const strokeHalfWidth = strokeWidth / 2;
   const progress = completed / 100;
 
@@ -39,20 +40,21 @@
 
 <div
   class="circle-progress-wrap"
-  style={`--circle-size: ${Circlediameter}px; ${circleStyle}`}
+  style={`--circle-size: ${circlediameter}px; ${circleStyle}`}
 >
   <svg
     class="circle-progress"
-    width={Circlediameter}
-    height={Circlediameter}
-    viewBox="0 0 {Circlediameter} {Circlediameter}"
+    width={circlediameter}
+    height={circlediameter}
+    viewBox="0 0 {circlediameter} {circlediameter}"
   >
     <circle
       class="frame"
       cx={radius}
       cy={radius}
       r={radius - strokeHalfWidth}
-      stroke-width={strokeWidth}
+      stroke-width={strokeWidth - 1}
+      shape-rendering="geometricPrecision"
     />
     <circle
       class="bar"
@@ -60,6 +62,7 @@
       cy={radius}
       r={radius - strokeHalfWidth}
       stroke-width={strokeWidth}
+      shape-rendering="geometricPrecision"
       style="
         --stroke-dashoffset: {strokeDashOffset};
         --stroke-dasharray: {strokeDasharray};
