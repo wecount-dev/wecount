@@ -63,7 +63,7 @@
 </style>
 
 <script lang="ts">
-  import Card from './Card.svelte';
+  import CommunityCard from './CommunityCard.svelte';
   import ArrowButton from './ArrowButton.svelte';
   import type {CarouselItemType} from '../../types';
 
@@ -120,7 +120,7 @@
             class:center-card={position.center === i}
             class:right-card={position.right === i}
           >
-            <Card
+            <CommunityCard
               user={item.user}
               community={item.community}
               cardStyle={`background-color:${color}; height:100%; ${

@@ -19,6 +19,7 @@
   import SignUp from '../pages/SignUp.svelte';
   import ServiceSample from '../pages/ServiceSample.svelte';
   import Temp from '../pages/Temp.svelte';
+  import CommunityCrete from '../pages/community/Create.svelte';
 
   const routes = {
     '/sign_in': SignIn,
@@ -27,6 +28,7 @@
     // '/lorem/:repeat': Lorem,
     '/profile': Profile,
     '/service_sample': ServiceSample,
+    '/community/create': CommunityCrete,
     '/*': Temp,
   };
 </script>
