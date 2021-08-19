@@ -4,6 +4,10 @@
     justify-content: center;
     flex-direction: column;
     width: 600px;
+
+    @media (max-width: 640px) {
+      width: 100%;
+    }
   }
 
   .wrap {
@@ -11,6 +15,73 @@
     justify-content: space-between;
     align-items: center;
     height: 210px;
+  }
+
+  .card-layout {
+    position: relative;
+    height: 100%;
+    flex-grow: 1;
+    margin: 15.5px;
+  }
+
+  .center-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    z-index: 3;
+  }
+
+  .left-card,
+  .right-card {
+    @media (max-width: 640px) {
+      visibility: hidden;
+    }
+  }
+
+  .left-card {
+    margin: auto;
+    position: absolute;
+    height: 82%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .right-card {
+    margin: auto;
+    position: absolute;
+    height: 82%;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+  }
+
+  .arrow-right,
+  .arrow-left {
+    z-index: 5;
+    @media (max-width: 640px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 35px;
+      height: 40px;
+      background-color: var(--gray90);
+    }
+  }
+
+  .arrow-right {
+    @media (max-width: 640px) {
+      padding-left: 5px;
+    }
+  }
+
+  .arrow-left {
+    @media (max-width: 640px) {
+      padding-right: 5px;
+    }
   }
 
   .dot-container {
@@ -27,38 +98,8 @@
     border-radius: 50%;
   }
 
-  .card-layout {
-    position: relative;
-    height: 100%;
-    flex-grow: 1;
-    margin: 15.5px;
-  }
-
-  .left-card {
-    margin: auto;
-    position: absolute;
-    height: 82%;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-  }
-
-  .center-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    z-index: 3;
-  }
-
-  .right-card {
-    margin: auto;
-    position: absolute;
-    height: 82%;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
+  .hidden {
+    visibility: hidden;
   }
 </style>
 
@@ -107,11 +148,9 @@
 
 <div class="carousel" style={carouselStyle}>
   <div class="wrap" style={cardLayoutStyle}>
-    <ArrowButton
-      direction={'left'}
-      hidden={position['right'] === 1}
-      onClick={moveToPreviousItem}
-    />
+    <div class="arrow-left" class:hidden={position['right'] === 1}>
+      <ArrowButton direction={'left'} onClick={moveToPreviousItem} />
+    </div>
     <div class="card-layout">
       {#each colors as color, i}
         {#if i === position.left || i === position.center || i === position.right}
@@ -131,11 +170,9 @@
         {/if}
       {/each}
     </div>
-    <ArrowButton
-      direction={'right'}
-      hidden={position['right'] === colors.length}
-      onClick={moveToNextItem}
-    />
+    <div class="arrow-right" class:hidden={position['right'] === colors.length}>
+      <ArrowButton direction={'right'} onClick={moveToNextItem} />
+    </div>
   </div>
   <div class="dot-container" style={dotStyle}>
     <div style={`background-color: ${colors[position.center]}`} class="dot" />

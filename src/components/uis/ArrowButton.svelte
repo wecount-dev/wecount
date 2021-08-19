@@ -1,5 +1,6 @@
 <style lang="postcss">
   .navigation-button {
+    z-index: 10;
     cursor: pointer;
     padding: 10px;
   }
@@ -13,7 +14,7 @@
   import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../../utils/Icon';
 
   export let direction: 'left' | 'right';
-  export let hidden: boolean;
+  export let hidden = false;
   export let onClick: () => void;
 </script>
 

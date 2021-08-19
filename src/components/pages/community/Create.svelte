@@ -2,13 +2,31 @@
   .container {
     display: flex;
     justify-content: center;
+
+    @media (max-width: 640px) {
+      padding: 0px 20px;
+    }
   }
+
   .wrap {
     width: 620px;
+
+    @media (max-width: 640px) {
+      width: 100%;
+    }
   }
+
   .title {
     margin-top: 40px;
     margin-bottom: 22px;
+  }
+
+  .community-card-carousel {
+    margin-bottom: 20px;
+  }
+
+  .input-loayout {
+    display: flex;
   }
 </style>
 
@@ -32,6 +50,7 @@
   };
 
   function getColor(selectedColor: string) {
+    // eslint-disable-next-line no-console
     console.log(selectedColor);
   }
 </script>
@@ -41,10 +60,17 @@
     <h3 class="title">
       {$_('app_name')}<br />{$_('Community.create_community')}
     </h3>
-    <Card
-      cardStyle="padding: 28px; display: flex; justify-content: center; align-items: center"
-    >
-      <Carousel item={item} onChange={getColor} />
-    </Card>
+    <div class="community-card-carousel">
+      <Card
+        cardStyle="padding: 28px 18px; display: flex; justify-content: center; align-items: center;"
+      >
+        <Carousel item={item} onChange={getColor} />
+      </Card>
+    </div>
+    <div>
+      <Card cardStyle="padding: 28px;">
+        <div class="input-loayout">Hello world</div>
+      </Card>
+    </div>
   </div>
 </div>
