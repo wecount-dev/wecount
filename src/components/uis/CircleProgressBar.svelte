@@ -24,7 +24,7 @@
 </style>
 
 <script lang="ts">
-  export let completed = 30;
+  export let completed: number;
   export let circlediameter = 200;
   export let strokeWidth = 14;
   export let strokeColor: string | undefined = 'var(--green40)';

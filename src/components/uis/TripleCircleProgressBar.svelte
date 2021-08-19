@@ -13,13 +13,14 @@
   export let middleCompleted: number;
   export let innerCompleted: number;
   export let total = outerCompleted;
+  export let circleStyle: string | undefined = undefined;
 
   const absoluteCenterStyle =
     'position: absolute; top: 50%; left: 50%;  transform: translate(-50%, -50%);';
 </script>
 
 <div>
-  <div class="container">
+  <div class="container" style={circleStyle}>
     <CircleProgressBar
       strokeColor={'var(--green40)'}
       circleStyle={absoluteCenterStyle}
