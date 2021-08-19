@@ -100,9 +100,9 @@
 <script lang="ts">
   import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
-  import {SvgBadgeCrown, SvgTrashcan} from '../../utils/Icon';
-  import Button from './Button.svelte';
-  import Select from './Select.svelte';
+  import {SvgBadgeCrown, SvgTrashcan} from '../../../utils/Icon';
+  import Button from '../../uis/Button.svelte';
+  import Select from '../../uis//Select.svelte';
 
   interface Member {
     image: string;
@@ -113,7 +113,6 @@
   }
 
   export let data: Member[];
-  export let containerStyle = '';
   let threshold = 100;
   let roleList = ['Admin', 'Writer', 'Reader']; // Update Me
   let customRoleList = ['Admin', 'Writer', 'Reader']; // Update Me
@@ -158,7 +157,7 @@
   };
 </script>
 
-<main style={containerStyle}>
+<main class={$$props.class}>
   <div class="title">{$_('member')}</div>
   <div class="labelContainer">
     <div class="label-name">{$_('Member.name')}</div>
