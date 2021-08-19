@@ -7,4 +7,10 @@
   }
 </style>
 
-<main>Temp</main>
+<script lang="ts">
+  import CircleProgressBar from '../uis/CircleProgressBar.svelte';
+</script>
+
+<main>
+  <CircleProgressBar />
+</main>
