@@ -1,8 +1,10 @@
 <style lang="postcss">
   main {
     padding: 24px 0px 40px 60px;
-    background-color: var(--gray20);
+    height: 100%;
+    box-sizing: border-box;
 
+    background-color: var(--gray20);
     grid-template-columns: 400px 1fr;
     grid-template-rows: 50px 1fr;
     grid-template-areas:
@@ -10,10 +12,12 @@
       '  membership-request-list   member-list';
 
     @media (max-width: 640px) {
+      padding: 0px;
+
       grid-template-columns: 1fr;
       grid-template-rows: 50px 200px 1fr;
       grid-template-areas:
-        '  title     '
+        '  title'
         '  membership-request-list'
         '  member-list';
     }
@@ -39,10 +43,41 @@
   import MemberList from './MemberList.svelte';
   import MembershipRequestList from './MembershipRequestList.svelte';
   import {_} from 'svelte-i18n';
+  import faker from 'faker/locale/en';
+
+  interface Member {
+    image: string;
+    name: string;
+    isRepresentativeAdmin: boolean;
+    role: string;
+    customRole: string;
+  }
+
+  const createFakeMember = (): Member => {
+    return {
+      isRepresentativeAdmin: false,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      image: faker.image.avatar(),
+      // @ts-ignore
+      name: `${faker.name.lastName()} ${faker.name.firstName()}`,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      customRole: faker.random.arrayElement(['Admin', 'Writer', 'Reader']),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      role: faker.random.arrayElement(['Admin', 'Writer', 'Reader']),
+    };
+  };
+
+  let memberList = Array(30)
+    .fill(0)
+    .map((_, i) =>
+      i === 0
+        ? {...createFakeMember(), isRepresentativeAdmin: true}
+        : createFakeMember(),
+    );
 </script>
 
 <main>
   <div class="sub-heading">{$_('Member.title')}</div>
   <MembershipRequestList class="membership-request-list" />
-  <MemberList class="member-list" data={[]} />
+  <MemberList class="member-list" data={memberList} />
 </main>

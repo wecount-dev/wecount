@@ -5,8 +5,6 @@
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
     padding: 28px;
-    display: flex;
-    flex-direction: column;
 
     @media (max-width: 640px) {
       border-radius: 0px;
@@ -46,7 +44,6 @@
     width: 118px;
   }
   .itemContainer {
-    flex: 1;
     padding-top: 16px;
     overflow-y: scroll;
   }
