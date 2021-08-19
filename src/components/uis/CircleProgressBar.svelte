@@ -27,6 +27,7 @@
   export let Circlediameter = 200;
   export let strokeWidth = 14;
   export let strokeColor: string | undefined = '#28db98';
+  export let circleStyle = '';
 
   const radius = Circlediameter / 2;
   const strokeHalfWidth = strokeWidth / 2;
@@ -36,7 +37,10 @@
   const strokeDashOffset = strokeDasharray * (1 - progress);
 </script>
 
-<div class="circle-progress-wrap" style={`--circle-size: ${Circlediameter}px`}>
+<div
+  class="circle-progress-wrap"
+  style={`--circle-size: ${Circlediameter}px; ${circleStyle}`}
+>
   <svg
     class="circle-progress"
     width={Circlediameter}

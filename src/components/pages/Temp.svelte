@@ -12,5 +12,6 @@
 </script>
 
 <main>
+  <h2>Circle Progress Bar</h2>
   <CircleProgressBar />
 </main>
