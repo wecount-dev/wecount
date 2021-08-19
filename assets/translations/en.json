@@ -32,6 +32,7 @@
     "title": "Template"
   },
   "Member": {
+    "title": "Members",
     "name": "Name",
     "permission": "Permission",
     "role": "Role",
