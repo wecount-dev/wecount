@@ -1,4 +1,5 @@
 {
+  "app_name": "WE카운트",
   "loading": "로딩중",
   "email": "이메일",
   "pw": "비밀번호",
@@ -60,5 +61,8 @@
     "dashboard": "대시보드",
     "feeds": "피드",
     "settings": "설정"
+  },
+  "Community": {
+    "create_community": "커뮤니티를 생성해요"
   }
 }
