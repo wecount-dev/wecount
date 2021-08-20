@@ -17,33 +17,18 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
+  import type {UserType} from '../../../types';
   import Card from '../../uis/Card.svelte';
   import CircleImage from '../../uis/CircleImage.svelte';
   import MemberContainer from './MemberContainer.svelte';
   import PlusButton from './PlusButton.svelte';
   import TextLink from './TextLink.svelte';
 
-  const members = [
-    {
-      name: 'Hyochan',
-      imageUrl: 'https://picsum.photos/50/50?random=1',
-    },
-    {
-      name: 'DevYuns',
-      imageUrl: 'https://picsum.photos/50/50?random=2',
-    },
-    {
-      name: 'KoreanThinker',
-      imageUrl: 'https://picsum.photos/50/50?random=3',
-    },
-    {
-      name: 'Jay-flow',
-      imageUrl: 'https://picsum.photos/50/50?random=4',
-    },
-  ];
+  export let members: UserType[];
+  export let style: string | undefined = undefined;
 </script>
 
-<div class="member-card">
+<div class="member-card" style={style}>
   <Card cardStyle={'padding: 28px;'}>
     <div class="header">
       <span class="sub-heading">{$_('member')}</span>

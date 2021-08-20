@@ -2,7 +2,7 @@ import type {SvelteComponent} from 'svelte';
 
 export type UserType = {
   name: string;
-  role: string;
+  role?: string;
   imageUrl: string;
 };
 
