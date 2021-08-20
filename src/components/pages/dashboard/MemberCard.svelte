@@ -19,13 +19,27 @@
   import {_} from 'svelte-i18n';
   import Card from '../../uis/Card.svelte';
   import CircleImage from '../../uis/CircleImage.svelte';
+  import MemberContainer from './MemberContainer.svelte';
+  import PlusButton from './PlusButton.svelte';
   import TextLink from './TextLink.svelte';
 
   const members = [
-    'https://www.w3schools.com/howto/img_avatar.png',
-    'https://www.w3schools.com/howto/img_avatar.png',
-    'https://www.w3schools.com/howto/img_avatar.png',
-    'https://www.w3schools.com/howto/img_avatar.png',
+    {
+      name: 'Hyochan',
+      imageUrl: 'https://picsum.photos/50/50?random=1',
+    },
+    {
+      name: 'DevYuns',
+      imageUrl: 'https://picsum.photos/50/50?random=2',
+    },
+    {
+      name: 'KoreanThinker',
+      imageUrl: 'https://picsum.photos/50/50?random=3',
+    },
+    {
+      name: 'Jay-flow',
+      imageUrl: 'https://picsum.photos/50/50?random=4',
+    },
   ];
 </script>
 
@@ -37,8 +51,13 @@
     </div>
     <div class="members">
       {#each members as member}
-        <CircleImage src={member} style={'width: 48px;'} />
+        <MemberContainer name={member.name}>
+          <CircleImage src={member.imageUrl} style={'width: 48px;'} />
+        </MemberContainer>
       {/each}
+      <MemberContainer name="Add">
+        <PlusButton />
+      </MemberContainer>
     </div>
   </Card>
 </div>
