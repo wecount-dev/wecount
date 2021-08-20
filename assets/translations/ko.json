@@ -76,5 +76,8 @@
   },
   "Header": {
     "explore_community": "커뮤니티를 탐색해보세요!"
+  },
+  "Dashboard": {
+    "manage_members": "멤버 관리"
   }
 }

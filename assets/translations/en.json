@@ -74,5 +74,8 @@
   },
   "Header": {
     "explore_community": "Explore the community!"
+  },
+  "Dashboard": {
+    "manage_members": "Manage members"
   }
 }
