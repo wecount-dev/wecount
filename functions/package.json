@@ -10,11 +10,12 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "15"
+    "node": "14"
   },
   "main": "lib/index.js",
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.2",
+    "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase-admin": "^9.8.0",

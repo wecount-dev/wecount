@@ -12,23 +12,15 @@ export const createApp = (): Express => {
     res.send('It works');
   });
 
-  app.get('/paypal-create-order', (_, res) => {
-    Paypal.createOrder()
+  app.post('/paypal-get-accessToken', (_, res) => {
+    Paypal.getAccessToken()
       .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
       .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
   });
 
-  app.post('/paypal-capture-order', (req, res) => {
-    // Pass an orderId from createOrder result
-    Paypal.captureOrder(req.body.orderId)
-      .then((result) => res.send(`Response: ${JSON.stringify(result)}`))
-      .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
-  });
-
-  app.post('/paypal-refund-order', (req, res) => {
-    // Pass a captureId from captureOrder
-    Paypal.refundOrder(req.body.captureId)
-      .then((result) => res.send(`Response: ${JSON.stringify(result)}`))
+  app.post('/paypal-generate-link', (req, res) => {
+    Paypal.generateLink()
+      .then((response) => res.send(`Response: ${JSON.stringify(response)}`))
       .catch((err) => res.send(`Error: ${JSON.stringify(err)}`));
   });
 
