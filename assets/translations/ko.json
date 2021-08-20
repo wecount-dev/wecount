@@ -63,6 +63,15 @@
     "settings": "설정"
   },
   "Community": {
-    "create_community": "커뮤니티를 생성해요"
+    "create_community": "커뮤니티를 생성해요",
+    "set_community_disclosure": "커뮤니티 공개 여부 설정",
+    "community_name": "커뮤니티 이름",
+    "community_description": "커뮤니티 소개",
+    "community_representative_currency": "커뮤니티 대표 환 선택",
+    "write_down_the_community_name": "커뮤니티 이름을 적어주세요",
+    "introduce_the_community": "커뮤니티를 소개 해주세요",
+    "create_community_button": "커뮤니티 생성하기",
+    "public": "공개",
+    "private": "비공개"
   }
 }

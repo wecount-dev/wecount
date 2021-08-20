@@ -61,6 +61,15 @@
     "settings": "Setting"
   },
   "Community": {
-    "create_community": "Create a community"
+    "create_community": "Create a community",
+    "set_community_disclosure": "Set community disclosure",
+    "community_name": "Community name",
+    "community_description": "Community description",
+    "community_representative_currency": "Community representative currency",
+    "write_down_the_community_name": "Please write down the community name",
+    "introduce_the_community": "Please introduce the community",
+    "create_community_button": "Create a community",
+    "public": "Public",
+    "private": "Private"
   }
 }

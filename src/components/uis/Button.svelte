@@ -47,7 +47,7 @@
   type={type}
   style={style}
   disabled={disabled}
-  on:click|preventDefault={handleClick}
+  on:click={handleClick}
 >
   <slot />
 </button>
