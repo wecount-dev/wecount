@@ -3,11 +3,10 @@
     position: relative;
     width: var(--circle-size);
     height: var--(circle-size);
+  }
+  .circle-progress {
     transform: rotate(-90deg);
   }
-  /* .circle-progress {
-    transform: rotate(-90deg);
-  } */
   .frame,
   .bar {
     fill: transparent;
