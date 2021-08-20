@@ -9,21 +9,18 @@
       width: 100%;
     }
   }
-
   .wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 210px;
   }
-
   .card-layout {
     position: relative;
     height: 100%;
     flex-grow: 1;
     margin: 15.5px;
   }
-
   .center-card {
     position: absolute;
     top: 50%;
@@ -32,14 +29,12 @@
     height: 100%;
     z-index: 3;
   }
-
   .left-card,
   .right-card {
     @media (max-width: 640px) {
       visibility: hidden;
     }
   }
-
   .left-card {
     margin: auto;
     position: absolute;
@@ -48,7 +43,6 @@
     bottom: 0px;
     left: 0px;
   }
-
   .right-card {
     margin: auto;
     position: absolute;
@@ -57,7 +51,6 @@
     bottom: 0px;
     right: 0px;
   }
-
   .arrow-right,
   .arrow-left {
     z-index: 5;
@@ -71,33 +64,28 @@
       background-color: var(--gray90);
     }
   }
-
   .arrow-right {
     @media (max-width: 640px) {
       padding-left: 5px;
     }
   }
-
   .arrow-left {
     @media (max-width: 640px) {
       padding-right: 5px;
     }
   }
-
   .dot-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 15px;
   }
-
   .dot {
     background-color: gray;
     width: 16px;
     height: 16px;
     border-radius: 50%;
   }
-
   .hidden {
     visibility: hidden;
   }

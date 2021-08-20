@@ -4,7 +4,6 @@
     cursor: pointer;
     padding: 10px;
   }
-
   .hidden {
     visibility: hidden;
   }

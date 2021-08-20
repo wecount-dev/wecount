@@ -7,7 +7,6 @@
       padding: 0px 20px;
     }
   }
-
   .wrap {
     width: 620px;
 
@@ -15,20 +14,16 @@
       width: 100%;
     }
   }
-
   .title {
     margin-top: 40px;
     margin-bottom: 22px;
   }
-
   .community-card-carousel {
     margin-bottom: 20px;
   }
-
   .input-card {
     margin-bottom: 40px;
   }
-
   input,
   textarea {
     width: 100%;
@@ -38,18 +33,15 @@
     font-size: 0.875rem;
     padding: 8px;
   }
-
   textarea {
     height: 103px;
     -ms-overflow-style: none;
     scrollbar-width: none;
     resize: none;
   }
-
   textarea::-webkit-scrollbar {
     display: none;
   }
-
   .submit-layout {
     display: flex;
     justify-content: center;

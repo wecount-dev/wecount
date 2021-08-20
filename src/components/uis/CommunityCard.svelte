@@ -8,19 +8,16 @@
     box-shadow: 0px 4px 10px #d1f1ff, inset 0px 0px 142px #ebfbff;
     padding: 28px 24px;
   }
-
   .profile-img-layout {
     position: relative;
     display: inline-block;
     margin-right: 9px;
   }
-
   .profile-img {
     border-radius: 50%;
     width: 30px;
     height: 30px;
   }
-
   .crown {
     position: absolute;
     top: -2px;
@@ -33,56 +30,45 @@
     justify-content: center;
     align-items: center;
   }
-
   .community-layout {
     margin-bottom: 13px;
   }
-
   .community-name {
     color: white;
     font-size: 1.2rem;
   }
-
   .coummunity-name-layout {
     display: flex;
   }
-
   .community-description {
     color: #f0f5ff;
     text-transform: uppercase;
   }
-
   .user-layout {
     display: flex;
     align-items: center;
   }
-
   .user-role {
     color: #f3f4f5;
     font-size: 0.7rem;
   }
-
   .user-name {
     color: white;
     font-size: 0.8rem;
   }
-
   .lock {
     display: flex;
     align-items: center;
     margin-right: 2px;
   }
-
   .balance-layout {
     text-align: right;
     margin-top: 7px;
   }
-
   .balance-title {
     font-size: 14px;
     color: #f0f5ff;
   }
-
   .balance {
     color: #ffffff;
     font-weight: bold;

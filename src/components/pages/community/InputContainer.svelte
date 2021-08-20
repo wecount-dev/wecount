@@ -6,7 +6,6 @@
     margin-bottom: 20px;
     flex-wrap: wrap;
   }
-
   .label {
     width: 40%;
 
@@ -15,7 +14,6 @@
       margin-bottom: 5px;
     }
   }
-
   .input-box {
     flex-grow: 1;
   }
