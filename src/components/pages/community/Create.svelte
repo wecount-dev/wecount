@@ -29,27 +29,6 @@
     margin-bottom: 40px;
   }
 
-  .input-loayout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-
-  .label {
-    width: 40%;
-
-    @media (max-width: 640px) {
-      width: 100%;
-      margin-bottom: 5px;
-    }
-  }
-
-  .input-box {
-    flex-grow: 1;
-  }
-
   input,
   textarea {
     width: 100%;
@@ -85,6 +64,7 @@
   import Select from '../../uis/Select.svelte';
   import Asterisk from './Asterisk.svelte';
   import Carousel from './Carousel.svelte';
+  import InputContainer from './InputContainer.svelte';
 
   const item = {
     user: {
@@ -151,55 +131,53 @@
     </div>
     <div class="input-card">
       <Card cardStyle="padding: 34px; 28px;">
-        <div class="input-loayout">
-          <div class="label p2">{$_('Community.set_community_disclosure')}</div>
-          <div class="input-box">
-            <Select
-              style={'width: 100%'}
-              value={selectedPublicOption}
-              options={publicOptions}
-              on:change={selectPublicOption}
-            />
-          </div>
-        </div>
-        <div class="input-loayout">
-          <div class="label p2">
+        <InputContainer>
+          <svelte:fragment slot="label">
+            {$_('Community.set_community_disclosure')}
+          </svelte:fragment>
+          <Select
+            slot="input"
+            style={'width: 100%'}
+            value={selectedPublicOption}
+            options={publicOptions}
+            on:change={selectPublicOption}
+          />
+        </InputContainer>
+        <InputContainer>
+          <svelte:fragment slot="label">
             {$_('Community.community_name')}<Asterisk />
-          </div>
-          <div class="input-box">
-            <input
-              bind:value={communityName}
-              type="text"
-              placeholder="{$_('Community.write_down_the_community_name')}."
-              required
-            />
-          </div>
-        </div>
-        <div class="input-loayout" style="align-items: start">
-          <div class="label p2">
+          </svelte:fragment>
+          <input
+            slot="input"
+            bind:value={communityName}
+            type="text"
+            placeholder="{$_('Community.write_down_the_community_name')}."
+            required
+          />
+        </InputContainer>
+        <InputContainer style={'align-items: start'}>
+          <svelte:fragment slot="label">
             {$_('Community.community_description')}<Asterisk />
-          </div>
-          <div class="input-box">
-            <textarea
-              bind:value={communityDescription}
-              placeholder=" {$_('Community.introduce_the_community')}."
-              required
-            />
-          </div>
-        </div>
-        <div class="input-loayout">
-          <div class="label p2">
-            {$_('Community.community_representative_currency')}
-          </div>
-          <div class="input-box">
-            <Select
-              style={'width: 100%'}
-              value={selectedCurrencyOption}
-              options={currencyOptions}
-              on:change={selectCurrencyOption}
-            />
-          </div>
-        </div>
+          </svelte:fragment>
+          <textarea
+            slot="input"
+            bind:value={communityDescription}
+            placeholder=" {$_('Community.introduce_the_community')}."
+            required
+          />
+        </InputContainer>
+        <InputContainer>
+          <svelte:fragment slot="label">
+            {$_('Community.community_representative_currency')}<Asterisk />
+          </svelte:fragment>
+          <Select
+            slot="input"
+            style={'width: 100%'}
+            value={selectedCurrencyOption}
+            options={currencyOptions}
+            on:change={selectCurrencyOption}
+          />
+        </InputContainer>
       </Card>
     </div>
     <div class="submit-layout">
