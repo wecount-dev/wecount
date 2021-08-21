@@ -73,5 +73,8 @@
     "create_community_button": "커뮤니티 생성하기",
     "public": "공개",
     "private": "비공개"
+  },
+  "Header": {
+    "explore_community": "커뮤니티를 탐색해보세요!"
   }
 }

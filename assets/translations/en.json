@@ -71,5 +71,8 @@
     "create_community_button": "Create a community",
     "public": "Public",
     "private": "Private"
+  },
+  "Header": {
+    "explore_community": "Explore the community!"
   }
 }

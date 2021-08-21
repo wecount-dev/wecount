@@ -9,46 +9,30 @@
     align-items: center;
     justify-content: space-between;
 
-    .link {
-      text-decoration: underline;
-      color: var(--link);
-
-      display: flex;
-      align-items: center;
-    }
-
     .nav-menu {
-      padding-top: 4px;
-      flex: 1;
-
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-end;
-
-      a {
-        margin-left: 18px;
-        font-size: 14px;
-      }
     }
   }
 </style>
 
-<script>
+<script lnag="ts">
   import {_} from 'svelte-i18n';
   import {push} from 'svelte-spa-router';
 
-  import {user} from '../../stores/sessionStore';
-  import {SvgLogo} from '../../utils/Icon';
-  import Button from './Button.svelte';
+  import {user} from '../../../stores/sessionStore';
+  import {SvgLogo} from '../../../utils/Icon';
+  import Button from '../Button.svelte';
+  import Manipulation from './Manipulation.svelte';
 </script>
 
 <nav>
   <SvgLogo width="34.29" />
   <div class="nav-menu">
     {#if $user}
-      <a class="link" href="/">Intro</a>
-      <a class="link" href="/#/service_sample">Service Sample</a>
+      <Manipulation />
     {:else}
       <Button
         on:click={async () => {
