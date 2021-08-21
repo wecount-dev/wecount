@@ -94,7 +94,6 @@
     (selectedCurrencyOption = e.detail);
 
   const createCommunity = () => {
-    // eslint-disable-next-line no-console
     const community = {
       name: communityName,
       description: communityDescription,
