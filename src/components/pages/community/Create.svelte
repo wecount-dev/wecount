@@ -65,6 +65,7 @@
       role: '최고 관리자',
     },
     community: {
+      id: '1',
       name: 'dooboolab',
       description: 'PREMIUM ACCOUNT',
       isPublic: true,

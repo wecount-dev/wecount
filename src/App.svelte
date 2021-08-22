@@ -58,7 +58,7 @@
 
   * {
     font-family: 'Spoqa Han Sans Neo';
-    color: var(--gray100);
+    color: var(--text);
   }
 
   :global(h1) {

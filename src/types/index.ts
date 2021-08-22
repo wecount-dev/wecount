@@ -11,7 +11,7 @@ export type CommunityType = {
   name?: string;
   isPublic?: boolean;
   description?: string;
-  imageUrl: string;
+  imageUrl?: string;
 };
 
 export type CarouselItemType = {
@@ -26,9 +26,7 @@ export type TabNavigationType = {
 };
 
 export type DrawerType = {
-  community: {
-    imageUrl: string;
-  };
+  community: CommunityType;
   menu: MenuType[];
 };
 
