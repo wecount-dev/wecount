@@ -1,10 +1,14 @@
 <style lang="postcss">
   main {
-    padding: 0 10%;
     display: flex;
+    justify-content: center;
+  }
+  .community-route {
+    display: flex;
+    width: 1200px;
 
-    @media (max-width: 640px) {
-      padding: 0px;
+    @media (max-width: 1200px) {
+      width: 100%;
     }
   }
   .navigation {
@@ -49,10 +53,12 @@
 </script>
 
 <main>
-  <div class="navigation">
-    <Drawer communites={communites} onSelectMenu={onSelectMenu} />
-  </div>
-  <div class="container">
-    <Router routes={routes} prefix={prefix} />
+  <div class="community-route">
+    <div class="navigation">
+      <Drawer communites={communites} onSelectMenu={onSelectMenu} />
+    </div>
+    <div class="container">
+      <Router routes={routes} prefix={prefix} />
+    </div>
   </div>
 </main>
