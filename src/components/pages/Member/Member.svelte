@@ -1,12 +1,11 @@
 <style lang="postcss">
   main {
     padding: 24px 0px 40px 60px;
-    height: 100%;
     box-sizing: border-box;
 
     background-color: var(--gray20);
-    grid-template-columns: 400px 1fr;
-    grid-template-rows: 50px 1fr;
+    grid-template-columns: 440px 1fr;
+    grid-template-rows: 50px calc(100vh - 56px - 50px - 24px - 40px - 1px);
     grid-template-areas:
       '  title        .   '
       '  membership-request-list   member-list';
@@ -15,7 +14,7 @@
       padding: 0px;
 
       grid-template-columns: 1fr;
-      grid-template-rows: 50px 200px 1fr;
+      grid-template-rows: 50px 400px 1fr;
       grid-template-areas:
         '  title'
         '  membership-request-list'
