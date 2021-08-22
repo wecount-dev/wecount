@@ -1,13 +1,63 @@
 <style lang="postcss">
-  .temp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .dashboard {
+    padding: 20px;
+  }
+  .user-name {
+    font-weight: bold;
+  }
+  .greeting {
+    margin-bottom: 20px;
   }
 </style>
 
 <script lang="ts">
+  import SummaryCard from './SummaryCard.svelte';
   import MemberCard from './MemberCard.svelte';
+
+  const user = {
+    name: 'Jay-flow',
+    role: '대표 관리자',
+    imageUrl: 'https://picsum.photos/50/50?random=1',
+  };
+
+  const community = {
+    id: '1',
+    name: 'dooboolab',
+    currency: 'KRW',
+    description: 'PREMIUM ACCOUNT',
+    deposit: [
+      {
+        title: '이마트 강서마곡점',
+        description: '쇼핑',
+        price: 25000,
+        createdAt: '2020/02/01',
+      },
+      {
+        title: '삼성화재 강남지점',
+        description: '쇼핑',
+        price: 1125000.0,
+        createdAt: '2020/02/01',
+      },
+      {
+        title: '현대카드',
+        description: '쇼핑',
+        price: -611000.0,
+        createdAt: '2020/02/01',
+      },
+      {
+        title: '롯데수퍼 강일점',
+        description: '쇼핑',
+        price: 25000.0,
+        createdAt: '2020/02/01',
+      },
+      {
+        title: '쿠팡',
+        description: '쇼핑',
+        price: 3000.0,
+        createdAt: '2020/02/01',
+      },
+    ],
+  };
 
   const members = [
     {
@@ -29,6 +79,12 @@
   ];
 </script>
 
-<div class="temp">
+<div class="dashboard">
+  <div class="sub-heading greeting">
+    ✋️ 안녕하세요. <span class="user-name">{user.name}</span> 님.
+  </div>
+  <div>
+    <SummaryCard community={community} user={user} />
+  </div>
   <MemberCard members={members} />
 </div>

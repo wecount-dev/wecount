@@ -9,10 +9,19 @@ export type UserType = {
 export type CommunityType = {
   id: string;
   name?: string;
+  currency?: string;
   isPublic?: boolean;
   description?: string;
   imageUrl?: string;
+  deposit?: DepositType[]
 };
+
+export type DepositType = {
+  title: string
+  description: string
+  price: number
+  createdAt: string
+}
 
 export type CarouselItemType = {
   user: UserType;

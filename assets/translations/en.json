@@ -7,6 +7,7 @@
   "sign_out": "Sign Out",
   "sign_in": "Sign In",
   "member": "Member",
+  "community": "Community",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",
@@ -76,6 +77,7 @@
     "explore_community": "Explore the community!"
   },
   "Dashboard": {
-    "manage_members": "Manage members"
+    "manage_members": "Manage members",
+    "current_balance": "Current balance"
   }
 }

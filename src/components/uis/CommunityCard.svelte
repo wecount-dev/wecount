@@ -85,17 +85,6 @@
   export let user: UserType;
   export let balance: number | undefined = undefined;
   export let cardStyle: string | undefined = undefined;
-
-  const addCommaForBalance = (): string | void => {
-    if (balance !== undefined) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const localCurrency = String($_('card.local_currency'));
-
-      return `${balance.toLocaleString()}  ${localCurrency}`;
-    }
-  };
-
-  const displayBalance = addCommaForBalance();
 </script>
 
 <div class="card" style={cardStyle}>
@@ -128,9 +117,12 @@
   </div>
   {#if balance}
     <div class="balance-layout">
-      <div class="balance-title">{$_('card.current_balance')}</div>
+      <div class="balance-title">{$_('Dashboard.current_balance')}</div>
       <div class="balance">
-        {displayBalance}
+        {Number(balance).toLocaleString(undefined, {
+          style: 'currency',
+          currency: community.currency,
+        })}
       </div>
     </div>
   {/if}
