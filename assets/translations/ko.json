@@ -39,7 +39,8 @@
     "permission": "권한",
     "role": "역할",
     "role_representative": "대표관리자",
-    "role_all": "전체"
+    "role_all": "전체",
+    "accept_all": "전부 수락하기"
   },
   "Feed": {
     "FeedCreatePopup": {

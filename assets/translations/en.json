@@ -37,7 +37,8 @@
     "permission": "Permission",
     "role": "Role",
     "role_representative": "Representative",
-    "role_all": "All"
+    "role_all": "All",
+    "accept_all": "Accept all"
   },
   "Feed": {
     "FeedCreatePopup": {
