@@ -9,6 +9,7 @@
 
     @media (max-width: 640px) {
       border-radius: 0px;
+      margin-right: 0px;
     }
   }
 
@@ -24,6 +25,43 @@
     .title-acceptall {
       color: var(--blue50);
       font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .scrollview {
+    padding-top: 16px;
+    overflow-y: scroll;
+  }
+  .scrollview::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollview::-webkit-scrollbar-track {
+    margin-top: 24px;
+  }
+  .scrollview::-webkit-scrollbar-thumb {
+    width: 4px;
+    background: var(--gray30);
+    border-radius: 2px;
+  }
+
+  .item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    .item-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      margin-right: 12px;
+      object-fit: cover;
+    }
+    .item-name {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 </style>
@@ -31,9 +69,6 @@
 <script lang="ts">
   import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
-  import {SvgBadgeCrown, SvgTrashcan} from '../../../utils/Icon';
-  import Button from '../../uis/Button.svelte';
-  import Select from '../../uis//Select.svelte';
 
   interface User {
     image: string;
@@ -76,6 +111,10 @@
     scrollComponent.removeEventListener('resize', onScroll);
   });
 
+  const onAcceptAll = () => {
+    dispatch('acceptAll');
+  };
+
   const onUpdate = (user: User, isAccessed: boolean) => {
     dispatch('update', {user, isAccessed});
   };
@@ -86,9 +125,16 @@
     <div class="title">
       {$_('member')} <span style="color:var(--blue50)">{count}</span>
     </div>
-    <div class="title-acceptall">{$_('Member.accept_all')}</div>
+    <div on:click={onAcceptAll} class="title-acceptall">
+      {$_('Member.accept_all')}
+    </div>
   </div>
-  <div class="itemContainer" bind:this={scrollComponent}>
-    {#each data as user}{/each}
+  <div class="scrollview" bind:this={scrollComponent}>
+    {#each data as user}
+      <div class="item-container">
+        <img src={user.image} alt="profileImage" class="item-image" />
+        <div class="item-name">{user.name}</div>
+      </div>
+    {/each}
   </div>
 </main>

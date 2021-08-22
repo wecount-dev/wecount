@@ -5,6 +5,7 @@
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
     padding: 28px;
+    box-sizing: border-box;
 
     @media (max-width: 640px) {
       border-radius: 0px;
@@ -73,6 +74,9 @@
   }
   .member-name {
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .member-role {
     width: 118px;
