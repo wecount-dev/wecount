@@ -16,6 +16,7 @@
 <script lang="ts">
   import SummaryCard from './SummaryCard.svelte';
   import MemberCard from './MemberCard.svelte';
+  import {_} from 'svelte-i18n';
 
   const user = {
     name: 'Jay-flow',
@@ -89,7 +90,7 @@
 
 <div class="dashboard">
   <div class="sub-heading greeting">
-    ✋️ 안녕하세요. <span class="user-name">{user.name}</span> 님.
+    ✋️ {$_('Dashboard.hello')} <span class="user-name">{user.name}</span>
   </div>
   <div class="summary-card">
     <SummaryCard community={community} user={user} />

@@ -79,7 +79,14 @@
     "explore_community": "커뮤니티를 탐색해보세요!"
   },
   "Dashboard": {
+    "hello": "안녕하세요.",
     "manage_members": "멤버 관리",
-    "current_balance": "현재 잔액"
+    "current_balance": "현재 잔액",
+    "remaining_amount": "남은 금액",
+    "account_book_management": "가계부 관리",
+    "last": "최근",
+    "week": "주",
+    "month": "월",
+    "sponsoring": "후원 하기"
   }
 }

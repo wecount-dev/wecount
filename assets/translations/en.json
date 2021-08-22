@@ -77,7 +77,14 @@
     "explore_community": "Explore the community!"
   },
   "Dashboard": {
+    "hello": "Hello.",
     "manage_members": "Manage members",
-    "current_balance": "Current balance"
+    "current_balance": "Current balance",
+    "remaining_amount": "Remaining amount",
+    "account_book_management": "Account book management",
+    "last": "Last",
+    "week": "Week",
+    "month": "Month",
+    "sponsoring": "Sponsoring"
   }
 }

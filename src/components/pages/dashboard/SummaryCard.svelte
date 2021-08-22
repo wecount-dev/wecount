@@ -44,9 +44,18 @@
   };
 
   const tabs = [
-    {name: '최근 1주', component: depositComponent},
-    {name: '최근 1개월', component: depositComponent},
-    {name: '최근 1개월', component: depositComponent},
+    {
+      name: `${String($_('Dashboard.last'))} 1${String($_('Dashboard.week'))}`,
+      component: depositComponent,
+    },
+    {
+      name: `${String($_('Dashboard.last'))} 1${String($_('Dashboard.month'))}`,
+      component: depositComponent,
+    },
+    {
+      name: `${String($_('Dashboard.last'))} 3${String($_('Dashboard.month'))}`,
+      component: depositComponent,
+    },
   ];
 
   const printPrice = (price: number) =>
@@ -77,7 +86,7 @@
       <div>
         <ProgressBar completed={40} progressBarStyle={'width: 100%;'} />
         <div class="remaining-amount">
-          <span>남은 금액</span>
+          <span>{$_('Dashboard.remaining_amount')}</span>
           <div>
             <span class="p2">{printPrice(100000)}</span> /
             <span class="p2" style="color: var(--gray50)">
@@ -87,12 +96,17 @@
         </div>
       </div>
     </div>
-    <div>
+    <div style="width:100%;">
       <div class="management-link">
-        <TextLink name="가계부관리" href={'/price'} />
+        <TextLink
+          name={$_('Dashboard.account_book_management')}
+          href={'/price'}
+        />
       </div>
-      <TabNavigation tabs={tabs} />
-      <Button primary={true} style={'width: 100%;'}>후원하기</Button>
+      <TabNavigation tabs={tabs} tabNavigationStyle={'max-height: 240px'} />
+      <Button primary={true} style={'width: 100%;'}>
+        {$_('Dashboard.sponsoring')}
+      </Button>
     </div>
   </Card>
 </div>

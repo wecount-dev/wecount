@@ -7,13 +7,15 @@
 
   .tab-layout {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     border-bottom: 1px solid var(--gray40);
   }
 
   .tab {
     cursor: pointer;
     font-size: 0.875rem;
-    padding: 3px;
+    padding: 3px 5px;
   }
 
   .tab:not(:last-child) {

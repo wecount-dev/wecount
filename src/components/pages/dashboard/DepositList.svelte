@@ -1,9 +1,6 @@
 <style lang="postcss">
   .deposits {
-    display: flex;
-    align-items: end;
-    flex-direction: column;
-    justify-content: space-between;
+    text-align: right;
     margin: 15px 0px;
     height: 184px;
     width: 100%;
@@ -16,7 +13,7 @@
     display: none;
   }
   .deposit:not(:last-child) {
-    margin-bottom: 16px;
+    margin-bottom: 15px;
   }
 </style>
 
