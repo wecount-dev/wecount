@@ -1,6 +1,6 @@
 <style global lang="postcss">
   .link-layout {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     cursor: pointer;
     padding: 2;

@@ -8,6 +8,9 @@
   .greeting {
     margin-bottom: 20px;
   }
+  .summary-card {
+    margin-bottom: 20px;
+  }
 </style>
 
 <script lang="ts">
@@ -30,30 +33,35 @@
         title: '이마트 강서마곡점',
         description: '쇼핑',
         price: 25000,
+        currency: 'KRW',
         createdAt: '2020/02/01',
       },
       {
         title: '삼성화재 강남지점',
         description: '쇼핑',
         price: 1125000.0,
+        currency: 'KRW',
         createdAt: '2020/02/01',
       },
       {
         title: '현대카드',
         description: '쇼핑',
         price: -611000.0,
+        currency: 'KRW',
         createdAt: '2020/02/01',
       },
       {
         title: '롯데수퍼 강일점',
         description: '쇼핑',
         price: 25000.0,
+        currency: 'KRW',
         createdAt: '2020/02/01',
       },
       {
         title: '쿠팡',
         description: '쇼핑',
         price: 3000.0,
+        currency: 'KRW',
         createdAt: '2020/02/01',
       },
     ],
@@ -83,7 +91,7 @@
   <div class="sub-heading greeting">
     ✋️ 안녕하세요. <span class="user-name">{user.name}</span> 님.
   </div>
-  <div>
+  <div class="summary-card">
     <SummaryCard community={community} user={user} />
   </div>
   <MemberCard members={members} />

@@ -1,4 +1,4 @@
-import type {SvelteComponent} from 'svelte';
+import type {SvelteComponent, SvelteComponentTyped} from 'svelte';
 
 export type UserType = {
   name: string;
@@ -19,6 +19,7 @@ export type CommunityType = {
 export type DepositType = {
   title: string
   description: string
+  currency: string;
   price: number
   createdAt: string
 }
@@ -31,7 +32,11 @@ export type CarouselItemType = {
 
 export type TabNavigationType = {
   name: string;
-  component: typeof SvelteComponent;
+  component: {
+    component: typeof SvelteComponent, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    props?: Record<string, any> 
+  };
 };
 
 export type DrawerType = {

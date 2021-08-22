@@ -24,10 +24,6 @@
     border-bottom: 2px solid var(--gray100);
     font-weight: bold;
   }
-
-  .component-layout {
-    height: 100%;
-  }
 </style>
 
 <script lang="ts">
@@ -53,7 +49,8 @@
       </div>
     {/each}
   </div>
-  <div class="component-layout">
-    <svelte:component this={tabs[activeIndex].component} />
-  </div>
+  <svelte:component
+    this={tabs[activeIndex].component.component}
+    {...tabs[activeIndex].component.props}
+  />
 </div>
