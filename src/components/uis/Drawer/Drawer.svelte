@@ -18,6 +18,10 @@
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     transition: width 0.15s;
     transition-timing-function: ease-in-out;
+
+    @media (max-width: 640px) {
+      width: 120px;
+    }
   }
 
   .menu-layout-close {

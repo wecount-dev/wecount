@@ -2,6 +2,10 @@
   main {
     padding: 0 10%;
     display: flex;
+
+    @media (max-width: 640px) {
+      padding: 0px;
+    }
   }
   .container {
     width: 100%;
