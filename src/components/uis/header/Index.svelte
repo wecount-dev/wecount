@@ -11,7 +11,7 @@
     border-bottom: solid 1px;
     border-bottom-color: #f3f4f5;
   }
-  .header {
+  .layout {
     width: 1200px;
     padding: 0px 13px;
     box-sizing: border-box;
@@ -42,7 +42,7 @@
 </script>
 
 <nav>
-  <div class="header">
+  <div class="layout">
     <SvgLogo width="34.29" />
     <div class="nav-menu">
       {#if $user}

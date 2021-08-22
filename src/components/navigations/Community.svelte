@@ -1,9 +1,9 @@
 <style lang="postcss">
-  main {
+  .community-route {
     display: flex;
     justify-content: center;
   }
-  .community-route {
+  .layout {
     display: flex;
     width: 1200px;
 
@@ -11,13 +11,13 @@
       width: 100%;
     }
   }
-  .navigation {
+  nav {
     height: calc(100vh - 56px);
     position: sticky;
     top: 56px;
     left: 0;
   }
-  .container {
+  section {
     width: 100%;
   }
 </style>
@@ -51,13 +51,13 @@
   };
 </script>
 
-<main>
-  <div class="community-route">
-    <div class="navigation">
+<div class="community-route">
+  <div class="layout">
+    <nav>
       <Drawer communites={communites} onSelectMenu={onSelectMenu} />
-    </div>
-    <div class="container">
+    </nav>
+    <section>
       <Router routes={routes} prefix={prefix} />
-    </div>
+    </section>
   </div>
-</main>
+</div>
