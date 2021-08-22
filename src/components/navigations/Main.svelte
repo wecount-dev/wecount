@@ -21,14 +21,12 @@
   import Temp from '../pages/Temp.svelte';
   import CommunityCrete from '../pages/community/Create.svelte';
   import CommunityRoute from './Community.svelte';
-  import Dashboard from '../pages/dashboard/Index.svelte';
 
   const routes = {
     '/sign_in': SignIn,
     '/sign_up': SignUp,
     '/': Intro,
     // '/lorem/:repeat': Lorem,
-    '/dashboard': Dashboard,
     '/profile': Profile,
     '/service_sample': ServiceSample,
     '/community/create': CommunityCrete,
