@@ -1,9 +1,18 @@
 <style lang="postcss">
+  main {
+    padding: 0 10%;
+    display: flex;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+  }
 </style>
 
 <script lang="ts">
   import Router from 'svelte-spa-router';
   import Drawer from '../uis/Drawer/Drawer.svelte';
+  import Temp from '../pages/Temp.svelte';
 
   const communites = [
     {
@@ -23,10 +32,15 @@
     console.log(`Selected Path: ${path}`);
   };
 
-  const routes = {};
+  const prefix = '/community';
+  const routes = {
+    '/*': Temp,
+  };
 </script>
 
 <main>
   <Drawer communites={communites} onSelectMenu={onSelectMenu} />
-  <Router routes={routes} />
+  <div class="container">
+    <Router routes={routes} prefix={prefix} />
+  </div>
 </main>
