@@ -95,6 +95,7 @@
     (selectedCurrencyOption = e.detail);
 
   const createCommunity = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const community = {
       name: communityName,
       description: communityDescription,
@@ -103,9 +104,6 @@
       isPublic: selectedPublicOption === $_('Community.public') ? true : false,
       currency: selectedCurrencyOption,
     };
-
-    // eslint-disable-next-line no-console
-    console.debug('Submit', community);
   };
 </script>
 
