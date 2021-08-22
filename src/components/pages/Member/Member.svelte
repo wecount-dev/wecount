@@ -45,6 +45,11 @@
   import {_} from 'svelte-i18n';
   import faker from 'faker/locale/en';
 
+  interface User {
+    image: string;
+    name: string;
+  }
+
   interface Member {
     image: string;
     name: string;
@@ -67,6 +72,15 @@
     };
   };
 
+  const createFakeUser = (): User => {
+    return {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      image: faker.image.avatar(),
+      // @ts-ignore
+      name: `${faker.name.lastName()} ${faker.name.firstName()}`,
+    };
+  };
+
   let memberList = Array(30)
     .fill(0)
     .map((_, i) =>
@@ -74,10 +88,16 @@
         ? {...createFakeMember(), isRepresentativeAdmin: true}
         : createFakeMember(),
     );
+
+  let membershipRequestList = Array(30).fill(0).map(createFakeUser);
 </script>
 
 <main>
   <div class="sub-heading">{$_('Member.title')}</div>
-  <MembershipRequestList class="membership-request-list" />
+  <MembershipRequestList
+    class="membership-request-list"
+    data={membershipRequestList}
+    count={25}
+  />
   <MemberList class="member-list" data={memberList} />
 </main>
