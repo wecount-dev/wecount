@@ -7,9 +7,15 @@
       padding: 0px;
     }
   }
+  .navigation {
+    height: calc(100vh - 56px);
+    position: sticky;
+    top: 56px;
+    left: 0;
+  }
+
   .container {
     width: 100%;
-    height: 100%;
   }
 </style>
 
@@ -43,7 +49,9 @@
 </script>
 
 <main>
-  <Drawer communites={communites} onSelectMenu={onSelectMenu} />
+  <div class="navigation">
+    <Drawer communites={communites} onSelectMenu={onSelectMenu} />
+  </div>
   <div class="container">
     <Router routes={routes} prefix={prefix} />
   </div>

@@ -4,6 +4,11 @@
     border-bottom: solid 1px;
     border-bottom-color: #f3f4f5;
 
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    background-color: var(--background-color);
+    z-index: 99;
     display: flex;
     flex-direction: row;
     align-items: center;

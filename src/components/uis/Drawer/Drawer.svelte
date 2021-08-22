@@ -20,7 +20,7 @@
     transition-timing-function: ease-in-out;
 
     @media (max-width: 640px) {
-      width: 120px;
+      width: 124px;
     }
   }
 
