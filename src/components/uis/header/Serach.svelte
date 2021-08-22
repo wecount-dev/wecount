@@ -15,6 +15,7 @@
     width: 170px;
     outline: none;
     font-size: 0.875rem;
+    color: var(--gray60);
   }
   .search-button {
     cursor: pointer;
