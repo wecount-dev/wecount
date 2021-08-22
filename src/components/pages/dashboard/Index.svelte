@@ -15,15 +15,15 @@
       imageUrl: 'https://picsum.photos/50/50?random=1',
     },
     {
-      name: 'DevYuns',
+      name: 'Dean',
       imageUrl: 'https://picsum.photos/50/50?random=2',
     },
     {
-      name: 'KoreanThinker',
+      name: 'Herry',
       imageUrl: 'https://picsum.photos/50/50?random=3',
     },
     {
-      name: 'Jay-flow',
+      name: 'Jay',
       imageUrl: 'https://picsum.photos/50/50?random=4',
     },
   ];
