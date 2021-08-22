@@ -94,5 +94,7 @@
   <div class="summary-card">
     <SummaryCard community={community} user={user} />
   </div>
-  <MemberCard members={members} />
+  <div>
+    <MemberCard members={members} />
+  </div>
 </div>

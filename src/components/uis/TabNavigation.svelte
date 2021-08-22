@@ -17,7 +17,7 @@
   }
 
   .tab:not(:last-child) {
-    margin-right: 24px;
+    margin-right: 12px;
   }
 
   .active-tab {
@@ -31,6 +31,7 @@
 
   export let tabs: TabNavigationType[];
   export let tabNavigationStyle: string | undefined = undefined;
+  export let tabStyle: string | undefined = undefined;
 
   let activeIndex = 0;
 
@@ -42,6 +43,7 @@
     {#each tabs as tab, index}
       <div
         class="tab"
+        style={tabStyle}
         on:click={() => onTab(index)}
         class:active-tab={index == activeIndex}
       >

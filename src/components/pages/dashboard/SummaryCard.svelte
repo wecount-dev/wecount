@@ -17,7 +17,7 @@
   }
   .management-link {
     text-align: right;
-    margin-top: 10px;
+    margin-top: 3px;
     margin-bottom: 20px;
   }
 </style>
@@ -25,6 +25,7 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import type {CommunityType, UserType} from '../../../types';
+  import Button from '../../uis/Button.svelte';
   import Card from '../../uis/Card.svelte';
   import CommunityCard from '../../uis/CommunityCard.svelte';
   import ProgressBar from '../../uis/ProgressBar.svelte';
@@ -44,8 +45,8 @@
 
   const tabs = [
     {name: '최근 1주', component: depositComponent},
-    {name: '최근 1주', component: depositComponent},
-    {name: '최근 1주', component: depositComponent},
+    {name: '최근 1개월', component: depositComponent},
+    {name: '최근 1개월', component: depositComponent},
   ];
 
   const printPrice = (price: number) =>
@@ -74,13 +75,13 @@
         />
       </div>
       <div>
-        <ProgressBar completed={40} />
+        <ProgressBar completed={40} progressBarStyle={'width: 100%;'} />
         <div class="remaining-amount">
           <span>남은 금액</span>
           <div>
-            <span class="p2">{printPrice(123213)}</span> /
+            <span class="p2">{printPrice(100000)}</span> /
             <span class="p2" style="color: var(--gray50)">
-              {printPrice(123213)}
+              {printPrice(10000)}
             </span>
           </div>
         </div>
@@ -91,6 +92,7 @@
         <TextLink name="가계부관리" href={'/price'} />
       </div>
       <TabNavigation tabs={tabs} />
+      <Button primary={true} style={'width: 100%;'}>후원하기</Button>
     </div>
   </Card>
 </div>
