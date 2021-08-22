@@ -17,7 +17,6 @@
     top: 56px;
     left: 0;
   }
-
   .container {
     width: 100%;
   }
