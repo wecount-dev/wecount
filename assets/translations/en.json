@@ -85,6 +85,12 @@
     "last": "Last",
     "week": "Week",
     "month": "Month",
-    "sponsoring": "Sponsoring"
+    "sponsoring": "Sponsoring",
+    "usage_details": "Usage details",
+    "more": "More",
+    "spending": "Spending",
+    "categories": "Categories",
+    "date": "Date",
+    "amount": "Amount"
   }
 }

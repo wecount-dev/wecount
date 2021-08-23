@@ -8,6 +8,10 @@
   .greeting {
     margin-bottom: 20px;
   }
+  .card-layout {
+    display: flex;
+    gap: 20px;
+  }
   .summary-card {
     margin-bottom: 20px;
   }
@@ -17,6 +21,7 @@
   import SummaryCard from './SummaryCard.svelte';
   import MemberCard from './MemberCard.svelte';
   import {_} from 'svelte-i18n';
+  import UsageDetailCard from './UsageDetailCard.svelte';
 
   const user = {
     name: 'Jay-flow',
@@ -92,10 +97,19 @@
   <div class="sub-heading greeting">
     ✋️ {$_('Dashboard.hello')} <span class="user-name">{user.name}</span>
   </div>
-  <div class="summary-card">
-    <SummaryCard community={community} user={user} />
-  </div>
-  <div>
-    <MemberCard members={members} />
+  <div class="card-layout">
+    <div>
+      <div class="summary-card">
+        <SummaryCard community={community} user={user} />
+      </div>
+      <div>
+        <UsageDetailCard deposits={community.deposit} />
+      </div>
+    </div>
+    <div>
+      <div>
+        <MemberCard members={members} />
+      </div>
+    </div>
   </div>
 </div>

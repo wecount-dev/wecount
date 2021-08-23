@@ -87,6 +87,12 @@
     "last": "최근",
     "week": "주",
     "month": "월",
-    "sponsoring": "후원 하기"
+    "sponsoring": "후원 하기",
+    "usage_details": "사용내역",
+    "more": "더보기",
+    "spending": "지출",
+    "categories": "카테고리",
+    "date": "날짜",
+    "amount": "사용금액"
   }
 }
