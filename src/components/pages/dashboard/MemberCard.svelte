@@ -9,6 +9,9 @@
     justify-content: space-between;
     margin-bottom: 12px;
   }
+  .sub-heading {
+    font-weight: bold;
+  }
   .members {
     display: flex;
     justify-content: space-between;

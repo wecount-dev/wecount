@@ -93,6 +93,10 @@
     "spending": "지출",
     "categories": "카테고리",
     "date": "날짜",
-    "amount": "사용금액"
+    "amount": "사용 금액",
+    "expenditure_statistics": "지출통계",
+    "salary": "급여",
+    "parcel_service": "택배",
+    "delivery": "배달"
   }
 }

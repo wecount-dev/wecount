@@ -91,6 +91,10 @@
     "spending": "Spending",
     "categories": "Categories",
     "date": "Date",
-    "amount": "Amount"
+    "amount": "Amount",
+    "expenditure_statistics": "Expenditure Statistics",
+    "salary": "Salary",
+    "parcel_service": "Parcel service",
+    "delivery": "Delivery"
   }
 }

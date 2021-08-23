@@ -5,14 +5,14 @@
   .user-name {
     font-weight: bold;
   }
-  .greeting {
-    margin-bottom: 20px;
-  }
+
   .card-layout {
     display: flex;
     gap: 20px;
   }
-  .summary-card {
+  .summary-card,
+  .member-card,
+  .greeting {
     margin-bottom: 20px;
   }
 </style>
@@ -22,6 +22,7 @@
   import MemberCard from './MemberCard.svelte';
   import {_} from 'svelte-i18n';
   import UsageDetailCard from './UsageDetailCard.svelte';
+  import SpendingCard from './SpendingCard.svelte';
 
   const user = {
     name: 'Jay-flow',
@@ -107,8 +108,11 @@
       </div>
     </div>
     <div>
-      <div>
+      <div class="member-card">
         <MemberCard members={members} />
+      </div>
+      <div>
+        <SpendingCard />
       </div>
     </div>
   </div>
