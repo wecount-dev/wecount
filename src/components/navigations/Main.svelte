@@ -1,26 +1,11 @@
 <style lang="postcss">
   main {
-    background-color: var(--gray20);
-
-    grid-template-columns: 10% 56px 1fr 10%;
+    grid-template-columns: 1fr;
     grid-template-rows: 56px 1fr;
-    grid-template-areas:
-      'header header header header'
-      '   .    drawer  main    .  ';
-
-    @media (max-width: 640px) {
-      grid-template-columns: 0 56px 1fr 0;
+  }
+  @media (min-width: 640px) {
+    main {
     }
-  }
-  .header {
-    grid-area: header;
-  }
-  .drawer {
-    grid-area: drawer;
-    background-color: var(--background-color);
-  }
-  .main {
-    grid-area: main;
   }
 </style>
 
@@ -32,7 +17,6 @@
   import SignIn from '../pages/SignIn.svelte';
   import SignUp from '../pages/SignUp.svelte';
   import ServiceSample from '../pages/ServiceSample.svelte';
-  import Member from '../pages/Member/Member.svelte';
   import Temp from '../pages/Temp.svelte';
   import CommunityCrete from '../pages/community/Create.svelte';
   import CommunityRoute from './Community.svelte';
@@ -52,11 +36,6 @@
 </script>
 
 <main>
-  <div class="header">
-    <Header />
-  </div>
-  <div class="drawer" />
-  <div class="main">
-    <Router routes={routes} />
-  </div>
+  <Header />
+  <Router routes={routes} />
 </main>

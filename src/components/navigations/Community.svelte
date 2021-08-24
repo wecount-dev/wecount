@@ -26,6 +26,7 @@
   import Router from 'svelte-spa-router';
   import Drawer from '../uis/drawer/Index.svelte';
   import Temp from '../pages/Temp.svelte';
+  import Member from '../pages/Member/Member.svelte';
 
   const communites = [
     {
@@ -45,6 +46,7 @@
 
   const prefix = '/community';
   const routes = {
+    '/member': Member,
     '/*': Temp,
   };
 </script>
