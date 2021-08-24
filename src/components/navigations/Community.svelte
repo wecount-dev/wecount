@@ -2,41 +2,40 @@
   .community-route {
     display: flex;
     justify-content: center;
+    background-color: var(--paper);
+    overflow: hidden;
   }
   .layout {
-    display: flex;
     width: 1200px;
+    height: calc(100vh - 56px);
+    display: flex;
+    position: relative;
 
     @media (max-width: 1200px) {
       width: 100%;
     }
   }
-  nav {
-    height: calc(100vh - 56px);
-    position: sticky;
-    top: 56px;
-    left: 0;
-  }
   section {
     width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 </style>
 
 <script lang="ts">
   import Router from 'svelte-spa-router';
-  import Drawer from '../uis/Drawer/Drawer.svelte';
+  import Drawer from '../uis/drawer/Index.svelte';
   import Temp from '../pages/Temp.svelte';
 
   const communites = [
     {
       id: '1',
-      imageUrl:
-        'https://cdn.icon-icons.com/icons2/2620/PNG/512/among_us_player_red_icon_156942.png',
+      imageUrl: 'https://picsum.photos/50/50?random=1',
     },
     {
       id: '2',
-      imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png',
+      imageUrl: 'https://picsum.photos/50/50?random=2',
     },
   ];
 

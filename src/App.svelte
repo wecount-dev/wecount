@@ -41,6 +41,10 @@
     --input-focus: var(--gray80);
     --background-color: white;
     --primary: var(--green70);
+    --shading: var(--gray10);
+    --paper: #f2f5f6;
+    --nav: white;
+    --card: white;
 
     background-color: var(--background-color);
     color: var(--gray100);
@@ -50,7 +54,11 @@
     --button: var(--green30);
     --placeholder: var(--gray80);
     --text: var(--gray10);
-    --background-color: var(--gray100);
+    --background-color: var(--gray90);
+    --shading: var(--gray90);
+    --paper: var(--gray90);
+    --nav: black;
+    --card: var(--gray100);
 
     background-color: var(--background-color);
     color: var(--gray10);

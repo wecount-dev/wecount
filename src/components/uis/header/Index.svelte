@@ -3,13 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
-    top: 0px;
-    left: 0px;
-    background-color: var(--background-color);
-    z-index: 99;
+    background-color: var(--nav);
     border-bottom: solid 1px;
-    border-bottom-color: #f3f4f5;
+    border-bottom-color: var(--gray20);
   }
   .layout {
     width: 1200px;

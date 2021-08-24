@@ -4,13 +4,11 @@
     background-color: var(--background-color);
     height: 100%;
   }
-
   .community-layout {
     z-index: 2;
     min-width: 56px;
     box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.12);
   }
-
   .menu-layout {
     display: flex;
     flex-direction: column;
@@ -23,18 +21,15 @@
       width: 124px;
     }
   }
-
   .menu-layout-close {
     visibility: hidden;
     width: 0px;
   }
-
   .close-button {
     align-self: flex-end;
     padding: 7px 12px;
     cursor: pointer;
   }
-
   .open-menu-button-container {
     display: flex;
     justify-content: center;
@@ -42,16 +37,13 @@
     height: 33px;
     margin-top: 5px;
   }
-
   .open-menu-button {
     padding: 5px;
     cursor: pointer;
   }
-
   .community-menu-layout {
     padding: 6px;
   }
-
   .hidden {
     visibility: hidden;
   }
