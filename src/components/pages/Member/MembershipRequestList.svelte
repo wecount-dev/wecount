@@ -5,6 +5,7 @@
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
     padding: 28px;
+    padding-right: 14px;
     margin-right: 20px;
 
     @media (max-width: 640px) {
@@ -48,6 +49,7 @@
 
   .item-container {
     display: flex;
+    margin-right: 14px;
     align-items: center;
     margin-bottom: 16px;
     .item-image {
@@ -69,6 +71,7 @@
 <script lang="ts">
   import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
+  import Button from '../../uis/Button.svelte';
 
   interface User {
     image: string;
@@ -134,6 +137,15 @@
       <div class="item-container">
         <img src={user.image} alt="profileImage" class="item-image" />
         <div class="item-name">{user.name}</div>
+        <Button
+          style="margin-right: 8px;"
+          on:click={() => onUpdate(user, true)}
+          blue
+          size="small">수락하기</Button
+        >
+        <Button on:click={() => onUpdate(user, false)} size="small"
+          >거절하기</Button
+        >
       </div>
     {/each}
   </div>
