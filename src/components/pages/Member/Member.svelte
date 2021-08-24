@@ -96,7 +96,12 @@
   <MembershipRequestList
     class="membership-request-list"
     data={membershipRequestList}
+    on:update={(e) => console.log(e.detail)}
     count={25}
   />
-  <MemberList class="member-list" data={memberList} />
+  <MemberList
+    class="member-list"
+    data={memberList}
+    on:memberChange={(e) => console.log(e.detail)}
+  />
 </main>
