@@ -17,7 +17,7 @@
     border-collapse: collapse;
   }
   .colmun-name {
-    background-color: var(--gray10);
+    background-color: var(--shading);
     font-size: 0.875rem;
     height: 29px;
     box-sizing: border-box;

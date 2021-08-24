@@ -30,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     padding: 12px;
-    background-color: var(--gray10);
+    background-color: var(--shading);
   }
   .spending-part {
     display: flex;

@@ -3,7 +3,7 @@
     position: relative;
     width: 318px;
     height: 10px;
-    background: var(--gray20);
+    background: var(--shading);
     border-radius: 10000px;
   }
 
