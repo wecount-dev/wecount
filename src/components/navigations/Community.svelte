@@ -9,7 +9,6 @@
     width: 1200px;
     height: calc(100vh - 56px);
     display: flex;
-    position: relative;
 
     @media (max-width: 1200px) {
       width: 100%;
