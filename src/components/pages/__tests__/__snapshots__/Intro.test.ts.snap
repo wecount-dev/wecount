@@ -11,7 +11,7 @@ exports[`should render without error 1`] = `
       </p>
        
       <button
-        class="svelte-1i07g1p"
+        class="svelte-1d9umt2 medium"
         style=""
       >
         Login
@@ -19,7 +19,7 @@ exports[`should render without error 1`] = `
       </button>
        
       <button
-        class="svelte-1i07g1p"
+        class="svelte-1d9umt2 medium"
         style=""
       >
         Toggle Theme

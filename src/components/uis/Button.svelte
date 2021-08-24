@@ -1,6 +1,7 @@
 <style lang="postcss">
   button {
     background-color: var(--button);
+    color: var(--text);
 
     &:hover {
       cursor: pointer;
