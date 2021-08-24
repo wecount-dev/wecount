@@ -5,11 +5,13 @@
     height: 100%;
   }
   .community-layout {
+    background-color: var(--nav);
     z-index: 2;
     min-width: 56px;
     box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.12);
   }
   .menu-layout {
+    background-color: var(--card);
     display: flex;
     flex-direction: column;
     width: 144px;
