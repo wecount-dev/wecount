@@ -48,10 +48,15 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
+  import type {DepositType} from '../../../types';
+  import {showAmount} from '../../../utils/functions';
   import Card from '../../uis/Card.svelte';
   import TripleCircleProgressBar from '../../uis/TripleCircleProgressBar.svelte';
 
   export let style: string | undefined = undefined;
+  export let deposits: DepositType[];
+
+  const currency = deposits[0].currency;
 </script>
 
 <div class="usage-detail-card" style={style}>
@@ -71,7 +76,7 @@
         ${String($_('Dashboard.month'))} 
         ${String($_('Dashboard.amount'))}`}
         </p>
-        <h6>408,400 원</h6>
+        <h6>{showAmount(408400, currency)}</h6>
       </div>
       <div class="amount-layout">
         <div class="spending-layout">
@@ -79,21 +84,21 @@
             <span class="dot" style="--dot-color: var(--primary)" />
             <span class="p2">{$_('Dashboard.salary')}</span>
           </div>
-          <span class="p2 price">223,000 원</span>
+          <span class="p2 price">{showAmount(223000, currency)}</span>
         </div>
         <div class="spending-layout">
           <div class="spending-part">
             <span class="dot" style="--dot-color: var(--blue50)" />
             <span class="p2">{$_('Dashboard.parcel_service')}</span>
           </div>
-          <span class="p2 price">160,400 원</span>
+          <span class="p2 price">{showAmount(160400, currency)}</span>
         </div>
         <div class="spending-layout">
           <div class="spending-part">
             <span class="dot" style="--dot-color: var(--gray40)" />
             <span class="p2">{$_('Dashboard.delivery')}</span>
           </div>
-          <span class="p2 price">25,000 원</span>
+          <span class="p2 price">{showAmount(25000, currency)}</span>
         </div>
       </div>
     </div>

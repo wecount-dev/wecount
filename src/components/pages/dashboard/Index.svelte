@@ -112,7 +112,7 @@
         <MemberCard members={members} />
       </div>
       <div>
-        <SpendingCard />
+        <SpendingCard deposits={community.deposit} />
       </div>
     </div>
   </div>

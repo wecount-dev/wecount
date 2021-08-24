@@ -25,6 +25,7 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import type {CommunityType, UserType} from '../../../types';
+  import {showAmount} from '../../../utils/functions';
   import Button from '../../uis/Button.svelte';
   import Card from '../../uis/Card.svelte';
   import CommunityCard from '../../uis/CommunityCard.svelte';
@@ -57,13 +58,6 @@
       component: depositComponent,
     },
   ];
-
-  const printPrice = (price: number) =>
-    price.toLocaleString(undefined, {
-      style: 'currency',
-      currency: community.currency,
-      currencyDisplay: 'symbol',
-    });
 </script>
 
 <div class="summary-card">
@@ -88,9 +82,9 @@
         <div class="remaining-amount">
           <span>{$_('Dashboard.remaining_amount')}</span>
           <div>
-            <span class="p2">{printPrice(100000)}</span> /
+            <span class="p2">{showAmount(100000, community.currency)}</span> /
             <span class="p2" style="color: var(--gray50)">
-              {printPrice(10000)}
+              {showAmount(10000, community.currency)}
             </span>
           </div>
         </div>

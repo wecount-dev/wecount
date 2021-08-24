@@ -80,6 +80,7 @@
   import {SvgCrown, SvgLock} from '../../utils/Icon';
   import type {CommunityType, UserType} from '../../types';
   import {_} from 'svelte-i18n';
+  import {showAmount} from '../../utils/functions';
 
   export let community: CommunityType;
   export let user: UserType;
@@ -119,10 +120,7 @@
     <div class="balance-layout">
       <div class="balance-title">{$_('Dashboard.current_balance')}</div>
       <div class="balance">
-        {Number(balance).toLocaleString(undefined, {
-          style: 'currency',
-          currency: community.currency,
-        })}
+        {showAmount(balance, community.currency)}
       </div>
     </div>
   {/if}
