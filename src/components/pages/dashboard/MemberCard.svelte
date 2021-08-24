@@ -1,6 +1,6 @@
 <style lang="postcss">
   .member-card {
-    width: 366px;
+    width: 346px;
     height: 174px;
   }
   .header {

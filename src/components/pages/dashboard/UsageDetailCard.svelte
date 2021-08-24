@@ -61,7 +61,7 @@
 </script>
 
 <div class="usage-detail-card" style={style}>
-  <Card cardStyle={'padding: 28px; height: 341px; width: 654px'}>
+  <Card cardStyle={'padding: 28px; height: 341px; width: 614px'}>
     <div class="header">
       <span class="sub-heading">{$_('Dashboard.usage_details')}</span>
       <TextLink name={$_('Dashboard.more')} href={'/community/dashboard'} />

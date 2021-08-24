@@ -1,6 +1,6 @@
 <style lang="postcss">
   .summary-card {
-    width: 654px;
+    width: 614px;
     height: 379px;
   }
   .community-name {
@@ -68,7 +68,7 @@
 
 <div class="summary-card">
   <Card
-    cardStyle={'height: 100%; padding: 28px; 24px; display: flex; gap: 46px;'}
+    cardStyle={'height: 100%; padding: 28px; 24px; display: flex; gap: 20px;'}
   >
     <div>
       <div class="sub-heading community-name">
@@ -80,7 +80,7 @@
           user={user}
           community={community}
           balance={100000}
-          cardStyle={'background-color: var(--primary)'}
+          cardStyle={'background-color: var(--primary); width: 310px;'}
         />
       </div>
       <div>
@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-    <div style="width:100%;">
+    <div>
       <div class="management-link">
         <TextLink
           name={$_('Dashboard.account_book_management')}

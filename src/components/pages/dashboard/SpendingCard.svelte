@@ -55,7 +55,7 @@
 </script>
 
 <div class="usage-detail-card" style={style}>
-  <Card cardStyle={'padding: 28px; height: 546px; width: 366px'}>
+  <Card cardStyle={'padding: 28px; height: 546px; width: 346px'}>
     <div class="sub-heading">{$_('Dashboard.expenditure_statistics')}</div>
     <div class="circle-progress">
       <TripleCircleProgressBar
