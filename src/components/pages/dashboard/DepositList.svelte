@@ -15,18 +15,22 @@
   .deposit:not(:last-child) {
     margin-bottom: 15px;
   }
+  .spending {
+    color: var(--red50);
+  }
 </style>
 
 <script lang="ts">
   import type {DepositType} from '../../../types';
+  import {showAmount} from '../../../utils/functions';
 
   export let deposits: DepositType[];
 </script>
 
 <div class="deposits">
   {#each deposits as deposit}
-    <div class="deposit">
-      {deposit.price}
+    <div class="deposit" class:spending={deposit.price < 0}>
+      {showAmount(deposit.price, deposit.currency)}
     </div>
   {/each}
 </div>

@@ -48,11 +48,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .spending {
+    color: var(--red50);
+  }
 </style>
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import type {DepositType} from '../../../types';
+  import {showAmount} from '../../../utils/functions';
   import Card from '../../uis/Card.svelte';
   import TextLink from './TextLink.svelte';
 
@@ -85,7 +89,9 @@
             <td>{deposit.title}</td>
             <td>{deposit.description}</td>
             <td>{deposit.createdAt}</td>
-            <td>{deposit.price}</td>
+            <td class:spending={deposit.price < 0}>
+              {showAmount(deposit.price, deposit.currency)}
+            </td>
           </tr>
         {/each}
       </table>
