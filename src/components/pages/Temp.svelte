@@ -7,4 +7,4 @@
   }
 </style>
 
-<main style="height: 10000px;">Temp</main>
+<main>Temp</main>
