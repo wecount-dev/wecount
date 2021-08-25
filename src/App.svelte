@@ -49,10 +49,6 @@
     background-color: var(--background-color);
     color: var(--gray100);
     transition: background-color 0.3s;
-
-    :global(.community-route) {
-      background-color: #f2f5f6;
-    }
   }
   :global(body.dark-mode) {
     --button: var(--green30);
@@ -66,10 +62,6 @@
 
     background-color: var(--background-color);
     color: var(--gray10);
-
-    :global(.community-route) {
-      background-color: var(--gray90);
-    }
   }
   * {
     font-family: 'Spoqa Han Sans Neo';
