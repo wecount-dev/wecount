@@ -17,9 +17,9 @@
     border-collapse: collapse;
   }
   .colmun-name {
+    height: 29px;
     background-color: var(--shading);
     font-size: 0.875rem;
-    height: 29px;
     box-sizing: border-box;
   }
   .colmun-name {
@@ -39,11 +39,18 @@
   td:not(:first-child):not(:last-child) {
     text-align: center;
   }
+  th:first-child,
+  th:nth-last-child(2),
+  td:first-child,
+  td:nth-last-child(2) {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
   td {
     height: 40px;
     font-size: 1rem;
     color: var(--text);
-
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -65,19 +72,13 @@
 </script>
 
 <div class="usage-detail-card" style={style}>
-  <Card cardStyle={'padding: 28px; height: 341px; width: 614px'}>
+  <Card cardStyle={'padding: 28px; height: 341px; width: 100%'}>
     <div class="header">
       <span class="sub-heading">{$_('Dashboard.usage_details')}</span>
       <TextLink name={$_('Dashboard.more')} href={'/community/dashboard'} />
     </div>
     <div class="usage-details-table">
       <table>
-        <colgroup>
-          <col style="width: 40%" />
-          <col style="width: 15%" />
-          <col style="width: 20%" />
-          <col style="width: 25%;" />
-        </colgroup>
         <tr class="colmun-name">
           <th>{$_('Dashboard.spending')}</th>
           <th>{$_('Dashboard.categories')}</th>

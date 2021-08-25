@@ -1,7 +1,6 @@
 <style lang="postcss">
   .summary-card {
-    width: 614px;
-    height: 379px;
+    width: 100%;
   }
   .community-name {
     font-weight: bold;
@@ -19,6 +18,16 @@
     text-align: right;
     margin-top: 3px;
     margin-bottom: 20px;
+  }
+  .left-column {
+    flex-grow: 1;
+  }
+  .right-column {
+    width: 226px;
+
+    @media (max-width: 700px) {
+      width: 100%;
+    }
   }
 </style>
 
@@ -62,9 +71,9 @@
 
 <div class="summary-card">
   <Card
-    cardStyle={'height: 100%; padding: 28px; 24px; display: flex; gap: 20px;'}
+    cardStyle={'height: 100%; padding: 28px; 24px; display: flex; gap: 20px; flex-wrap: wrap;'}
   >
-    <div>
+    <div class="left-column">
       <div class="sub-heading community-name">
         {community.name}
         {$_('community')}
@@ -74,7 +83,7 @@
           user={user}
           community={community}
           balance={100000}
-          cardStyle={'background-color: var(--primary); width: 310px;'}
+          cardStyle={'background-color: var(--primary); width: 100%;'}
         />
       </div>
       <div>
@@ -90,7 +99,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="right-column">
       <div class="management-link">
         <TextLink
           name={$_('Dashboard.account_book_management')}

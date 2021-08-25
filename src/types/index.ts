@@ -1,4 +1,4 @@
-import type {SvelteComponent, SvelteComponentTyped} from 'svelte';
+import type {SvelteComponent} from 'svelte';
 
 export type UserType = {
   name: string;

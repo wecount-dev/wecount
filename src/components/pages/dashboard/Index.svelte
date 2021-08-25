@@ -1,19 +1,44 @@
 <style lang="postcss">
   .dashboard {
-    padding: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    @media (max-width: 640px) {
+      padding: 20px 0px;
+    }
   }
   .user-name {
     font-weight: bold;
   }
+  .left-column {
+    width: 614px;
 
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+  }
+  .right-column {
+    width: 330px;
+
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+  }
   .card-layout {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
   }
   .summary-card,
   .member-card,
   .greeting {
     margin-bottom: 20px;
+  }
+  .greeting {
+    @media (max-width: 640px) {
+      margin-left: 20px;
+    }
   }
 </style>
 
@@ -45,14 +70,14 @@
       },
       {
         title: '삼성화재 강남지점',
-        description: '쇼핑',
+        description: '보험금',
         price: 1125000.0,
         currency: 'KRW',
         createdAt: '2020/02/01',
       },
       {
         title: '현대카드',
-        description: '쇼핑',
+        description: '회식',
         price: -611000.0,
         currency: 'KRW',
         createdAt: '2020/02/01',
@@ -66,7 +91,7 @@
       },
       {
         title: '쿠팡',
-        description: '쇼핑',
+        description: '부자재',
         price: 3000.0,
         currency: 'KRW',
         createdAt: '2020/02/01',
@@ -99,7 +124,7 @@
     ✋️ {$_('Dashboard.hello')} <span class="user-name">{user.name}</span>
   </div>
   <div class="card-layout">
-    <div>
+    <div class="left-column">
       <div class="summary-card">
         <SummaryCard community={community} user={user} />
       </div>
@@ -107,7 +132,7 @@
         <UsageDetailCard deposits={community.deposit} />
       </div>
     </div>
-    <div>
+    <div class="right-column">
       <div class="member-card">
         <MemberCard members={members} />
       </div>
