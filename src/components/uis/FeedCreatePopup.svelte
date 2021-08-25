@@ -139,7 +139,7 @@
   };
 </script>
 
-s<Modal visible={visible} on:close={onClose} disableBackdropClickToClose>
+<Modal visible={visible} on:close={onClose} disableBackdropClickToClose>
   <div class="container">
     <div on:click={onClose} class="close">
       <SvgFeedCreatePopupClose />

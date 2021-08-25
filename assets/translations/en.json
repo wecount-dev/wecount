@@ -49,6 +49,7 @@
     "accept_all": "Accept all"
   },
   "Feed": {
+    "create_feed": "Create Feed",
     "FeedCreatePopup": {
       "category": "Category",
       "income": "Income",

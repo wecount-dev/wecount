@@ -51,6 +51,7 @@
     "accept_all": "전부 수락하기"
   },
   "Feed": {
+    "create_feed": "피드 작성하기",
     "FeedCreatePopup": {
       "category": "구분",
       "income": "수입",

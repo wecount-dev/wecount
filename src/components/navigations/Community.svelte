@@ -28,6 +28,7 @@
   import Drawer from '../uis/drawer/Index.svelte';
   import Temp from '../pages/Temp.svelte';
   import Member from '../pages/Member/Member.svelte';
+  import Feed from '../pages/Feed/Feed.svelte';
 
   const communites = [
     {
@@ -49,6 +50,7 @@
   const routes = {
     '/member': Member,
     '/dashboard': Dashboard,
+    '/feed': Feed,
     '/*': Temp,
   };
 </script>
