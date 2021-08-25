@@ -28,8 +28,18 @@
     "terms_and_agreement": "위카운트 <a href=\"https://legacy.dooboolab.com/termsofservice\">이용약관</a> 및 <a href=\"https://legacy.dooboolab.com/privacyandpolicy\">개인정보취급방침</a>에 모두 동의합니다.",
     "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
   },
-  "intro": {
+  "Intro": {
     "welcome": "안녕하세요. 🙌 WE카운트에 오신 것을 환영합니다."
+  },
+  "Onboarding": {
+    "hello": "안녕하세요. 🙌",
+    "welcome": "WE카운트에 오신 것을 환영합니다.",
+    "creating_a_community": "커뮤니티 생성하기",
+    "create_a_community": "커뮤니티를 생성하고",
+    "try_managing_the_funds": "자금을 관리해 보세요",
+    "entering_the_community": "커뮤니티 들어가기",
+    "explore_the_community": "커뮤니티를 탐색하고,",
+    "support_sponsorship": "후원을 통해 지지해주세요."
   },
   "temp": {
     "title": "템플릿"
