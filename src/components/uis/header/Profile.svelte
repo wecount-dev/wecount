@@ -11,11 +11,11 @@
   }
 </style>
 
-<script lnag="ts">
+<script lang="ts">
   import CircleImage from '../CircleImage.svelte';
 
-  export let name;
-  export let imageSrc;
+  export let name: string;
+  export let imageSrc: string;
 </script>
 
 <div class="profile-loayout">

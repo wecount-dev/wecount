@@ -130,12 +130,21 @@
   import Main from './components/navigations/Main.svelte';
   import {upsertUser} from './services/userService';
 
+  const toggleTheme = () => {
+    document.addEventListener('keydown', (event) => {
+      if (event.ctrlKey && event.key === '.')
+        window.document.body.classList.toggle('dark-mode');
+    });
+  };
+
   supabase.auth.onAuthStateChange((_, session) => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     if (session?.user) upsertUser(session.user);
 
     user.set(session?.user);
   });
+
+  toggleTheme();
 </script>
 
 <main><Main /></main>

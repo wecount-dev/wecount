@@ -34,6 +34,7 @@
   import {user} from '../../../stores/sessionStore';
   import {SvgLogo} from '../../../utils/Icon';
   import Button from '../Button.svelte';
+
   import Manipulation from './Manipulation.svelte';
 </script>
 
@@ -57,7 +58,6 @@
             // eslint-disable-next-line @typescript-eslint/no-floating-promises
             push('/sign_up');
           }}
-          type="primary"
           style="font-size: 14px; margin-left: 12px; align-self: stretch;"
         >
           <div class="text">{$_('SignUp.title')}</div>

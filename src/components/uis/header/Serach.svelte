@@ -23,7 +23,7 @@
   }
 </style>
 
-<script lnag="ts">
+<script lang="ts">
   import {_} from 'svelte-i18n';
 
   import {SvgSearch} from '../../../utils/Icon';

@@ -42,6 +42,7 @@
   }
   .card {
     width: 250px;
+    cursor: pointer;
 
     @media (max-width: 640px) {
       width: 100%;
@@ -57,6 +58,7 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
+  import {push} from 'svelte-spa-router';
   import {SvgEntering, SvgGreenPlusCircle} from '../../utils/Icon';
   import Card from '../uis/Card.svelte';
 </script>
@@ -68,7 +70,7 @@
       <h3>{$_('Onboarding.welcome')}</h3>
     </div>
     <div class="cards">
-      <div class="card">
+      <div class="card" on:click={() => push('/community/create')}>
         <Card
           cardStyle={'box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08); height: 100%; padding: 54px 26px;'}
         >
@@ -87,7 +89,7 @@
           </div>
         </Card>
       </div>
-      <div class="card">
+      <div class="card" on:click={() => push('/community/dashboard')}>
         <Card
           cardStyle={'box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08); height: 100%; padding: 54px 26px;'}
         >

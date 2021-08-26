@@ -11,7 +11,6 @@
 
 <script>
   import Router from 'svelte-spa-router';
-  import Intro from '../pages/Intro.svelte';
   import Profile from '../pages/Profile.svelte';
   import Header from '../uis/header/index.svelte';
   import SignIn from '../pages/SignIn.svelte';
@@ -25,8 +24,7 @@
   const routes = {
     '/sign_in': SignIn,
     '/sign_up': SignUp,
-    '/': Intro,
-    '/onboarding': Onboarding,
+    '/': Onboarding,
     // '/lorem/:repeat': Lorem,
     '/profile': Profile,
     '/service_sample': ServiceSample,
