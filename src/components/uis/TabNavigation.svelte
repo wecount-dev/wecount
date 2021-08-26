@@ -7,26 +7,24 @@
 
   .tab-layout {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     border-bottom: 1px solid var(--gray40);
   }
 
   .tab {
     cursor: pointer;
     font-size: 0.875rem;
-    padding: 3px;
+    padding: 3px 5px;
   }
 
   .tab:not(:last-child) {
-    margin-right: 24px;
+    margin-right: 12px;
   }
 
   .active-tab {
     border-bottom: 2px solid var(--gray100);
     font-weight: bold;
-  }
-
-  .component-layout {
-    height: 100%;
   }
 </style>
 
@@ -35,6 +33,7 @@
 
   export let tabs: TabNavigationType[];
   export let tabNavigationStyle: string | undefined = undefined;
+  export let tabStyle: string | undefined = undefined;
 
   let activeIndex = 0;
 
@@ -46,6 +45,7 @@
     {#each tabs as tab, index}
       <div
         class="tab"
+        style={tabStyle}
         on:click={() => onTab(index)}
         class:active-tab={index == activeIndex}
       >
@@ -53,7 +53,8 @@
       </div>
     {/each}
   </div>
-  <div class="component-layout">
-    <svelte:component this={tabs[activeIndex].component} />
-  </div>
+  <svelte:component
+    this={tabs[activeIndex].component.component}
+    {...tabs[activeIndex].component.props}
+  />
 </div>

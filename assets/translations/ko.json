@@ -7,6 +7,7 @@
   "login": "로그인",
   "sign_in": "로그인하기",
   "member": "멤버",
+  "community": "커뮤니티",
   "SignIn": {
     "email_hint": "이메일을 입력하세요",
     "pw_hint": "비밀번호를 입력하세요",
@@ -27,8 +28,18 @@
     "terms_and_agreement": "위카운트 <a href=\"https://legacy.dooboolab.com/termsofservice\">이용약관</a> 및 <a href=\"https://legacy.dooboolab.com/privacyandpolicy\">개인정보취급방침</a>에 모두 동의합니다.",
     "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
   },
-  "intro": {
+  "Intro": {
     "welcome": "안녕하세요. 🙌 WE카운트에 오신 것을 환영합니다."
+  },
+  "Onboarding": {
+    "hello": "안녕하세요. 🙌",
+    "welcome": "WE카운트에 오신 것을 환영합니다.",
+    "creating_a_community": "커뮤니티 생성하기",
+    "create_a_community": "커뮤니티를 생성하고",
+    "try_managing_the_funds": "자금을 관리해 보세요",
+    "entering_the_community": "커뮤니티 들어가기",
+    "explore_the_community": "커뮤니티를 탐색하고,",
+    "support_sponsorship": "후원을 통해 지지해주세요."
   },
   "temp": {
     "title": "템플릿"
@@ -78,5 +89,26 @@
   },
   "Header": {
     "explore_community": "커뮤니티를 탐색해보세요!"
+  },
+  "Dashboard": {
+    "hello": "안녕하세요.",
+    "manage_members": "멤버 관리",
+    "current_balance": "현재 잔액",
+    "remaining_amount": "남은 금액",
+    "account_book_management": "가계부 관리",
+    "last": "최근",
+    "week": "주",
+    "month": "월",
+    "sponsoring": "후원 하기",
+    "usage_details": "사용내역",
+    "more": "더보기",
+    "spending": "지출",
+    "categories": "카테고리",
+    "date": "날짜",
+    "amount": "사용 금액",
+    "expenditure_statistics": "지출통계",
+    "salary": "급여",
+    "parcel_service": "택배",
+    "delivery": "배달"
   }
 }

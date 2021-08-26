@@ -7,6 +7,7 @@
   "sign_out": "Sign Out",
   "sign_in": "Sign In",
   "member": "Member",
+  "community": "Community",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",
@@ -27,6 +28,16 @@
   },
   "Intro": {
     "welcome": "Hello there ~ 🙌 Welcome to WeCount."
+  },
+  "Onboarding": {
+    "hello": "Hellow there. 🙌",
+    "welcome": "Welcome to Wecount.",
+    "creating_a_community": "Creating a community",
+    "create_a_community": "Create a community",
+    "try_managing_the_funds": "Try managing the funds",
+    "entering_the_community": "Entering the Community",
+    "explore_the_community": "Explore the community and",
+    "support_sponsorship": "support it through sponsorship"
   },
   "Temp": {
     "title": "Template"
@@ -76,5 +87,26 @@
   },
   "Header": {
     "explore_community": "Explore the community!"
+  },
+  "Dashboard": {
+    "hello": "Hello.",
+    "manage_members": "Manage members",
+    "current_balance": "Current balance",
+    "remaining_amount": "Remaining amount",
+    "account_book_management": "Account book management",
+    "last": "Last",
+    "week": "Week",
+    "month": "Month",
+    "sponsoring": "Sponsoring",
+    "usage_details": "Usage details",
+    "more": "More",
+    "spending": "Spending",
+    "categories": "Categories",
+    "date": "Date",
+    "amount": "Amount",
+    "expenditure_statistics": "Expenditure Statistics",
+    "salary": "Salary",
+    "parcel_service": "Parcel service",
+    "delivery": "Delivery"
   }
 }

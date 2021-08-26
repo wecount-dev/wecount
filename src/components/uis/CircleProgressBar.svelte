@@ -12,7 +12,7 @@
     fill: transparent;
   }
   .frame {
-    stroke: var(--gray80);
+    stroke: var(--shading);
   }
   .bar {
     stroke: var(--stroke-color);

@@ -80,22 +80,12 @@
   import {SvgCrown, SvgLock} from '../../utils/Icon';
   import type {CommunityType, UserType} from '../../types';
   import {_} from 'svelte-i18n';
+  import {showAmount} from '../../utils/functions';
 
   export let community: CommunityType;
   export let user: UserType;
   export let balance: number | undefined = undefined;
   export let cardStyle: string | undefined = undefined;
-
-  const addCommaForBalance = (): string | void => {
-    if (balance !== undefined) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      const localCurrency = String($_('card.local_currency'));
-
-      return `${balance.toLocaleString()}  ${localCurrency}`;
-    }
-  };
-
-  const displayBalance = addCommaForBalance();
 </script>
 
 <div class="card" style={cardStyle}>
@@ -128,9 +118,9 @@
   </div>
   {#if balance}
     <div class="balance-layout">
-      <div class="balance-title">{$_('card.current_balance')}</div>
+      <div class="balance-title">{$_('Dashboard.current_balance')}</div>
       <div class="balance">
-        {displayBalance}
+        {showAmount(balance, community.currency)}
       </div>
     </div>
   {/if}

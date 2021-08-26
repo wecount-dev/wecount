@@ -63,7 +63,6 @@
     background-color: var(--background-color);
     color: var(--gray10);
   }
-
   * {
     font-family: 'Spoqa Han Sans Neo';
     color: var(--text);
