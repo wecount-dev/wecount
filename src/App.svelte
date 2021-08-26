@@ -129,6 +129,12 @@
   import supabase from './lib/db';
   import Main from './components/navigations/Main.svelte';
   import {upsertUser} from './services/userService';
+  import relativeTime from 'dayjs/plugin/relativeTime';
+  import 'dayjs/locale/ko';
+  import dayjs from 'dayjs';
+
+  // dayjs.locale('ko'); // TODO
+  dayjs.extend(relativeTime);
 
   const toggleTheme = () => {
     document.addEventListener('keydown', (event) => {

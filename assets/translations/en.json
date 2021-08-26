@@ -50,6 +50,9 @@
   },
   "Feed": {
     "create_feed": "Create Feed",
+    "title": "Title",
+    "spending": "Spending",
+    "income": "Income",
     "FeedCreatePopup": {
       "category": "Category",
       "income": "Income",
