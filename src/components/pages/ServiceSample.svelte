@@ -101,5 +101,31 @@
   >
     <div>Delete Community</div>
   </Button>
-  <p class="title" style="margin-top: 40px;">Community Service</p>
+  <p class="title" style="margin-top: 40px;">Permission Service</p>
+  <Button
+    style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+  >
+    <div>Invite Member</div>
+  </Button>
+  <p class="title" style="margin-top: 40px;">Feed Service</p>
+  <Button
+    style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+  >
+    <div>Create Feed</div>
+  </Button>
+  <Button
+    style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+  >
+    <div>Get Feeds</div>
+  </Button>
+  <Button
+    style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+  >
+    <div>Update Feed</div>
+  </Button>
+  <Button
+    style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+  >
+    <div>Delete Feed</div>
+  </Button>
 </main>
