@@ -9,6 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99;
   }
 </style>
 
@@ -22,9 +23,9 @@
   const dispatch = createEventDispatcher();
 
   const handleBackdropClick = () => {
-    if(disableBackdropClickToClose) return;
- 
-   dispatch('close');
+    if (disableBackdropClickToClose) return;
+
+    dispatch('close');
   };
 </script>
 
