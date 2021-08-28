@@ -93,7 +93,8 @@
     SvgPlusCircleFill,
     SvgShoppingBag,
   } from '../../../utils/Icon';
-  import PictureMultiple from '../../uis/PictureMultiple.svelte';
+
+  import Pictures from '../../uis/Pictures.svelte';
 
   interface Feed {
     id: string;
@@ -142,5 +143,5 @@
       </div>
     {/each}
   </div>
-  <PictureMultiple urls={data.Image.map((v) => v.url)} />
+  <Pictures urls={data.Image.map((v) => v.url)} />
 </main>

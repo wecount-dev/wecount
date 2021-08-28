@@ -71,7 +71,7 @@
         .map(() => ({
           name: faker.lorem.word(),
         })),
-      Image: Array(6) //faker.datatype.number({min: 0, max: 10})
+      Image: Array(faker.datatype.number({min: 0, max: 10}))
         .fill(0)
         .map(() => ({
           url: faker.image.image(),
