@@ -9,6 +9,9 @@
     border-radius: 16px;
     margin-bottom: 24px;
     flex-direction: column;
+    @media (max-width: 1200px) {
+      border-radius: 0px;
+    }
   }
   .header {
     width: 100%;
@@ -86,11 +89,11 @@
   import dayjs from 'dayjs';
   import {_} from 'svelte-i18n';
   import {
-    SvgMinusCircle,
     SvgMinusCircleFill,
     SvgPlusCircleFill,
     SvgShoppingBag,
   } from '../../../utils/Icon';
+  import PictureMultiple from '../../uis/PictureMultiple.svelte';
 
   interface Feed {
     id: string;
@@ -139,4 +142,5 @@
       </div>
     {/each}
   </div>
+  <PictureMultiple urls={data.Image.map((v) => v.url)} />
 </main>
