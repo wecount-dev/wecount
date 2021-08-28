@@ -1,4 +1,6 @@
 import svgArrowDown from '../../assets/svgs/arrow_down.svg';
+import svgArrowLeft from '../../assets/svgs/arrow_left.svg';
+import svgArrowRight from '../../assets/svgs/arrow_right.svg';
 import svgBadgeCrown from '../../assets/svgs/badge_crown.svg';
 import svgBell from '../../assets/svgs/bell.svg';
 import svgCheck from '../../assets/svgs/check.svg';
@@ -55,3 +57,5 @@ export const SvgEntering = svgEntering;
 export const SvgShoppingBag = svgShoppingBag;
 export const SvgPlusCircleFill = svgPlusCircleFill;
 export const SvgMinusCircleFill = svgMinusCircleFill;
+export const SvgArrowLeft = svgArrowLeft;
+export const SvgArrowRight = svgArrowRight;

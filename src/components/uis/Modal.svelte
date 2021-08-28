@@ -25,6 +25,7 @@
   const handleBackdropClick = () => {
     if (disableBackdropClickToClose) return;
 
+    visible = false;
     dispatch('close');
   };
 </script>

@@ -124,48 +124,125 @@
 </style>
 
 <script lang="ts">
+  import PicturesModal from './PicturesModal.svelte';
+
   export let urls: string[];
+
+  let pictureModalVisible = false;
+  let clickedIndex = 0;
+
+  const onClick = (index: number) => {
+    pictureModalVisible = true;
+    clickedIndex = index;
+  };
 </script>
 
 <main>
+  <PicturesModal
+    bind:visible={pictureModalVisible}
+    currentIndex={clickedIndex}
+    urls={urls}
+  />
   {#if urls.length === 1}
     <div class="len1">
-      <div class="image" style={`background-image: url("${urls[0]}");`} />
+      <div
+        class="image"
+        on:click={() => onClick(0)}
+        style={`background-image: url("${urls[0]}");`}
+      />
     </div>
   {:else if urls.length === 2}
     <div class="len2">
       <div class="container">
-        <div class="image1" style={`background-image: url("${urls[0]}");`} />
-        <div class="image2" style={`background-image: url("${urls[1]}");`} />
+        <div
+          class="image1"
+          on:click={() => onClick(0)}
+          style={`background-image: url("${urls[0]}");`}
+        />
+        <div
+          class="image2"
+          on:click={() => onClick(1)}
+          style={`background-image: url("${urls[1]}");`}
+        />
       </div>
     </div>
   {:else if urls.length === 3}
     <div class="len3">
       <div class="container">
-        <div class="image1" style={`background-image: url("${urls[0]}");`} />
-        <div class="image2" style={`background-image: url("${urls[1]}");`} />
-        <div class="image3" style={`background-image: url("${urls[2]}");`} />
+        <div
+          class="image1"
+          on:click={() => onClick(0)}
+          style={`background-image: url("${urls[0]}");`}
+        />
+        <div
+          class="image2"
+          on:click={() => onClick(1)}
+          style={`background-image: url("${urls[1]}");`}
+        />
+        <div
+          class="image3"
+          on:click={() => onClick(2)}
+          style={`background-image: url("${urls[2]}");`}
+        />
       </div>
     </div>
   {:else if urls.length === 4}
     <div class="len4">
       <div class="container">
-        <div class="image1" style={`background-image: url("${urls[0]}");`} />
-        <div class="image2" style={`background-image: url("${urls[1]}");`} />
-        <div class="image3" style={`background-image: url("${urls[2]}");`} />
-        <div class="image4" style={`background-image: url("${urls[3]}");`} />
+        <div
+          class="image1"
+          on:click={() => onClick(0)}
+          style={`background-image: url("${urls[0]}");`}
+        />
+        <div
+          class="image2"
+          on:click={() => onClick(1)}
+          style={`background-image: url("${urls[1]}");`}
+        />
+        <div
+          class="image3"
+          on:click={() => onClick(2)}
+          style={`background-image: url("${urls[2]}");`}
+        />
+        <div
+          class="image4"
+          on:click={() => onClick(3)}
+          style={`background-image: url("${urls[3]}");`}
+        />
       </div>
     </div>
   {:else if urls.length >= 5}
     <div class="len5">
       <div class="container">
-        <div class="image1" style={`background-image: url("${urls[0]}");`} />
-        <div class="image2" style={`background-image: url("${urls[1]}");`} />
-        <div class="image3" style={`background-image: url("${urls[2]}");`} />
-        <div class="image4" style={`background-image: url("${urls[3]}");`} />
-        <div class="image5" style={`background-image: url("${urls[4]}");`} />
+        <div
+          class="image1"
+          on:click={() => onClick(0)}
+          style={`background-image: url("${urls[0]}");`}
+        />
+        <div
+          class="image2"
+          on:click={() => onClick(1)}
+          style={`background-image: url("${urls[1]}");`}
+        />
+        <div
+          class="image3"
+          on:click={() => onClick(2)}
+          style={`background-image: url("${urls[2]}");`}
+        />
+        <div
+          class="image4"
+          on:click={() => onClick(3)}
+          style={`background-image: url("${urls[3]}");`}
+        />
+        <div
+          class="image5"
+          on:click={() => onClick(4)}
+          style={`background-image: url("${urls[4]}");`}
+        />
         {#if urls.length > 5}
-          <div class="image5-wrapper">+{urls.length - 5}</div>
+          <div class="image5-wrapper" on:click={() => onClick(4)}>
+            +{urls.length - 5}
+          </div>
         {/if}
       </div>
     </div>
