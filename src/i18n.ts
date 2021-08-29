@@ -6,7 +6,7 @@ import ko from '../assets/translations/ko.json';
 addMessages('en', en);
 addMessages('ko', ko);
 
-init({
+void init({
   fallbackLocale: 'en',
   initialLocale: getLocaleFromNavigator(),
 });
