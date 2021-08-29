@@ -1,7 +1,7 @@
-import preprocess from 'svelte-preprocess';
+const sveltePreprocess = require("svelte-preprocess");
 
-const config = {
-  preprocess: preprocess({ postcss: true })
-}
-
-export default config;
+module.exports = {
+  preprocess: sveltePreprocess({
+    postcss: true,
+  }),
+};
