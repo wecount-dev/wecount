@@ -13,7 +13,7 @@
   import Router from 'svelte-spa-router';
   import Intro from '../pages/Intro.svelte';
   import Profile from '../pages/Profile.svelte';
-  import Header from '../uis/header/Index.svelte';
+  import Header from '../uis/header/index.svelte';
   import SignIn from '../pages/SignIn.svelte';
   import SignUp from '../pages/SignUp.svelte';
   import ServiceSample from '../pages/ServiceSample.svelte';
