@@ -1,11 +1,10 @@
 <style lang="postcss">
-  main {
-    cursor: pointer;
-  }
   .image {
+    cursor: pointer;
     background-size: cover;
     grid-area: image1;
   }
+
   .image5-wrapper {
     grid-area: image5;
     display: flex;
@@ -21,14 +20,17 @@
     width: 100%;
     position: relative;
   }
+
   .container:after {
     content: '';
     display: block;
     padding-bottom: 100%;
   }
+
   .container-len2:after {
     padding-bottom: calc(50% - 10px);
   }
+
   .container-len5:after {
     padding-bottom: calc((5 / 6) * 100%);
   }
@@ -39,16 +41,19 @@
     height: 100%;
     display: grid;
   }
+
   .inner-len1 {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: 'image1';
   }
+
   .inner-len2 {
     grid-template-columns: 1fr 10px 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: 'image1 . image2';
   }
+
   .inner-len3 {
     grid-template-columns: 1fr 10px 1fr;
     grid-template-rows: 1fr 10px 1fr;
@@ -57,6 +62,7 @@
       '. . .'
       'image3 image3 image3';
   }
+
   .inner-len4 {
     grid-template-columns: 1fr 10px 1fr;
     grid-template-rows: 1fr 10px 1fr;
@@ -65,6 +71,7 @@
       '. . .'
       'image3 . image4';
   }
+
   .inner-len5 {
     grid-template-columns: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr;
     grid-template-rows: 3fr 10px 2fr;
@@ -92,7 +99,7 @@
 </script>
 
 {#if urls.length > 0}
-  <main>
+  <div>
     <PicturesModal
       bind:visible={pictureModalVisible}
       currentIndex={clickedIndex}
@@ -125,5 +132,5 @@
         {/if}
       </div>
     </div>
-  </main>
+  </div>
 {/if}

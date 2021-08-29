@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     .icon {
       &:hover {
         opacity: 0.7;
@@ -90,7 +90,7 @@
         align-items: center;
         justify-content: center;
 
-        .container {
+        .content {
           align-self: center;
           display: flex;
           justify-content: center;
@@ -195,7 +195,7 @@
   };
 </script>
 
-<main>
+<div class="container">
   <form>
     <div class="header">
       <h1 style="align-self: center;">{$_('SignUp.title')}</h1>
@@ -229,7 +229,7 @@
       />
     </div>
     <div class="terms">
-      <div class="container icon" on:click={handleCheck}>
+      <div class="content icon" on:click={handleCheck}>
         <SvgCheck width={34} fill={checked ? '#0DB293' : 'none'} />
         <p>
           {@html $_('SignUp.terms_and_agreement')}
@@ -248,4 +248,4 @@
       </Button>
     </div>
   </form>
-</main>
+</div>

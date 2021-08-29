@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,7 +70,7 @@
   };
 </script>
 
-<main>
+<div class="container">
   <p class="title" style="margin-top: 8px;">Community Service</p>
   <EditText
     containerStyle="width: 80%;"
@@ -102,4 +102,4 @@
     <div>Delete Community</div>
   </Button>
   <p class="title" style="margin-top: 40px;">Community Service</p>
-</main>
+</div>

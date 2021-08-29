@@ -79,21 +79,19 @@
     }));
 </script>
 
-<main>
-  <div class="container">
-    <div class="list-container">
-      <Button
-        on:click={() => (feedCreatePopupVisible = true)}
-        primary
-        class="create-feed-button">{$_('Feed.create_feed')}</Button
-      >
-      {#each dummyFeeds as feed}
-        <FeedCard data={feed} />
-      {/each}
-    </div>
+<div class="container">
+  <div class="list-container">
+    <Button
+      on:click={() => (feedCreatePopupVisible = true)}
+      primary
+      class="create-feed-button">{$_('Feed.create_feed')}</Button
+    >
+    {#each dummyFeeds as feed}
+      <FeedCard data={feed} />
+    {/each}
   </div>
-  <FeedCreatePopup
-    communityInfo={dummyCommunityInfo}
-    bind:visible={feedCreatePopupVisible}
-  />
-</main>
+</div>
+<FeedCreatePopup
+  communityInfo={dummyCommunityInfo}
+  bind:visible={feedCreatePopupVisible}
+/>

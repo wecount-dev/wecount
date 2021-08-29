@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     padding: 24px 0px 40px 60px;
     box-sizing: border-box;
 
@@ -90,7 +90,7 @@
   let membershipRequestList = Array(30).fill(0).map(createFakeUser);
 </script>
 
-<main>
+<div class="container">
   <div class="sub-heading">{$_('Member.title')}</div>
   <MembershipRequestList
     class="membership-request-list"
@@ -103,4 +103,4 @@
     data={memberList}
     on:memberChange={(e) => console.log(e.detail)}
   />
-</main>
+</div>

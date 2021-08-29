@@ -1,10 +1,11 @@
 <style lang="postcss">
-  main {
+  .container {
+    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 56px 1fr;
   }
   @media (min-width: 640px) {
-    main {
+    .container {
     }
   }
 </style>
@@ -35,7 +36,7 @@
   };
 </script>
 
-<main>
+<div class="container">
   <Header />
   <Router routes={routes} />
-</main>
+</div>

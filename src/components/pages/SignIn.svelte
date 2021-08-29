@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -130,7 +130,7 @@
   };
 </script>
 
-<main>
+<div class="container">
   <form>
     <SvgLogo />
     <h1 style="margin-bottom: 60px;">{$_('login')}</h1>
@@ -181,4 +181,4 @@
       >{$_('SignIn.look_around')}</a
     >
   </form>
-</main>
+</div>

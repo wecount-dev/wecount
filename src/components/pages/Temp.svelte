@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,4 +7,4 @@
   }
 </style>
 
-<main>Temp</main>
+<div class="container">Temp</div>

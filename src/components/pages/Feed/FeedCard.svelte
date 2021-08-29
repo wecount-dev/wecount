@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     display: flex;
     width: 100%;
     box-sizing: border-box;
@@ -112,7 +112,7 @@
   $: isIncome = data.price > 0;
 </script>
 
-<main>
+<div class="container">
   <div class="header">
     <img alt="User Avatar" src={data.user.avatar_url} />
     <div style="flex:1;">
@@ -144,4 +144,4 @@
     {/each}
   </div>
   <Pictures urls={data.Image.map((v) => v.url)} />
-</main>
+</div>

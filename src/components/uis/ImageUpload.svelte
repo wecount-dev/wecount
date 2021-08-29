@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     display: flex;
     flex-wrap: wrap;
   }
@@ -98,7 +98,7 @@
   };
 </script>
 
-<main>
+<div class="container">
   <!-- Upload Button -->
   <div on:click={onUpload} class="upload-button">
     <SvgUploadPlus />
@@ -125,4 +125,4 @@
     disabled={loading}
     on:change={(e) => onChange(uris, option, e.currentTarget.files)}
   />
-</main>
+</div>
