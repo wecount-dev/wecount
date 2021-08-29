@@ -27,7 +27,7 @@
   }
 </style>
 
-<script lnag="ts">
+<script lang="ts">
   import {_} from 'svelte-i18n';
   import {push} from 'svelte-spa-router';
 
