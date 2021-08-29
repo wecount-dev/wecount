@@ -20,7 +20,7 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "svelte.plugin.css.enable": false,
+  // "svelte.plugin.css.enable": false,
   "svelte.plugin.css.diagnostics.enable": false,
   "css.validate": false,
   "less.validate": false,
