@@ -1,6 +1,6 @@
 <style global lang="postcss">
   @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-  @custom-media --mobile (--mobile);
+  @custom-media --mobile (max-width: 640px);
 
   :global(body) {
     --desktop: 1200px;
