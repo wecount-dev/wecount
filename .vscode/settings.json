@@ -5,6 +5,7 @@
     "svelte",
     "html"
   ],
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
