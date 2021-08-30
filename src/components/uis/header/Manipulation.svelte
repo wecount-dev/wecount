@@ -10,7 +10,7 @@
   }
 
   .search {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       display: none;
     }
   }

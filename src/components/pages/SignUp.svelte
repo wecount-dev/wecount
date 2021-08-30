@@ -25,7 +25,7 @@
       max-width: 640px;
       align-self: center;
 
-      @media (max-width: 640px) {
+      @media (--mobile) {
         max-height: none;
         border-radius: 0;
         padding: 80px 24px;
@@ -47,7 +47,7 @@
         ' . . . ';
       justify-content: stretch;
 
-      @media (max-width: 640px) {
+      @media (--mobile) {
         grid-template-columns: none;
         grid-template-rows: min-content;
         align-content: stretch;

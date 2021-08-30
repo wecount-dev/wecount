@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 600px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
     }
   }
@@ -31,7 +31,7 @@
   }
   .left-card,
   .right-card {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       visibility: hidden;
     }
   }
@@ -54,7 +54,7 @@
   .arrow-right,
   .arrow-left {
     z-index: 5;
-    @media (max-width: 640px) {
+    @media (--mobile) {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -65,12 +65,12 @@
     }
   }
   .arrow-right {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       padding-left: 5px;
     }
   }
   .arrow-left {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       padding-right: 5px;
     }
   }

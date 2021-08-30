@@ -32,7 +32,7 @@
       justify-content: center;
       align-items: center;
 
-      @media (max-width: 640px) {
+      @media (--mobile) {
         width: 100%;
         border-radius: 0;
         padding: 0;

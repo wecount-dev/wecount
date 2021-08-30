@@ -14,7 +14,7 @@
     &::-webkit-scrollbar {
       display: none;
     }
-    @media (max-width: 640px) {
+    @media (--mobile) {
       border-radius: 0px;
       width: 100%;
     }
@@ -46,7 +46,7 @@
   .content-item-container {
     display: flex;
     margin-bottom: 20px;
-    @media (max-width: 640px) {
+    @media (--mobile) {
       flex-direction: column;
     }
     .label {

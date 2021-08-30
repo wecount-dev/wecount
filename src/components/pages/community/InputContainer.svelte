@@ -9,7 +9,7 @@
   .label {
     width: 40%;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
       margin-bottom: 5px;
     }

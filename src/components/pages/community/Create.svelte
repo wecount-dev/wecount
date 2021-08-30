@@ -3,14 +3,14 @@
     display: flex;
     justify-content: center;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       padding: 0px 20px;
     }
   }
   .wrap {
     width: 620px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
     }
   }

@@ -4,7 +4,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       padding: 20px 0px;
     }
   }
@@ -14,14 +14,14 @@
   .left-column {
     width: 614px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
     }
   }
   .right-column {
     width: 330px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
     }
   }
@@ -36,7 +36,7 @@
     margin-bottom: 20px;
   }
   .greeting {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       margin-left: 20px;
     }
   }

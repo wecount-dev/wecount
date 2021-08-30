@@ -7,7 +7,7 @@
     padding: 28px;
     box-sizing: border-box;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       border-radius: 0px;
     }
   }

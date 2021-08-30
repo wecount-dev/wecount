@@ -8,7 +8,7 @@
     padding-right: 14px;
     margin-right: 20px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       border-radius: 0px;
       margin-right: 0px;
     }

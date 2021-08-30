@@ -1,7 +1,9 @@
 <style global lang="postcss">
   @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+  @custom-media --mobile (--mobile);
 
   :global(body) {
+    --desktop: 1200px;
     --green20: #cbffdd;
     --green30: #7ee2d3;
     --green40: #28db98;

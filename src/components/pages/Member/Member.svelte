@@ -9,7 +9,7 @@
       '  title        .   '
       '  membership-request-list   member-list';
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       padding: 0px;
 
       grid-template-columns: 1fr;

@@ -19,7 +19,7 @@
     transition: width 0.15s;
     transition-timing-function: ease-in-out;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 124px;
     }
   }

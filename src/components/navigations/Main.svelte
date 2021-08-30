@@ -4,9 +4,8 @@
     grid-template-columns: 1fr;
     grid-template-rows: 56px 1fr;
   }
-  @media (min-width: 640px) {
-    .container {
-    }
+  @media (--mobile) {
+    .container {}
   }
 </style>
 

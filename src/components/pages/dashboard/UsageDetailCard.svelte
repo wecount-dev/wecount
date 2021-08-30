@@ -43,7 +43,7 @@
   th:nth-last-child(2),
   td:first-child,
   td:nth-last-child(2) {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       display: none;
     }
   }

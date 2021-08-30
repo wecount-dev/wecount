@@ -6,7 +6,7 @@
     padding: 70px 0px;
     margin-bottom: 130px;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       margin-bottom: 0px;
     }
   }
@@ -44,7 +44,7 @@
     width: 250px;
     cursor: pointer;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
     }
   }

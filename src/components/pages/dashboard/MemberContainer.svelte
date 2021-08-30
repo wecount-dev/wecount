@@ -7,12 +7,12 @@
     align-items: center;
     cursor: pointer;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 50%;
     }
   }
   .wrap:not(:last-child) {
-    @media (max-width: 640px) {
+    @media (--mobile) {
       margin-bottom: 20px;
     }
   }
@@ -24,7 +24,7 @@
     overflow: hidden;
     white-space: nowrap;
 
-    @media (max-width: 640px) {
+    @media (--mobile) {
       width: 100%;
     }
   }
