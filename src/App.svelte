@@ -129,7 +129,7 @@
   import './i18n';
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
-  import Main from './components/navigations/Main.svelte';
+  import Main from './components/navigations/Main/index.svelte';
   import {upsertUser} from './services/userService';
   import relativeTime from 'dayjs/plugin/relativeTime';
   import 'dayjs/locale/ko';

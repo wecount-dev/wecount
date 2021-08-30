@@ -3,16 +3,18 @@
     display: flex;
     align-items: center;
   }
+
   .image {
     margin-right: 6px;
   }
+
   p {
     margin: 0;
   }
 </style>
 
 <script lang="ts">
-  import CircleImage from '../CircleImage.svelte';
+  import CircleImage from '../../../uis/CircleImage.svelte';
 
   export let name: string;
   export let imageSrc: string;

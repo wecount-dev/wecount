@@ -30,11 +30,9 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import {push} from 'svelte-spa-router';
-
-  import {user} from '../../../stores/sessionStore';
-  import {SvgLogo} from '../../../utils/Icon';
-  import Button from '../Button.svelte';
-
+  import {user} from '../../../../stores/sessionStore';
+  import {SvgLogo} from '../../../../utils/Icon';
+  import Button from '../../../uis/Button.svelte';
   import Manipulation from './Manipulation.svelte';
 </script>
 

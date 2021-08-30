@@ -26,7 +26,7 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
 
-  import {SvgSearch} from '../../../utils/Icon';
+  import {SvgSearch} from '../../../../utils/Icon';
 </script>
 
 <div class="search-layout">
