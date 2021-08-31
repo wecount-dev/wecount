@@ -18,43 +18,77 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    img {
-      width: 48px;
-      height: 48px;
-      border-radius: 24px;
-      margin-right: 12px;
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      align-items: flex-start;
     }
-    .from-now {
-      font-size: 14px;
-      color: var(--gray60);
+    .avatar-container {
+      display: flex;
+      align-items: center;
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+        margin-right: 12px;
+      }
+      .avatar-label-container {
+        flex: 1;
+        min-width: 150px;
+
+        .from-now {
+          font-size: 14px;
+          color: var(--gray60);
+        }
+        .user-name {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
     }
-    .user-name {
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .price-label {
-      margin-left: 4px;
-      margin-right: 12px;
-      font-size: 16px;
-    }
-    .price {
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .line {
-      margin: 0px 16px;
-      width: 1px;
-      height: 14px;
-      background-color: var(--gray40);
-    }
-    .title-label {
-      margin-left: 4px;
-      margin-right: 12px;
-      font-size: 16px;
-    }
-    .title {
-      font-size: 16px;
-      font-weight: bold;
+
+    .header-right-container {
+      display: flex;
+      align-itmes: center;
+      @media (max-width: 1200px) {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+      }
+      .price-container {
+        display: flex;
+        align-itmes: center;
+        .price-label {
+          margin-left: 4px;
+          margin-right: 12px;
+          font-size: 16px;
+        }
+        .price {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      .line {
+        margin: 0px 16px;
+        width: 1px;
+        height: 14px;
+        background-color: var(--gray40);
+        @media (max-width: 1200px) {
+          width: 0px;
+        }
+      }
+      .title-container {
+        display: flex;
+        align-itmes: center;
+        .title-label {
+          margin-left: 4px;
+          margin-right: 12px;
+          font-size: 16px;
+        }
+        .title {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
     }
   }
   .description {
@@ -114,24 +148,32 @@
 
 <div class="container">
   <div class="header">
-    <img alt="User Avatar" src={data.user.avatar_url} />
-    <div style="flex:1;">
-      <div class="from-now">{dayjs(data.createdAt).fromNow()}</div>
-      <div class="user-name">{data.user.name}</div>
+    <div class="avatar-container">
+      <img alt="User Avatar" src={data.user.avatar_url} />
+      <div class="avatar-label-container">
+        <div class="from-now">{dayjs(data.createdAt).fromNow()}</div>
+        <div class="user-name">{data.user.name}</div>
+      </div>
     </div>
-    {#if isIncome}
-      <SvgPlusCircleFill />
-    {:else}
-      <SvgMinusCircleFill />
-    {/if}
-    <div class="price-label">
-      {isIncome ? $_('Feed.income') : $_('Feed.spending')}
+    <div class="header-right-container">
+      <div class="price-container">
+        {#if isIncome}
+          <SvgPlusCircleFill />
+        {:else}
+          <SvgMinusCircleFill />
+        {/if}
+        <div class="price-label">
+          {isIncome ? $_('Feed.income') : $_('Feed.spending')}
+        </div>
+        <div class="price">{Math.abs(data.price).toLocaleString()}</div>
+      </div>
+      <div class="line" />
+      <div class="title-container">
+        <SvgShoppingBag />
+        <div class="title-label">{$_('Feed.title')}</div>
+        <div class="title">{data.title}</div>
+      </div>
     </div>
-    <div class="price">{Math.abs(data.price).toLocaleString()}</div>
-    <div class="line" />
-    <SvgShoppingBag />
-    <div class="title-label">{$_('Feed.title')}</div>
-    <div class="title">{data.title}</div>
   </div>
   <div class="description">
     {data.description}
