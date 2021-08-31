@@ -7,7 +7,7 @@
     display: none;
   }
   .upload-button {
-    background: var(--gray10);
+    background: var(--paper);
     border: 1px solid var(--gray30);
     border-radius: 4px;
     width: 72px;

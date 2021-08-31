@@ -66,7 +66,7 @@
     justify-content: center;
     height: 40px;
     border-radius: 4px;
-    background-color: var(--gray10);
+    background-color: var(--paper);
     font-weight: bold;
 
     &:hover {
@@ -94,15 +94,15 @@
     SvgFeedCreatePopupClose,
     SvgMinusCircle,
     SvgPlusCircle,
-  } from '../../utils/Icon';
-  import Button from './Button.svelte';
-  import EditText from './EditText.svelte';
-  import EditTextArea from './EditTextArea.svelte';
-  import Modal from './Modal.svelte';
+  } from '../../../utils/Icon';
+  import Button from '../../uis/Button.svelte';
+  import EditText from '../../uis/EditText.svelte';
+  import EditTextArea from '../../uis/EditTextArea.svelte';
+  import Modal from '../../uis/Modal.svelte';
   import {_} from 'svelte-i18n';
   import {createEventDispatcher} from 'svelte';
-  import EditNumber from './EditNumber.svelte';
-  import ImageUpload from './ImageUpload.svelte';
+  import EditNumber from '../../uis/EditNumber.svelte';
+  import ImageUpload from '../../uis/ImageUpload.svelte';
 
   const dispatch = createEventDispatcher();
 

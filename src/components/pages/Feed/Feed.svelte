@@ -29,7 +29,7 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import Button from '../../uis/Button.svelte';
-  import FeedCreatePopup from '../../uis/FeedCreatePopup.svelte';
+  import FeedCreatePopup from './FeedCreatePopup.svelte';
   import FeedCard from './FeedCard.svelte';
   import faker from 'faker/locale/en';
   import dayjs from 'dayjs';
