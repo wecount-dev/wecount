@@ -100,6 +100,7 @@
   }
   .category-list {
     display: flex;
+    flex-wrap: wrap;
   }
   .category-container {
     background-color: var(--blue10);

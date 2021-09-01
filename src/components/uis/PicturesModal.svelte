@@ -14,7 +14,8 @@
     right: 5%;
   }
   img {
-    height: 50vh;
+    max-height: 50vh;
+    max-width: 100vw;
   }
 </style>
 
@@ -28,7 +29,7 @@
 </script>
 
 <Modal bind:visible>
-  <img src={urls[currentIndex]} />
+  <img alt={`pciture${currentIndex}`} src={urls[currentIndex]} />
   {#if currentIndex > 0}
     <div on:click={() => currentIndex--} class="left-btn"><SvgArrowLeft /></div>
   {/if}
