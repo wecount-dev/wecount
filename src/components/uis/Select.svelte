@@ -28,7 +28,7 @@
   .options-container {
     top: 0;
     left: 0;
-    background-color: var(--gray10);
+    background-color: var(--paper);
     width: 100%;
     position: absolute;
     box-shadow: 0px 4px 10px 0px rgba(196, 196, 196, 0.5);
@@ -44,7 +44,7 @@
     font-size: 14px;
     &:hover {
       cursor: pointer;
-      background-color: var(--gray20);
+      background-color: var(--placeholder);
     }
   }
 </style>

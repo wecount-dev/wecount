@@ -9,6 +9,7 @@
 
     @media (--mobile) {
       border-radius: 0px;
+      margin-top: 16px;
     }
   }
   .title {
@@ -19,7 +20,7 @@
   .labelContainer {
     display: flex;
     width: 100%;
-    background-color: var(--gray10);
+    background-color: var(--paper);
     height: 29px;
     border-radius: 6px;
     align-items: center;
