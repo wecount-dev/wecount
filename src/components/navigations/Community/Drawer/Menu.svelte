@@ -36,10 +36,16 @@
 
 <script lang="ts">
   import type {MenuType} from '../../../../types';
+  import {push} from 'svelte-spa-router';
 
   export let menu: MenuType;
   export let isSelected: boolean;
   export let selectMenu: (path: string) => void;
+
+  const onClick = async (path: string) => {
+    selectMenu(path);
+    await push(menu.path);
+  };
 </script>
 
 <div
@@ -47,7 +53,7 @@
   style="background-color: {isSelected
     ? 'var(--placeholder)'
     : 'var(--background)'}"
-  on:click={() => selectMenu(menu.path)}
+  on:click={() => onClick(menu.path)}
 >
   <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>
     {menu.name}

@@ -44,7 +44,10 @@
           <span class="member-number">({members.length})</span>
         {/if}
       </div>
-      <TextLink name={$_('Dashboard.manage_members')} href={'/member'} />
+      <TextLink
+        name={$_('Dashboard.manage_members')}
+        href={'/community/member'}
+      />
     </div>
     <div class="members">
       {#each members.slice(0, 4) as member}
