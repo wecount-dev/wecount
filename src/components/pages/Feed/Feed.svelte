@@ -5,12 +5,12 @@
     align-items: flex-end;
   }
   .list-container {
-    width: 800px;
+    width: 720px;
     display: flex;
     flex-direction: column;
     position: relative;
     align-items: flex-end;
-    margin-right: 200px;
+    margin-right: 240px;
     @media (max-width: 1200px) {
       width: 100%;
       margin-right: 0px;
