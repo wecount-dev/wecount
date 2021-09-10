@@ -25,7 +25,7 @@
 <script lang="ts">
   import Dashboard from '../../pages/dashboard/Index.svelte';
   import Router from 'svelte-spa-router';
-  import Drawer from './Drawer/index.svelte';
+  import {Drawer} from './Drawer';
   import Temp from '../../pages/Temp.svelte';
   import Member from '../../pages/Member/Member.svelte';
   import Feed from '../../pages/Feed/Feed.svelte';

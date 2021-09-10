@@ -1,0 +1,1 @@
+export {default as CommunityRoute} from './index.svelte';
