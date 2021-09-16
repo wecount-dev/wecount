@@ -13,13 +13,13 @@
 <script>
   import Router from 'svelte-spa-router';
   import Profile from '../../pages/Profile.svelte';
-  import {Header} from './Header';
+  import Header from './Header';
   import SignIn from '../../pages/SignIn.svelte';
   import SignUp from '../../pages/SignUp.svelte';
   import ServiceSample from '../../pages/ServiceSample.svelte';
   import Onboarding from '../../pages/Onboarding.svelte';
   import CommunityCreate from '../../pages/community/CommunityCreate.svelte';
-  import {CommunityRoute} from '../Community';
+  import CommunityRoute from '../Community';
   import Temp from '../../pages/Temp.svelte';
 
   const routes = {

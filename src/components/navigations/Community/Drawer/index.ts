@@ -1,1 +1,1 @@
-export {default as Drawer} from './index.svelte';
+export {default} from './index.svelte';

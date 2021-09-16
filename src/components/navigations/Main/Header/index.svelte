@@ -31,7 +31,7 @@
   import {user} from '../../../../stores/sessionStore';
   import {SvgLogo} from '../../../../utils/Icon';
   import AuthHeader from './AuthHeader.svelte';
-  import {MainHeader} from './MainHeader';
+  import MainHeader from './MainHeader';
 </script>
 
 <nav>

@@ -1,1 +1,1 @@
-export {default as CommunityRoute} from './index.svelte';
+export {default} from './index.svelte';

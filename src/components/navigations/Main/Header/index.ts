@@ -1,1 +1,1 @@
-export {default as Header} from './index.svelte';
+export {default} from './index.svelte';
