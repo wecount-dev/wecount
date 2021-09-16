@@ -49,7 +49,6 @@ export default {
 		file: 'public/build/bundle.js',
 	},
 	plugins: [
-		typescript(),
 		image(),
 		svelteSVG({
 			svgo: {}
