@@ -3,6 +3,11 @@
     background-color: var(--button);
     color: var(--text);
 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     &:hover {
       cursor: pointer;
     }
@@ -43,6 +48,24 @@
     background-color: var(--blue10);
     color: var(--blue50);
   }
+
+  .loader {
+    border: 2px solid var(--background-color);
+    border-top: 2px solid var(--primary);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 </style>
 
 <script lang="ts">
@@ -55,6 +78,7 @@
   export let type: 'submit' | undefined = undefined;
   export let style = '';
   export let disabled = false;
+  export let loading = false;
 
   const dispatch = createEventDispatcher();
 
@@ -75,5 +99,9 @@
   disabled={disabled}
   on:click={handleClick}
 >
-  <slot />
+  {#if loading}
+    <div class="loader" />
+  {:else}
+    <slot />
+  {/if}
 </button>

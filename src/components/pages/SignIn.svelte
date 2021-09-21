@@ -9,6 +9,7 @@
     justify-content: center;
 
     .link {
+      font-size: 13px;
       text-decoration: underline;
       color: var(--link);
 
@@ -149,8 +150,11 @@
       style="font-size: 14px; align-self: stretch; margin: 40px 10% 0 10%"
       type="submit"
       disabled={loading}
+      loading={loading}
     >
-      <div class="text">{loading ? $_('loading') : $_('sign_in')}</div>
+      <div class="text" style="color: white;">
+        {$_('sign_in')}
+      </div>
     </Button>
     <Button
       on:click={handleSignInWithGoogle}
@@ -164,8 +168,8 @@
     >
       <div class="text">{$_('SignIn.sign_in_with_facebook')}</div>
     </Button>
-    <a class="link" href="/#" style="margin-top: 8px;"
-      >{$_('SignIn.look_around')}</a
-    >
+    <a class="link" href="/#" style="margin-top: 12px;">
+      {$_('SignIn.look_around')}
+    </a>
   </form>
 </div>
