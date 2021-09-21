@@ -82,7 +82,7 @@
   },
   "Community": {
     "create_community": "커뮤니티를 생성해요",
-    "set_community_disclosure": "커뮤니티 공개 여부 설정",
+    "type": "종류",
     "community_name": "커뮤니티 이름",
     "community_description": "커뮤니티 소개",
     "community_representative_currency": "커뮤니티 대표 환 선택",

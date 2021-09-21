@@ -39,7 +39,7 @@
     color: white;
   }
 
-  .blue {
+  .positive {
     background-color: var(--blue10);
     color: var(--blue50);
   }
@@ -50,7 +50,7 @@
 
   export let primary = false;
   export let secondary = false;
-  export let blue = false;
+  export let positive = false;
   export let size: 'small' | 'medium' = 'medium';
   export let type: 'submit' | undefined = undefined;
   export let style = '';
@@ -66,7 +66,7 @@
 <button
   class:primary
   class:secondary
-  class:blue
+  class:positive
   class:small={size === 'small'}
   class:medium={size === 'medium'}
   class={$$props.class}

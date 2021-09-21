@@ -140,7 +140,7 @@
         <Button
           style="margin-right: 8px;"
           on:click={() => onUpdate(user, true)}
-          blue
+          positive
           size="small">수락하기</Button
         >
         <Button on:click={() => onUpdate(user, false)} size="small"

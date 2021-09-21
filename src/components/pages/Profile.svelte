@@ -132,8 +132,8 @@
           // the node has been removed from the DOM
         },
       };
-    } catch (error) {
-      alert(error.message);
+    } catch (error: unknown) {
+      alert(error);
     } finally {
       loading = false;
     }
@@ -182,8 +182,8 @@
         $user.displayName = displayName;
         $user.avatarUrl = avatarUrl;
       }
-    } catch (error) {
-      alert(error.message);
+    } catch (error: unknown) {
+      alert(error);
     } finally {
       loading = false;
     }
@@ -198,8 +198,8 @@
 
       $user = null;
       await replace('/');
-    } catch (error) {
-      alert(error.message);
+    } catch (error: unknown) {
+      alert(error);
     } finally {
       loading = false;
     }

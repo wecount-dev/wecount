@@ -80,7 +80,7 @@
   },
   "Community": {
     "create_community": "Create a community",
-    "set_community_disclosure": "Set community disclosure",
+    "type": "Type",
     "community_name": "Community name",
     "community_description": "Community description",
     "community_representative_currency": "Community representative currency",

@@ -171,7 +171,7 @@
       const error = await callback();
 
       if (error) throw error;
-    } catch (error) {
+    } catch (error: any) {
       alert(error.error_description || error.message);
     } finally {
       loading = false;

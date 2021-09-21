@@ -47,19 +47,6 @@
         flex-direction: row;
         justify-content: space-between;
       }
-
-      .btn-sign-in {
-        height: 40px;
-        margin: 40px 10% 0 10%;
-        align-self: stretch;
-        background-color: var(--green70);
-        border-radius: 4px;
-
-        &:hover {
-          cursor: pointer;
-          opacity: 0.7;
-        }
-      }
     }
   }
 </style>
@@ -96,7 +83,7 @@
       const error = await callback();
 
       if (error) throw error;
-    } catch (error) {
+    } catch (error: any) {
       alert(error.error_description || error.message);
     } finally {
       loading = false;

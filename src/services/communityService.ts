@@ -2,7 +2,7 @@ import {definitions} from "../types/supabase";
 import supabase from "../lib/db";
 
 export const createCommunity = async (
-  userId: string,
+  userId: string | undefined,
   community: Omit<definitions["Community"], 'id' | 'createdAt'>,
 ): Promise<definitions["Community"] | null> => {
   if (!userId || !community) {
@@ -81,7 +81,11 @@ export const deleteCommunity = async (id: string): Promise<definitions["Communit
   }
 };
 
-export const getMyCommunites = async (userId: string): Promise<definitions["Community"][] | null> => {
+export const getMyCommunites = async (
+  userId: string | undefined,
+): Promise<definitions["Community"][] | null> => {
+  if (!userId) return [];
+
   try {
     const {data, error} = await supabase
       .from<definitions["Permission"]>('Permission')

@@ -54,9 +54,11 @@
   import Button from '../../uis/Button.svelte';
   import Card from '../../uis/Card.svelte';
   import Select from '../../uis/Select.svelte';
+  import {user} from '../../../stores/sessionStore';
   import Asterisk from './Asterisk.svelte';
   import Carousel from './Carousel.svelte';
   import InputContainer from './InputContainer.svelte';
+  import {createCommunity} from '../../../services/communityService';
 
   const item = {
     user: {
@@ -76,16 +78,17 @@
   const publicOptions = [$_('Community.public'), $_('Community.private')];
   let selectedPublicOption = publicOptions[0];
 
-  const currencyOptions = ['USD($)', 'KRW(₩)'];
+  const currencyOptions = ['USD', 'KRW'];
   let selectedCurrencyOption = currencyOptions[0];
 
+  let isSubmitOnFlight = false;
   let communityName: string;
   let communityDescription: string;
-  let cardColor = item.colors[0];
+  let color = item.colors[0];
 
   const getColor = (selectedColor: string) => {
     // eslint-disable-next-line no-console
-    cardColor = selectedColor;
+    color = selectedColor;
   };
 
   const selectPublicOption = (e: CustomEvent<string>) =>
@@ -94,21 +97,29 @@
   const selectCurrencyOption = (e: CustomEvent<string>) =>
     (selectedCurrencyOption = e.detail);
 
-  const createCommunity = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const community = {
-      name: communityName,
-      description: communityDescription,
-      cardColor: cardColor,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      isPublic: selectedPublicOption === $_('Community.public') ? true : false,
-      currency: selectedCurrencyOption,
-    };
+  const submitCreateCommunity = async () => {
+    isSubmitOnFlight = true;
+
+    try {
+      const community = await createCommunity($user?.id, {
+        name: communityName,
+        currency: selectedCurrencyOption,
+        color,
+        description: communityDescription,
+        isPublic:
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+          selectedPublicOption === $_('Community.public') ? true : false,
+      });
+
+      console.log('community', community);
+    } finally {
+      isSubmitOnFlight = false;
+    }
   };
 </script>
 
 <div class="container">
-  <form class="wrap" on:submit|preventDefault={createCommunity}>
+  <form class="wrap" on:submit|preventDefault={submitCreateCommunity}>
     <h3 class="title">
       {$_('app_name')}<br />{$_('Community.create_community')}
     </h3>
@@ -123,7 +134,7 @@
       <Card cardStyle="padding: 34px; 28px;">
         <InputContainer>
           <svelte:fragment slot="label">
-            {$_('Community.set_community_disclosure')}
+            {$_('Community.type')}
           </svelte:fragment>
           <Select
             slot="input"
