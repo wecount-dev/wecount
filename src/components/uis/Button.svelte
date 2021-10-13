@@ -45,12 +45,17 @@
   }
 
   .positive {
-    background-color: var(--blue10);
-    color: var(--blue50);
+    background-color: var(--brand);
+    color: white;
+  }
+
+  .negative {
+    background-color: var(--danger);
+    color: white;
   }
 
   .loader {
-    border: 2px solid var(--background-color);
+    border: 2px solid var(--background);
     border-top: 2px solid var(--primary);
     border-radius: 50%;
     width: 24px;
@@ -74,6 +79,7 @@
   export let primary = false;
   export let secondary = false;
   export let positive = false;
+  export let negative = false;
   export let size: 'small' | 'medium' = 'medium';
   export let type: 'submit' | undefined = undefined;
   export let style = '';
@@ -91,6 +97,7 @@
   class:primary
   class:secondary
   class:positive
+  class:negative
   class:small={size === 'small'}
   class:medium={size === 'medium'}
   class={$$props.class}

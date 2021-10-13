@@ -26,6 +26,7 @@
 
         label {
           width: 100%;
+          margin-bottom: 3px;
         }
 
         input {
@@ -102,6 +103,7 @@
 
 <script lang="ts">
   import {uploadSingleImage} from '../../services/storageService';
+  import Button from '../uis/Button.svelte';
 
   import {_} from 'svelte-i18n';
   import supabase from '../../lib/db';
@@ -223,28 +225,36 @@
         <label for="email">{$_('email')}</label>
         <input id="email" type="text" value={$user?.email} disabled />
       </div>
-      <div class="input">
+      <div class="input" style="margin-top: 12px;">
         <label for="displayName">{$_('display_name')}</label>
         <input id="displayName" type="text" bind:value={displayName} />
       </div>
-      <div class="input">
+      <div class="input" style="margin-top: 12px;">
         <label for="name">{$_('name')}</label>
         <input id="name" type="text" bind:value={name} />
       </div>
-      <input
-        style="margin-top: 8px;"
+      <Button
+        positive
+        style="margin-top: 16px; width: 100%;"
         type="submit"
-        value={loading ? $_('loading') : $_('update')}
         disabled={loading}
-      />
-      <button
-        class="btn-signout"
-        style="margin-top: 8px;"
-        on:click={signOut}
-        disabled={loading}
+        loading={loading}
       >
-        {$_('sign_out')}
-      </button>
+        <div class="text" style="color: white;">
+          {loading ? $_('loading') : $_('update')}
+        </div>
+      </Button>
+      <Button
+        on:click={signOut}
+        negative
+        style="margin-top: 12px; width: 100%;"
+        disabled={loading}
+        loading={loading}
+      >
+        <div class="text" style="color: white;">
+          {$_('sign_out')}
+        </div>
+      </Button>
     </form>
   {/if}
 </div>
