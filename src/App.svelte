@@ -44,7 +44,7 @@
     --purple: #b669f9;
   }
 
-  * {
+  body {
     font-family: Roboto;
     transition: background-color 0.3s;
     background-color: var(--background);
