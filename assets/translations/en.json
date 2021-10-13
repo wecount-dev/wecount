@@ -27,7 +27,7 @@
     "pw_hint": "Write your password",
     "pw_confirm": "Confirm password",
     "pw_confirm_hint": "Confirm your password",
-    "terms_and_agreement": "I agree with &nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>&nbsp;and&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
+    "terms_and_agreement": "I agree with &nbsp;<a href=\"https://legacy.dooboolab.com/termsofservice\">Terms for Agreement</a>and&nbsp;&nbsp;<a href=\"https://legacy.dooboolab.com/privacyandpolicy\">Privacy and Policy</a>.",
     "missing_inputs": "Some information is missing. Please fill all information."
   },
   "Onboarding": {

@@ -2,7 +2,7 @@
   @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
   @custom-media --mobile (max-width: 640px);
 
-  :global(body.light-mode) {
+  :global(body) {
     --background: #fff;
     --paper: #f2f5f6;
     --disabled: #c4c4c4;
@@ -13,6 +13,8 @@
     --main: var(--primary);
     --main-dark: var(--primary-light);
     --card: #fff;
+    --border: #d3d4d5;
+    --link: #8e9095;
   }
   :global(body.dark-mode) {
     --background: #000;
@@ -25,6 +27,8 @@
     --main: var(--primary-light);
     --main-dark: var(--primary);
     --card: #1c1c1c;
+    --border: #232425;
+    --link: #a5a7ac;
   }
   :global(body) {
     --brand: #28db98;

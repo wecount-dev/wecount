@@ -1,4 +1,10 @@
 <style lang="postcss">
+  :global(.social-button) {
+    font-size: 14px;
+    align-self: stretch;
+    background-color: var(--paper) !important;
+  }
+
   .container {
     background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
     grid-template-columns: 1fr;
@@ -9,7 +15,7 @@
     justify-content: center;
 
     .link {
-      font-size: 13px;
+      font-size: 14px;
       text-decoration: underline;
       color: var(--link);
 
@@ -21,7 +27,7 @@
       padding: 60px 70px;
       width: 60%;
       height: 654px;
-      background: #ffffff;
+      background-color: var(--background);
       box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
       max-height: 654px;
@@ -123,22 +129,22 @@
     <SvgLogo />
     <h1 style="margin-bottom: 60px;">{$_('login')}</h1>
     <EditText
-      containerStyle="width: 80%;"
+      containerStyle="width: 80%; margin-bottom: 8px"
       inputStyle="font-size: 14px;"
       type="email"
       placeholder={$_('SignIn.email_hint')}
       on:changed={onChangeEmail}
     >
-      <SvgMail slot="leftElement" />
+      <SvgMail slot="leftElement" style="margin: 0 16px;" />
     </EditText>
     <EditText
-      containerStyle="width: 80%; margin-top: 8px"
+      containerStyle="width: 80%;"
       inputStyle="font-size: 14px;"
       type="password"
       placeholder={$_('SignIn.pw_hint')}
       on:changed={onChangePassword}
     >
-      <SvgKey slot="leftElement" />
+      <SvgKey slot="leftElement" style="margin: 0 16px;" />
     </EditText>
     <div class="container-options">
       <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
@@ -158,17 +164,30 @@
     </Button>
     <Button
       on:click={handleSignInWithGoogle}
-      style="color: black; font-size: 14px; align-self: stretch; margin: 12px 10%;"
+      class="social-button"
+      style="margin: 12px 10%;"
     >
-      <div class="text">{$_('SignIn.sign_in_with_google')}</div>
+      <div class="text" style="font-weight: 500;">
+        {$_('SignIn.sign_in_with_google')}
+      </div>
     </Button>
     <Button
       on:click={handleSignInWithFacebook}
-      style="color: black; font-size: 14px; align-self: stretch; margin: 0 10%;"
+      style="margin: 0 10%;"
+      class="social-button"
     >
-      <div class="text">{$_('SignIn.sign_in_with_facebook')}</div>
+      <div class="text" style="font-weight: 500;">
+        {$_('SignIn.sign_in_with_facebook')}
+      </div>
     </Button>
-    <a class="link" href="/#" style="margin-top: 12px;">
+    <a
+      class="link"
+      href="/#"
+      style="
+        margin-top: 14px;
+        text-decoration: underline !important;
+      "
+    >
       {$_('SignIn.look_around')}
     </a>
   </form>

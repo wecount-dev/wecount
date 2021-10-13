@@ -1,10 +1,10 @@
 <!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
   main {
-    border: 1px solid var(--border);
+    border: 1px solid var(--border) !important;
     box-sizing: border-box;
     border-radius: 4px;
-    padding: 11px 16px;
+    height: 50px;
 
     display: flex;
     flex-direction: row;
@@ -16,11 +16,12 @@
 
     input {
       flex: 1;
+      height: 100%;
       color: var(--text);
+      caret-color: var(--text);
       text-transform: none;
       font-size: var(--font-size, 14px);
-      margin-left: 12px;
-      margin-top: 4px;
+      padding: 12px 16px;
       font-family: inherit;
       background-color: transparent;
       background: transparent;
@@ -31,7 +32,8 @@
       }
 
       &:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px var(--background-color) inset !important;
+        -webkit-box-shadow: 0 0 0 1000px var(--paper) inset !important;
+        -webkit-text-fill-color: var(--text) !important;
       }
     }
   }

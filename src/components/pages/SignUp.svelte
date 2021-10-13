@@ -2,7 +2,6 @@
   .container {
     .icon {
       &:hover {
-        opacity: 0.7;
         cursor: pointer;
       }
     }
@@ -18,7 +17,7 @@
     form {
       padding: 60px;
       width: 60%;
-      background: #ffffff;
+      background-color: var(--background);
       box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
       border-radius: 16px;
       max-height: 488px;
@@ -38,9 +37,9 @@
         ' . . . '
         'header header header '
         ' . . . '
-        'label input input'
-        'label input input'
-        'label input input'
+        'input input input'
+        'input input input'
+        'input input input'
         'terms terms terms'
         ' . . . '
         'btn-sign btn-sign btn-sign'
@@ -62,51 +61,43 @@
         align-items: center;
       }
 
-      .label {
-        grid-area: label;
-
-        display: flex;
-        flex-direction: column;
-
-        p {
-          font-size: 14px;
-          letter-spacing: -0.5px;
-
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-      }
-
       .input {
         grid-area: input;
       }
 
+      .input-container {
+        display: flex;
+        flex-direction: row;
+
+        .label {
+          width: 160px;
+        }
+      }
+
       .terms {
         grid-area: terms;
+        margin: 8px 0;
 
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
 
-        .content {
+        .icon {
           align-self: center;
+
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+        .content {
+          margin-left: 2px;
+          font-style: normal;
+          letter-spacing: -0.5px;
+          font-weight: normal;
 
-          p {
-            margin-left: 8px;
-            font-style: normal;
-            letter-spacing: -0.5px;
-            font-weight: normal;
-            font-size: 14px;
-            line-height: 21px;
-
-            display: flex;
-            flex-wrap: wrap;
-          }
+          display: flex;
+          flex-wrap: wrap;
         }
       }
 
@@ -200,40 +191,44 @@
     <div class="header">
       <h1 style="align-self: center;">{$_('SignUp.title')}</h1>
     </div>
-    <div class="label">
-      <p style="height: 40px;">{$_('email')}</p>
-      <p style="height: 40px;">{$_('pw')}</p>
-      <p style="height: 40px;">{$_('SignUp.pw_confirm')}</p>
-    </div>
     <div class="input">
-      <EditText
-        containerStyle="align-self: stretch;"
-        inputStyle="font-size: 14px;"
-        type="email"
-        placeholder={$_('SignUp.email_hint')}
-        on:changed={onChangeEmail}
-      />
-      <EditText
-        containerStyle="align-self: stretch; margin-top: 8px"
-        inputStyle="font-size: 14px;"
-        type="password"
-        placeholder={$_('SignUp.pw_hint')}
-        on:changed={onChangePassword}
-      />
-      <EditText
-        containerStyle="align-self: stretch; margin-top: 8px"
-        inputStyle="font-size: 14px;"
-        type="password"
-        placeholder={$_('SignUp.pw_confirm_hint')}
-        on:changed={onChangePasswordConfirm}
-      />
+      <div class="input-container">
+        <p class="label" style="height: 40px;">{$_('email')}</p>
+        <EditText
+          containerStyle="flex: 1; align-self: stretch;"
+          inputStyle="font-size: 14px;"
+          type="email"
+          placeholder={$_('SignUp.email_hint')}
+          on:changed={onChangeEmail}
+        />
+      </div>
+      <div class="input-container">
+        <p class="label" style="height: 40px;">{$_('pw')}</p>
+        <EditText
+          containerStyle="flex: 1; align-self: stretch; margin-top: 8px"
+          inputStyle="font-size: 14px;"
+          type="password"
+          placeholder={$_('SignUp.pw_hint')}
+          on:changed={onChangePassword}
+        />
+      </div>
+      <div class="input-container">
+        <p class="label" style="height: 40px;">{$_('SignUp.pw_confirm')}</p>
+        <EditText
+          containerStyle="flex: 1; align-self: stretch; margin-top: 8px"
+          inputStyle="font-size: 14px;"
+          type="password"
+          placeholder={$_('SignUp.pw_confirm_hint')}
+          on:changed={onChangePasswordConfirm}
+        />
+      </div>
     </div>
     <div class="terms">
-      <div class="content icon" on:click={handleCheck}>
+      <div class="icon" on:click={handleCheck}>
         <SvgCheck width={34} fill={checked ? '#0DB293' : 'none'} />
-        <p>
-          {@html $_('SignUp.terms_and_agreement')}
-        </p>
+      </div>
+      <div class="body3 content">
+        {@html $_('SignUp.terms_and_agreement')}
       </div>
     </div>
     <div class="btn-sign">
