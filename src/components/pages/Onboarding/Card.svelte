@@ -59,9 +59,9 @@
       <div
         class="body3"
         style="
-        margin-top: 10px;
-        padding: 0 8px;
-      "
+          margin-top: 10px;
+          padding: 0 8px;
+        "
       >
         {body}
       </div>
