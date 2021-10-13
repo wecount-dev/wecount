@@ -1,7 +1,7 @@
 <style lang="postcss">
   .asterisk {
-    color: red;
-    margin: 0px 2px;
+    color: var(--danger);
+    margin: 0px 4px;
     vertical-align: sub;
   }
 </style>

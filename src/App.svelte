@@ -27,7 +27,7 @@
     --main: var(--primary-light);
     --main-dark: var(--primary);
     --card: #1c1c1c;
-    --border: #232425;
+    --border: #343536;
     --link: #a5a7ac;
   }
   :global(body) {
@@ -53,6 +53,30 @@
     transition: background-color 0.3s;
     background-color: var(--background);
     color: var(--text);
+
+    input {
+      background-color: var(--background);
+      color: var(--text);
+      caret-color: var(--text);
+
+      &:focus {
+        outline: 1px solid var(--primary);
+      }
+    }
+
+    textarea {
+      background-color: var(--background);
+      color: var(--text);
+      caret-color: var(--text);
+      box-sizing: border-box;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      resize: none;
+
+      &:focus {
+        outline: 1px solid var(--primary);
+      }
+    }
   }
 
   :global(.heading1) {

@@ -10,10 +10,10 @@
     height: 36px;
     padding: 0 12px;
     border: 1px solid;
-    border-color: var(--gray30);
+    border-color: var(--border);
     box-sizing: border-box;
     border-radius: 4px;
-    background-color: var(--background-color);
+    background-color: var(--background);
 
     &:hover {
       cursor: pointer;
@@ -44,7 +44,7 @@
     font-size: 14px;
     &:hover {
       cursor: pointer;
-      background-color: var(--placeholder);
+      background-color: var(--paper);
     }
   }
 </style>

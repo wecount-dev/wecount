@@ -27,25 +27,22 @@
   input,
   textarea {
     width: 100%;
-    border: 1px solid var(--gray30);
-    box-sizing: border-box;
+    border: 1px solid var(--border);
     border-radius: 4px;
-    font-size: 0.875rem;
     padding: 8px;
+    font-size: 14px;
   }
   textarea {
     height: 103px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    resize: none;
   }
   textarea::-webkit-scrollbar {
     display: none;
   }
-  .submit-layout {
+  .input-wrapper {
+    margin-bottom: 40px;
+
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
   }
 </style>
 
@@ -57,8 +54,10 @@
   import {user} from '../../../stores/sessionStore';
   import Asterisk from './Asterisk.svelte';
   import Carousel from './Carousel.svelte';
-  import InputContainer from './InputContainer.svelte';
+  import InputBox from './InputBox.svelte';
   import {createCommunity} from '../../../services/communityService';
+
+  let loading = false;
 
   const item = {
     user: {
@@ -132,7 +131,7 @@
     </div>
     <div class="input-card">
       <Card style="padding: 34px; 28px;">
-        <InputContainer>
+        <InputBox>
           <svelte:fragment slot="label">
             {$_('Community.type')}
           </svelte:fragment>
@@ -143,20 +142,21 @@
             options={publicOptions}
             on:change={selectPublicOption}
           />
-        </InputContainer>
-        <InputContainer>
+        </InputBox>
+        <InputBox>
           <svelte:fragment slot="label">
             {$_('Community.community_name')}<Asterisk />
           </svelte:fragment>
           <input
+            style="padding-left: 12px"
             slot="input"
             bind:value={communityName}
             type="text"
             placeholder="{$_('Community.write_down_the_community_name')}."
             required
           />
-        </InputContainer>
-        <InputContainer style={'align-items: start'}>
+        </InputBox>
+        <InputBox style={'align-items: start'}>
           <svelte:fragment slot="label">
             {$_('Community.community_description')}<Asterisk />
           </svelte:fragment>
@@ -166,8 +166,8 @@
             placeholder=" {$_('Community.introduce_the_community')}."
             required
           />
-        </InputContainer>
-        <InputContainer>
+        </InputBox>
+        <InputBox>
           <svelte:fragment slot="label">
             {$_('Community.community_representative_currency')}<Asterisk />
           </svelte:fragment>
@@ -178,15 +178,21 @@
             options={currencyOptions}
             on:change={selectCurrencyOption}
           />
-        </InputContainer>
+        </InputBox>
       </Card>
     </div>
-    <div class="submit-layout">
+    <div class="input-wrapper">
       <Button
-        type={'submit'}
-        style={'width: 304px; height: 40px; background-color: var(--green70); color: white; font-size: 0.875rem;'}
+        on:click={() => {}}
+        primary
+        style={'width: 304px;'}
+        type="submit"
+        disabled={loading}
+        loading={loading}
       >
-        {$_('Community.create_community_button')}
+        <div class="text" style="color: white;">
+          {$_('Community.create_community_button')}
+        </div>
       </Button>
     </div>
   </form>
