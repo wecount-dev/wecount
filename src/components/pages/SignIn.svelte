@@ -109,18 +109,13 @@
     });
   };
 
-  const handleSignInWithGoogle = async () => {
-    // await handleAuthException(async () => {
-    //   const {error} = await supabase.auth.signUp({email, password});
-    //   return error;
-    // });
-  };
-
+  // eslint-disable-next-line @typescript-eslint/require-await
   const handleSignInWithFacebook = async () => {
-    // await handleAuthException(async () => {
-    //   const {error} = await supabase.auth.signUp({email, password});
-    //   return error;
-    // });
+    const {user, session, error} = await supabase.auth.signIn({
+      provider: 'facebook',
+    });
+
+    if (error) console.log(error);
   };
 </script>
 
@@ -160,15 +155,6 @@
     >
       <div class="text" style="color: white;">
         {$_('sign_in')}
-      </div>
-    </Button>
-    <Button
-      on:click={handleSignInWithGoogle}
-      class="social-button"
-      style="margin: 12px 10%;"
-    >
-      <div class="text" style="font-weight: 500;">
-        {$_('SignIn.sign_in_with_google')}
       </div>
     </Button>
     <Button
