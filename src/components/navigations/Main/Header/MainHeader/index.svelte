@@ -26,7 +26,7 @@
   import {user} from '../../../../../stores/sessionStore';
   import {SvgBell} from '../../../../../utils/Icon';
   import Profile from './Profile.svelte';
-  import Search from './Serach.svelte';
+  import Search from './Search.svelte';
 
   const goToProfile = async (): Promise<void> => {
     if ($user) {

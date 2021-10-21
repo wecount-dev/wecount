@@ -126,7 +126,10 @@
       });
 
       //! Caveat: Run below code when supabase does not work as intended.
-      if (!user && !error && !session) window.open(url as string);
+      if (!user && !error && !session) {
+        window.open(url as string);
+        window.close();
+      }
 
       if (error) throw error;
     } catch (error) {
@@ -176,7 +179,7 @@
     </Button>
     <Button style={fbBtnStyle} on:click={signInWithFacebook}>
       <SvgFacebook style="margin-right: 15px;" />
-      <div class="text body3" style="font-weight: 500;">
+      <div class="text body3" style="font-weight: 500; color: white;">
         {$_('SignIn.sign_in_with_facebook')}
       </div>
     </Button>
