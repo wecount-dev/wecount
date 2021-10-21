@@ -91,7 +91,7 @@
   const handleLogin = async () => {
     try {
       loading = true;
-      const {user, session, error} = await supabase.auth.signIn({
+      const {error} = await supabase.auth.signIn({
         email,
         password,
       });
@@ -107,9 +107,12 @@
   const handleSignInWithFacebook = async () => {
     try {
       loading = true;
-      const {user, session, error} = await supabase.auth.signIn({
+      const {user, session, error, url} = await supabase.auth.signIn({
         provider: 'facebook',
       });
+
+      //! Caveat: Run below code when supabase does not work as intended.
+      if (!user && !error && !session) window.open(url as string);
 
       if (error) throw error;
     } catch (error) {
