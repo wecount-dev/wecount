@@ -5,7 +5,7 @@
     height: 210px;
     box-sizing: border-box;
     border-radius: 24px;
-    box-shadow: 0px 4px 10px #d1f1ff, inset 0px 0px 142px #ebfbff;
+    box-shadow: 0px 4px 10px var(--disabled), inset 0px 0px 2px var(--paper);
     padding: 28px 24px;
   }
   .profile-img-layout {

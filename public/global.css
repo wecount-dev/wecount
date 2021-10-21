@@ -51,6 +51,36 @@ input:disabled {
 	color: #ccc;
 }
 
+input::placeholder {
+	opacity: 0.6;
+}
+
+/* IE10 <= */
+input::-webkit-input-placeholder {
+	opacity: 0.6;
+}
+/* IE */
+input:-ms-input-placeholder {
+	opacity: 0.6;
+}
+/* Firefox */
+input:-mos-input-placeholder {
+	opacity: 0.6;
+}
+
+/* IE10 <= */
+textarea::-webkit-input-placeholder {
+	opacity: 0.6;
+}
+/* IE */
+textarea:-ms-input-placeholder {
+	opacity: 0.6;
+}
+/* Firefox */
+textarea:-mos-input-placeholder {
+	opacity: 0.6;
+}
+
 button {
 	color: #f7f7f7;
 	background-color: #242424;

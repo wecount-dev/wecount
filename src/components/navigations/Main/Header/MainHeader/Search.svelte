@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--gray10);
+    background-color: var(--paper);
     height: 27px;
     border-radius: 1000px;
     padding: 8px 12px;
@@ -13,10 +13,14 @@
     border: none;
     margin-bottom: 0px;
     width: 170px;
-    outline: none;
     font-size: 0.875rem;
     color: var(--gray60);
+
+    &:focus {
+      outline: none;
+    }
   }
+
   .search-button {
     cursor: pointer;
     padding: 3px;
