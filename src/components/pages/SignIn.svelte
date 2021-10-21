@@ -60,7 +60,7 @@
 
 <script lang="ts">
   import supabase from '../../lib/db';
-  import {SvgKey, SvgLogo, SvgMail} from '../../utils/Icon';
+  import {SvgFacebook, SvgKey, SvgLogo, SvgMail} from '../../utils/Icon';
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
@@ -75,6 +75,20 @@
   let loading = false;
   let email: string;
   let password: string;
+
+  const fbBtnStyle = `
+    align-self: stretch;
+    border-radius: 4px;
+    background-color: #375A93;
+    color: var(--textContrast);
+    margin-bottom: 12px;
+    margin: 0 10%;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+  `;
 
   onMount(async () => {
     if ($user) await replace('/');
@@ -104,7 +118,7 @@
     }
   };
 
-  const handleSignInWithFacebook = async () => {
+  const signInWithFacebook = async () => {
     try {
       loading = true;
       const {user, session, error, url} = await supabase.auth.signIn({
@@ -152,20 +166,17 @@
     <Button
       on:click={handleLogin}
       primary
-      style="font-size: 14px; align-self: stretch; margin: 40px 10% 10px 10%"
+      style="align-self: stretch; margin: 40px 10% 10px 10%"
       disabled={loading}
       loading={loading}
     >
-      <div class="text" style="color: white;">
+      <div class="text body3" style="font-weight: 500; color: white;">
         {$_('sign_in')}
       </div>
     </Button>
-    <Button
-      on:click={handleSignInWithFacebook}
-      style="margin: 0 10%;"
-      class="social-button"
-    >
-      <div class="text" style="font-weight: 500;">
+    <Button style={fbBtnStyle} on:click={signInWithFacebook}>
+      <SvgFacebook style="margin-right: 15px;" />
+      <div class="text body3" style="font-weight: 500;">
         {$_('SignIn.sign_in_with_facebook')}
       </div>
     </Button>
