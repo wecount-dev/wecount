@@ -64,9 +64,13 @@
   import Button from '../uis/Button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../uis/EditText.svelte';
-  import {onMount} from 'svelte';
   import {replace} from 'svelte-spa-router';
   import {user} from '../../stores/sessionStore';
+  import {onMount} from 'svelte';
+
+  user.subscribe((isLoggedIn) => {
+    if (isLoggedIn) replace('/').catch((err) => console.log(err));
+  });
 
   let loading = false;
   let email: string;
@@ -84,38 +88,35 @@
     password = e.detail;
   };
 
-  const handleAuthException = async (callback: () => Promise<Error | null>) => {
+  const handleLogin = async () => {
     try {
       loading = true;
-      const error = await callback();
+      const {user, session, error} = await supabase.auth.signIn({
+        email,
+        password,
+      });
 
       if (error) throw error;
-    } catch (error: any) {
-      alert(error.error_description || error.message);
+    } catch (error) {
+      console.log(error);
     } finally {
       loading = false;
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/require-await
-  const handleLogin = async () => {
-    await handleAuthException(async () => {
-      const {error} = await supabase.auth.signIn({email, password});
-
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
-      if (!error) replace('/');
-
-      return error;
-    });
-  };
-
-  // eslint-disable-next-line @typescript-eslint/require-await
   const handleSignInWithFacebook = async () => {
-    const {user, session, error} = await supabase.auth.signIn({
-      provider: 'facebook',
-    });
+    try {
+      loading = true;
+      const {user, session, error} = await supabase.auth.signIn({
+        provider: 'facebook',
+      });
 
-    if (error) console.log(error);
+      if (error) throw error;
+    } catch (error) {
+      console.log(error);
+    } finally {
+      loading = false;
+    }
   };
 </script>
 
@@ -148,8 +149,7 @@
     <Button
       on:click={handleLogin}
       primary
-      style="font-size: 14px; align-self: stretch; margin: 40px 10% 0 10%"
-      type="submit"
+      style="font-size: 14px; align-self: stretch; margin: 40px 10% 10px 10%"
       disabled={loading}
       loading={loading}
     >

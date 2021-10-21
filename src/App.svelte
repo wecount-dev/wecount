@@ -141,24 +141,26 @@
     });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  supabase.auth.onAuthStateChange(async (_, session) => {
-    if (session?.user) {
-      await upsertUser(session.user);
+  supabase.auth.onAuthStateChange((e, session) => {
+    if (e === 'SIGNED_OUT') user.set(null);
 
-      let {data} = await supabase
-        .from<definitions['User']>('User')
-        .select(`displayName, name, avatarUrl`)
-        .eq('id', session?.user.id)
-        .single();
+    if (e === 'SIGNED_IN' && session)
+      (async () => {
+        await upsertUser(session.user);
 
-      user.set({
-        ...session.user,
-        avatarUrl: data?.avatarUrl || '',
-        displayName: data?.displayName || '',
-        name: data?.name || '',
-      });
-    }
+        let {data} = await supabase
+          .from<definitions['User']>('User')
+          .select(`displayName, name, avatarUrl`)
+          .eq('id', session.user?.id)
+          .single();
+
+        user.set({
+          ...session.user,
+          avatarUrl: data?.avatarUrl || '',
+          displayName: data?.displayName || '',
+          name: data?.name || '',
+        });
+      })().catch((err) => console.log(err));
   });
 
   toggleTheme();
