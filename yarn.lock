@@ -6383,10 +6383,10 @@ svelte-spa-router@^3.2.0:
   dependencies:
     regexparam "2.0.0"
 
-svelte-theme@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/svelte-theme/-/svelte-theme-0.6.0.tgz#fc1eee068084ccc9781584b4d869ea7f0e882ebd"
-  integrity sha512-+bp6WjXyGFHygWUOdingTB3p8U399BrfyTU08lerllZQVEb4WvlhhR0Hrb854wjFbzi/JgPeZYFccVa73qkXSg==
+svelte-theme@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/svelte-theme/-/svelte-theme-0.6.2.tgz#a73cabe10408b32a06f6a6eb0af9c059ddf2b575"
+  integrity sha512-oZYb9xjMmDQwMYq98fyV7Mgvx3nCMgZFficiGvV7U2fVHRbruuKlyQ9g/5ZB596KSBJ2+QCYzzMfPT/dACD4Dg==
   dependencies:
     css-vars-ponyfill "^2.4.7"
 

@@ -120,12 +120,11 @@
 </style>
 
 <script lang="ts">
-  import type {definitions} from './types/supabase';
-  import {getContext} from 'svelte';
-
-  const {theme} = getContext<ThemeStore>('theme');
-
   import './i18n';
+  import {getContext} from 'svelte';
+  import type {definitions} from './types/supabase';
+  import type {ThemeStore} from 'svelte-theme';
+
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
   import Main from './components/navigations/Main';
@@ -133,7 +132,8 @@
   import relativeTime from 'dayjs/plugin/relativeTime';
   import 'dayjs/locale/ko';
   import dayjs from 'dayjs';
-  import type {ThemeStore} from 'svelte-theme/lib/ts/theme';
+
+  const {theme} = getContext<ThemeStore>('theme');
 
   // dayjs.locale('ko'); // TODO
   dayjs.extend(relativeTime);
@@ -170,7 +170,6 @@
   toggleTheme();
 </script>
 
-thu
 <main>
   <Main />
 </main>
