@@ -121,9 +121,9 @@
 
 <script lang="ts">
   import './i18n';
-  import {getContext} from 'svelte';
   import type {definitions} from './types/supabase';
-  import type {ThemeStore} from 'svelte-theme';
+  import type {ThemeStore} from './utils/theme';
+  import {getContext} from 'svelte';
 
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';

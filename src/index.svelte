@@ -1,6 +1,6 @@
 <script>
   import App from './App.svelte';
-  import {ThemeProvider} from 'svelte-theme';
+  import {ThemeProvider} from './utils/theme';
 </script>
 
 <ThemeProvider initialTheme="light">
