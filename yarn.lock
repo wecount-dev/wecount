@@ -1172,6 +1172,15 @@
   resolved "https://registry.yarnpkg.com/@csstools/sass-import-resolve/-/sass-import-resolve-1.0.0.tgz#32c3cdb2f7af3cd8f0dca357b592e7271f3831b5"
   integrity sha512-pH4KCsbtBLLe7eqUrw8brcuFO8IZlN36JjdKlOublibVdAIPHCzEnpBWOVUXK5sCf+DpBi8ZtuWtjF0srybdeA==
 
+"@dooboo/eslint-config-svelte@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@dooboo/eslint-config-svelte/-/eslint-config-svelte-0.0.4.tgz#143fb3f41e7f7b321518563b297b1c865bf7d429"
+  integrity sha512-XQ1T80QGqDMAYgQIlhNqHgxvKiyBjWOCSP8ztXj9BdUZbo2cnUDLnAFRbo18592ql5cxpUYIcvnLWuFxg/3BQQ==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^5.1.0"
+    "@typescript-eslint/parser" "^5.1.0"
+    eslint-plugin-svelte3 "^3.2.1"
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"

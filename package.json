@@ -28,9 +28,10 @@
     "svelte-spa-router": "^3.2.0"
   },
   "devDependencies": {
-    "@prisma/client": "3.3.0",
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "@dooboo/eslint-config-svelte": "^0.0.4",
+    "@prisma/client": "3.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-image": "^2.1.1",
     "@rollup/plugin-json": "^4.1.0",
