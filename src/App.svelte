@@ -133,7 +133,7 @@
   import relativeTime from 'dayjs/plugin/relativeTime';
   import 'dayjs/locale/ko';
   import dayjs from 'dayjs';
-  import {ThemeStore} from './providers/theme';
+  import type {ThemeStore} from 'svelte-theme';
 
   // dayjs.locale('ko'); // TODO
   dayjs.extend(relativeTime);
