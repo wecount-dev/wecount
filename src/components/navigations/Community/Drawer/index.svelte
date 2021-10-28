@@ -1,7 +1,7 @@
 <style lang="postcss">
   .drawer {
     display: inline-flex;
-    background-color: var(--background-color);
+    background-color: var(--background);
     height: 100%;
   }
   .community-layout {

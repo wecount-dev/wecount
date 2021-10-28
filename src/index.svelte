@@ -1,8 +1,8 @@
 <script>
   import App from './App.svelte';
-  import {ThemeProvider} from './utils/theme';
+  import {ThemeProvider} from 'svelte-theme';
 </script>
 
-<ThemeProvider initialTheme="light">
+<ThemeProvider>
   <App />
 </ThemeProvider>

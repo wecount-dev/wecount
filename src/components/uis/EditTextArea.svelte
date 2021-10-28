@@ -22,7 +22,7 @@
     }
 
     &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 1000px var(--background-color) inset !important;
+      -webkit-box-shadow: 0 0 0 1000px var(--background) inset !important;
     }
   }
 </style>

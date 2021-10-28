@@ -25,7 +25,8 @@
     "nanoid": "^3.1.30",
     "sirv-cli": "^1.0.14",
     "svelte-i18n": "^3.3.13",
-    "svelte-spa-router": "^3.2.0"
+    "svelte-spa-router": "^3.2.0",
+    "svelte-theme": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",

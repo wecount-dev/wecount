@@ -1,6 +1,6 @@
 <style lang="postcss">
   button {
-    background-color: var(--button);
+    background-color: var(--paper);
     color: var(--text);
 
     display: flex;

@@ -62,7 +62,8 @@
   const item = {
     user: {
       name: 'Jay-flow',
-      imageUrl: 'https://source.unsplash.com/random/50x50',
+      imageUrl:
+        'https://i.pinimg.com/originals/b0/05/39/b00539f1b2cd313f5db6c209363dd881.jpg',
       role: '최고 관리자',
     },
     community: {

@@ -2,52 +2,6 @@
   @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
   @custom-media --mobile (max-width: 640px);
 
-  :global(body) {
-    --background: #fff;
-    --paper: #f2f5f6;
-    --disabled: #c4c4c4;
-    --text: #000;
-    --text-light: #1b1b1b;
-    --textContrast: #fff;
-    --placeholder: #6d6d6d;
-    --main: var(--primary);
-    --main-dark: var(--primary-light);
-    --card: #fff;
-    --border: #d3d4d5;
-    --link: #8e9095;
-  }
-  :global(body.dark-mode) {
-    --background: #000;
-    --paper: #2a2a2a;
-    --disabled: #515151;
-    --placeholder: #6d6d6d;
-    --text: #fff;
-    --text-light: #d3d3d3;
-    --textContrast: #000;
-    --main: var(--primary-light);
-    --main-dark: var(--primary);
-    --card: #1c1c1c;
-    --border: #343536;
-    --link: #a5a7ac;
-  }
-  :global(body) {
-    --brand: #28db98;
-    --primary: #0db293;
-    --primary-light: #75d0b8;
-    --secondary: #00d9d5;
-    --success: #33ff2f;
-    --danger: #ff002e;
-    --warning: #f2df0f;
-    --info: #3a74e7;
-    --light: #ededed;
-    --red: #ff728d;
-    --orange: #f6a623;
-    --yellow: #eed100;
-    --green: #24cd97;
-    --blue: #679eff;
-    --purple: #b669f9;
-  }
-
   body {
     font-family: Roboto;
     transition: background-color 0.3s;
@@ -122,7 +76,7 @@
 <script lang="ts">
   import './i18n';
   import type {definitions} from './types/supabase';
-  import type {ThemeStore} from './utils/theme';
+  import type {ThemeStore} from 'svelte-theme';
   import {getContext} from 'svelte';
 
   import {user} from './stores/sessionStore';
