@@ -1,10 +1,11 @@
 <style lang="postcss">
-  .sub-menu {
+  .container {
+    padding: 10px 20px;
+    cursor: pointer;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    cursor: pointer;
   }
 
   .selexted-name {
@@ -20,17 +21,18 @@
   }
 
   .notification-counts {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--red10);
+    background-color: var(--main-dark);
     min-width: 25px;
     height: 14px;
     border-radius: 1000px;
     font-size: 0.688rem;
     font-weight: bold;
-    color: var(--red50);
+    color: white;
     padding: 3px 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 
@@ -49,7 +51,7 @@
 </script>
 
 <div
-  class="sub-menu"
+  class="container"
   style="background-color: {isSelected
     ? 'var(--placeholder)'
     : 'var(--background)'}"

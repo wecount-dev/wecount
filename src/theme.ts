@@ -1,0 +1,17 @@
+export const GREEN = '#28DB98';
+export const SKY_BLUE = '#72E6FF';
+export const NAVY = '#3A74E7';
+export const PURPLE = '#834FF3';
+export const BLACK = '#2A2A2C';
+
+export const light = {
+  boxShadow02: 'rgba(0, 0, 0, 0.02)',
+  boxShadow12: 'rgba(0, 0, 0, 0.12)',
+};
+
+export type Theme = typeof light;
+
+export const dark: Theme = {
+  boxShadow02: 'rgba(255, 255, 255, 0.02)',
+  boxShadow12: 'rgba(255, 255, 255, 0.12)',
+};

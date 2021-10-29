@@ -1,6 +1,6 @@
 <!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
-  main {
+  .container {
     background: var(--background-color);
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
@@ -123,7 +123,7 @@
   };
 </script>
 
-<main class={$$props.class}>
+<div class="container {$$props.class}">
   <div class="title-container">
     <div class="title">
       {$_('member')} <span style="color:var(--blue50)">{count}</span>
@@ -149,4 +149,4 @@
       </div>
     {/each}
   </div>
-</main>
+</div>

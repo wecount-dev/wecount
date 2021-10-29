@@ -1,51 +1,54 @@
 <style lang="postcss">
-  .drawer {
+  .container {
     display: inline-flex;
     background-color: var(--background);
     height: 100%;
   }
-  .community-layout {
-    background-color: var(--nav);
-    z-index: 2;
+
+  aside {
     min-width: 56px;
-    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.12);
+    padding-left: 8px;
+    z-index: 2;
+    box-shadow: 2px 8px 12px var(--box-shadow12);
   }
-  .menu-layout {
+
+  section {
     background-color: var(--card);
-    display: flex;
-    flex-direction: column;
     width: 144px;
-    box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
+    box-shadow: 2px 12px 12px var(--box-shadow02);
     transition: width 0.15s;
     transition-timing-function: ease-in-out;
+
+    display: flex;
+    flex-direction: column;
 
     @media (--mobile) {
       width: 124px;
     }
   }
-  .menu-layout-close {
+
+  .close {
     visibility: hidden;
     width: 0px;
   }
-  .close-button {
+
+  .close-arr {
     align-self: flex-end;
     padding: 7px 12px;
     cursor: pointer;
   }
-  .open-menu-button-container {
+
+  .menu-btn {
+    height: 33px;
+    margin-top: 5px;
+    margin-right: 8px;
+    cursor: pointer;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 33px;
-    margin-top: 5px;
   }
-  .open-menu-button {
-    padding: 5px;
-    cursor: pointer;
-  }
-  .community-menu-layout {
-    padding: 6px;
-  }
+
   .hidden {
     visibility: hidden;
   }
@@ -54,13 +57,13 @@
 <script lang="ts">
   import {onMount} from 'svelte';
   import {_} from 'svelte-i18n';
-  import type {CommunityType} from '../../../../types';
+  import {definitions} from '../../../../types/supabase';
   import {SvgChevronsLeft, SvgMenu} from '../../../../utils/Icon';
   import CommunityMenu from './CommunityMenu.svelte';
   import CommunityPlusMenu from './CommunityPlusMenu.svelte';
   import Menu from './Menu.svelte';
 
-  export let communites: CommunityType[];
+  export let communites: definitions['Community'][];
   export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
@@ -74,8 +77,8 @@
   let isOpen = true;
   let isLoading = false;
   let isMenuVisible = isOpen;
-  let selectedCommunityId = communites[0].id;
-  let menuLayoutElement: HTMLDivElement;
+  let selectedCommunityId = communites?.[0].id;
+  let menuElement: HTMLDivElement;
   let seletedMenuPath = menus[0].path;
 
   $: {
@@ -84,9 +87,9 @@
     onSelectMenu(redirectPath);
   }
 
-  const toggleMenuWindow = () => (isOpen = !isOpen);
-  const selectAddCommunity = (path: string) => onSelectMenu(path);
+  const toggleMenu = () => (isOpen = !isOpen);
   const selectMenu = (path: string) => (seletedMenuPath = path);
+  const handleAdd = (path: string) => onSelectMenu(path);
 
   const selectCommunity = (id: string) => {
     selectedCommunityId = id;
@@ -94,7 +97,7 @@
   };
 
   const outPutsMenusAfterEndOfTransitionAnimation = () => {
-    menuLayoutElement.addEventListener('transitionend', () => {
+    menuElement.addEventListener('transitionend', () => {
       isMenuVisible = isOpen;
     });
   };
@@ -102,38 +105,25 @@
   onMount(outPutsMenusAfterEndOfTransitionAnimation);
 </script>
 
-<div class="drawer">
-  <div class="community-layout">
-    <div class="open-menu-button-container">
-      <div
-        class="open-menu-button"
-        class:hidden={isOpen}
-        on:click={toggleMenuWindow}
-      >
-        <SvgMenu />
-      </div>
+<div class="container">
+  <aside>
+    <div class="menu-btn" class:hidden={isOpen} on:click={toggleMenu}>
+      <SvgMenu />
     </div>
-    <div class="community-menu-layout">
-      {#each communites as community}
-        <CommunityMenu
-          community={community}
-          isSelected={community.id === selectedCommunityId}
-          selectCommunity={selectCommunity}
-        />
-      {/each}
-      <CommunityPlusMenu
-        redirectPath={addCommunityPath}
-        onSelectAddCommunity={selectAddCommunity}
+    {#each communites as community}
+      <CommunityMenu
+        community={community}
+        isSelected={community.id === selectedCommunityId}
+        selectCommunity={selectCommunity}
       />
-    </div>
-  </div>
-  <div
-    bind:this={menuLayoutElement}
-    class="menu-layout"
-    class:menu-layout-close={!isOpen}
-    style={menuStyle}
-  >
-    <div class="close-button" on:click={toggleMenuWindow}>
+    {/each}
+    <CommunityPlusMenu
+      redirectPath={addCommunityPath}
+      onSelectAddCommunity={handleAdd}
+    />
+  </aside>
+  <section bind:this={menuElement} class:close={!isOpen} style={menuStyle}>
+    <div class="close-arr" on:click={toggleMenu}>
       <SvgChevronsLeft />
     </div>
     {#if !isLoading && isMenuVisible}
@@ -145,5 +135,5 @@
         />
       {/each}
     {/if}
-  </div>
+  </section>
 </div>

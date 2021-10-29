@@ -27,17 +27,16 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import {push} from 'svelte-spa-router';
-  import {SvgGreenPlusCircle} from '../../../utils/Icon';
-  import {SvgEntering} from '../../../utils/Icon';
+  import {SvgGreenPlusCircle, SvgEntering} from '../../../utils/Icon';
   import Card from './Card.svelte';
 
-  type Card = {
+  type CardType = {
     title: string;
     body: string;
     onPress: () => void;
   };
 
-  const cards: Card[] = [
+  const cards: CardType[] = [
     {
       title: $_('Onboarding.create_community'),
       body: $_('Onboarding.create_community_desc'),

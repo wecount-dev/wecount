@@ -1,5 +1,5 @@
 <style lang="postcss">
-  .container {
+  main {
     width: 100%;
 
     display: grid;
@@ -15,16 +15,16 @@
 
 <script>
   import Router from 'svelte-spa-router';
-  import Header from './Header';
-  import Onboarding from '../pages/Onboarding';
+  import Header from './Header/index.svelte';
+  import Onboarding from '../pages/Onboarding/index.svelte';
   import SignIn from '../pages/SignIn.svelte';
   import SignUp from '../pages/SignUp.svelte';
   import Profile from '../pages/Profile.svelte';
   import CommunityCreate from '../pages/CommunityCreate.svelte';
-  import Community from '../pages/Comunity.svelte';
+  import Community from '../pages/Community/index.svelte';
   import Temp from '../pages/Temp.svelte';
   import ServiceSample from '../../components_legacy/pages/ServiceSample.svelte';
-  import CommunityLegacy from '../../components_legacy/navigations/Community';
+  import CommunityLegacy from '../../components_legacy/navigations/Community/index.svelte';
 
   const routes = {
     '/sign_in': SignIn,
@@ -39,7 +39,7 @@
   };
 </script>
 
-<div class="container">
+<main>
   <Header />
   <Router routes={routes} />
-</div>
+</main>

@@ -1,5 +1,5 @@
 <style lang="postcss">
-  main {
+  .container {
     position: relative;
   }
   .selector {
@@ -97,7 +97,7 @@
   };
 </script>
 
-<main style={style}>
+<div class="container" style={style}>
   <div
     style={titleContainerStyle}
     on:click|stopPropagation={handleOnOpen}
@@ -129,4 +129,4 @@
       {/each}
     </div>
   {/if}
-</main>
+</div>

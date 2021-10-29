@@ -1,6 +1,6 @@
 <!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
-  main {
+  .container {
     border: 1px solid var(--border);
     box-sizing: border-box;
     border-radius: 4px;
@@ -67,7 +67,7 @@
   };
 </script>
 
-<main style={containerStyle}>
+<div class="container" style={containerStyle}>
   <slot name="leftElement" />
   <input
     bind:this={input}
@@ -76,4 +76,4 @@
     on:input={onInput}
   />
   <slot name="rightElement" />
-</main>
+</div>

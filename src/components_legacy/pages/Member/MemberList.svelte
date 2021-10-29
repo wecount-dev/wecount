@@ -159,7 +159,7 @@
   };
 </script>
 
-<main class={$$props.class}>
+<div class="container {$$props.class}">
   <div class="title">{$_('member')}</div>
   <div class="labelContainer">
     <div class="label-name">{$_('Member.name')}</div>
@@ -220,4 +220,4 @@
       </div>
     {/each}
   </div>
-</main>
+</div>

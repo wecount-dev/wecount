@@ -56,7 +56,7 @@
   import InputBox from '../uis/InputBox.svelte';
   import {user} from '../../stores/sessionStore';
   import {createCommunity} from '../../services/communityService';
-  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../utils/colors';
+  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../theme';
   import {replace} from 'svelte-spa-router';
 
   let loading = false;

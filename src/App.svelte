@@ -67,10 +67,6 @@
   :global(.body5) {
     font-size: 10px;
   }
-
-  main {
-    display: grid;
-  }
 </style>
 
 <script lang="ts">
@@ -81,7 +77,7 @@
 
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
-  import Main from './components/navigations';
+  import Main from './components/navigations/index.svelte';
   import {upsertUser} from './services/userService';
   import relativeTime from 'dayjs/plugin/relativeTime';
   import 'dayjs/locale/ko';
@@ -123,6 +119,4 @@
   toggleTheme();
 </script>
 
-<main>
-  <Main />
-</main>
+<Main />

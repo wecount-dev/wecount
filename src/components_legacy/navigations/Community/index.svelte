@@ -24,11 +24,11 @@
 
 <script lang="ts">
   import Router from 'svelte-spa-router';
-  import Drawer from './Drawer';
-  import Temp from '../../../components/pages/Temp.svelte';
-  import Dashboard from '../../pages/dashboard/Index.svelte';
+  import Drawer from '../../../components/pages/Community/Drawer/index.svelte';
+  import Temp from '..../../../components/pages/Temp.svelte';
   import Member from '../../pages/Member/Member.svelte';
   import Feed from '../../pages/Feed/Feed.svelte';
+  import Dashboard from '../../pages/dashboard/Index.svelte';
 
   const communites = [
     {
