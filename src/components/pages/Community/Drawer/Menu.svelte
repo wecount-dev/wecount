@@ -1,68 +1,54 @@
 <style lang="postcss">
-  .container {
-    padding: 10px 20px;
+  .menu {
+    background-color: white;
+    width: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 16px;
     cursor: pointer;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .selected-name {
-    font-size: 0.875rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .unselected-name {
-    font-size: 0.875rem;
-    font-size: 400;
-    color: var(--text);
-  }
-
-  .notification-counts {
-    background-color: var(--main-dark);
-    min-width: 25px;
-    height: 14px;
-    border-radius: 1000px;
-    font-size: 0.688rem;
-    font-weight: bold;
-    color: white;
-    padding: 3px 1px;
+    border: 1.5px solid white;
+    user-select: none;
 
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+  .seleted-menu {
+    border: 1.5px solid var(--green40);
+  }
+
+  img {
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
 </style>
 
 <script lang="ts">
-  import type {MenuType} from '../../../../types';
-  import {push} from 'svelte-spa-router';
+  import {definitions} from '../../../../types/supabase';
+  import {createEventDispatcher} from 'svelte';
 
-  export let menu: MenuType;
-  export let isSelected: boolean;
-  export let selectMenu: (path: string) => void;
+  export let community: definitions['Community'];
+  export let isSelected = false;
+  export let style: string | undefined = undefined;
 
-  const onClick = async (path: string) => {
-    selectMenu(path);
-    await push(menu.path);
-  };
+  const imageURL = community.thumbURL || community.imageURL;
+  const dispatch = createEventDispatcher();
+
+  function handleClick() {
+    dispatch('click', {id: community.id});
+  }
 </script>
 
 <div
-  class="container"
-  style="background-color: {isSelected
-    ? 'var(--placeholder)'
-    : 'var(--background)'}"
-  on:click={() => onClick(menu.path)}
+  class="menu {$$props.class}"
+  class:seleted-menu={isSelected}
+  style={style}
+  on:click={handleClick}
 >
-  <span class:selected-name={isSelected} class:unselected-name={!isSelected}>
-    {menu.name}
-  </span>
-  {#if menu.notificationCounts}
-    <span class="notification-counts">
-      +{menu.notificationCounts}
-    </span>
-  {/if}
+  <img src={imageURL} alt="icon" style="icon" />
 </div>

@@ -133,6 +133,8 @@ export interface paths {
           createdAt?: parameters["rowFilter.Community.createdAt"];
           updatedAt?: parameters["rowFilter.Community.updatedAt"];
           deletedAt?: parameters["rowFilter.Community.deletedAt"];
+          imageURL?: parameters["rowFilter.Community.imageURL"];
+          thumbURL?: parameters["rowFilter.Community.thumbURL"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -192,6 +194,8 @@ export interface paths {
           createdAt?: parameters["rowFilter.Community.createdAt"];
           updatedAt?: parameters["rowFilter.Community.updatedAt"];
           deletedAt?: parameters["rowFilter.Community.deletedAt"];
+          imageURL?: parameters["rowFilter.Community.imageURL"];
+          thumbURL?: parameters["rowFilter.Community.thumbURL"];
         };
         header: {
           /** Preference */
@@ -215,6 +219,8 @@ export interface paths {
           createdAt?: parameters["rowFilter.Community.createdAt"];
           updatedAt?: parameters["rowFilter.Community.updatedAt"];
           deletedAt?: parameters["rowFilter.Community.deletedAt"];
+          imageURL?: parameters["rowFilter.Community.imageURL"];
+          thumbURL?: parameters["rowFilter.Community.thumbURL"];
         };
         body: {
           /** Community */
@@ -1382,6 +1388,8 @@ export interface definitions {
     createdAt: string;
     updatedAt?: string;
     deletedAt?: string;
+    imageURL?: string;
+    thumbURL?: string;
   };
   CreditCard: {
     /**
@@ -1655,6 +1663,8 @@ export interface parameters {
   "rowFilter.Community.createdAt": string;
   "rowFilter.Community.updatedAt": string;
   "rowFilter.Community.deletedAt": string;
+  "rowFilter.Community.imageURL": string;
+  "rowFilter.Community.thumbURL": string;
   /** CreditCard */
   "body.CreditCard": definitions["CreditCard"];
   "rowFilter.CreditCard.id": string;

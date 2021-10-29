@@ -59,15 +59,15 @@
   import {_} from 'svelte-i18n';
   import {definitions} from '../../../../types/supabase';
   import {SvgChevronsLeft, SvgMenu} from '../../../../utils/Icon';
-  import CommunityMenu from './CommunityMenu.svelte';
-  import CommunityPlusMenu from './CommunityPlusMenu.svelte';
   import Menu from './Menu.svelte';
+  import MenuAdd from './MenuAdd.svelte';
+  import MenuList from './MenuList.svelte';
 
   export let communites: definitions['Community'][];
   export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
-  const addCommunityPath = '/community/create';
+  const communityAddPath = '/community/create';
 
   let isOpen = true;
   let isLoading = false;
@@ -75,36 +75,38 @@
   let communityId = communites?.[0].id;
   let menuElement: HTMLDivElement;
 
-  const menus = [
+  const subMenus = [
     {name: $_('Drawer.dashboard'), path: `/community/${communityId}`},
     {name: $_('Drawer.feeds'), path: `/community/${communityId}/feed`},
     {name: $_('Drawer.settings'), path: `/community/${communityId}/settings`},
   ];
 
-  let seletedMenuPath = menus[0].path;
-
-  $: {
-    const redirectPath = `${seletedMenuPath}/${String(communityId)}`;
-
-    onSelectMenu(redirectPath);
-  }
+  let seletedSubMenuPath = subMenus[0].path;
 
   const toggleMenu = () => (isOpen = !isOpen);
-  const selectMenu = (path: string) => (seletedMenuPath = path);
-  const handleAdd = (path: string) => onSelectMenu(path);
+  const selectSubMenu = (path: string) => {
+    onSelectMenu(path);
+    seletedSubMenuPath = path;
+  };
 
   const selectCommunity = (id: string) => {
     communityId = id;
-    selectMenu(menus[0].path);
+    const path = subMenus[0].path;
+
+    seletedSubMenuPath = path;
+    selectSubMenu(path);
+    onSelectMenu(path);
   };
 
-  const outPutsMenusAfterEndOfTransitionAnimation = () => {
+  const handleAdd = () => onSelectMenu(communityAddPath);
+
+  const postTransition = () => {
     menuElement.addEventListener('transitionend', () => {
       isMenuVisible = isOpen;
     });
   };
 
-  onMount(outPutsMenusAfterEndOfTransitionAnimation);
+  onMount(postTransition);
 </script>
 
 <div class="container">
@@ -113,27 +115,24 @@
       <SvgMenu />
     </div>
     {#each communites as community}
-      <CommunityMenu
+      <Menu
         community={community}
-        isSelected={community.id === communityId}
-        selectCommunity={selectCommunity}
+        selected={community.id === communityId}
+        on:click={() => selectCommunity(community.id)}
       />
     {/each}
-    <CommunityPlusMenu
-      redirectPath={addCommunityPath}
-      onAddCommunity={handleAdd}
-    />
+    <MenuAdd on:click={handleAdd} />
   </aside>
   <section bind:this={menuElement} class:close={!isOpen} style={menuStyle}>
     <div class="close-arr" on:click={toggleMenu}>
       <SvgChevronsLeft />
     </div>
     {#if !isLoading && isMenuVisible}
-      {#each menus as menu}
-        <Menu
-          menu={menu}
-          selectMenu={selectMenu}
-          isSelected={menu.path === seletedMenuPath}
+      {#each subMenus as subMenu}
+        <MenuList
+          menu={subMenu}
+          selectMenu={selectSubMenu}
+          selected={subMenu.path === seletedSubMenuPath}
         />
       {/each}
     {/if}
