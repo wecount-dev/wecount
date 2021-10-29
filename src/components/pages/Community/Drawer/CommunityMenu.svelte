@@ -1,5 +1,5 @@
 <style lang="postcss">
-  .icon {
+  img {
     object-fit: cover;
     max-width: 100%;
     max-height: 100%;
@@ -22,5 +22,5 @@
   isSelected={isSelected}
   onSelect={selectCommunity}
 >
-  <img class="icon" src={community.imageUrl} alt="icon" style="icon" />
+  <img src={community.imageUrl} alt="icon" style="icon" />
 </SelectIconButton>

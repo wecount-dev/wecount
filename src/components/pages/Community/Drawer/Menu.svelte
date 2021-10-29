@@ -8,7 +8,7 @@
     align-items: center;
   }
 
-  .selexted-name {
+  .selected-name {
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--text);
@@ -57,7 +57,7 @@
     : 'var(--background)'}"
   on:click={() => onClick(menu.path)}
 >
-  <span class:selexted-name={isSelected} class:unselected-name={!isSelected}>
+  <span class:selected-name={isSelected} class:unselected-name={!isSelected}>
     {menu.name}
   </span>
   {#if menu.notificationCounts}

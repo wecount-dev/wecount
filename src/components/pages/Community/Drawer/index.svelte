@@ -67,22 +67,24 @@
   export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
-  const addCommunityPath = '/community_legacy/create';
-  const menus = [
-    {name: $_('Drawer.dashboard'), path: '/community_legacy/dashboard'},
-    {name: $_('Drawer.feeds'), path: '/community_legacy/feed'},
-    {name: $_('Drawer.settings'), path: '/community_legacy/settings'},
-  ];
+  const addCommunityPath = '/community/create';
 
   let isOpen = true;
   let isLoading = false;
   let isMenuVisible = isOpen;
-  let selectedCommunityId = communites?.[0].id;
+  let communityId = communites?.[0].id;
   let menuElement: HTMLDivElement;
+
+  const menus = [
+    {name: $_('Drawer.dashboard'), path: `/community/${communityId}`},
+    {name: $_('Drawer.feeds'), path: `/community/${communityId}/feed`},
+    {name: $_('Drawer.settings'), path: `/community/${communityId}/settings`},
+  ];
+
   let seletedMenuPath = menus[0].path;
 
   $: {
-    const redirectPath = `${seletedMenuPath}/${String(selectedCommunityId)}`;
+    const redirectPath = `${seletedMenuPath}/${String(communityId)}`;
 
     onSelectMenu(redirectPath);
   }
@@ -92,7 +94,7 @@
   const handleAdd = (path: string) => onSelectMenu(path);
 
   const selectCommunity = (id: string) => {
-    selectedCommunityId = id;
+    communityId = id;
     selectMenu(menus[0].path);
   };
 
@@ -113,13 +115,13 @@
     {#each communites as community}
       <CommunityMenu
         community={community}
-        isSelected={community.id === selectedCommunityId}
+        isSelected={community.id === communityId}
         selectCommunity={selectCommunity}
       />
     {/each}
     <CommunityPlusMenu
       redirectPath={addCommunityPath}
-      onSelectAddCommunity={handleAdd}
+      onAddCommunity={handleAdd}
     />
   </aside>
   <section bind:this={menuElement} class:close={!isOpen} style={menuStyle}>
