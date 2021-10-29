@@ -48,9 +48,9 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
-  import Button from '../../uis/Button.svelte';
-  import Card from '../../uis/Card.svelte';
-  import Select from '../../uis/Select.svelte';
+  import Button from '../../../components/uis/Button.svelte';
+  import Card from '../../../components/uis/Card.svelte';
+  import Select from '../../../components/uis/Select.svelte';
   import {user} from '../../../stores/sessionStore';
   import Asterisk from './Asterisk.svelte';
   import Carousel from './Carousel.svelte';

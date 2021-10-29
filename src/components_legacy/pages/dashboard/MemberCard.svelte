@@ -25,8 +25,8 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import type {UserType} from '../../../types';
-  import Card from '../../uis/Card.svelte';
-  import CircleImage from '../../uis/CircleImage.svelte';
+  import Card from '../../../components/uis/Card.svelte';
+  import CircleImage from '../../../components/uis/CircleImage.svelte';
   import MemberContainer from './MemberContainer.svelte';
   import PlusButton from './PlusButton.svelte';
   import TextLink from './TextLink.svelte';

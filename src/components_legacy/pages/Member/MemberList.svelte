@@ -103,8 +103,8 @@
   import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
   import {SvgBadgeCrown, SvgTrashcan} from '../../../utils/Icon';
-  import Button from '../../uis/Button.svelte';
-  import Select from '../../uis//Select.svelte';
+  import Button from '../../../components/uis/Button.svelte';
+  import Select from '../../../components/uis/Select.svelte';
 
   interface Member {
     image: string;

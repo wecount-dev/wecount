@@ -35,11 +35,11 @@
   import {_} from 'svelte-i18n';
   import type {CommunityType, UserType} from '../../../types';
   import {showAmount} from '../../../utils/functions';
-  import Button from '../../uis/Button.svelte';
-  import Card from '../../uis/Card.svelte';
-  import CommunityCard from '../../uis/CommunityCard.svelte';
-  import ProgressBar from '../../uis/ProgressBar.svelte';
-  import TabNavigation from '../../uis/TabNavigation.svelte';
+  import Button from '../../../components/uis/Button.svelte';
+  import Card from '../../../components/uis/Card.svelte';
+  import CommunityCard from '../../../components/uis/CommunityCard.svelte';
+  import ProgressBar from '../../../components/uis/ProgressBar.svelte';
+  import TabNavigation from '../../../components/uis/TabNavigation.svelte';
   import DepositList from './DepositList.svelte';
   import TextLink from './TextLink.svelte';
 

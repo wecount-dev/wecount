@@ -14,7 +14,7 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import {push} from 'svelte-spa-router';
-  import Button from '../../../uis/Button.svelte';
+  import Button from '../../uis/Button.svelte';
 </script>
 
 <div class="container">

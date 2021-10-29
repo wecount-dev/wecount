@@ -95,14 +95,14 @@
     SvgMinusCircle,
     SvgPlusCircle,
   } from '../../../utils/Icon';
-  import Button from '../../uis/Button.svelte';
-  import EditText from '../../uis/EditText.svelte';
-  import EditTextArea from '../../uis/EditTextArea.svelte';
-  import Modal from '../../uis/Modal.svelte';
+  import Button from '../../../components/uis/Button.svelte';
+  import EditText from '../../../components/uis/EditText.svelte';
+  import EditTextArea from '../../../components/uis/EditTextArea.svelte';
+  import Modal from '../../../components/uis/Modal.svelte';
   import {_} from 'svelte-i18n';
   import {createEventDispatcher} from 'svelte';
-  import EditNumber from '../../uis/EditNumber.svelte';
-  import ImageUpload from '../../uis/ImageUpload.svelte';
+  import EditNumber from '../../../components/uis/EditNumber.svelte';
+  import ImageUpload from '../../../components/uis/ImageUpload.svelte';
 
   const dispatch = createEventDispatcher();
 

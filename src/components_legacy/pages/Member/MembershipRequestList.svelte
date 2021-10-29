@@ -71,7 +71,7 @@
 <script lang="ts">
   import {createEventDispatcher, onDestroy, onMount} from 'svelte';
   import {_} from 'svelte-i18n';
-  import Button from '../../uis/Button.svelte';
+  import Button from '../../../components/uis/Button.svelte';
 
   interface User {
     image: string;

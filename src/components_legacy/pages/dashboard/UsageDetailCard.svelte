@@ -64,7 +64,7 @@
   import {_} from 'svelte-i18n';
   import type {DepositType} from '../../../types';
   import {showAmount} from '../../../utils/functions';
-  import Card from '../../uis/Card.svelte';
+  import Card from '../../../components/uis/Card.svelte';
   import TextLink from './TextLink.svelte';
 
   export let style: string | undefined = undefined;

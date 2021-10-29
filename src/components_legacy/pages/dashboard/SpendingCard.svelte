@@ -50,8 +50,8 @@
   import {_} from 'svelte-i18n';
   import type {DepositType} from '../../../types';
   import {showAmount} from '../../../utils/functions';
-  import Card from '../../uis/Card.svelte';
-  import TripleCircleProgressBar from '../../uis/TripleCircleProgressBar.svelte';
+  import Card from '../../../components/uis/Card.svelte';
+  import TripleCircleProgressBar from '../../../components/uis/TripleCircleProgressBar.svelte';
 
   export let style: string | undefined = undefined;
   export let deposits: DepositType[];

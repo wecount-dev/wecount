@@ -129,7 +129,7 @@
     SvgShoppingBag,
   } from '../../../utils/Icon';
 
-  import Pictures from '../../uis/Pictures.svelte';
+  import Pictures from '../../../components/uis/Pictures.svelte';
 
   interface Feed {
     id: string;

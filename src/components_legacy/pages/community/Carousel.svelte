@@ -92,8 +92,8 @@
 </style>
 
 <script lang="ts">
-  import CommunityCard from '../../uis/CommunityCard.svelte';
-  import ArrowButton from '../../uis/ArrowButton.svelte';
+  import CommunityCard from '../../../components/uis/CommunityCard.svelte';
+  import ArrowButton from '../../../components/uis/ArrowButton.svelte';
   import type {CarouselItemType} from '../../../types';
 
   export let item: CarouselItemType;

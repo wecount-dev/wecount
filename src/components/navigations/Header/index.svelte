@@ -29,8 +29,8 @@
 </style>
 
 <script lang="ts">
-  import {user} from '../../../../stores/sessionStore';
-  import {SvgLogo} from '../../../../utils/Icon';
+  import {user} from '../../../stores/sessionStore';
+  import {SvgLogo} from '../../../utils/Icon';
   import AuthHeader from './AuthHeader.svelte';
   import MainHeader from './MainHeader';
 </script>

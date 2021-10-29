@@ -13,8 +13,8 @@
 </style>
 
 <script lang="ts">
-  import Button from '../uis/Button.svelte';
-  import EditText from '../uis/EditText.svelte';
+  import Button from '../../components/uis/Button.svelte';
+  import EditText from '../../components/uis/EditText.svelte';
   import {
     createCommunity,
     getMyCommunites,

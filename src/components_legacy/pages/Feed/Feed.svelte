@@ -28,7 +28,7 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
-  import Button from '../../uis/Button.svelte';
+  import Button from '../../../components/uis/Button.svelte';
   import FeedCreatePopup from './FeedCreatePopup.svelte';
   import FeedCard from './FeedCard.svelte';
   import faker from 'faker/locale/en';

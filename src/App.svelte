@@ -81,7 +81,7 @@
 
   import {user} from './stores/sessionStore';
   import supabase from './lib/db';
-  import Main from './components/navigations/Main';
+  import Main from './components/navigations';
   import {upsertUser} from './services/userService';
   import relativeTime from 'dayjs/plugin/relativeTime';
   import 'dayjs/locale/ko';
