@@ -64,11 +64,11 @@
   export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
-  const addCommunityPath = '/community/create';
+  const addCommunityPath = '/community_legacy/create';
   const menus = [
-    {name: $_('Drawer.dashboard'), path: '/community/dashboard'},
-    {name: $_('Drawer.feeds'), path: '/community/feed'},
-    {name: $_('Drawer.settings'), path: '/community/settings'},
+    {name: $_('Drawer.dashboard'), path: '/community_legacy/dashboard'},
+    {name: $_('Drawer.feeds'), path: '/community_legacy/feed'},
+    {name: $_('Drawer.settings'), path: '/community_legacy/settings'},
   ];
 
   let isOpen = true;

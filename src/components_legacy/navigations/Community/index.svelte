@@ -46,7 +46,7 @@
     console.log(`Selected Path: ${path}`);
   };
 
-  const prefix = '/community';
+  const prefix = '/community_legacy';
   const routes = {
     '/member': Member,
     '/dashboard': Dashboard,
