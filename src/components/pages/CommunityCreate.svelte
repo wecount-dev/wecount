@@ -48,15 +48,15 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
-  import Button from '../../../components/uis/Button.svelte';
-  import Card from '../../../components/uis/Card.svelte';
-  import Select from '../../../components/uis/Select.svelte';
-  import {user} from '../../../stores/sessionStore';
-  import Asterisk from './Asterisk.svelte';
-  import Carousel from './Carousel.svelte';
-  import InputBox from './InputBox.svelte';
-  import {createCommunity} from '../../../services/communityService';
-  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../../utils/colors';
+  import Button from '../uis/Button.svelte';
+  import Card from '../uis/Card.svelte';
+  import Select from '../uis/Select.svelte';
+  import Asterisk from '../uis/Asterisk.svelte';
+  import Carousel from '../uis/Carousel.svelte';
+  import InputBox from '../uis/InputBox.svelte';
+  import {user} from '../../stores/sessionStore';
+  import {createCommunity} from '../../services/communityService';
+  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../utils/colors';
   import {replace} from 'svelte-spa-router';
 
   let loading = false;

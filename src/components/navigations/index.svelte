@@ -20,10 +20,11 @@
   import SignIn from '../pages/SignIn.svelte';
   import SignUp from '../pages/SignUp.svelte';
   import Profile from '../pages/Profile.svelte';
+  import CommunityCreate from '../pages/CommunityCreate.svelte';
+  import Community from '../pages/Comunity.svelte';
   import Temp from '../pages/Temp.svelte';
-  import Community from '../../components_legacy/navigations/Community';
   import ServiceSample from '../../components_legacy/pages/ServiceSample.svelte';
-  import CommunityCreate from '../../components_legacy/pages/community/CommunityCreate.svelte';
+  import CommunityLegacy from '../../components_legacy/navigations/Community';
 
   const routes = {
     '/sign_in': SignIn,
@@ -32,7 +33,8 @@
     '/profile': Profile,
     '/service_sample': ServiceSample,
     '/community/create': CommunityCreate,
-    '/community/:id': Community,
+    '/community/*': Community,
+    '/community_legacy/*': CommunityLegacy,
     '/*': Temp,
   };
 </script>
