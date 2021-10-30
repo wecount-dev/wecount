@@ -6,7 +6,11 @@
   }
 
   .container {
-    background: linear-gradient(136.71deg, #17b87c 21.32%, #01886f 96.51%);
+    background: linear-gradient(
+      136.71deg,
+      var(--auth-background-light) 21.32%,
+      var(--auth-background-dark) 96.51%
+    );
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
 

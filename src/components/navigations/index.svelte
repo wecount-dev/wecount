@@ -13,7 +13,7 @@
   }
 </style>
 
-<script>
+<script lang="ts">
   import Router from 'svelte-spa-router';
   import Header from './Header/index.svelte';
   import Onboarding from '../pages/Onboarding/index.svelte';

@@ -7,6 +7,8 @@ export const BLACK = '#2A2A2C';
 export const light = {
   boxShadow02: 'rgba(0, 0, 0, 0.02)',
   boxShadow12: 'rgba(0, 0, 0, 0.12)',
+  authBackgroundLight: '#17b87c',
+  authBackgroundDark: '#01886f',
 };
 
 export type Theme = typeof light;
@@ -14,4 +16,6 @@ export type Theme = typeof light;
 export const dark: Theme = {
   boxShadow02: 'rgba(255, 255, 255, 0.02)',
   boxShadow12: 'rgba(255, 255, 255, 0.12)',
+  authBackgroundLight: '#4C4D53',
+  authBackgroundDark: '#2A2A2A',
 };

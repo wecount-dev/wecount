@@ -83,7 +83,7 @@
   import 'dayjs/locale/ko';
   import dayjs from 'dayjs';
 
-  const {changeThemeType} = getContext<ThemeStore>('theme');
+  const {changeThemeType} = getContext<ThemeStore>('svelte-theme');
 
   // dayjs.locale('ko'); // TODO
   dayjs.extend(relativeTime);
