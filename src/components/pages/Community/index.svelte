@@ -12,13 +12,15 @@
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+
+    display: grid;
   }
 </style>
 
 <script lang="ts">
   import Router, {push} from 'svelte-spa-router';
   import Drawer from './Drawer/index.svelte';
-  import Main from './Main.svelte';
+  import Main from './Main/index.svelte';
   import Member from './Member.svelte';
   import Feed from './Feed.svelte';
   import Settings from './Settings.svelte';
@@ -39,7 +41,7 @@
       communities={[
         {
           id: '100',
-          name: 'Com',
+          name: 'com',
           isPublic: true,
           currency: 'USD',
           description: 'community description',
