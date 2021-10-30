@@ -1,13 +1,12 @@
 <style lang="postcss">
   .menu {
-    background-color: white;
     width: 44px;
     height: 44px;
     box-sizing: border-box;
     border-radius: 10px;
     margin-bottom: 16px;
     cursor: pointer;
-    border: 1.5px solid white;
+    border: 1.5px solid var(--border);
     user-select: none;
 
     display: flex;
@@ -16,6 +15,8 @@
   }
 
   .seleted-menu {
+    color: white;
+    background-color: var(--community-color);
     border: 1.5px solid var(--green40);
   }
 
@@ -33,8 +34,16 @@
   import {createEventDispatcher} from 'svelte';
 
   export let community: definitions['Community'];
-  export let isSelected = false;
+  export let selected = false;
   export let style: string | undefined = undefined;
+
+  let styles = {
+    'community-color': community.color,
+  };
+
+  $: cssVarStyles = Object.entries(styles)
+    .map(([key, value]) => `--${key}:${value as string}`)
+    .join(';');
 
   const imageURL = community.thumbURL || community.imageURL;
   const dispatch = createEventDispatcher();
@@ -46,9 +55,9 @@
 
 <div
   class="menu {$$props.class}"
-  class:seleted-menu={isSelected}
-  style={style}
+  class:seleted-menu={selected}
+  style="{cssVarStyles}; {style}"
   on:click={handleClick}
 >
-  <img src={imageURL} alt="icon" style="icon" />
+  <img src={imageURL} alt={community.name.substring(0, 1)} />
 </div>

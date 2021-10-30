@@ -63,7 +63,7 @@
   import MenuAdd from './MenuAdd.svelte';
   import MenuList from './MenuList.svelte';
 
-  export let communites: definitions['Community'][];
+  export let communities: definitions['Community'][];
   export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
@@ -72,7 +72,7 @@
   let isOpen = true;
   let isLoading = false;
   let isMenuVisible = isOpen;
-  let communityId = communites?.[0].id;
+  let communityId = communities?.[0].id;
   let menuElement: HTMLDivElement;
 
   const subMenus = [
@@ -114,7 +114,7 @@
     <div class="menu-btn" class:hidden={isOpen} on:click={toggleMenu}>
       <SvgMenu />
     </div>
-    {#each communites as community}
+    {#each communities as community}
       <Menu
         community={community}
         selected={community.id === communityId}

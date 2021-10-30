@@ -30,7 +30,7 @@
   import Feed from '../../pages/Feed/Feed.svelte';
   import Dashboard from '../../pages/dashboard/Index.svelte';
 
-  const communites = [
+  const communities = [
     {
       id: '1',
       imageUrl: 'https://picsum.photos/50/50?random=1',
@@ -58,7 +58,7 @@
 <div class="community-route">
   <div class="layout">
     <nav>
-      <Drawer communites={communites} onSelectMenu={onSelectMenu} />
+      <Drawer communities={communities} onSelectMenu={onSelectMenu} />
     </nav>
     <section>
       <Router routes={routes} prefix={prefix} />

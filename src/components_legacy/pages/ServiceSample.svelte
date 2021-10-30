@@ -17,7 +17,7 @@
   import EditText from '../../components/uis/EditText.svelte';
   import {
     createCommunity,
-    getMyCommunites,
+    getMycommunities,
     updateCommunity,
   } from '../../services/communityService';
   import {user} from '../../stores/sessionStore';
@@ -47,7 +47,7 @@
   const requestGetMyCommunities = async () => {
     if (!$user) return;
 
-    const communities = await getMyCommunites($user.id);
+    const communities = await getMycommunities($user.id);
 
     console.log('communities', communities);
 

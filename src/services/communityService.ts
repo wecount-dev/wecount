@@ -1,10 +1,10 @@
-import {definitions} from "../types/supabase";
-import supabase from "../lib/db";
+import {definitions} from '../types/supabase';
+import supabase from '../lib/db';
 
 export const createCommunity = async (
   userId: string | undefined,
-  community: Omit<definitions["Community"], 'id' | 'createdAt'>,
-): Promise<definitions["Community"] | null> => {
+  community: Omit<definitions['Community'], 'id' | 'createdAt'>,
+): Promise<definitions['Community'] | null> => {
   if (!userId || !community) {
     // eslint-disable-next-line no-console
     console.error('no userId or community');
@@ -14,15 +14,14 @@ export const createCommunity = async (
 
   try {
     const {data, error} = await supabase
-      .from<definitions["Community"]>('Community')
-      .insert([
-        {...community},
-      ]).single();
+      .from<definitions['Community']>('Community')
+      .insert([{...community}])
+      .single();
 
     if (error) throw error;
 
     if (data)
-      await supabase.from<definitions["Permission"]>('Permission').insert([
+      await supabase.from<definitions['Permission']>('Permission').insert([
         {
           communityId: data.id,
           type: 'owner',
@@ -40,11 +39,11 @@ export const createCommunity = async (
 };
 
 export const updateCommunity = async (
-  community: Omit<definitions["Community"], 'createdAt'>,
-): Promise<definitions["Community"] | null> => {
+  community: Omit<definitions['Community'], 'createdAt'>,
+): Promise<definitions['Community'] | null> => {
   try {
     const {data, error} = await supabase
-      .from<definitions["Community"]>('Community')
+      .from<definitions['Community']>('Community')
       .update({...community})
       .match({id: community.id})
       .single();
@@ -61,10 +60,12 @@ export const updateCommunity = async (
   }
 };
 
-export const deleteCommunity = async (id: string): Promise<definitions["Community"] | null> => {
+export const deleteCommunity = async (
+  id: string,
+): Promise<definitions['Community'] | null> => {
   try {
     const {data, error} = await supabase
-      .from<definitions["Community"]>('Community')
+      .from<definitions['Community']>('Community')
       .delete()
       .match({id})
       .single();
@@ -81,15 +82,16 @@ export const deleteCommunity = async (id: string): Promise<definitions["Communit
   }
 };
 
-export const getMyCommunites = async (
+export const getMycommunities = async (
   userId: string | undefined,
-): Promise<definitions["Community"][] | null> => {
+): Promise<definitions['Community'][] | null> => {
   if (!userId) return [];
 
   try {
     const {data, error} = await supabase
-      .from<definitions["Permission"]>('Permission')
-      .select(`
+      .from<definitions['Permission']>('Permission')
+      .select(
+        `
         Community (
           isPublic,
           name,
@@ -97,7 +99,8 @@ export const getMyCommunites = async (
           currency,
           color
         )
-      `)
+      `,
+      )
       .match({
         userId,
       });
@@ -115,10 +118,12 @@ export const getMyCommunites = async (
   }
 };
 
-export const getCommunity = async (id: string): Promise<definitions["Community"] | null> => {
+export const getCommunity = async (
+  id: string,
+): Promise<definitions['Community'] | null> => {
   try {
     const {data, error} = await supabase
-      .from<definitions["Community"]>('Community')
+      .from<definitions['Community']>('Community')
       .select()
       .match({id})
       .single();

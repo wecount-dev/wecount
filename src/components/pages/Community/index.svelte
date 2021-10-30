@@ -22,6 +22,7 @@
   import Member from './Member.svelte';
   import Feed from './Feed.svelte';
   import Settings from './Settings.svelte';
+  import {GREEN, SKY_BLUE} from '../../../theme';
 
   const prefix = '/community';
   const routes = {
@@ -35,14 +36,23 @@
 <div class="container">
   <nav>
     <Drawer
-      communites={[
+      communities={[
         {
-          id: '123',
-          name: 'comm',
+          id: '100',
+          name: 'Com',
           isPublic: true,
           currency: 'USD',
           description: 'community description',
-          color: 'red',
+          color: GREEN,
+          createdAt: new Date().toISOString(),
+        },
+        {
+          id: '101',
+          name: 'Hello',
+          isPublic: true,
+          currency: 'USD',
+          description: 'community description',
+          color: SKY_BLUE,
           createdAt: new Date().toISOString(),
         },
       ]}

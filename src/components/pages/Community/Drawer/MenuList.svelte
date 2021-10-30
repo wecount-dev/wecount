@@ -11,7 +11,7 @@
   .selected-name {
     font-size: 0.875rem;
     font-weight: 700;
-    color: var(--text);
+    color: white;
   }
 
   .unselected-name {
