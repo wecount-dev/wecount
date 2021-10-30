@@ -149,14 +149,17 @@
     <div class="community-card-carousel">
       <div
         class="card"
-        style="padding: 28px 18px; display: flex; justify-content: center;
-        align-items: center;"
+        style="
+          padding: 28px 18px;
+          display: flex;
+          justify-content: center;
+          align-items: center;"
       >
         <Carousel item={item} onChange={getColor} />
       </div>
     </div>
     <div class="input-card">
-      <div class="card" style="padding: 34px; 28px;">
+      <div class="card" style="padding: 34px 28px;">
         <InputBox>
           <svelte:fragment slot="label">
             {$_('Community.type')}
