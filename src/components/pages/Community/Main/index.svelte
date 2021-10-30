@@ -4,12 +4,10 @@
     padding: 20px;
 
     display: grid;
-
     gap: 16px;
-
     grid-auto-flow: column;
     grid-template-columns: minmax(654px, 1fr) 364px;
-    grid-template-rows: repat(4, 1fr);
+    grid-template-rows: repeat(4, 180px);
     grid-template-areas:
       'summary member'
       'summary statistics'
@@ -17,13 +15,9 @@
       'history statistics';
 
     @media (--mobile) {
-      grid-template-columns: 1fr;
-
-      grid-template-areas:
-        'summary'
-        'history'
-        'member'
-        'statistics';
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
     }
   }
 </style>

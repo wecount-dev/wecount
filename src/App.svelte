@@ -48,6 +48,16 @@
     font-weight: bold;
   }
 
+  :global(.heading4) {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  :global(.heading5) {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   :global(.body1) {
     font-size: 20px;
   }

@@ -23,8 +23,7 @@
   import CommunityCreate from '../pages/CommunityCreate.svelte';
   import Community from '../pages/Community/index.svelte';
   import Temp from '../pages/Temp.svelte';
-  import ServiceSample from '../../components_legacy/pages/ServiceSample.svelte';
-  import CommunityLegacy from '../../components_legacy/navigations/Community/index.svelte';
+  import ServiceSample from '../pages/ServiceSample.svelte';
 
   const routes = {
     '/sign_in': SignIn,
@@ -34,7 +33,6 @@
     '/service_sample': ServiceSample,
     '/community/create': CommunityCreate,
     '/community/*': Community,
-    '/community_legacy/*': CommunityLegacy,
     '/*': Temp,
   };
 </script>

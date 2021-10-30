@@ -7,6 +7,7 @@
       padding: 0px 20px;
     }
   }
+
   .wrap {
     width: 620px;
 
@@ -14,16 +15,20 @@
       width: 100%;
     }
   }
+
   .title {
     margin-top: 40px;
     margin-bottom: 22px;
   }
+
   .community-card-carousel {
     margin-bottom: 20px;
   }
+
   .input-card {
     margin-bottom: 40px;
   }
+
   input,
   textarea {
     width: 100%;
@@ -32,24 +37,40 @@
     padding: 8px;
     font-size: 14px;
   }
+
   textarea {
     height: 103px;
   }
+
   textarea::-webkit-scrollbar {
     display: none;
   }
+
   .input-wrapper {
     margin-bottom: 40px;
 
     display: flex;
     justify-content: center;
   }
+
+  .card {
+    background-color: var(--card);
+    border: 1px solid var(--gray20);
+    box-sizing: border-box;
+    box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+
+    @media (--mobile) {
+      border-radius: 0px;
+    }
+  }
 </style>
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
   import Button from '../uis/Button.svelte';
-  import Card from '../uis/Card.svelte';
   import Select from '../uis/Select.svelte';
   import Asterisk from '../uis/Asterisk.svelte';
   import Carousel from '../uis/Carousel.svelte';
@@ -126,14 +147,16 @@
       {$_('app_name')}<br />{$_('Community.create_community')}
     </h3>
     <div class="community-card-carousel">
-      <Card
-        style="padding: 28px 18px; display: flex; justify-content: center; align-items: center;"
+      <div
+        class="card"
+        style="padding: 28px 18px; display: flex; justify-content: center;
+        align-items: center;"
       >
         <Carousel item={item} onChange={getColor} />
-      </Card>
+      </div>
     </div>
     <div class="input-card">
-      <Card style="padding: 34px; 28px;">
+      <div class="card" style="padding: 34px; 28px;">
         <InputBox>
           <svelte:fragment slot="label">
             {$_('Community.type')}
@@ -182,7 +205,7 @@
             on:change={selectCurrencyOption}
           />
         </InputBox>
-      </Card>
+      </div>
     </div>
     <div class="input-wrapper">
       <Button
