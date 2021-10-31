@@ -149,8 +149,8 @@
     </div>
   </div>
   <CommunityCard
+    --color={GREEN}
     style="grid-area: card; width: 330px;"
-    color={GREEN}
     name="dooboolab"
     currency="KRW"
     description="dooboolab card"

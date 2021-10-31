@@ -73,7 +73,7 @@
   let isLoading = false;
   let isMenuVisible = isOpen;
   let communityId = communities?.[0].id;
-  let menuElement: HTMLDivElement;
+  let menuElement: HTMLElement;
 
   const subMenus = [
     {name: $_('Drawer.dashboard'), path: `/community/${communityId}`},
@@ -90,8 +90,7 @@
   };
 
   const selectCommunity = (id: string) => {
-    communityId = id;
-    const path = subMenus[0].path;
+    const path = (subMenus[0].path = `/community/${id}`);
 
     seletedSubMenuPath = path;
     selectSubMenu(path);

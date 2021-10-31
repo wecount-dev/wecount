@@ -99,7 +99,7 @@
   export let style = '';
 </script>
 
-<div class="card" style={`--color: ${color}; ${style}`}>
+<div class="card" style={style}>
   <div class="title">
     <div class="body1">
       {#if !isPublic}

@@ -147,10 +147,10 @@
             class:right-card={position.right === i}
           >
             <CommunityCard
+              --color={color}
               name="dooboolab"
               currency="KRW"
               description="dooboolab card"
-              color={color}
               style="height:100%;"
             />
           </div>

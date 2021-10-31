@@ -59,6 +59,7 @@
         },
       ]}
       onSelectMenu={async (path) => {
+        console.log('path', path);
         await push(path);
       }}
     />
