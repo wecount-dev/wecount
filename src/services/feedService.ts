@@ -24,7 +24,7 @@ export const createFeed = async (
         userId,
       }).single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {
@@ -45,7 +45,7 @@ export const updateFeed = async (
       .match({id: feed.id})
       .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {
@@ -64,7 +64,7 @@ export const deleteFeed = async (id: string): Promise<definitions["Feed"] | null
       .match({id})
       .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {
@@ -82,7 +82,7 @@ export const feeds = async (communityId: string): Promise<definitions["Feed"][] 
     .select()
     .match({communityId});
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {
@@ -114,7 +114,7 @@ export const getFeed = async (id: string): Promise<definitions["Feed"] | null> =
     .match({id})
     .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {

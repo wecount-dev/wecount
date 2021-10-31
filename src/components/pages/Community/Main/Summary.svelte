@@ -134,7 +134,7 @@
   };
 
   const clickSponsoring = () => {
-    if (percentage >= 100) return;
+    if (percentage >= 100) {return;}
 
     percentage += 10;
   };

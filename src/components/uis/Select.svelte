@@ -81,13 +81,16 @@
   });
 
   const handleOnChange = (_value: string) => {
-    if (!multiple) dispatch('change', _value);
-    else if (value?.includes(_value))
+    if (!multiple) {
+      dispatch('change', _value);
+    } else if (value?.includes(_value)) {
       dispatch(
         'change',
         (value as string[]).filter((v) => v !== _value),
       );
-    else dispatch('change', [...(value as string[]), _value]);
+    } else {
+      dispatch('change', [...(value as string[]), _value]);
+    }
 
     open = multiple;
   };

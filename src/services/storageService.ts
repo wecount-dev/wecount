@@ -19,7 +19,7 @@ export const uploadSingleImage =
     dir = 'images',
     bucket = 'staging',
   }: UploadSingleImageType): Promise<string | null> => {
-    if (!file) return null;
+    if (!file) {return null;}
 
     const compressed = await imageCompression(file, {});
 
@@ -30,7 +30,7 @@ export const uploadSingleImage =
 
     const {error} = await supabase.storage.from(bucket).upload(path, compressed, {upsert:false});
     
-    if(error) throw error;
+    if(error) {throw error;}
 
     const {publicURL} = supabase.storage.from(bucket).getPublicUrl(path);
 
@@ -68,7 +68,7 @@ export const uploadMultipleImages =
   
         const {error} = await supabase.storage.from(bucket).upload(path, file, {upsert:false});
         
-        if(error) throw error;
+        if(error) {throw error;}
 
         const {publicURL} = supabase.storage.from(bucket).getPublicUrl(path);
 

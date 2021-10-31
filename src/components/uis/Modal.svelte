@@ -23,7 +23,7 @@
   const dispatch = createEventDispatcher();
 
   const handleBackdropClick = () => {
-    if (disableBackdropClickToClose) return;
+    if (disableBackdropClickToClose) {return;}
 
     visible = false;
     dispatch('close');

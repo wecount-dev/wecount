@@ -118,7 +118,7 @@
   let avatarUrl = '';
 
   onMount(async () => {
-    if (!$user) await replace('/');
+    if (!$user) {await replace('/');}
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -145,7 +145,7 @@
     try {
       let image = e.target.files?.[0];
 
-      if (!image) return;
+      if (!image) {return;}
 
       loading = true;
 
@@ -177,7 +177,7 @@
         })
         .match({id: $user?.id});
 
-      if (error) throw error;
+      if (error) {throw error;}
 
       if ($user) {
         $user.name = name;
@@ -196,7 +196,7 @@
       loading = true;
       let {error} = await supabase.auth.signOut();
 
-      if (error) throw error;
+      if (error) {throw error;}
 
       $user = null;
       await replace('/');

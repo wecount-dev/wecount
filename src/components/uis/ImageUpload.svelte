@@ -71,7 +71,7 @@
     files: FileList | null,
   ) => {
     try {
-      if (loading || !files || uris.length >= max) return;
+      if (loading || !files || uris.length >= max) {return;}
 
       loading = true;
 
@@ -88,7 +88,7 @@
   };
 
   const onUpload = () => {
-    if (uris.length >= max) return;
+    if (uris.length >= max) {return;}
 
     fileInput.click();
   };

@@ -133,7 +133,7 @@
           selectedPublicOption === $_('Community.public') ? true : false,
       });
 
-      if (community) await replace(`/community/${community.id}`);
+      if (community) {await replace(`/community/${community.id}`);}
     } finally {
       isSubmitOnFlight = false;
     }

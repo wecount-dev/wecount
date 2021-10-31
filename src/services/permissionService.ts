@@ -18,7 +18,7 @@ export const inviteMemberToCommunity = async (
       },
     ]).single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {
@@ -43,7 +43,7 @@ export const sendJoinRequestToCommunity = async (
       },
     ]).single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
@@ -70,7 +70,7 @@ export const acceptJoinRequestWithinCommunity = async (
     })
     .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;

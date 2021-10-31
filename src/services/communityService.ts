@@ -18,9 +18,9 @@ export const createCommunity = async (
       .insert([{...community}])
       .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
-    if (data)
+    if (data) {
       await supabase.from<definitions['Permission']>('Permission').insert([
         {
           communityId: data.id,
@@ -28,6 +28,7 @@ export const createCommunity = async (
           userId,
         },
       ]);
+    }
 
     return data;
   } catch (err) {
@@ -48,7 +49,7 @@ export const updateCommunity = async (
       .match({id: community.id})
       .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
@@ -70,7 +71,7 @@ export const deleteCommunity = async (
       .match({id})
       .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
@@ -85,7 +86,7 @@ export const deleteCommunity = async (
 export const getMycommunities = async (
   userId: string | undefined,
 ): Promise<definitions['Community'][] | null> => {
-  if (!userId) return [];
+  if (!userId) {return [];}
 
   try {
     const {data, error} = await supabase
@@ -105,7 +106,7 @@ export const getMycommunities = async (
         userId,
       });
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     // @ts-ignore
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
@@ -128,7 +129,7 @@ export const getCommunity = async (
       .match({id})
       .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {

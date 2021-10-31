@@ -5,7 +5,7 @@ import supabase from "../lib/db";
 export const upsertUser = async (
   user: User | null,
 ): Promise<definitions["User"] | null> => {
-  if (!user || !user.id) return null;
+  if (!user || !user.id) {return null;}
 
   const supaUser: definitions["User"] = {
     aud: user.aud,
@@ -30,7 +30,7 @@ export const upsertUser = async (
       {...supaUser},
     ]).single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {
@@ -54,7 +54,7 @@ export const updateUserAvatar = async (
     .match({id: userId})
     .single();
 
-    if (error) throw error;
+    if (error) {throw error;}
 
     return data;
   } catch (err) {

@@ -100,14 +100,18 @@
 
   const toggleTheme = () => {
     document.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.key === '.') changeThemeType();
+      if (event.ctrlKey && event.key === '.') {
+        changeThemeType();
+      }
     });
   };
 
   supabase.auth.onAuthStateChange((e, session) => {
-    if (e === 'SIGNED_OUT') user.set(null);
+    if (e === 'SIGNED_OUT') {
+      user.set(null);
+    }
 
-    if (e === 'SIGNED_IN' && session)
+    if (e === 'SIGNED_IN' && session) {
       (async () => {
         await upsertUser(session.user);
 
@@ -124,6 +128,7 @@
           name: data?.name || '',
         });
       })().catch((err) => console.log(err));
+    }
   });
 
   toggleTheme();

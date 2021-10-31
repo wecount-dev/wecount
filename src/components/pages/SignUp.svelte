@@ -142,7 +142,7 @@
   let passwordConfirm: string;
 
   onMount(async () => {
-    if ($user) await replace('/');
+    if ($user) {await replace('/');}
   });
 
   const onChangeEmail = (e: CustomEvent) => {
@@ -166,7 +166,7 @@
       loading = true;
       const error = await callback();
 
-      if (error) throw error;
+      if (error) {throw error;}
     } catch (error: any) {
       alert(error.error_description || error.message);
     } finally {
