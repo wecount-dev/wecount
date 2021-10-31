@@ -110,7 +110,6 @@
   let color = item.colors[0];
 
   const getColor = (selectedColor: string) => {
-    // eslint-disable-next-line no-console
     color = selectedColor;
   };
 

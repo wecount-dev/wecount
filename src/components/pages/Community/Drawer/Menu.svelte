@@ -20,7 +20,7 @@
     border: 1.5px solid var(--green40);
   }
 
-  img {
+  .icon {
     object-fit: cover;
     max-width: 100%;
     max-height: 100%;
@@ -59,5 +59,9 @@
   style="{cssVarStyles}; {style}"
   on:click={handleClick}
 >
-  <img src={imageURL} alt={community.name.substring(0, 1)} />
+  {#if imageURL}
+    <img class="icon" src={imageURL} alt={community.name.substring(0, 1)} />
+  {:else}
+    <div class="icon">{community.name.substring(0, 1)}</div>
+  {/if}
 </div>

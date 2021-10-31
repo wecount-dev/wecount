@@ -100,7 +100,6 @@
   export let onChange: (selectedColor: string) => void;
   export let carouselStyle: string | undefined = undefined;
   export let cardLayoutStyle: string | undefined = undefined;
-  export let style: string | undefined = undefined;
   export let dotStyle: string | undefined = undefined;
 
   const colors = item.colors;
@@ -148,11 +147,11 @@
             class:right-card={position.right === i}
           >
             <CommunityCard
-              user={item.user}
-              community={item.community}
-              style={`background-color:${color}; height:100%; ${
-                style ? style : ''
-              }`}
+              name="dooboolab"
+              currency="KRW"
+              description="dooboolab card"
+              color={color}
+              style="height:100%;"
             />
           </div>
         {/if}

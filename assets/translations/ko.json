@@ -12,6 +12,8 @@
   "update": "수정",
   "member": "멤버",
   "community": "커뮤니티",
+  "owner": "주인",
+  "current_balance": "현재 잔액",
   "SignIn": {
     "email_hint": "이메일을 입력하세요",
     "pw_hint": "비밀번호를 입력하세요",
@@ -96,7 +98,6 @@
   "Dashboard": {
     "hello": "안녕하세요.",
     "manage_members": "멤버 관리",
-    "current_balance": "현재 잔액",
     "remaining_amount": "남은 금액",
     "account_book_management": "가계부 관리",
     "last": "최근",

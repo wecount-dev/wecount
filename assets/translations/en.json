@@ -12,6 +12,8 @@
   "update": "Update",
   "member": "Member",
   "community": "Community",
+  "owner": "Owner",
+  "current_balance": "Current balance",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",
@@ -94,7 +96,6 @@
   "Dashboard": {
     "hello": "Hello.",
     "manage_members": "Manage members",
-    "current_balance": "Current balance",
     "remaining_amount": "Remaining amount",
     "account_book_management": "Account book management",
     "last": "Last",
