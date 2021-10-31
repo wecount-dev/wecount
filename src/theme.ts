@@ -1,3 +1,4 @@
+export const RED = '#FF728D';
 export const GREEN = '#28DB98';
 export const SKY_BLUE = '#72E6FF';
 export const NAVY = '#3A74E7';

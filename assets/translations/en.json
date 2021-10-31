@@ -14,6 +14,10 @@
   "community": "Community",
   "owner": "Owner",
   "current_balance": "Current balance",
+  "sponsor": "Sponsor",
+  "manage": "Manage",
+  "remaining_amount": "Remaining amount",
+  "recent_history": "Recent history",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",

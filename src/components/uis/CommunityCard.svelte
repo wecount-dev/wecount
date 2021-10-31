@@ -4,14 +4,15 @@
     border: 1px solid var(--border);
     box-sizing: border-box;
     border-radius: 16px;
-    box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 24px 42px var(--box-shadow12);
     padding: 26px;
     max-height: 212px;
+    width: 330px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .crown {
@@ -29,6 +30,7 @@
 
   .title {
     margin-bottom: 13px;
+    color: white;
 
     .body1 {
       display: flex;
@@ -66,7 +68,9 @@
   }
 
   .balance {
+    margin-top: 8px;
     align-self: flex-end;
+    color: white;
 
     flex-direction: column;
     align-items: flex-start;

@@ -2,13 +2,13 @@
   .container {
     grid-area: summary;
     background-color: var(--card);
-    min-height: 380px;
-    padding: 0 20px;
+    padding: 0 20px 12px 20px;
     border-radius: 16px;
 
     display: grid;
     align-items: stretch;
     grid-auto-flow: row;
+    column-gap: 40px;
     grid-template-columns: 330px 1fr;
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas:
@@ -22,7 +22,7 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
-      justify-content: center;
+      padding: 12px 20px 28px 20px;
     }
 
     div {
@@ -33,13 +33,19 @@
 
     .title {
       grid-area: title;
+      padding-top: 8px;
 
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
 
       .manage {
+        cursor: pointer;
         color: var(--text-light);
+
+        &:hover {
+          color: var(--text);
+        }
       }
 
       @media (--mobile) {
@@ -47,46 +53,138 @@
       }
     }
 
-    .card {
-      grid-area: card;
-
-      @media (--mobile) {
-      }
-    }
-
     .usage {
       grid-area: usage;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      @media (--mobile) {
+        margin-top: 8px;
+      }
+
+      .head {
+        align-self: stretch;
+        border-width: 3px;
+        border-color: white;
+        color: var(--placeholder);
+      }
+
+      hr {
+        border: 1px solid var(--placeholder);
+        width: 100%;
+      }
+
+      .price {
+        margin: 6px 0;
+        align-self: flex-end;
+        color: var(--price);
+      }
     }
 
     .amount {
       grid-area: amount;
+      padding-top: 16px;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .placeholder {
+        color: var(--placeholder);
+      }
+
+      .current {
+        align-self: stretch;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
 
     .sponsor {
       grid-area: sponsor;
+
+      .body3 {
+        color: white;
+        font-weight: bold;
+      }
     }
   }
 </style>
 
-<script>
-  import {GREEN} from '../../../../theme';
+<script lang="ts">
+  import {_} from 'svelte-i18n';
+
+  import {GREEN, RED} from '../../../../theme';
+  import {decoPrice} from '../../../../utils/functions';
+  import Button from '../../../uis/Button.svelte';
   import CommunityCard from '../../../uis/CommunityCard.svelte';
+  import ProgressBar from '../../../uis/ProgressBar.svelte';
+  import {getContext} from 'svelte';
+  import {ThemeStore} from 'svelte-theme';
+
+  const {theme} = getContext<ThemeStore>('svelte-theme');
+  const amounts = [400000, -300000, 400000, 1400000, 1400000];
+
+  let percentage = 20;
+
+  const clickManage = () => {
+    console.log('click manage');
+  };
+
+  const clickSponsoring = () => {
+    if (percentage >= 100) return;
+
+    percentage += 10;
+  };
 </script>
 
 <div class="container">
   <div class="title">
     <div class="body1">dooboolab 커뮤니티</div>
-    <div class="manage body3">가계부 관리</div>
+    <div class="manage body3" on:click={clickManage}>
+      {$_('manage')}
+      <i class="material-icons md-18">chevron_right</i>
+    </div>
   </div>
   <CommunityCard
-    style="grid-area: card;"
+    style="grid-area: card; width: 330px;"
     color={GREEN}
     name="dooboolab"
     currency="KRW"
     description="dooboolab card"
     balance={100000}
   />
-  <div class="usage">Usage</div>
-  <div class="amount">Amount</div>
-  <div class="sponsor">Sponsor</div>
+  <div class="usage">
+    <div class="head body3">{$_('recent_history')}</div>
+    <hr />
+    {#each amounts as amount}
+      <div
+        class="body3 price"
+        style={`--price: ${amount < 0 ? RED : theme.text};`}
+      >
+        {decoPrice(amount, 'KRW')}
+      </div>
+    {/each}
+  </div>
+  <div class="amount">
+    <ProgressBar percentage={percentage} />
+    <div class="current">
+      <div class="body3 placeholder">{$_('remaining_amount')}</div>
+      <div class="body3">
+        <pre class="placeholder">{decoPrice(100000, 'KRW', null, null)}</pre>
+        &nbsp;/&nbsp;
+        {decoPrice(400000, 'KRW', null, null)}
+      </div>
+    </div>
+  </div>
+  <div class="sponsor">
+    <Button on:click={clickSponsoring} primary type="submit" style="flex: 1;">
+      <div class="body3">{$_('sponsor')}</div>
+    </Button>
+  </div>
 </div>

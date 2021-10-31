@@ -14,6 +14,10 @@
   "community": "커뮤니티",
   "owner": "주인",
   "current_balance": "현재 잔액",
+  "sponsor": "후원하기",
+  "manage": "관리",
+  "remaining_amount": "남은 금액",
+  "recent_history": "최근 내역",
   "SignIn": {
     "email_hint": "이메일을 입력하세요",
     "pw_hint": "비밀번호를 입력하세요",
