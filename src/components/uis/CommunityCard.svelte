@@ -87,9 +87,7 @@
   import {_} from 'svelte-i18n';
   import {decoPrice} from '../../utils/functions';
   import UserImage from './UserImage.svelte';
-  import {GREEN} from '../../theme';
 
-  export let color = GREEN;
   export let name = '';
   export let description = '';
   export let profileURL = '';
