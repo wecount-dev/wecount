@@ -1,9 +1,16 @@
-export const decoPrice = (
-  price: number,
+type DecoPriceType = {
+  price: number;
+  currency?: string | null;
+  style?: string | null;
+  currencyDisplay?: string | null;
+}
+
+export const decoPrice = ({
+  price,
   currency="USD",
   style="currency",
   currencyDisplay="symbol",
-): string => {
+}: DecoPriceType): string => {
   return price.toLocaleString(undefined, {
     style: style || undefined,
     currency: currency || undefined,

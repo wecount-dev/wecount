@@ -37,7 +37,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    .manage {
+    .more {
       cursor: pointer;
       color: var(--text-light);
 
@@ -55,17 +55,15 @@
 <script lang="ts">
   import {_} from 'svelte-i18n';
 
-  let percentage = 20;
-
   const clickMore = () => {
-    console.log('click manage');
+    console.log('click more');
   };
 </script>
 
 <div class="container">
   <div class="title">
     <div class="body1">{$_('usage_history')}</div>
-    <div class="manage body3" on:click={clickMore}>
+    <div class="more body3" on:click={clickMore}>
       {$_('more')}
       <i class="material-icons md-18">chevron_right</i>
     </div>

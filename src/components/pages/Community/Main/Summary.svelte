@@ -124,10 +124,7 @@
   import Button from '../../../uis/Button.svelte';
   import CommunityCard from '../../../uis/CommunityCard.svelte';
   import ProgressBar from '../../../uis/ProgressBar.svelte';
-  import {getContext} from 'svelte';
-  import {ThemeStore} from 'svelte-theme';
 
-  const {theme} = getContext<ThemeStore>('svelte-theme');
   const amounts = [400000, -300000, 400000, 1400000, 1400000];
 
   let percentage = 20;
@@ -164,7 +161,10 @@
     <hr />
     {#each amounts as amount}
       <div class="body3 price" style={`--price: ${amount < 0 ? RED : ''};`}>
-        {decoPrice(amount, 'KRW')}
+        {decoPrice({
+          price: amount,
+          currency: 'KRW',
+        })}
       </div>
     {/each}
   </div>
@@ -173,9 +173,20 @@
     <div class="current">
       <div class="body3 placeholder">{$_('remaining_amount')}</div>
       <div class="body3">
-        <pre class="placeholder">{decoPrice(100000, 'KRW', null, null)}</pre>
+        <pre
+          class="placeholder">{decoPrice({
+          price: 100000,
+          currency: 'KRW',
+          currencyDisplay: null,
+          style: null,
+        })}</pre>
         &nbsp;/&nbsp;
-        {decoPrice(400000, 'KRW', null, null)}
+        {decoPrice({
+          price: 400000,
+          currency: 'KRW',
+          currencyDisplay: null,
+          style: null,
+        })}
       </div>
     </div>
   </div>

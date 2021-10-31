@@ -129,7 +129,10 @@
     <div class="balance">
       <div class="body3">{$_('current_balance')}</div>
       <div class="heading3">
-        {decoPrice(balance, currency)}
+        {decoPrice({
+          price: balance,
+          currency,
+        })}
       </div>
     </div>
   {/if}
