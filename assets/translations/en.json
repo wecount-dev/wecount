@@ -18,6 +18,8 @@
   "manage": "Manage",
   "remaining_amount": "Remaining amount",
   "recent_history": "Recent history",
+  "usage_history": "Usage history",
+  "more": "More",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",

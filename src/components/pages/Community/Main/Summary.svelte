@@ -163,10 +163,7 @@
     <div class="head body3">{$_('recent_history')}</div>
     <hr />
     {#each amounts as amount}
-      <div
-        class="body3 price"
-        style={`--price: ${amount < 0 ? RED : theme.text};`}
-      >
+      <div class="body3 price" style={`--price: ${amount < 0 ? RED : ''};`}>
         {decoPrice(amount, 'KRW')}
       </div>
     {/each}
