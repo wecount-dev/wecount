@@ -67,8 +67,6 @@
   export let onSelectMenu: (path: string) => void;
   export let menuStyle: string | undefined = undefined;
 
-  const communityAddPath = '/community/create';
-
   let isOpen = true;
   let isLoading = false;
   let isMenuVisible = isOpen;
@@ -102,7 +100,7 @@
     onSelectMenu(path);
   };
 
-  const handleAdd = () => onSelectMenu(communityAddPath);
+  const handleAdd = () => onSelectMenu('/community/create');
 
   const postTransition = () => {
     menuElement.addEventListener('transitionend', () => {
