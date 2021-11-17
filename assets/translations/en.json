@@ -13,7 +13,6 @@
   "member": "Member",
   "community": "Community",
   "owner": "Owner",
-  "current_balance": "Current balance",
   "sponsor": "Sponsor",
   "manage": "Manage",
   "remaining_amount": "Remaining amount",
@@ -22,6 +21,9 @@
   "more": "More",
   "unnamed": "Unnamed",
   "statistics": "Statistics",
+  "sponsors": "Sponsors",
+  "total_raised": "Total Raised",
+  "current_balance": "Current Balance",
   "SignIn": {
     "email_hint": "Write your email address",
     "pw_hint": "Write your password",

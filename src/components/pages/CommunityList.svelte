@@ -1,6 +1,10 @@
 <style lang="postcss">
   .container {
+    background-color: var(--paper);
+    filter: drop-shadow(0px 2.88727px 2.88727px rgba(255, 255, 255, 0.06));
+
     display: grid;
+    justify-content: center;
     grid-auto-flow: row-dence;
     grid-auto-rows: min-content;
     grid-template-columns: repeat(auto-fill, minmax(460px, auto));

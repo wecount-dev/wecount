@@ -13,7 +13,6 @@
   "member": "멤버",
   "community": "커뮤니티",
   "owner": "주인",
-  "current_balance": "현재 잔액",
   "sponsor": "후원하기",
   "manage": "관리",
   "remaining_amount": "남은 금액",
@@ -22,6 +21,9 @@
   "more": "더보기",
   "unnamed": "이름없음",
   "statistics": "지출 통계",
+  "sponsors": "스폰서",
+  "total_raised": "총 모금",
+  "current_balance": "현재 잔액",
   "SignIn": {
     "email_hint": "이메일을 입력하세요",
     "pw_hint": "비밀번호를 입력하세요",
