@@ -83,6 +83,25 @@ export const deleteCommunity = async (
   }
 };
 
+export const getCommunities = async (): Promise<definitions['Community'][] | null> => {
+  try {
+    const {data, error} = await supabase
+      .from<definitions['Community']>('Community')
+      .select()
+      .match({isPublic: true});
+
+    if (error) {throw error;}
+
+    return data;
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+
+    return null;
+  }
+};
+
+
 export const getMycommunities = async (
   userId: string | undefined,
 ): Promise<definitions['Community'][] | null> => {
