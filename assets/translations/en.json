@@ -45,8 +45,8 @@
     "welcome": "Welcome to WeCount.",
     "create_community": "Create community",
     "create_community_desc": "Create and manage account for community",
-    "enter_community": "Enter the Community",
-    "enter_community_desc": "Explore the community and support it through sponsorship"
+    "see_communities": "See communities",
+    "see_communities_desc": "Explore the community and support it through sponsorship"
   },
   "Drawer": {
     "dashboard": "Dashboard",
