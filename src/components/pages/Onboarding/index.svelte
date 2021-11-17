@@ -37,22 +37,22 @@
   import {SvgGreenPlusCircle, SvgEntering} from '../../../utils/Icon';
   import Card from './Card.svelte';
 
-  type CardType = {
+  type MenuType = {
     title: string;
     body: string;
     onPress: () => void;
   };
 
-  const cards: CardType[] = [
+  const menus: MenuType[] = [
     {
       title: $_('Onboarding.create_community'),
       body: $_('Onboarding.create_community_desc'),
       onPress: () => push('/community/create'),
     },
     {
-      title: $_('Onboarding.enter_community'),
-      body: $_('Onboarding.enter_community_desc'),
-      onPress: () => push('/community/dashboard'),
+      title: $_('Onboarding.see_communities'),
+      body: $_('Onboarding.see_communities_desc'),
+      onPress: () => push('/communities'),
     },
   ];
 </script>
@@ -63,7 +63,7 @@
     <div class="heading3">{$_('Onboarding.welcome')}</div>
   </div>
   <div class="card-wrapper">
-    {#each cards as {title, body, onPress}, i}
+    {#each menus as {title, body, onPress}, i}
       <Card title={title} body={body} on:click={onPress}>
         <svelte:fragment slot="icon">
           {#if i === 0}

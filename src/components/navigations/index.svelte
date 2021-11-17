@@ -22,6 +22,7 @@
   import Profile from '../pages/Profile.svelte';
   import CommunityCreate from '../pages/CommunityCreate.svelte';
   import Community from '../pages/Community/index.svelte';
+  import CommunityList from '../pages/CommunityList.svelte';
   import Temp from '../pages/Temp.svelte';
   import ServiceSample from '../pages/ServiceSample.svelte';
 
@@ -31,6 +32,7 @@
     '/': Onboarding,
     '/profile': Profile,
     '/service_sample': ServiceSample,
+    '/communities': CommunityList,
     '/community/create': CommunityCreate,
     '/community/*': Community,
     '/*': Temp,
