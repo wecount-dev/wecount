@@ -6,7 +6,16 @@ generated
 
 build
 coverage
-
-yarn-error.log
-
 .env
+
+yarn-error*
+
+# yarn2
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
