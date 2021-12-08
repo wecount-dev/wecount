@@ -1,22 +1,25 @@
 <!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
   .container {
-    border: 1px solid var(--border) !important;
-    box-sizing: border-box;
-    border-radius: 4px;
-    height: 50px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    row-gap: 10px;
 
     &:focus-within {
       border: 1px solid var(--input-focus);
     }
 
+    .input-wrapper {
+      border: 1px solid var(--border) !important;
+      box-sizing: border-box;
+      border-radius: 4px;
+
+      display: grid;
+      grid-template-columns: min-content 1fr min-content;
+      align-items: center;
+    }
+
     input {
-      flex: 1;
-      height: 100%;
       color: var(--text);
       caret-color: var(--text);
       text-transform: none;
@@ -36,6 +39,14 @@
         -webkit-text-fill-color: var(--text) !important;
       }
     }
+
+    .errorText {
+      color: red;
+      font-size: var(--font-size, 14px);
+
+      display: grid;
+      justify-self: start;
+    }
   }
 </style>
 
@@ -46,6 +57,7 @@
   export let type = 'text';
   export let containerStyle = '';
   export let inputStyle = '';
+  export let errorText = '';
 
   export let value = '';
 
@@ -60,12 +72,19 @@
 </script>
 
 <div class="container" style={containerStyle}>
-  <slot name="leftElement" />
-  <input
-    style={inputStyle}
-    type={type}
-    placeholder={placeholder}
-    on:input={onChanged}
-  />
-  <slot name="rightElement" />
+  <div class="input-wrapper">
+    <slot name="leftElement" />
+    <input
+      style={inputStyle}
+      type={type}
+      placeholder={placeholder}
+      on:input={onChanged}
+    />
+    <slot name="rightElement" />
+  </div>
+  <div class="errorText">
+    <span style="margin-left: 15px">
+      {errorText}
+    </span>
+  </div>
 </div>
