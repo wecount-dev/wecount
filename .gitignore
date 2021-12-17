@@ -6,7 +6,9 @@ generated
 
 build
 coverage
-.env
+.env*
+!.env.sample
+!.env.d.ts
 
 yarn-error*
 

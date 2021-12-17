@@ -1,16 +1,17 @@
-# WeCount
+# Svelte Routify Typescript
 
-[![CI](https://github.com/wecount-dev/wecount/actions/workflows/ci.yml/badge.svg)](https://github.com/wecount-dev/wecount/actions/workflows/ci.yml)
-[![Deploy Staging](https://github.com/wecount-dev/wecount/actions/workflows/deploy-staging.yml/badge.svg)](https://github.com/wecount-dev/wecount/actions/workflows/deploy-staging.yml)
+[![CI Web](https://github.com/svelte-seoul/svelte-routify-typescript/actions/workflows/ci.yml/badge.svg)](https://github.com/svelte-seoul/svelte-routify-typescript/actions/workflows/ci.yml)
 
-## Sepecification
+> Featured set of svelte boilerplate with routify, typescript and postcss.
 
-- [Svelte Typescript](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Svelte_TypeScript)
-- [Svelte SPA Router](https://github.com/ItalyPaleAle/svelte-spa-router)
-- [ESLint & Prettier](https://www.rockyourcode.com/prettier-and-es-lint-setup-for-svelte-js)
-- [Svelte i18n](https://github.com/kaisermann/svelte-i18n)
-- [Jest](https://jestjs.io)
+## Installation
 
-## Samples
-- [Theming](https://github.com/hyochan/svelte-typescript-template/pull/4)
-- [Store](https://github.com/hyochan/svelte-typescript-template/pull/5)
+```
+pnpm install
+```
+
+## Run Concurrently
+
+```
+pnpm dev
+```

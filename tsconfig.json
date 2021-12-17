@@ -1,23 +1,26 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "include": [
-    "./src/**/*",
-    "babel.config.js",
-    "jest.config.js",
+    "src/**/*",
+    "babel.config.cjs",
+    "svelte.config.cjs",
+    "postcss.config.cjs",
     "jestSetup.ts",
-    ".eslintrc.js",
-    "rollup.config.js"
+    "jest.config.cjs",
+    ".eslintrc.cjs",
+    "vite.config.js"
   ],
-  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  "exclude": ["node_modules/*", "dist", "**/*.test.ts"],
   "compilerOptions": {
     "outDir": "build",
-    "lib": ["DOM", "ES2017", "WebWorker"],
     "resolveJsonModule": true,
+    "lib": ["DOM", "ES2017", "WebWorker"],
     "esModuleInterop": true,
     "importsNotUsedAsValues": "remove",
     "strict": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
+    "allowJs": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
@@ -25,7 +28,6 @@
     "noEmitHelpers": true,
     "noImplicitReturns": true,
     "noUnusedLocals": false,
-    "typeRoots": ["./@types", "./node_modules/@types"]
-  },
-  "files": ["environment.d.ts"]
+    "moduleResolution": "node"
+  }
 }

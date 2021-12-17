@@ -5,11 +5,12 @@ import {createClient} from '@supabase/supabase-js';
  * See https://github.com/wecount-dev/wecount/pull/5.
  */
 
+// @ts-ignore
 const supabase = createClient(
   // @ts-ignore
-  SUPABASE_URL || '',
+  import.meta.env.VITE_SUPABASE_URL || '',
   // @ts-ignore
-  SUPABASE_PUBLIC_KEY || '',
+  import.meta.env.VITE_SUPABASE_PUBLIC_KEY || '',
 );
 
 export default supabase;

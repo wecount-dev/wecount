@@ -4,11 +4,6 @@
   import {light, dark} from './theme';
 </script>
 
-<ThemeProvider
-  customTheme={{
-    light,
-    dark,
-  }}
->
+<ThemeProvider customTheme={{light, dark}}>
   <App />
 </ThemeProvider>

@@ -1,4 +1,4 @@
-name: CI
+name: CI Web
 
 on:
   push:
@@ -12,21 +12,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+
+      - uses: pnpm/action-setup@v2.0.1
         with:
-          node-version: '16'
+          version: 6.22.2
 
       - name: Install modules
-        run: yarn
+        run: pnpm install
 
       - name: Check linting
-        run: yarn lint
+        run: pnpm lint
 
       - name: Build typescript
-        run: yarn tsc
+        run: pnpm tsc
+
+      - name: Remove tsc build
+        run: rm -rf build
 
       - name: Test
-        run: yarn test --coverage
+        run: pnpm test -- --coverage
 
       # - name: Upload coverage to Codecov
       #   uses: codecov/codecov-action@v1
