@@ -1,10 +1,10 @@
 interface ImportMeta {
   env: {
-    readonly SUPABASE_PUBLIC_KEY: string;
-    readonly SUPABASE_PRIVATE_KEY: string;
-    readonly SUPABASE_URL: string;
-    readonly SUPABASE_JWT_SECRET: string;
+    readonly VITE_SUPABASE_PUBLIC_KEY: string;
+    readonly VITE_SUPABASE_PRIVATE_KEY: string;
+    readonly VITE_SUPABASE_URL: string;
+    readonly VITE_SUPABASE_JWT_SECRET: string;
   
-    readonly DATABASE_URL: string;
+    readonly VITE_DATABASE_URL: string;
   }
 }
