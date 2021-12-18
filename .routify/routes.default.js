@@ -60,20 +60,6 @@ export default {
     },
     {
       "meta": {},
-      "id": "_default_home",
-      "name": "home",
-      "module": false,
-      "file": {
-        "path": "src/routes/home",
-        "dir": "src/routes",
-        "base": "home",
-        "ext": "",
-        "name": "home"
-      },
-      "children": []
-    },
-    {
-      "meta": {},
       "id": "_default_index_svelte",
       "name": "index",
       "module": () => import('../src/routes/index.svelte'),

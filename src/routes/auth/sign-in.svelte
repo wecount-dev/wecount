@@ -71,7 +71,7 @@
 
 <script lang="ts">
   import supabase from '../../lib/db';
-  import {SvgFacebook, SvgKey, SvgLogo, SvgMail} from '../../utils/Icon.svelte';
+  import {SvgFacebook, SvgKey, SvgLogo, SvgMail} from '../../utils/icons';
   import Button from '../../layouts/button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../../layouts/edit-text.svelte';
@@ -159,7 +159,7 @@
 
 <div class="container">
   <form>
-    <SvgLogo />
+    <img src={SvgLogo} alt="logo" />
     <h1 style="margin-bottom: 60px;">{$_('login')}</h1>
     <EditText
       containerStyle="width: 80%; margin-bottom: 8px"
@@ -168,7 +168,12 @@
       placeholder={$_('SignIn.email_hint')}
       on:changed={onChangeEmail}
     >
-      <SvgMail slot="leftElement" style="margin: 0 16px;" />
+      <img
+        slot="leftElement"
+        style="margin: 0 16px;"
+        src={SvgMail}
+        alt="mail"
+      />
     </EditText>
     <EditText
       containerStyle="width: 80%;"
@@ -177,7 +182,7 @@
       placeholder={$_('SignIn.pw_hint')}
       on:changed={onChangePassword}
     >
-      <SvgKey slot="leftElement" style="margin: 0 16px;" />
+      <img slot="leftElement" src={SvgKey} alt="mail" style="margin: 0 16px;" />
     </EditText>
     <div class="container-options">
       <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
@@ -195,7 +200,7 @@
       </div>
     </Button>
     <Button style={fbBtnStyle} on:click={signInWithFacebook}>
-      <SvgFacebook style="margin-right: 15px;" />
+      <img style="margin-right: 15px;" src={SvgFacebook} alt="facebook" />
       <div class="text body3" style="font-weight: 500; color: white;">
         {$_('SignIn.sign_in_with_facebook')}
       </div>
