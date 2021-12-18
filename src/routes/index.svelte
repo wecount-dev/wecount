@@ -11,7 +11,7 @@
 </script>
 
 <div class="container">
-  <p>{$_('index.title')}</p>
+  <p>{$_('app_name')}</p>
 
   <ul>
     <li>

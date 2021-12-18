@@ -1,4 +1,4 @@
-import {User} from '@supabase/supabase-js';
+import type {User} from '@supabase/supabase-js';
 import {writable} from 'svelte/store';
 
 type UserExtended = {

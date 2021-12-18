@@ -26,6 +26,7 @@
     "svelte-theme": "^1.4.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.5",
     "@dooboo/eslint-config-svelte": "^0.0.7",
     "@prisma/client": "3.6.0",
     "@roxi/routify": "^3.0.0-next.69",

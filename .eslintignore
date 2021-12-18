@@ -4,3 +4,4 @@ __mocks__
 *.css
 generated
 src/types/supabase.ts
+*.test.ts
