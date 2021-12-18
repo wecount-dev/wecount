@@ -1,5 +1,7 @@
 <style lang="postcss">
   .container {
+    flex: 1;
+
     .icon {
       .unchecked {
         filter: invert(1);

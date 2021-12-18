@@ -24,25 +24,27 @@
   "sponsors": "스폰서",
   "total_raised": "총 모금",
   "current_balance": "현재 잔액",
-  "SignIn": {
-    "email_hint": "이메일을 입력하세요",
-    "pw_hint": "비밀번호를 입력하세요",
-    "forgot_your_password": "비밀번호를 잊으셨나요",
-    "do_not_have_account": "계정이 없으신가요",
-    "sign_in_with_google": "Google 계정으로 로그인",
-    "sign_in_with_facebook": "Facebook 계정으로 로그인",
-    "look_around": "둘러보기"
-  },
-  "SignUp": {
-    "title": "회원가입",
-    "email": "이메일",
-    "email_hint": "이메일 주소를 입력하세요",
-    "pw": "비밀번호",
-    "pw_hint": "비밀번호를 입력하세요",
-    "pw_confirm": "비밀번호 확인",
-    "pw_confirm_hint": "비밀번호를 한번 더 입력하세요",
-    "terms_and_agreement": "위카운트&nbsp; <a href=\"https://legacy.dooboolab.com/termsofservice\">이용약관</a> 및&nbsp; <a href=\"https://legacy.dooboolab.com/privacyandpolicy\">개인정보취급방침</a>에 모두 동의합니다.",
-    "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
+  "auth": {
+    "sign-in": {
+      "email_hint": "이메일을 입력하세요",
+      "pw_hint": "비밀번호를 입력하세요",
+      "forgot_your_password": "비밀번호를 잊으셨나요",
+      "do_not_have_account": "계정이 없으신가요",
+      "sign_in_with_google": "Google 계정으로 로그인",
+      "sign_in_with_facebook": "Facebook 계정으로 로그인",
+      "look_around": "둘러보기"
+    },
+    "sign-up": {
+      "title": "회원가입",
+      "email": "이메일",
+      "email_hint": "이메일 주소를 입력하세요",
+      "pw": "비밀번호",
+      "pw_hint": "비밀번호를 입력하세요",
+      "pw_confirm": "비밀번호 확인",
+      "pw_confirm_hint": "비밀번호를 한번 더 입력하세요",
+      "terms_and_agreement": "위카운트&nbsp; <a href=\"https://legacy.dooboolab.com/termsofservice\">이용약관</a> 및&nbsp; <a href=\"https://legacy.dooboolab.com/privacyandpolicy\">개인정보취급방침</a>에 모두 동의합니다.",
+      "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
+    }
   },
   "Onboarding": {
     "hello": "안녕하세요. 🙌",
@@ -69,7 +71,7 @@
     "public": "공개",
     "private": "비공개"
   },
-  "Header": {
+  "header": {
     "explore_community": "커뮤니티를 탐색해보세요!"
   }
 }

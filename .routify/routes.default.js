@@ -3,12 +3,13 @@
 export default {
   "meta": {},
   "id": "_default",
+  "module": () => import('../src/routes/_module.svelte'),
   "file": {
-    "path": "src/routes",
-    "dir": "src",
-    "base": "routes",
-    "ext": "",
-    "name": "routes"
+    "path": "src/routes/_module.svelte",
+    "dir": "src/routes",
+    "base": "_module.svelte",
+    "ext": ".svelte",
+    "name": "_module"
   },
   "rootName": "default",
   "routifyDir": import.meta.url,

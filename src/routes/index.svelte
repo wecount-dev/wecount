@@ -15,10 +15,10 @@
 
   <ul>
     <li>
-      Go to <a href="/sign-in">/sign-in</a>
+      Go to <a href="/auth/sign-in">/sign-in</a>
     </li>
     <li>
-      Go to <a href="/temp">/temp</a>
+      Go to <a href="/auth/temp">/temp</a>
     </li>
   </ul>
 </div>

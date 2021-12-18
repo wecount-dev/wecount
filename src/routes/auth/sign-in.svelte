@@ -6,6 +6,7 @@
   }
 
   .container {
+    flex: 1;
     background: linear-gradient(
       136.71deg,
       var(--auth-background-light) 21.32%,
@@ -185,10 +186,10 @@
       <img slot="leftElement" src={SvgKey} alt="mail" style="margin: 0 16px;" />
     </EditText>
     <div class="container-options">
-      <a class="link" href="/#/sign_up"
+      <a class="link" href="/auth/sign-up"
         >{$_('auth.sign-in.do_not_have_account')}?</a
       >
-      <a class="link" href="/#/find_pw"
+      <a class="link" href="/auth/find-pw"
         >{$_('auth.sign-in.forgot_your_password')}?</a
       >
     </div>
