@@ -165,7 +165,7 @@
       containerStyle="width: 80%; margin-bottom: 8px"
       inputStyle="font-size: 14px;"
       type="email"
-      placeholder={$_('SignIn.email_hint')}
+      placeholder={$_('auth.sign-in.email_hint')}
       on:changed={onChangeEmail}
     >
       <img
@@ -179,14 +179,18 @@
       containerStyle="width: 80%;"
       inputStyle="font-size: 14px;"
       type="password"
-      placeholder={$_('SignIn.pw_hint')}
+      placeholder={$_('auth.sign-in.pw_hint')}
       on:changed={onChangePassword}
     >
       <img slot="leftElement" src={SvgKey} alt="mail" style="margin: 0 16px;" />
     </EditText>
     <div class="container-options">
-      <a class="link" href="/#/sign_up">{$_('SignIn.do_not_have_account')}?</a>
-      <a class="link" href="/#/find_pw">{$_('SignIn.forgot_your_password')}?</a>
+      <a class="link" href="/#/sign_up"
+        >{$_('auth.sign-in.do_not_have_account')}?</a
+      >
+      <a class="link" href="/#/find_pw"
+        >{$_('auth.sign-in.forgot_your_password')}?</a
+      >
     </div>
     <Button
       on:click={handleLogin}
@@ -202,7 +206,7 @@
     <Button style={fbBtnStyle} on:click={signInWithFacebook}>
       <img style="margin-right: 15px;" src={SvgFacebook} alt="facebook" />
       <div class="text body3" style="font-weight: 500; color: white;">
-        {$_('SignIn.sign_in_with_facebook')}
+        {$_('auth.sign-in.sign_in_with_facebook')}
       </div>
     </Button>
     <a
@@ -213,7 +217,7 @@
         text-decoration: underline !important;
       "
     >
-      {$_('SignIn.look_around')}
+      {$_('auth.sign-in.look_around')}
     </a>
   </form>
 </div>

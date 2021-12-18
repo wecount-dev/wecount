@@ -55,6 +55,20 @@ export default {
             "name": "sign-in"
           },
           "children": []
+        },
+        {
+          "meta": {},
+          "id": "_default_auth_sign_up_svelte",
+          "name": "sign-up",
+          "module": () => import('../src/routes/auth/sign-up.svelte'),
+          "file": {
+            "path": "src/routes/auth/sign-up.svelte",
+            "dir": "src/routes/auth",
+            "base": "sign-up.svelte",
+            "ext": ".svelte",
+            "name": "sign-up"
+          },
+          "children": []
         }
       ]
     },
