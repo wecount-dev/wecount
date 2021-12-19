@@ -33,7 +33,7 @@
   import {goto, url} from '@roxi/routify';
 
   import {_} from 'svelte-i18n';
-  import {SvgGreenPlusCircle, SvgEntering} from '../../../utils/icons';
+  import {SvgGreenPlusCircle, SvgEntering} from '../../utils/icons';
   import Card from './card.svelte';
 
   type MenuType = {
@@ -43,14 +43,14 @@
   };
   const menus: MenuType[] = [
     {
-      title: $_('main.onboard.create_community'),
-      body: $_('main.onboard.create_community_desc'),
+      title: $_('onboard.create_community'),
+      body: $_('onboard.create_community_desc'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       onPress: (): void => $goto($url('/main/community-create')),
     },
     {
-      title: $_('main.onboard.see_communities'),
-      body: $_('main.onboard.see_communities_desc'),
+      title: $_('onboard.see_communities'),
+      body: $_('onboard.see_communities_desc'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       onPress: () => $goto($url('/main/communities')),
     },
@@ -59,8 +59,8 @@
 
 <div class="container">
   <div class="greeting">
-    <div class="heading3">{$_('main.onboard.hello')}</div>
-    <div class="heading3">{$_('main.onboard.welcome')}</div>
+    <div class="heading3">{$_('onboard.hello')}</div>
+    <div class="heading3">{$_('onboard.welcome')}</div>
   </div>
   <div class="card-wrapper">
     {#each menus as { title, body, onPress }, i}

@@ -55,14 +55,14 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
-  import Button from '../../../layouts/button.svelte';
-  import Select from '../../../layouts/select.svelte';
-  import Asterisk from '../../../layouts/asterisk.svelte';
-  import Carousel from '../../../layouts/carousel.svelte';
-  import InputBox from '../../../layouts/input-box.svelte';
-  import {user} from '../../../stores/sessionStore';
-  import {createCommunity} from '../../../services/communityService';
-  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../../theme';
+  import Button from '../../layouts/button.svelte';
+  import Select from '../../layouts/select.svelte';
+  import Asterisk from '../../layouts/asterisk.svelte';
+  import Carousel from '../../layouts/carousel.svelte';
+  import InputBox from '../../layouts/input-box.svelte';
+  import {user} from '../../stores/sessionStore';
+  import {createCommunity} from '../../services/communityService';
+  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../theme';
   import {goto, url} from '@roxi/routify';
 
   let loading = false;
@@ -82,10 +82,7 @@
     colors: [GREEN, SKY_BLUE, NAVY, PURPLE, BLACK],
   };
 
-  const publicOptions = [
-    $_('main.community.public'),
-    $_('main.community.private'),
-  ];
+  const publicOptions = [$_('community.public'), $_('community.private')];
 
   let selectedPublicOption = publicOptions[0];
   const currencyOptions = ['USD', 'KRW'];
@@ -114,7 +111,7 @@
         description: communityDescription,
         isPublic:
           // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          selectedPublicOption === $_('main.community.public') ? true : false,
+          selectedPublicOption === $_('community.public') ? true : false,
       });
 
       if (community) {
@@ -129,7 +126,7 @@
 <div class="container">
   <form class="wrap" on:submit|preventDefault={submitCreateCommunity}>
     <h3 class="title">
-      {$_('app_name')}<br />{$_('main.community.create_community')}
+      {$_('app_name')}<br />{$_('community.create_community')}
     </h3>
     <div class="community-card-carousel">
       <div
@@ -147,7 +144,7 @@
       <div class="card" style="padding: 34px 28px;">
         <InputBox>
           <svelte:fragment slot="label">
-            {$_('main.community.type')}
+            {$_('community.type')}
           </svelte:fragment>
           <Select
             slot="input"
@@ -159,31 +156,31 @@
         </InputBox>
         <InputBox>
           <svelte:fragment slot="label">
-            {$_('main.community.community_name')}<Asterisk />
+            {$_('community.community_name')}<Asterisk />
           </svelte:fragment>
           <input
             style="padding-left: 12px"
             slot="input"
             bind:value={communityName}
             type="text"
-            placeholder="{$_('main.community.write_down_the_community_name')}."
+            placeholder="{$_('community.write_down_the_community_name')}."
             required
           />
         </InputBox>
         <InputBox style={'align-items: start'}>
           <svelte:fragment slot="label">
-            {$_('main.community.community_description')}<Asterisk />
+            {$_('community.community_description')}<Asterisk />
           </svelte:fragment>
           <textarea
             slot="input"
             bind:value={communityDescription}
-            placeholder=" {$_('main.community.introduce_the_community')}."
+            placeholder=" {$_('community.introduce_the_community')}."
             required
           />
         </InputBox>
         <InputBox>
           <svelte:fragment slot="label">
-            {$_('main.community.community_representative_currency')}<Asterisk />
+            {$_('community.community_representative_currency')}<Asterisk />
           </svelte:fragment>
           <Select
             slot="input"
@@ -205,7 +202,7 @@
         loading={loading}
       >
         <div class="text" style="color: white;">
-          {$_('main.community.create_community_button')}
+          {$_('community.create_community_button')}
         </div>
       </Button>
     </div>

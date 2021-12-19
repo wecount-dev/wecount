@@ -13,10 +13,10 @@
 </style>
 
 <script lang="ts">
-  import type {definitions} from '../../../types/supabase';
+  import type {definitions} from '../../types/supabase';
   import {onMount} from 'svelte';
-  import {getCommunities} from '../../../services/communityService';
-  import CommunityItem from '../../../layouts/community-item.svelte';
+  import {getCommunities} from '../../services/communityService';
+  import CommunityItem from '../../layouts/community-item.svelte';
 
   let communities: definitions['Community'][] = [];
 

@@ -11,7 +11,6 @@
   "sign_in": "로그인하기",
   "update": "수정",
   "member": "멤버",
-  "community": "커뮤니티",
   "owner": "주인",
   "sponsor": "후원하기",
   "manage": "관리",
@@ -46,27 +45,26 @@
       "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
     }
   },
-  "main": {
-    "onboard": {
-      "hello": "안녕하세요. 🙌",
-      "welcome": "위카운트에 오신 것을 환영합니다.",
-      "create_community": "커뮤니티 생성",
-      "create_community_desc": "커뮤니티를 생성하고 자금을 관리해보세요.",
-      "see_communities": "커뮤니티 둘러보기",
-      "see_communities_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
-    },
-    "community": {
-      "create_community": "커뮤니티를 생성해요",
-      "type": "종류",
-      "community_name": "커뮤니티 이름",
-      "community_description": "커뮤니티 소개",
-      "community_representative_currency": "커뮤니티 대표 환 선택",
-      "write_down_the_community_name": "커뮤니티 이름을 적어주세요",
-      "introduce_the_community": "커뮤니티를 소개 해주세요",
-      "create_community_button": "커뮤니티 생성하기",
-      "public": "공개",
-      "private": "비공개"
-    }
+  "onboard": {
+    "hello": "안녕하세요. 🙌",
+    "welcome": "위카운트에 오신 것을 환영합니다.",
+    "create_community": "커뮤니티 생성",
+    "create_community_desc": "커뮤니티를 생성하고 자금을 관리해보세요.",
+    "see_communities": "커뮤니티 둘러보기",
+    "see_communities_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
+  },
+  "community": {
+    "title": "커뮤니티",
+    "create_community": "커뮤니티를 생성해요",
+    "type": "종류",
+    "community_name": "커뮤니티 이름",
+    "community_description": "커뮤니티 소개",
+    "community_representative_currency": "커뮤니티 대표 환 선택",
+    "write_down_the_community_name": "커뮤니티 이름을 적어주세요",
+    "introduce_the_community": "커뮤니티를 소개 해주세요",
+    "create_community_button": "커뮤니티 생성하기",
+    "public": "공개",
+    "private": "비공개"
   },
   "Drawer": {
     "dashboard": "대시보드",
