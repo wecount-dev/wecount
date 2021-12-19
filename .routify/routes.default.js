@@ -103,6 +103,64 @@ export default {
     },
     {
       "meta": {},
+      "id": "_default_main",
+      "name": "main",
+      "module": false,
+      "file": {
+        "path": "src/routes/main",
+        "dir": "src/routes",
+        "base": "main",
+        "ext": "",
+        "name": "main"
+      },
+      "children": [
+        {
+          "meta": {},
+          "id": "_default_main_onboard",
+          "name": "onboard",
+          "module": false,
+          "file": {
+            "path": "src/routes/main/onboard",
+            "dir": "src/routes/main",
+            "base": "onboard",
+            "ext": "",
+            "name": "onboard"
+          },
+          "children": [
+            {
+              "meta": {},
+              "id": "_default_main_onboard_card_svelte",
+              "name": "card",
+              "module": () => import('../src/routes/main/onboard/card.svelte'),
+              "file": {
+                "path": "src/routes/main/onboard/card.svelte",
+                "dir": "src/routes/main/onboard",
+                "base": "card.svelte",
+                "ext": ".svelte",
+                "name": "card"
+              },
+              "children": []
+            },
+            {
+              "meta": {},
+              "id": "_default_main_onboard_index_svelte",
+              "name": "index",
+              "module": () => import('../src/routes/main/onboard/index.svelte'),
+              "file": {
+                "path": "src/routes/main/onboard/index.svelte",
+                "dir": "src/routes/main/onboard",
+                "base": "index.svelte",
+                "ext": ".svelte",
+                "name": "index"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "meta": {},
       "id": "_default_temp_svelte",
       "name": "temp",
       "module": () => import('../src/routes/temp.svelte'),

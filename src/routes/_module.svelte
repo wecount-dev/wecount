@@ -1,12 +1,12 @@
 <style lang="postcss">
   .container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 56px 1fr;
   }
 </style>
 
 <script lang="ts">
-  import {goto, url} from '@roxi/routify';
+  import {context, goto, url} from '@roxi/routify';
   import {user} from '../stores/sessionStore';
   import Header from '../layouts/header/index.svelte';
 
@@ -27,6 +27,6 @@
 </script>
 
 <div class="container">
-  <Header />
+  <Header context={$context} />
   <slot />
 </div>

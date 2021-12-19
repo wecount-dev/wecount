@@ -1,0 +1,78 @@
+<style lang="postcss">
+  .container {
+    padding-bottom: 20px;
+    grid-column: 1fr;
+    grid-row: 1fr;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (--mobile) {
+      background-color: var(--paper);
+    }
+  }
+  .greeting {
+    padding: 40px 0;
+    text-align: center;
+    margin-bottom: 70px;
+    @media (--mobile) {
+      margin-bottom: 0;
+    }
+  }
+  .card-wrapper {
+    flex-wrap: wrap;
+    gap: 24px;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<script lang="ts">
+  import {goto, url} from '@roxi/routify';
+
+  import {_} from 'svelte-i18n';
+  import {SvgGreenPlusCircle, SvgEntering} from '../../../utils/icons';
+  import Card from './card.svelte';
+
+  type MenuType = {
+    title: string;
+    body: string;
+    onPress: () => void;
+  };
+  const menus: MenuType[] = [
+    {
+      title: $_('main.onboard.create_community'),
+      body: $_('main.onboard.create_community_desc'),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      onPress: (): void => $goto($url('/main/community-create')),
+    },
+    {
+      title: $_('main.onboard.see_communities'),
+      body: $_('main.onboard.see_communities_desc'),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      onPress: () => $goto($url('/main/communities')),
+    },
+  ];
+</script>
+
+<div class="container">
+  <div class="greeting">
+    <div class="heading3">{$_('main.onboard.hello')}</div>
+    <div class="heading3">{$_('main.onboard.welcome')}</div>
+  </div>
+  <div class="card-wrapper">
+    {#each menus as { title, body, onPress }, i}
+      <Card title={title} body={body} on:click={onPress}>
+        <svelte:fragment slot="icon">
+          {#if i === 0}
+            <img src={SvgGreenPlusCircle} alt="logo" />
+          {:else}
+            <img src={SvgEntering} alt="logo" />
+          {/if}
+        </svelte:fragment>
+      </Card>
+    {/each}
+  </div>
+</div>

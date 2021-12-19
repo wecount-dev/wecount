@@ -46,13 +46,15 @@
       "missing_inputs": "모든 항목이 기재되지 않았습니다. 회원가입을 위해 모든 정보를 입력해주세요."
     }
   },
-  "Onboarding": {
-    "hello": "안녕하세요. 🙌",
-    "welcome": "위카운트에 오신 것을 환영합니다.",
-    "create_community": "커뮤니티 생성",
-    "create_community_desc": "커뮤니티를 생성하고 자금을 관리해보세요.",
-    "see_communities": "커뮤니티 둘러보기",
-    "see_communities_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
+  "main": {
+    "onboard": {
+      "hello": "안녕하세요. 🙌",
+      "welcome": "위카운트에 오신 것을 환영합니다.",
+      "create_community": "커뮤니티 생성",
+      "create_community_desc": "커뮤니티를 생성하고 자금을 관리해보세요.",
+      "see_communities": "커뮤니티 둘러보기",
+      "see_communities_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
+    }
   },
   "Drawer": {
     "dashboard": "대시보드",

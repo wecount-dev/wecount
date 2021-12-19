@@ -44,13 +44,15 @@
       "missing_inputs": "Some information is missing. Please fill all information."
     }
   },
-  "Onboarding": {
-    "hello": "Hello there. 🙌",
-    "welcome": "Welcome to WeCount.",
-    "create_community": "Create community",
-    "create_community_desc": "Create and manage account for community",
-    "see_communities": "See communities",
-    "see_communities_desc": "Explore the community and support it through sponsorship"
+  "main": {
+    "onboard": {
+      "hello": "Hello there. 🙌",
+      "welcome": "Welcome to WeCount.",
+      "create_community": "Create community",
+      "create_community_desc": "Create and manage account for community",
+      "see_communities": "See communities",
+      "see_communities_desc": "Explore the community and support it through sponsorship"
+    }
   },
   "Drawer": {
     "dashboard": "Dashboard",

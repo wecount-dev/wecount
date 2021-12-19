@@ -1,9 +1,9 @@
 <style lang="postcss">
   nav {
-    height: 56px;
     background-color: var(--background-color);
     border-bottom: solid 1px;
     border-bottom-color: var(--primary-light);
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +35,8 @@
   import {SvgLogo} from '../../utils/icons';
   import AuthHeader from './auth.svelte';
   import MainHeader from './main/index.svelte';
+
+  export let context: any;
 </script>
 
 <nav>

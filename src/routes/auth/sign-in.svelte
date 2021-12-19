@@ -6,7 +6,6 @@
   }
 
   .container {
-    flex: 1;
     background: linear-gradient(
       136.71deg,
       var(--auth-background-light) 21.32%,
