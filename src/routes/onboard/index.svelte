@@ -46,13 +46,13 @@
       title: $_('onboard.create_community'),
       body: $_('onboard.create_community_desc'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      onPress: (): void => $goto($url('/main/community-create')),
+      onPress: (): void => $goto($url('/community-create')),
     },
     {
       title: $_('onboard.see_communities'),
       body: $_('onboard.see_communities_desc'),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-      onPress: () => $goto($url('/main/communities')),
+      onPress: () => $goto($url('/communities')),
     },
   ];
 </script>

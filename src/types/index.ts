@@ -39,7 +39,7 @@ export type TabNavigationType = {
   };
 };
 
-export type DrawerType = {
+export type SidebarType = {
   community: CommunityType;
   menu: MenuType[];
 };

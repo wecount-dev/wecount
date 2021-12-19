@@ -1,5 +1,5 @@
 import {User} from '@supabase/gotrue-js';
-import {definitions} from '../types/supabase';
+import type {definitions} from '../types/supabase';
 import supabase from "../lib/db";
 
 export const upsertUser = async (

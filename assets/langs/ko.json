@@ -64,12 +64,12 @@
     "introduce_the_community": "커뮤니티를 소개 해주세요",
     "create_community_button": "커뮤니티 생성하기",
     "public": "공개",
-    "private": "비공개"
-  },
-  "Drawer": {
-    "dashboard": "대시보드",
-    "feeds": "피드",
-    "settings": "설정"
+    "private": "비공개",
+    "sidebar": {
+      "dashboard": "대시보드",
+      "feeds": "피드",
+      "settings": "설정"
+    }
   },
   "Community": {},
   "header": {

@@ -62,12 +62,12 @@
     "introduce_the_community": "Please introduce the community",
     "create_community_button": "Create a community",
     "public": "Public",
-    "private": "Private"
-  },
-  "drawer": {
-    "dashboard": "Dashboard",
-    "feeds": "Feed",
-    "settings": "Setting"
+    "private": "Private",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "feeds": "Feeds",
+      "settings": "Settings"
+    }
   },
   "header": {
     "explore_community": "Explore the community!"

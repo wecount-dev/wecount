@@ -1,4 +1,4 @@
-import {definitions} from '../types/supabase';
+import type {definitions} from '../types/supabase';
 import supabase from '../lib/db';
 
 export const createCommunity = async (
