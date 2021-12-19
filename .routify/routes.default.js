@@ -116,6 +116,49 @@ export default {
       "children": [
         {
           "meta": {},
+          "id": "_default_main_community",
+          "name": "community",
+          "module": false,
+          "file": {
+            "path": "src/routes/main/community",
+            "dir": "src/routes/main",
+            "base": "community",
+            "ext": "",
+            "name": "community"
+          },
+          "children": [
+            {
+              "meta": {},
+              "id": "_default_main_community_create_svelte",
+              "name": "create",
+              "module": () => import('../src/routes/main/community/create.svelte'),
+              "file": {
+                "path": "src/routes/main/community/create.svelte",
+                "dir": "src/routes/main/community",
+                "base": "create.svelte",
+                "ext": ".svelte",
+                "name": "create"
+              },
+              "children": []
+            },
+            {
+              "meta": {},
+              "id": "_default_main_community_list_svelte",
+              "name": "list",
+              "module": () => import('../src/routes/main/community/list.svelte'),
+              "file": {
+                "path": "src/routes/main/community/list.svelte",
+                "dir": "src/routes/main/community",
+                "base": "list.svelte",
+                "ext": ".svelte",
+                "name": "list"
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "meta": {},
           "id": "_default_main_onboard",
           "name": "onboard",
           "module": false,

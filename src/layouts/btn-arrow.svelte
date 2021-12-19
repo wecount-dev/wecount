@@ -1,0 +1,26 @@
+<style lang="postcss">
+  .navigation-button {
+    z-index: 10;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+</style>
+
+<script lang="ts">
+  import {SvgLeftAngleBracket, SvgRightAngleBracket} from '../utils/icons';
+
+  export let direction: 'left' | 'right';
+  export let hidden = false;
+  export let onClick: () => void;
+</script>
+
+<div class="navigation-button" class:hidden on:click={onClick}>
+  {#if direction === 'left'}
+    <img src={SvgLeftAngleBracket} alt="left-arrow" />
+  {:else}
+    <img src={SvgRightAngleBracket} alt="right-arrow" />
+  {/if}
+</div>

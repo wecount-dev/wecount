@@ -54,6 +54,18 @@
       "create_community_desc": "커뮤니티를 생성하고 자금을 관리해보세요.",
       "see_communities": "커뮤니티 둘러보기",
       "see_communities_desc": "커뮤니티를 탐색하고, 후원을 통해 지지해주세요."
+    },
+    "community": {
+      "create_community": "커뮤니티를 생성해요",
+      "type": "종류",
+      "community_name": "커뮤니티 이름",
+      "community_description": "커뮤니티 소개",
+      "community_representative_currency": "커뮤니티 대표 환 선택",
+      "write_down_the_community_name": "커뮤니티 이름을 적어주세요",
+      "introduce_the_community": "커뮤니티를 소개 해주세요",
+      "create_community_button": "커뮤니티 생성하기",
+      "public": "공개",
+      "private": "비공개"
     }
   },
   "Drawer": {
@@ -61,18 +73,7 @@
     "feeds": "피드",
     "settings": "설정"
   },
-  "Community": {
-    "create_community": "커뮤니티를 생성해요",
-    "type": "종류",
-    "community_name": "커뮤니티 이름",
-    "community_description": "커뮤니티 소개",
-    "community_representative_currency": "커뮤니티 대표 환 선택",
-    "write_down_the_community_name": "커뮤니티 이름을 적어주세요",
-    "introduce_the_community": "커뮤니티를 소개 해주세요",
-    "create_community_button": "커뮤니티 생성하기",
-    "public": "공개",
-    "private": "비공개"
-  },
+  "Community": {},
   "header": {
     "explore_community": "커뮤니티를 탐색해보세요!"
   }
