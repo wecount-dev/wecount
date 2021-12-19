@@ -41,6 +41,7 @@
     body: string;
     onPress: () => void;
   };
+
   const menus: MenuType[] = [
     {
       title: $_('onboard.create_community'),

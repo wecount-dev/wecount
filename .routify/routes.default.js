@@ -15,20 +15,6 @@ export default {
   "routifyDir": import.meta.url,
   "children": [
     {
-      "meta": {},
-      "id": "_default___tests__",
-      "name": "__tests__",
-      "module": false,
-      "file": {
-        "path": "src/routes/__tests__",
-        "dir": "src/routes",
-        "base": "__tests__",
-        "ext": "",
-        "name": "__tests__"
-      },
-      "children": []
-    },
-    {
       "meta": {
         "fallback": true
       },
