@@ -413,6 +413,37 @@ export default {
         "name": "temp"
       },
       "children": []
+    },
+    {
+      "meta": {},
+      "id": "_default_users",
+      "name": "users",
+      "module": false,
+      "file": {
+        "path": "src/routes/users",
+        "dir": "src/routes",
+        "base": "users",
+        "ext": "",
+        "name": "users"
+      },
+      "children": [
+        {
+          "meta": {
+            "dynamic": true
+          },
+          "id": "_default_users__id_",
+          "name": "[id]",
+          "module": false,
+          "file": {
+            "path": "src/routes/users/[id]",
+            "dir": "src/routes/users",
+            "base": "[id]",
+            "ext": "",
+            "name": "[id]"
+          },
+          "children": []
+        }
+      ]
     }
   ]
 }

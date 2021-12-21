@@ -1,4 +1,13 @@
 <style lang="postcss">
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
   .container {
     display: inline-flex;
     background-color: var(--background);
@@ -96,8 +105,6 @@
   const toggleMenu = () => (isOpen = !isOpen);
   const selectSubMenu = (path: string) => {
     seletedSubMenuPath = path;
-
-    $goto($url('/community/[id]/settings', {id: '1234'}));
   };
 
   const selectCommunity = (id: string) => {
@@ -110,8 +117,6 @@
 
     seletedSubMenuPath = path;
     selectSubMenu(path);
-
-    $goto(path);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
@@ -132,11 +137,13 @@
       <img src={SvgMenu} alt="menu" />
     </div>
     {#each communities as community}
-      <Menu
-        community={community}
-        selected={community.id === communityId}
-        on:click={() => selectCommunity(community.id)}
-      />
+      <a href={$url('/community/[id]', {id: community.id})}>
+        <Menu
+          community={community}
+          selected={community.id === communityId}
+          on:click={() => selectCommunity(community.id)}
+        />
+      </a>
     {/each}
     <MenuAdd on:click={handleAdd} />
   </aside>
@@ -146,11 +153,13 @@
     </div>
     {#if !isLoading && isMenuVisible}
       {#each subMenus as subMenu}
-        <MenuList
-          menu={subMenu}
-          selectMenu={selectSubMenu}
-          selected={subMenu.path === seletedSubMenuPath}
-        />
+        <a href={subMenu.path}>
+          <MenuList
+            menu={subMenu}
+            selectMenu={selectSubMenu}
+            selected={subMenu.path === seletedSubMenuPath}
+          />
+        </a>
       {/each}
     {/if}
   </section>

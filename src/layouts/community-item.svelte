@@ -64,7 +64,10 @@
         }
       }
     }
-    :global(.button) {
+
+    a {
+      text-decoration: none;
+
       display: grid;
       align-self: center;
       justify-self: end;
@@ -115,16 +118,12 @@
         <span>$3,155</span>
       </p>
     </div>
-    <Button
-      primary
-      class="button"
-      style="width: 100px;"
-      on:click={() => {
-        $goto($url('/community/[id]', {id: community.id}));
-      }}
-    >
-      <div class="body3">{$_('more')}</div>
-    </Button>
+    <!-- https://github.com/roxiness/routify/issues/416 -->
+    <a href={$url('/community/[id]', {id: community.id})}>
+      <Button primary class="button" style="width: 100px;">
+        <div class="body3">{$_('more')}</div>
+      </Button>
+    </a>
   </div>
   <div class="line" />
 </div>

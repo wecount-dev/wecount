@@ -1,5 +1,10 @@
 <script lang="ts">
-  import Onboard from './onboard/index.svelte';
-</script>
+  import {goto, url} from '@roxi/routify';
 
-<Onboard />
+  import {onMount} from 'svelte';
+
+  onMount(() => {
+    /** Check authentication */
+    $goto($url('/onboard'));
+  });
+</script>
