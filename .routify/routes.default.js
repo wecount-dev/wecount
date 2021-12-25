@@ -1,9 +1,11 @@
-
+import * as bundle__default from './bundles/_default-bundle.js'
 
 export default {
-  "meta": {},
+  "meta": {
+    "bundle": true
+  },
   "id": "_default",
-  "module": () => import('../src/routes/_module.svelte'),
+  "module": () => bundle__default._default,
   "file": {
     "path": "src/routes/_module.svelte",
     "dir": "src/routes",
@@ -20,7 +22,7 @@ export default {
       },
       "id": "_default__fallback_svelte",
       "name": "_fallback",
-      "module": () => import('../src/routes/_fallback.svelte'),
+      "module": () => bundle__default._default__fallback_svelte,
       "file": {
         "path": "src/routes/_fallback.svelte",
         "dir": "src/routes",
@@ -47,7 +49,7 @@ export default {
           "meta": {},
           "id": "_default_auth_sign_in_svelte",
           "name": "sign-in",
-          "module": () => import('../src/routes/auth/sign-in.svelte'),
+          "module": () => bundle__default._default_auth_sign_in_svelte,
           "file": {
             "path": "src/routes/auth/sign-in.svelte",
             "dir": "src/routes/auth",
@@ -61,7 +63,7 @@ export default {
           "meta": {},
           "id": "_default_auth_sign_up_svelte",
           "name": "sign-up",
-          "module": () => import('../src/routes/auth/sign-up.svelte'),
+          "module": () => bundle__default._default_auth_sign_up_svelte,
           "file": {
             "path": "src/routes/auth/sign-up.svelte",
             "dir": "src/routes/auth",
@@ -77,7 +79,7 @@ export default {
       "meta": {},
       "id": "_default_communities_svelte",
       "name": "communities",
-      "module": () => import('../src/routes/communities.svelte'),
+      "module": () => bundle__default._default_communities_svelte,
       "file": {
         "path": "src/routes/communities.svelte",
         "dir": "src/routes",
@@ -101,10 +103,12 @@ export default {
       },
       "children": [
         {
-          "meta": {},
+          "meta": {
+            "bundle": true
+          },
           "id": "_default_community__id_",
           "name": "[id]",
-          "module": () => import('../src/routes/community/[id]/_module.svelte'),
+          "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id_),
           "file": {
             "path": "src/routes/community/[id]/_module.svelte",
             "dir": "src/routes/community/[id]",
@@ -130,7 +134,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__dashboard_history_svelte",
                   "name": "history",
-                  "module": () => import('../src/routes/community/[id]/dashboard/history.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__dashboard_history_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/dashboard/history.svelte",
                     "dir": "src/routes/community/[id]/dashboard",
@@ -144,7 +148,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__dashboard_index_svelte",
                   "name": "index",
-                  "module": () => import('../src/routes/community/[id]/dashboard/index.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__dashboard_index_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/dashboard/index.svelte",
                     "dir": "src/routes/community/[id]/dashboard",
@@ -158,7 +162,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__dashboard_member_list_svelte",
                   "name": "member-list",
-                  "module": () => import('../src/routes/community/[id]/dashboard/member-list.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__dashboard_member_list_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/dashboard/member-list.svelte",
                     "dir": "src/routes/community/[id]/dashboard",
@@ -172,7 +176,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__dashboard_statistics_svelte",
                   "name": "statistics",
-                  "module": () => import('../src/routes/community/[id]/dashboard/statistics.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__dashboard_statistics_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/dashboard/statistics.svelte",
                     "dir": "src/routes/community/[id]/dashboard",
@@ -186,7 +190,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__dashboard_summary_svelte",
                   "name": "summary",
-                  "module": () => import('../src/routes/community/[id]/dashboard/summary.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__dashboard_summary_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/dashboard/summary.svelte",
                     "dir": "src/routes/community/[id]/dashboard",
@@ -202,7 +206,7 @@ export default {
               "meta": {},
               "id": "_default_community__id__feeds_svelte",
               "name": "feeds",
-              "module": () => import('../src/routes/community/[id]/feeds.svelte'),
+              "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__feeds_svelte),
               "file": {
                 "path": "src/routes/community/[id]/feeds.svelte",
                 "dir": "src/routes/community/[id]",
@@ -216,7 +220,7 @@ export default {
               "meta": {},
               "id": "_default_community__id__index_svelte",
               "name": "index",
-              "module": () => import('../src/routes/community/[id]/index.svelte'),
+              "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__index_svelte),
               "file": {
                 "path": "src/routes/community/[id]/index.svelte",
                 "dir": "src/routes/community/[id]",
@@ -230,7 +234,7 @@ export default {
               "meta": {},
               "id": "_default_community__id__members_svelte",
               "name": "members",
-              "module": () => import('../src/routes/community/[id]/members.svelte'),
+              "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__members_svelte),
               "file": {
                 "path": "src/routes/community/[id]/members.svelte",
                 "dir": "src/routes/community/[id]",
@@ -244,7 +248,7 @@ export default {
               "meta": {},
               "id": "_default_community__id__settings_svelte",
               "name": "settings",
-              "module": () => import('../src/routes/community/[id]/settings.svelte'),
+              "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__settings_svelte),
               "file": {
                 "path": "src/routes/community/[id]/settings.svelte",
                 "dir": "src/routes/community/[id]",
@@ -271,7 +275,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__sidebar_index_svelte",
                   "name": "index",
-                  "module": () => import('../src/routes/community/[id]/sidebar/index.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__sidebar_index_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/sidebar/index.svelte",
                     "dir": "src/routes/community/[id]/sidebar",
@@ -285,7 +289,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__sidebar_menu_add_svelte",
                   "name": "menu-add",
-                  "module": () => import('../src/routes/community/[id]/sidebar/menu-add.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__sidebar_menu_add_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/sidebar/menu-add.svelte",
                     "dir": "src/routes/community/[id]/sidebar",
@@ -299,7 +303,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__sidebar_menu_list_svelte",
                   "name": "menu-list",
-                  "module": () => import('../src/routes/community/[id]/sidebar/menu-list.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__sidebar_menu_list_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/sidebar/menu-list.svelte",
                     "dir": "src/routes/community/[id]/sidebar",
@@ -313,7 +317,7 @@ export default {
                   "meta": {},
                   "id": "_default_community__id__sidebar_menu_svelte",
                   "name": "menu",
-                  "module": () => import('../src/routes/community/[id]/sidebar/menu.svelte'),
+                  "module": () => import("./bundles/_default_community__id_-bundle.js").then(r => r._default_community__id__sidebar_menu_svelte),
                   "file": {
                     "path": "src/routes/community/[id]/sidebar/menu.svelte",
                     "dir": "src/routes/community/[id]/sidebar",
@@ -333,7 +337,7 @@ export default {
       "meta": {},
       "id": "_default_community_create_svelte",
       "name": "community-create",
-      "module": () => import('../src/routes/community-create.svelte'),
+      "module": () => bundle__default._default_community_create_svelte,
       "file": {
         "path": "src/routes/community-create.svelte",
         "dir": "src/routes",
@@ -347,7 +351,7 @@ export default {
       "meta": {},
       "id": "_default_index_svelte",
       "name": "index",
-      "module": () => import('../src/routes/index.svelte'),
+      "module": () => bundle__default._default_index_svelte,
       "file": {
         "path": "src/routes/index.svelte",
         "dir": "src/routes",
@@ -374,7 +378,7 @@ export default {
           "meta": {},
           "id": "_default_onboard_card_svelte",
           "name": "card",
-          "module": () => import('../src/routes/onboard/card.svelte'),
+          "module": () => bundle__default._default_onboard_card_svelte,
           "file": {
             "path": "src/routes/onboard/card.svelte",
             "dir": "src/routes/onboard",
@@ -388,7 +392,7 @@ export default {
           "meta": {},
           "id": "_default_onboard_index_svelte",
           "name": "index",
-          "module": () => import('../src/routes/onboard/index.svelte'),
+          "module": () => bundle__default._default_onboard_index_svelte,
           "file": {
             "path": "src/routes/onboard/index.svelte",
             "dir": "src/routes/onboard",
@@ -402,9 +406,23 @@ export default {
     },
     {
       "meta": {},
+      "id": "_default_profile_svelte",
+      "name": "profile",
+      "module": () => bundle__default._default_profile_svelte,
+      "file": {
+        "path": "src/routes/profile.svelte",
+        "dir": "src/routes",
+        "base": "profile.svelte",
+        "ext": ".svelte",
+        "name": "profile"
+      },
+      "children": []
+    },
+    {
+      "meta": {},
       "id": "_default_temp_svelte",
       "name": "temp",
-      "module": () => import('../src/routes/temp.svelte'),
+      "module": () => bundle__default._default_temp_svelte,
       "file": {
         "path": "src/routes/temp.svelte",
         "dir": "src/routes",
@@ -413,37 +431,6 @@ export default {
         "name": "temp"
       },
       "children": []
-    },
-    {
-      "meta": {},
-      "id": "_default_users",
-      "name": "users",
-      "module": false,
-      "file": {
-        "path": "src/routes/users",
-        "dir": "src/routes",
-        "base": "users",
-        "ext": "",
-        "name": "users"
-      },
-      "children": [
-        {
-          "meta": {
-            "dynamic": true
-          },
-          "id": "_default_users__id_",
-          "name": "[id]",
-          "module": false,
-          "file": {
-            "path": "src/routes/users/[id]",
-            "dir": "src/routes/users",
-            "base": "[id]",
-            "ext": "",
-            "name": "[id]"
-          },
-          "children": []
-        }
-      ]
     }
   ]
 }

@@ -11,18 +11,10 @@
   import {user} from '../stores/sessionStore';
   import Header from '../layouts/header/index.svelte';
 
-  const shouldRedirect = (): boolean => {
-    const ignorePath = ['/auth/sign-in', '/auth/sign-up'];
-    const currentPath = location.pathname;
-
-    return !ignorePath.includes(currentPath);
-  };
-
   user.subscribe((user) => {
+    console.log('user', user);
     if (user) {
-      if (shouldRedirect()) {
-        $goto($url('/auth/sign-in'));
-      }
+      $goto($url('/'));
     }
   });
 </script>

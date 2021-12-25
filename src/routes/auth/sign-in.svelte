@@ -79,13 +79,8 @@
   import Button from '../../layouts/button.svelte';
   import {_} from 'svelte-i18n';
   import EditText from '../../layouts/edit-text.svelte';
-  import {user} from '../../stores/sessionStore';
+  import {user as userSession} from '../../stores/sessionStore';
   import {onMount} from 'svelte';
-
-  user.subscribe((isLoggedIn) => {
-    // if (isLoggedIn) {
-    // }
-  });
 
   let loading = false;
   let email: string;

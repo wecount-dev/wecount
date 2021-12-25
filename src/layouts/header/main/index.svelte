@@ -19,17 +19,21 @@
 </style>
 
 <script lang="ts">
+  import {goto, url} from '@roxi/routify';
+
   import {user} from '../../../stores/sessionStore';
   import {SvgBell} from '../../../utils/icons';
   import Profile from './profile.svelte';
   import Search from './search.svelte';
 
-  const goToProfile = async (): Promise<void> => {
-    // if ($user) {
-    //   await replace('/profile');
-    //   return;
-    // }
-    // await push('/sign_in');
+  const goToProfile = () => {
+    if ($user) {
+      $goto($url('/profile'));
+
+      return;
+    }
+
+    $goto($url('/auth/sign-in'));
   };
 </script>
 

@@ -20,10 +20,14 @@
 
 <script lang="ts">
   import './i18n';
+  import type {ThemeStore} from 'svelte-theme';
   import {Router} from '@roxi/routify';
   import routes from '../.routify/routes.default.js';
-  import type {ThemeStore} from 'svelte-theme';
   import {getContext} from 'svelte';
+  import supabase from './lib/db';
+  import {user} from './stores/sessionStore';
+  import {upsertUser} from './services/userService';
+  import type {definitions} from './types/supabase';
 
   const {changeThemeType} = getContext<ThemeStore>('svelte-theme');
 
@@ -34,6 +38,30 @@
       }
     });
   };
+
+  supabase.auth.onAuthStateChange((e, session) => {
+    if (e === 'SIGNED_OUT') {
+      user.set(null);
+    }
+
+    if (e === 'SIGNED_IN' && session) {
+      (async () => {
+        await upsertUser(session.user);
+        let {data} = await supabase
+          .from<definitions['User']>('User')
+          .select(`displayName, name, avatarUrl`)
+          .eq('id', session.user?.id)
+          .single();
+
+        user.set({
+          ...session.user,
+          avatarUrl: data?.avatarUrl || '',
+          displayName: data?.displayName || '',
+          name: data?.name || '',
+        });
+      })().catch((err) => console.log(err));
+    }
+  });
 
   toggleTheme();
 </script>
