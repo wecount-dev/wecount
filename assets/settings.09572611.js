@@ -1,0 +1,1 @@
+import{S as i,i as l,s as o,e as r,a as c,b as g,n as s,g as v}from"./vendor.c2ebf50b.js";function _(n){let t;return{c(){t=r("div"),t.textContent="Settings",c(t,"class","container svelte-glqg51")},m(e,a){g(e,t,a)},p:s,i:s,o:s,d(e){e&&v(t)}}}class f extends i{constructor(t){super();l(this,t,null,_,o,{})}}export{f as default};
