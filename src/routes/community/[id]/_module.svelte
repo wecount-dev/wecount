@@ -1,4 +1,3 @@
-<!-- routify:meta bundle -->
 <style lang="postcss">
   .container {
     background-color: var(--paper);

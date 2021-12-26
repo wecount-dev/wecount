@@ -1,4 +1,3 @@
-<!-- routify:meta bundle -->
 <style lang="postcss">
   .container {
     display: grid;
