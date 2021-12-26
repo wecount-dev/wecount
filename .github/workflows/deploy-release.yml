@@ -25,6 +25,9 @@ jobs:
           SUPABASE_PRIVATE_KEY: ${{ secrets.PROD_SUPABASE_PRIVATE_KEY }}
           SUPABASE_JWT_SECRET: ${{ secrets.PROD_SUPABASE_JWT_SECRET }}
 
+      - name: CP 404.html
+        run: cp ./dist/index.html ./dist/404.html
+
       - name: Deploy hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:

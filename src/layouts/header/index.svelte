@@ -35,8 +35,6 @@
   import {SvgLogo} from '../../utils/icons';
   import AuthHeader from './auth.svelte';
   import MainHeader from './main/index.svelte';
-
-  export let context: any;
 </script>
 
 <nav>

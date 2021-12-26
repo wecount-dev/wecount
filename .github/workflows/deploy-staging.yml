@@ -26,13 +26,12 @@ jobs:
           VITE_SUPABASE_PRIVATE_KEY: ${{ secrets.VITE_SUPABASE_PRIVATE_KEY }}
           VITE_SUPABASE_JWT_SECRET: ${{ secrets.VITE_SUPABASE_JWT_SECRET }}
 
+      - name: CP 404.html
+        run: cp ./dist/index.html ./dist/404.html
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_PUBLIC_KEY: ${{ secrets.VITE_SUPABASE_PUBLIC_KEY }}
-          VITE_SUPABASE_PRIVATE_KEY: ${{ secrets.VITE_SUPABASE_PRIVATE_KEY }}
-          VITE_SUPABASE_JWT_SECRET: ${{ secrets.VITE_SUPABASE_JWT_SECRET }}
           github_token: ${{ secrets.GH_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
