@@ -1,1 +1,0 @@
-import{S as a,i,s as o,e as c,f as p,n as s,j as f}from"./vendor.6c99d5e3.js";function l(t){let e;return{c(){e=c("p")},m(n,r){p(n,e,r),e.innerHTML=t[0]},p:s,i:s,o:s,d(n){n&&f(e)}}}function m(t){return["This is <strong>Temp!</strong>"]}class d extends a{constructor(e){super();i(this,e,m,l,o,{})}}export{d as default};
