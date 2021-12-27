@@ -1,0 +1,1 @@
+import{S as a,i as l,s as c,q as u,u as p,r as i,O as d}from"./vendor.1d230e25.js";function m(o,t,e){let n,r;return u(o,p,s=>e(0,n=s)),u(o,i,s=>e(1,r=s)),d(()=>{r(n("/onboard"))}),[]}class f extends a{constructor(t){super();l(this,t,m,null,c,{})}}export{f as default};
