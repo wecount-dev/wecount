@@ -84,7 +84,7 @@
   import type {definitions} from '../types/supabase';
   import {_} from 'svelte-i18n';
   import Button from './button.svelte';
-  import {goto, url} from '@roxi/routify';
+  import {url} from '@roxi/routify';
 
   export let community: definitions['Community'];
   const communityInitial: string[1] = community.name[0];

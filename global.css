@@ -5,6 +5,7 @@ body {
   height: 100vh;
   font-family: Roboto;
   transition: background-color 0.3s;
+  font-size: 16px;
 
   display: grid;
 }
