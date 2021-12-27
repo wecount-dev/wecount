@@ -1353,430 +1353,888 @@ export interface paths {
       };
     };
   };
+  "/_prisma_migrations": {
+    get: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter._prisma_migrations.id"];
+          checksum?: parameters["rowFilter._prisma_migrations.checksum"];
+          finished_at?: parameters["rowFilter._prisma_migrations.finished_at"];
+          migration_name?: parameters["rowFilter._prisma_migrations.migration_name"];
+          logs?: parameters["rowFilter._prisma_migrations.logs"];
+          rolled_back_at?: parameters["rowFilter._prisma_migrations.rolled_back_at"];
+          started_at?: parameters["rowFilter._prisma_migrations.started_at"];
+          applied_steps_count?: parameters["rowFilter._prisma_migrations.applied_steps_count"];
+          /** Filtering Columns */
+          select?: parameters["select"];
+          /** Ordering */
+          order?: parameters["order"];
+          /** Limiting and Pagination */
+          offset?: parameters["offset"];
+          /** Limiting and Pagination */
+          limit?: parameters["limit"];
+        };
+        header: {
+          /** Limiting and Pagination */
+          Range?: parameters["range"];
+          /** Limiting and Pagination */
+          "Range-Unit"?: parameters["rangeUnit"];
+          /** Preference */
+          Prefer?: parameters["preferCount"];
+        };
+      };
+      responses: {
+        /** OK */
+        200: {
+          schema: definitions["_prisma_migrations"][];
+        };
+        /** Partial Content */
+        206: unknown;
+      };
+    };
+    post: {
+      parameters: {
+        body: {
+          /** _prisma_migrations */
+          _prisma_migrations?: definitions["_prisma_migrations"];
+        };
+        query: {
+          /** Filtering Columns */
+          select?: parameters["select"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** Created */
+        201: unknown;
+      };
+    };
+    delete: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter._prisma_migrations.id"];
+          checksum?: parameters["rowFilter._prisma_migrations.checksum"];
+          finished_at?: parameters["rowFilter._prisma_migrations.finished_at"];
+          migration_name?: parameters["rowFilter._prisma_migrations.migration_name"];
+          logs?: parameters["rowFilter._prisma_migrations.logs"];
+          rolled_back_at?: parameters["rowFilter._prisma_migrations.rolled_back_at"];
+          started_at?: parameters["rowFilter._prisma_migrations.started_at"];
+          applied_steps_count?: parameters["rowFilter._prisma_migrations.applied_steps_count"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+    patch: {
+      parameters: {
+        query: {
+          id?: parameters["rowFilter._prisma_migrations.id"];
+          checksum?: parameters["rowFilter._prisma_migrations.checksum"];
+          finished_at?: parameters["rowFilter._prisma_migrations.finished_at"];
+          migration_name?: parameters["rowFilter._prisma_migrations.migration_name"];
+          logs?: parameters["rowFilter._prisma_migrations.logs"];
+          rolled_back_at?: parameters["rowFilter._prisma_migrations.rolled_back_at"];
+          started_at?: parameters["rowFilter._prisma_migrations.started_at"];
+          applied_steps_count?: parameters["rowFilter._prisma_migrations.applied_steps_count"];
+        };
+        body: {
+          /** _prisma_migrations */
+          _prisma_migrations?: definitions["_prisma_migrations"];
+        };
+        header: {
+          /** Preference */
+          Prefer?: parameters["preferReturn"];
+        };
+      };
+      responses: {
+        /** No Content */
+        204: never;
+      };
+    };
+  };
 }
 
 export interface definitions {
   Category: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /**
+     * Format: text
+     * @default #AAAAAA
+     */
     color: string;
+    /** Format: character varying */
     name: string;
+    /** Format: character varying */
     iconUrl?: string;
+    /** Format: text */
     description?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     createdAt?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updatedAt?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId: string;
   };
   Community: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /** Format: boolean */
     isPublic?: boolean;
+    /** Format: character varying */
     name: string;
+    /** Format: text */
     description: string;
+    /** Format: character varying */
     currency: string;
+    /**
+     * Format: text
+     * @default #28DB98
+     */
     color?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     createdAt: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updatedAt?: string;
+    /** Format: timestamp without time zone */
     deletedAt?: string;
+    /** Format: character varying */
     imageURL?: string;
+    /** Format: character varying */
     thumbURL?: string;
   };
   CreditCard: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /** Format: character varying */
     cardNumber?: string;
+    /** Format: character varying */
     validDateMonth?: string;
+    /** Format: character varying */
     validDateYear?: string;
+    /** Format: character varying */
     twoLetterPassword?: string;
+    /** Format: character varying */
     registrationNumber?: string;
+    /** Format: text */
     description?: string;
+    /** Format: character varying */
     cvv?: string;
+    /** Format: public."CardType" */
     cardType?: "amex" | "master" | "visa" | "discover";
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     createdAt?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updatedAt?: string;
+    /** Format: timestamp without time zone */
     deletedAt?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId: string;
   };
   Deposit: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /**
+     * Format: public."DepositType"
+     * @default sponsoring
+     */
     depositType: "sponsoring" | "deposit";
+    /**
+     * Format: public."PaymentType"
+     * @default onetime
+     */
     paymentType: "onetime" | "subscription";
+    /** Format: character varying */
     title: string;
+    /** Format: text */
     description?: string;
+    /** Format: double precision */
     price: number;
+    /** Format: character varying */
     localizedPrice: string;
+    /** Format: character varying */
     currency: string;
+    /** Format: public."SubscriptionPeriodUnit" */
     subscriptionPeriodUnit?: "day" | "week" | "month" | "year";
+    /** Format: smallint */
     subscriptionPeriod?: number;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     createdAt?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updatedAt?: string;
+    /** Format: timestamp without time zone */
     deletedAt?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `User.id`.<fk table='User' column='id'/>
      */
     userId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Topic.id`.<fk table='Topic' column='id'/>
      */
     topicId?: string;
   };
   Feed: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /**
+     * Format: boolean
+     * @default true
+     */
     isPublic: boolean;
+    /** Format: character varying */
     title: string;
+    /** Format: timestamp without time zone */
     date?: string;
+    /** Format: double precision */
     price: number;
+    /** Format: character varying */
     localizedPrice?: string;
+    /** Format: double precision */
     latitude?: number;
+    /** Format: double precision */
     longitude?: number;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     createdAt?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updatedAt?: string;
+    /** Format: timestamp without time zone */
     deletedAt?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `User.id`.<fk table='User' column='id'/>
      */
     userId: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `CreditCard.id`.<fk table='CreditCard' column='id'/>
      */
     creditCardId?: string;
   };
   Image: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /** Format: text */
     url: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `User.id`.<fk table='User' column='id'/>
      */
     userId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Feed.id`.<fk table='Feed' column='id'/>
      */
     feedId?: string;
   };
   Permission: {
+    /** Format: public."PermissionType" */
     type: "owner" | "admin" | "member";
+    /** Format: boolean */
     accepted?: boolean;
+    /**
+     * Format: timestamp without time zone
+     * @default now()
+     */
     createdAt: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `User.id`.<fk table='User' column='id'/>
      */
     userId: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId: string;
   };
   Reaction: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /**
+     * Format: text
+     * @default 😀
+     */
     emoji: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Feed.id`.<fk table='Feed' column='id'/>
      */
     feedId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Reply.id`.<fk table='Reply' column='id'/>
      */
     replyId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `User.id`.<fk table='User' column='id'/>
      */
     userId: string;
   };
   Reply: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /**
+     * Format: public."MessageType"
+     * @default text
+     */
     messageType: "text" | "photo" | "movie" | "file";
+    /** Format: character varying */
     photoURL?: string;
+    /** Format: character varying */
     movieURL?: string;
+    /** Format: character varying */
     fileURL?: string;
+    /** Format: text */
     text?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     createdAt?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updatedAt?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Feed.id`.<fk table='Feed' column='id'/>
      */
     feedId?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `User.id`.<fk table='User' column='id'/>
      */
     userId: string;
   };
   Topic: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /** Format: character varying */
     name: string;
+    /** Format: text */
     iconUrl?: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Community.id`.<fk table='Community' column='id'/>
      */
     communityId: string;
   };
   User: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
+    /** Format: character varying */
     aud: string;
+    /** Format: timestamp without time zone */
     confirmation_sent_at?: string;
+    /** Format: timestamp without time zone */
     recovery_sent_at?: string;
+    /** Format: character varying */
     email?: string;
+    /** Format: character varying */
     phone?: string;
+    /**
+     * Format: character varying
+     * @default NULL
+     */
     avatarUrl?: string;
+    /**
+     * Format: character varying
+     * @default NULL
+     */
     avatarUrlThumb?: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     created_at: string;
+    /**
+     * Format: timestamp without time zone
+     * @default CURRENT_TIMESTAMP
+     */
     updated_at?: string;
+    /** Format: timestamp without time zone */
     confirmed_at?: string;
+    /** Format: timestamp without time zone */
     email_confirmed_at?: string;
+    /** Format: timestamp without time zone */
     phone_confirmed_at?: string;
+    /** Format: timestamp without time zone */
     last_sign_in_at?: string;
+    /** Format: character varying */
     role?: string;
+    /** Format: character varying */
     displayName?: string;
+    /** Format: character varying */
     name?: string;
   };
   _CategoryToFeed: {
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Category.id`.<fk table='Category' column='id'/>
      */
     A: string;
     /**
-     * Note:
+     * Format: uuid
+     * @description Note:
      * This is a Foreign Key to `Feed.id`.<fk table='Feed' column='id'/>
      */
     B: string;
   };
+  _prisma_migrations: {
+    /**
+     * Format: character varying
+     * @description Note:
+     * This is a Primary Key.<pk/>
+     */
+    id: string;
+    /** Format: character varying */
+    checksum: string;
+    /** Format: timestamp with time zone */
+    finished_at?: string;
+    /** Format: character varying */
+    migration_name: string;
+    /** Format: text */
+    logs?: string;
+    /** Format: timestamp with time zone */
+    rolled_back_at?: string;
+    /**
+     * Format: timestamp with time zone
+     * @default now()
+     */
+    started_at: string;
+    /** Format: integer */
+    applied_steps_count: number;
+  };
 }
 
 export interface parameters {
-  /** Preference */
+  /** @description Preference */
   preferParams: "params=single-object";
-  /** Preference */
+  /** @description Preference */
   preferReturn: "return=representation" | "return=minimal" | "return=none";
-  /** Preference */
+  /** @description Preference */
   preferCount: "count=none";
-  /** Filtering Columns */
+  /** @description Filtering Columns */
   select: string;
-  /** On Conflict */
+  /** @description On Conflict */
   on_conflict: string;
-  /** Ordering */
+  /** @description Ordering */
   order: string;
-  /** Limiting and Pagination */
+  /** @description Limiting and Pagination */
   range: string;
-  /** Limiting and Pagination */
+  /**
+   * @description Limiting and Pagination
+   * @default items
+   */
   rangeUnit: string;
-  /** Limiting and Pagination */
+  /** @description Limiting and Pagination */
   offset: string;
-  /** Limiting and Pagination */
+  /** @description Limiting and Pagination */
   limit: string;
-  /** Category */
+  /** @description Category */
   "body.Category": definitions["Category"];
+  /** Format: uuid */
   "rowFilter.Category.id": string;
+  /** Format: text */
   "rowFilter.Category.color": string;
+  /** Format: character varying */
   "rowFilter.Category.name": string;
+  /** Format: character varying */
   "rowFilter.Category.iconUrl": string;
+  /** Format: text */
   "rowFilter.Category.description": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Category.createdAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Category.updatedAt": string;
+  /** Format: uuid */
   "rowFilter.Category.communityId": string;
-  /** Community */
+  /** @description Community */
   "body.Community": definitions["Community"];
+  /** Format: uuid */
   "rowFilter.Community.id": string;
+  /** Format: boolean */
   "rowFilter.Community.isPublic": string;
+  /** Format: character varying */
   "rowFilter.Community.name": string;
+  /** Format: text */
   "rowFilter.Community.description": string;
+  /** Format: character varying */
   "rowFilter.Community.currency": string;
+  /** Format: text */
   "rowFilter.Community.color": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Community.createdAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Community.updatedAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Community.deletedAt": string;
+  /** Format: character varying */
   "rowFilter.Community.imageURL": string;
+  /** Format: character varying */
   "rowFilter.Community.thumbURL": string;
-  /** CreditCard */
+  /** @description CreditCard */
   "body.CreditCard": definitions["CreditCard"];
+  /** Format: uuid */
   "rowFilter.CreditCard.id": string;
+  /** Format: character varying */
   "rowFilter.CreditCard.cardNumber": string;
+  /** Format: character varying */
   "rowFilter.CreditCard.validDateMonth": string;
+  /** Format: character varying */
   "rowFilter.CreditCard.validDateYear": string;
+  /** Format: character varying */
   "rowFilter.CreditCard.twoLetterPassword": string;
+  /** Format: character varying */
   "rowFilter.CreditCard.registrationNumber": string;
+  /** Format: text */
   "rowFilter.CreditCard.description": string;
+  /** Format: character varying */
   "rowFilter.CreditCard.cvv": string;
+  /** Format: public."CardType" */
   "rowFilter.CreditCard.cardType": string;
+  /** Format: timestamp without time zone */
   "rowFilter.CreditCard.createdAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.CreditCard.updatedAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.CreditCard.deletedAt": string;
+  /** Format: uuid */
   "rowFilter.CreditCard.communityId": string;
-  /** Deposit */
+  /** @description Deposit */
   "body.Deposit": definitions["Deposit"];
+  /** Format: uuid */
   "rowFilter.Deposit.id": string;
+  /** Format: public."DepositType" */
   "rowFilter.Deposit.depositType": string;
+  /** Format: public."PaymentType" */
   "rowFilter.Deposit.paymentType": string;
+  /** Format: character varying */
   "rowFilter.Deposit.title": string;
+  /** Format: text */
   "rowFilter.Deposit.description": string;
+  /** Format: double precision */
   "rowFilter.Deposit.price": string;
+  /** Format: character varying */
   "rowFilter.Deposit.localizedPrice": string;
+  /** Format: character varying */
   "rowFilter.Deposit.currency": string;
+  /** Format: public."SubscriptionPeriodUnit" */
   "rowFilter.Deposit.subscriptionPeriodUnit": string;
+  /** Format: smallint */
   "rowFilter.Deposit.subscriptionPeriod": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Deposit.createdAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Deposit.updatedAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Deposit.deletedAt": string;
+  /** Format: uuid */
   "rowFilter.Deposit.userId": string;
+  /** Format: uuid */
   "rowFilter.Deposit.communityId": string;
+  /** Format: uuid */
   "rowFilter.Deposit.topicId": string;
-  /** Feed */
+  /** @description Feed */
   "body.Feed": definitions["Feed"];
+  /** Format: uuid */
   "rowFilter.Feed.id": string;
+  /** Format: boolean */
   "rowFilter.Feed.isPublic": string;
+  /** Format: character varying */
   "rowFilter.Feed.title": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Feed.date": string;
+  /** Format: double precision */
   "rowFilter.Feed.price": string;
+  /** Format: character varying */
   "rowFilter.Feed.localizedPrice": string;
+  /** Format: double precision */
   "rowFilter.Feed.latitude": string;
+  /** Format: double precision */
   "rowFilter.Feed.longitude": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Feed.createdAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Feed.updatedAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Feed.deletedAt": string;
+  /** Format: uuid */
   "rowFilter.Feed.communityId": string;
+  /** Format: uuid */
   "rowFilter.Feed.userId": string;
+  /** Format: uuid */
   "rowFilter.Feed.creditCardId": string;
-  /** Image */
+  /** @description Image */
   "body.Image": definitions["Image"];
+  /** Format: uuid */
   "rowFilter.Image.id": string;
+  /** Format: text */
   "rowFilter.Image.url": string;
+  /** Format: uuid */
   "rowFilter.Image.communityId": string;
+  /** Format: uuid */
   "rowFilter.Image.userId": string;
+  /** Format: uuid */
   "rowFilter.Image.feedId": string;
-  /** Permission */
+  /** @description Permission */
   "body.Permission": definitions["Permission"];
+  /** Format: public."PermissionType" */
   "rowFilter.Permission.type": string;
+  /** Format: boolean */
   "rowFilter.Permission.accepted": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Permission.createdAt": string;
+  /** Format: uuid */
   "rowFilter.Permission.userId": string;
+  /** Format: uuid */
   "rowFilter.Permission.communityId": string;
-  /** Reaction */
+  /** @description Reaction */
   "body.Reaction": definitions["Reaction"];
+  /** Format: uuid */
   "rowFilter.Reaction.id": string;
+  /** Format: text */
   "rowFilter.Reaction.emoji": string;
+  /** Format: uuid */
   "rowFilter.Reaction.feedId": string;
+  /** Format: uuid */
   "rowFilter.Reaction.replyId": string;
+  /** Format: uuid */
   "rowFilter.Reaction.userId": string;
-  /** Reply */
+  /** @description Reply */
   "body.Reply": definitions["Reply"];
+  /** Format: uuid */
   "rowFilter.Reply.id": string;
+  /** Format: public."MessageType" */
   "rowFilter.Reply.messageType": string;
+  /** Format: character varying */
   "rowFilter.Reply.photoURL": string;
+  /** Format: character varying */
   "rowFilter.Reply.movieURL": string;
+  /** Format: character varying */
   "rowFilter.Reply.fileURL": string;
+  /** Format: text */
   "rowFilter.Reply.text": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Reply.createdAt": string;
+  /** Format: timestamp without time zone */
   "rowFilter.Reply.updatedAt": string;
+  /** Format: uuid */
   "rowFilter.Reply.communityId": string;
+  /** Format: uuid */
   "rowFilter.Reply.feedId": string;
+  /** Format: uuid */
   "rowFilter.Reply.userId": string;
-  /** Topic */
+  /** @description Topic */
   "body.Topic": definitions["Topic"];
+  /** Format: uuid */
   "rowFilter.Topic.id": string;
+  /** Format: character varying */
   "rowFilter.Topic.name": string;
+  /** Format: text */
   "rowFilter.Topic.iconUrl": string;
+  /** Format: uuid */
   "rowFilter.Topic.communityId": string;
-  /** User */
+  /** @description User */
   "body.User": definitions["User"];
+  /** Format: uuid */
   "rowFilter.User.id": string;
+  /** Format: character varying */
   "rowFilter.User.aud": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.confirmation_sent_at": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.recovery_sent_at": string;
+  /** Format: character varying */
   "rowFilter.User.email": string;
+  /** Format: character varying */
   "rowFilter.User.phone": string;
+  /** Format: character varying */
   "rowFilter.User.avatarUrl": string;
+  /** Format: character varying */
   "rowFilter.User.avatarUrlThumb": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.created_at": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.updated_at": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.confirmed_at": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.email_confirmed_at": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.phone_confirmed_at": string;
+  /** Format: timestamp without time zone */
   "rowFilter.User.last_sign_in_at": string;
+  /** Format: character varying */
   "rowFilter.User.role": string;
+  /** Format: character varying */
   "rowFilter.User.displayName": string;
+  /** Format: character varying */
   "rowFilter.User.name": string;
-  /** _CategoryToFeed */
+  /** @description _CategoryToFeed */
   "body._CategoryToFeed": definitions["_CategoryToFeed"];
+  /** Format: uuid */
   "rowFilter._CategoryToFeed.A": string;
+  /** Format: uuid */
   "rowFilter._CategoryToFeed.B": string;
+  /** @description _prisma_migrations */
+  "body._prisma_migrations": definitions["_prisma_migrations"];
+  /** Format: character varying */
+  "rowFilter._prisma_migrations.id": string;
+  /** Format: character varying */
+  "rowFilter._prisma_migrations.checksum": string;
+  /** Format: timestamp with time zone */
+  "rowFilter._prisma_migrations.finished_at": string;
+  /** Format: character varying */
+  "rowFilter._prisma_migrations.migration_name": string;
+  /** Format: text */
+  "rowFilter._prisma_migrations.logs": string;
+  /** Format: timestamp with time zone */
+  "rowFilter._prisma_migrations.rolled_back_at": string;
+  /** Format: timestamp with time zone */
+  "rowFilter._prisma_migrations.started_at": string;
+  /** Format: integer */
+  "rowFilter._prisma_migrations.applied_steps_count": string;
 }
 
 export interface operations {}

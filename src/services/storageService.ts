@@ -3,7 +3,7 @@ import {nanoid} from 'nanoid';
 import supabase from "../lib/db";
 
 type UploadDir = 'communities' | 'profiles' | 'replies' | 'feeds' | 'images';
-type UploadBucket = 'staging' | 'production';
+type UploadBucket = 'public';
 
 export type UploadSingleImageType = {
   file?: File;
@@ -17,15 +17,15 @@ export const uploadSingleImage =
     file, 
     fileName = Date.now().toString() + '@' + nanoid(4),
     dir = 'images',
-    bucket = 'staging',
+    bucket = 'public',
   }: UploadSingleImageType): Promise<string | null> => {
     if (!file) {return null;}
 
     const compressed = await imageCompression(file, {});
 
     // Image Upload to supabase
-    const splitedFilename = compressed.name.split('.');
-    const fileType = splitedFilename[splitedFilename.length - 1];
+    const splittedFilename = compressed.name.split('.');
+    const fileType = splittedFilename[splittedFilename.length - 1];
     const path = `${dir}/${fileName}.${fileType}`;
 
     const {error} = await supabase.storage.from(bucket).upload(path, compressed, {upsert:false});
@@ -56,14 +56,14 @@ export const uploadMultipleImages =
     files:File[] | FileList ,
     {dirs, bucket, ...option}: UploadMultipleImageOption,
   ): Promise<string[]> => {
-    // Iamge compress
+    // Image compress
     const compressedFiles = await Promise.all(Array.from(files).map((file) => imageCompression(file, option)));
 
     // Image Upload to supabase
     const uris = await Promise.all(compressedFiles.map((file) => (async () => {
         const filename = Date.now().toString() + '@' + nanoid(4);
-        const splitedFilename = file.name.split('.');
-        const fileType = splitedFilename[splitedFilename.length - 1];
+        const splittedFilename = file.name.split('.');
+        const fileType = splittedFilename[splittedFilename.length - 1];
         const path = dirs + '/' + filename + '.' + fileType;
   
         const {error} = await supabase.storage.from(bucket).upload(path, file, {upsert:false});

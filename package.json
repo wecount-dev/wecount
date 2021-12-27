@@ -15,6 +15,7 @@
     "update-types": "npx openapi-typescript $SUPABASE_TYPE_URL --output src/types/supabase.ts",
     "migrate": "dotenv -e ./dotenv/.env -- prisma migrate deploy",
     "migrate:dev": "dotenv -e ./dotenv/.env -- prisma migrate dev",
+    "migrate:deploy": "dotenv -e ./dotenv/.env -- prisma migrate deploy",
     "migrate:reset": "dotenv -e ./dotenv/.env -- prisma migrate reset",
     "studio": "dotenv -e ./dotenv/.env -- prisma studio"
   },
@@ -52,6 +53,7 @@
     "prettier": "^2.5.1",
     "prettier-eslint": "^13.0.0",
     "prettier-plugin-svelte": "^2.5.1",
+    "prisma": "^3.7.0",
     "svelte": "^3.44.3",
     "svelte-check": "^2.2.11",
     "svelte-jester": "^2.1.5",

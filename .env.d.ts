@@ -4,7 +4,5 @@ interface ImportMeta {
     readonly VITE_SUPABASE_PRIVATE_KEY: string;
     readonly VITE_SUPABASE_URL: string;
     readonly VITE_SUPABASE_JWT_SECRET: string;
-  
-    readonly VITE_DATABASE_URL: string;
   }
 }
