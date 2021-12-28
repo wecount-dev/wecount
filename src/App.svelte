@@ -67,5 +67,5 @@
 </script>
 
 <main>
-  <Router routes={routes} config={{useHash: true}} />
+  <Router routes={routes} />
 </main>
