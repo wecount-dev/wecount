@@ -4,6 +4,7 @@
     max-width: 800px;
     min-height: 100px;
     padding: 24px 0;
+    overflow: hidden;
 
     display: grid;
     grid-template-rows: 48px 1fr 48px;
@@ -39,6 +40,10 @@
   .content {
     padding: 0 24px;
     text-align: left;
+
+    display: grid;
+    row-gap: 20px;
+    grid-auto-flow: row;
   }
 
   .footer {
@@ -77,11 +82,12 @@
 </style>
 
 <script lang="ts">
+  import type {FeedWithUserAndImages} from '../services/feedService';
   import {formatDistance} from 'date-fns';
-  import type {definitions} from '../types/supabase';
   import {SvgPlusCircleFill} from '../utils/icons';
+  import ImageCollection from './image-collection.svelte';
 
-  export let feed: definitions['Feed'];
+  export let feed: FeedWithUserAndImages;
 </script>
 
 <div class="container">
@@ -99,6 +105,7 @@
   </div>
   <div class="content">
     {feed.content}
+    <ImageCollection images={feed.images || []} />
   </div>
   <div class="footer">
     <div class="user">
@@ -113,8 +120,7 @@
         ? formatDistance(new Date(feed.createdAt), new Date(), {
             addSuffix: true,
           })
-        : // ? new Date(feed.createdAt).format('yy MM.dd')
-          ''}</span
+        : ''}</span
     >
   </div>
 </div>

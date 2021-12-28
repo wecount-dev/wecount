@@ -75,11 +75,33 @@ export const deleteFeed = async (id: string): Promise<definitions["Feed"] | null
   }
 };
 
-export const feeds = async (communityId: string): Promise<definitions["Feed"][] | null> => {
+export type FeedWithImages = definitions['Feed'] & {
+  images: Pick<definitions['Image'], 'id' | 'url'>[];
+};
+
+export type FeedWithUserAndImages = Omit<definitions['Feed'], 'userId' | 'communityId'> & {
+  user: Pick<definitions['User'], 'id' | 'displayName' | 'name' | 'avatarUrl' | 'avatarUrlThumb'>;
+  images: Pick<definitions['Image'], 'id' | 'url'>[];
+};
+
+export const feeds = async (communityId: string): Promise<
+  FeedWithUserAndImages[] | null
+> => {
   try {
     const {data, error} = await supabase
-    .from<definitions["Feed"]>('Feed')
-    .select()
+    .from<FeedWithUserAndImages>('Feed')
+    .select(`
+      *,
+      User:user (
+        id
+        email
+        phone
+      )
+      Image:images (
+        id
+        url
+      )`,
+    )
     .match({communityId});
 
     if (error) {throw error;}
@@ -93,10 +115,13 @@ export const feeds = async (communityId: string): Promise<definitions["Feed"][] 
   }
 };
 
-export const getFeed = async (id: string): Promise<definitions["Feed"] | null> => {
+
+export const getFeed = async (id: string): Promise<
+  FeedWithUserAndImages | null
+> => {
   try {
     const {data, error} = await supabase
-    .from<definitions["Feed"]>('Feed')
+    .from<FeedWithUserAndImages>('Feed')
     .select(`
       isPublic
       title
@@ -105,10 +130,14 @@ export const getFeed = async (id: string): Promise<definitions["Feed"] | null> =
       localizedPrice
       latitude
       longitude
-      user (
+      User:user (
         id
         email
         phone
+      )
+      Image:images (
+        id
+        url
       )
     `)
     .match({id})

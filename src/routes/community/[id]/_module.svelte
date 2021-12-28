@@ -4,16 +4,23 @@
     overflow: hidden;
 
     display: flex;
+    flex-direction: row;
     justify-content: center;
-  }
 
-  section {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    nav {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+    }
 
-    display: grid;
+    section {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      display: grid;
+    }
   }
 </style>
 
