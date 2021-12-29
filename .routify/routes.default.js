@@ -359,49 +359,6 @@ export default {
     },
     {
       "meta": {},
-      "id": "_default_onboard",
-      "name": "onboard",
-      "module": false,
-      "file": {
-        "path": "src/routes/onboard",
-        "dir": "src/routes",
-        "base": "onboard",
-        "ext": "",
-        "name": "onboard"
-      },
-      "children": [
-        {
-          "meta": {},
-          "id": "_default_onboard_card_svelte",
-          "name": "card",
-          "module": () => import('../src/routes/onboard/card.svelte'),
-          "file": {
-            "path": "src/routes/onboard/card.svelte",
-            "dir": "src/routes/onboard",
-            "base": "card.svelte",
-            "ext": ".svelte",
-            "name": "card"
-          },
-          "children": []
-        },
-        {
-          "meta": {},
-          "id": "_default_onboard_index_svelte",
-          "name": "index",
-          "module": () => import('../src/routes/onboard/index.svelte'),
-          "file": {
-            "path": "src/routes/onboard/index.svelte",
-            "dir": "src/routes/onboard",
-            "base": "index.svelte",
-            "ext": ".svelte",
-            "name": "index"
-          },
-          "children": []
-        }
-      ]
-    },
-    {
-      "meta": {},
       "id": "_default_profile_svelte",
       "name": "profile",
       "module": () => import('../src/routes/profile.svelte'),
@@ -425,20 +382,6 @@ export default {
         "base": "temp.svelte",
         "ext": ".svelte",
         "name": "temp"
-      },
-      "children": []
-    },
-    {
-      "meta": {},
-      "id": "_default_users",
-      "name": "users",
-      "module": false,
-      "file": {
-        "path": "src/routes/users",
-        "dir": "src/routes",
-        "base": "users",
-        "ext": "",
-        "name": "users"
       },
       "children": []
     }
