@@ -1,0 +1,1 @@
+import{S as o,i as r,s as i,e as c,f as d,n as s,j as l}from"./vendor.85dcdc51.js";function m(n){let e;return{c(){e=c("div"),e.textContent="Members"},m(t,a){d(t,e,a)},p:s,i:s,o:s,d(t){t&&l(e)}}}class u extends o{constructor(e){super();r(this,e,null,m,i,{})}}export{u as default};
