@@ -228,17 +228,46 @@ export default {
             },
             {
               "meta": {},
-              "id": "_default_community__id__settings_svelte",
+              "id": "_default_community__id__settings",
               "name": "settings",
-              "module": () => import('../src/routes/community/[id]/settings.svelte'),
+              "module": () => import('../src/routes/community/[id]/settings/_module.svelte'),
               "file": {
-                "path": "src/routes/community/[id]/settings.svelte",
-                "dir": "src/routes/community/[id]",
-                "base": "settings.svelte",
+                "path": "src/routes/community/[id]/settings/_module.svelte",
+                "dir": "src/routes/community/[id]/settings",
+                "base": "_module.svelte",
                 "ext": ".svelte",
-                "name": "settings"
+                "name": "_module"
               },
-              "children": []
+              "children": [
+                {
+                  "meta": {},
+                  "id": "_default_community__id__settings_index_svelte",
+                  "name": "index",
+                  "module": () => import('../src/routes/community/[id]/settings/index.svelte'),
+                  "file": {
+                    "path": "src/routes/community/[id]/settings/index.svelte",
+                    "dir": "src/routes/community/[id]/settings",
+                    "base": "index.svelte",
+                    "ext": ".svelte",
+                    "name": "index"
+                  },
+                  "children": []
+                },
+                {
+                  "meta": {},
+                  "id": "_default_community__id__settings_members_svelte",
+                  "name": "members",
+                  "module": () => import('../src/routes/community/[id]/settings/members.svelte'),
+                  "file": {
+                    "path": "src/routes/community/[id]/settings/members.svelte",
+                    "dir": "src/routes/community/[id]/settings",
+                    "base": "members.svelte",
+                    "ext": ".svelte",
+                    "name": "members"
+                  },
+                  "children": []
+                }
+              ]
             },
             {
               "meta": {},

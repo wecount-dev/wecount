@@ -57,9 +57,9 @@
     "title": "커뮤니티",
     "create_community": "커뮤니티를 생성해요",
     "type": "종류",
-    "name": "커뮤니티 이름",
-    "description": "커뮤니티 소개",
+    "name": "이름",
     "name_hint": "커뮤니티 이름을 적어주세요",
+    "introduction": "소개",
     "introduction_hint": "커뮤니티를 소개 해주세요",
     "currency": "통화",
     "create": "커뮤니티 생성하기",
@@ -70,7 +70,10 @@
       "feeds": "피드",
       "settings": "설정"
     },
-    "no_more": "더이상 커뮤니티가 없습니다!"
+    "no_more": "더이상 커뮤니티가 없습니다!",
+    "update": "수정",
+    "settings": "설정",
+    "manager_members": "멤버관리"
   },
   "write": "피드 작성하기",
   "header": {

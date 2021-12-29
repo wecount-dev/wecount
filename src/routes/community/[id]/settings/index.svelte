@@ -1,25 +1,25 @@
 <style lang="postcss">
   .container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
   }
+
   .wrap {
     width: 620px;
     @media (--mobile) {
       width: 100%;
     }
   }
-  .title {
-    margin-left: 24px;
-    margin-top: 40px;
-    margin-bottom: 22px;
-  }
+
   .community-card-carousel {
     margin-bottom: 20px;
   }
+
   .input-card {
     margin-bottom: 40px;
   }
+
   input,
   textarea {
     width: 100%;
@@ -28,25 +28,29 @@
     padding: 8px;
     font-size: 14px;
   }
+
   textarea {
     height: 103px;
   }
+
   textarea::-webkit-scrollbar {
     display: none;
   }
+
   .input-wrapper {
     margin-bottom: 40px;
     display: flex;
     justify-content: center;
   }
+
   .card {
     background-color: var(--card);
     border: 1px solid var(--gray20);
     box-sizing: border-box;
     box-shadow: 2px 12px 12px rgba(0, 0, 0, 0.02);
     border-radius: 16px;
-    /* padding: 20px; */
     width: 100%;
+
     @media (--mobile) {
       border-radius: 0px;
     }
@@ -55,14 +59,14 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
-  import Button from '../../layouts/button.svelte';
-  import Select from '../../layouts/select.svelte';
-  import Asterisk from '../../layouts/asterisk.svelte';
-  import Carousel from '../../layouts/carousel.svelte';
-  import InputBox from '../../layouts/input-box.svelte';
-  import {user} from '../../stores/sessionStore';
-  import {createCommunity} from '../../services/communityService';
-  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../theme';
+  import Button from '../../../../layouts/button.svelte';
+  import Select from '../../../../layouts/select.svelte';
+  import Asterisk from '../../../../layouts/asterisk.svelte';
+  import Carousel from '../../../../layouts/carousel.svelte';
+  import InputBox from '../../../../layouts/input-box.svelte';
+  import {user} from '../../../../stores/sessionStore';
+  import {createCommunity} from '../../../../services/communityService';
+  import {BLACK, GREEN, NAVY, PURPLE, SKY_BLUE} from '../../../../theme';
   import {goto} from '@roxi/routify';
 
   let loading = false;
@@ -125,9 +129,7 @@
 
 <div class="container">
   <form class="wrap" on:submit|preventDefault={submitCreateCommunity}>
-    <h3 class="title">
-      {$_('app_name')}<br />{$_('community.create')}
-    </h3>
+    <div />
     <div class="community-card-carousel">
       <div
         class="card"
@@ -201,7 +203,7 @@
         loading={loading}
       >
         <div class="text" style="color: white;">
-          {$_('community.create')}
+          {$_('community.update')}
         </div>
       </Button>
     </div>

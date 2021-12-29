@@ -56,7 +56,7 @@
     "create_community": "Create a community",
     "type": "Type",
     "name": "Community name",
-    "introduction": "Community description",
+    "introduction": "Introduction",
     "name_hint": "Please write down the community name",
     "introduction_hint": "Please introduce the community",
     "currency": "Currency",
@@ -68,7 +68,14 @@
       "feeds": "Feeds",
       "settings": "Settings"
     },
-    "no_more": "No more community!"
+    "no_more": "No more community!",
+    "update": "수정",
+    "settings": "설정",
+    "manager_members": "멤버관리"
+  },
+  "settings": {
+    "community": "Community",
+    "members": "Members"
   },
   "feed": {
     "write": "Write Feed"
