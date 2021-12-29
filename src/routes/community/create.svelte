@@ -126,7 +126,7 @@
 <div class="container">
   <form class="wrap" on:submit|preventDefault={submitCreateCommunity}>
     <h3 class="title">
-      {$_('app_name')}<br />{$_('community.create_community')}
+      {$_('app_name')}<br />{$_('community.create')}
     </h3>
     <div class="community-card-carousel">
       <div
@@ -156,31 +156,31 @@
         </InputBox>
         <InputBox>
           <svelte:fragment slot="label">
-            {$_('community.community_name')}<Asterisk />
+            {$_('community.name')}<Asterisk />
           </svelte:fragment>
           <input
             style="padding-left: 12px"
             slot="input"
             bind:value={communityName}
             type="text"
-            placeholder="{$_('community.write_down_the_community_name')}."
+            placeholder="{$_('community.name_hint')}."
             required
           />
         </InputBox>
         <InputBox style={'align-items: start'}>
           <svelte:fragment slot="label">
-            {$_('community.community_description')}<Asterisk />
+            {$_('community.introduction')}<Asterisk />
           </svelte:fragment>
           <textarea
             slot="input"
             bind:value={communityDescription}
-            placeholder=" {$_('community.introduce_the_community')}."
+            placeholder=" {$_('community.introduction_hint')}."
             required
           />
         </InputBox>
         <InputBox>
           <svelte:fragment slot="label">
-            {$_('community.community_representative_currency')}<Asterisk />
+            {$_('community.currency')}<Asterisk />
           </svelte:fragment>
           <Select
             slot="input"
@@ -201,7 +201,7 @@
         loading={loading}
       >
         <div class="text" style="color: white;">
-          {$_('community.create_community_button')}
+          {$_('community.create')}
         </div>
       </Button>
     </div>
