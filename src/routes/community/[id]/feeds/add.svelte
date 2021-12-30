@@ -61,6 +61,13 @@
           grid-auto-flow: column;
           justify-items: center;
         }
+
+        .picture {
+          display: grid;
+          grid-auto-flow: row-dence;
+          grid-auto-rows: min-content;
+          grid-template-columns: repeat(auto-fill, minmax(72px, auto));
+        }
       }
     }
 
@@ -85,6 +92,7 @@
   import Button from '../../../../layouts/button.svelte';
   import {createEventDispatcher} from 'svelte';
   import EditText from '../../../../layouts/edit-text.svelte';
+  import UploadablePhotoCard from '../../../../layouts/uploadable-photo-card.svelte';
 
   export let user: definitions['User'];
 
@@ -128,12 +136,29 @@
     </div>
     <div class="wrapper">
       <div class="label">{$_('picture')}</div>
-      <div class="picture" />
+      <div class="picture">
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+        <UploadablePhotoCard />
+      </div>
     </div>
   </div>
   <div class="foot">
     <Button primary on:click={addFeed}>
-      <div class="body3">{$_('add')}</div>
+      <p class="body3">{$_('add')}</p>
     </Button>
   </div>
 </div>
