@@ -23,6 +23,9 @@
   "sponsors": "Sponsors",
   "total_raised": "Total Raised",
   "balance": "Balance",
+  "cancel": "Cancel",
+  "add": "Add",
+  "confirm": "Confirm",
   "auth": {
     "sign-in": {
       "email_hint": "Write your email address",

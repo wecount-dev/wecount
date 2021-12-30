@@ -23,6 +23,9 @@
   "sponsors": "스폰서",
   "total_raised": "총 모금",
   "balance": "잔액",
+  "cancel": "취소",
+  "add": "추가",
+  "confirm": "확인",
   "auth": {
     "sign-in": {
       "email_hint": "이메일을 입력하세요",

@@ -186,17 +186,46 @@ export default {
             },
             {
               "meta": {},
-              "id": "_default_community__id__feeds_svelte",
+              "id": "_default_community__id__feeds",
               "name": "feeds",
-              "module": () => import('../src/routes/community/[id]/feeds.svelte'),
+              "module": false,
               "file": {
-                "path": "src/routes/community/[id]/feeds.svelte",
+                "path": "src/routes/community/[id]/feeds",
                 "dir": "src/routes/community/[id]",
-                "base": "feeds.svelte",
-                "ext": ".svelte",
+                "base": "feeds",
+                "ext": "",
                 "name": "feeds"
               },
-              "children": []
+              "children": [
+                {
+                  "meta": {},
+                  "id": "_default_community__id__feeds_add_svelte",
+                  "name": "add",
+                  "module": () => import('../src/routes/community/[id]/feeds/add.svelte'),
+                  "file": {
+                    "path": "src/routes/community/[id]/feeds/add.svelte",
+                    "dir": "src/routes/community/[id]/feeds",
+                    "base": "add.svelte",
+                    "ext": ".svelte",
+                    "name": "add"
+                  },
+                  "children": []
+                },
+                {
+                  "meta": {},
+                  "id": "_default_community__id__feeds_index_svelte",
+                  "name": "index",
+                  "module": () => import('../src/routes/community/[id]/feeds/index.svelte'),
+                  "file": {
+                    "path": "src/routes/community/[id]/feeds/index.svelte",
+                    "dir": "src/routes/community/[id]/feeds",
+                    "base": "index.svelte",
+                    "ext": ".svelte",
+                    "name": "index"
+                  },
+                  "children": []
+                }
+              ]
             },
             {
               "meta": {},
