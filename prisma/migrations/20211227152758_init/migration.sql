@@ -48,7 +48,7 @@ CREATE TABLE "Community" (
     "currency" VARCHAR(4) NOT NULL,
     "color" TEXT DEFAULT E'#28DB98',
     "thumbURL" VARCHAR(1024),
-    "ImageURL" VARCHAR(1024),
+    "imageURL" VARCHAR(1024),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "deletedAt" TIMESTAMP(3),

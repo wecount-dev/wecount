@@ -43,7 +43,7 @@ model Community {
   currency    String   @db.VarChar(4)
   color       String?  @default("#28DB98")
   thumbURL    String?  @db.VarChar(1024)
-  ImageURL    String?  @db.VarChar(1024)
+  imageURL    String?  @db.VarChar(1024)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @default(now())
