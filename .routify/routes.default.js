@@ -214,20 +214,6 @@ export default {
             },
             {
               "meta": {},
-              "id": "_default_community__id__members_svelte",
-              "name": "members",
-              "module": () => import('../src/routes/community/[id]/members.svelte'),
-              "file": {
-                "path": "src/routes/community/[id]/members.svelte",
-                "dir": "src/routes/community/[id]",
-                "base": "members.svelte",
-                "ext": ".svelte",
-                "name": "members"
-              },
-              "children": []
-            },
-            {
-              "meta": {},
               "id": "_default_community__id__settings",
               "name": "settings",
               "module": () => import('../src/routes/community/[id]/settings/_module.svelte'),
@@ -255,17 +241,60 @@ export default {
                 },
                 {
                   "meta": {},
-                  "id": "_default_community__id__settings_members_svelte",
+                  "id": "_default_community__id__settings_members",
                   "name": "members",
-                  "module": () => import('../src/routes/community/[id]/settings/members.svelte'),
+                  "module": false,
                   "file": {
-                    "path": "src/routes/community/[id]/settings/members.svelte",
+                    "path": "src/routes/community/[id]/settings/members",
                     "dir": "src/routes/community/[id]/settings",
-                    "base": "members.svelte",
-                    "ext": ".svelte",
+                    "base": "members",
+                    "ext": "",
                     "name": "members"
                   },
-                  "children": []
+                  "children": [
+                    {
+                      "meta": {},
+                      "id": "_default_community__id__settings_members_index_svelte",
+                      "name": "index",
+                      "module": () => import('../src/routes/community/[id]/settings/members/index.svelte'),
+                      "file": {
+                        "path": "src/routes/community/[id]/settings/members/index.svelte",
+                        "dir": "src/routes/community/[id]/settings/members",
+                        "base": "index.svelte",
+                        "ext": ".svelte",
+                        "name": "index"
+                      },
+                      "children": []
+                    },
+                    {
+                      "meta": {},
+                      "id": "_default_community__id__settings_members_member_item_svelte",
+                      "name": "member-item",
+                      "module": () => import('../src/routes/community/[id]/settings/members/member-item.svelte'),
+                      "file": {
+                        "path": "src/routes/community/[id]/settings/members/member-item.svelte",
+                        "dir": "src/routes/community/[id]/settings/members",
+                        "base": "member-item.svelte",
+                        "ext": ".svelte",
+                        "name": "member-item"
+                      },
+                      "children": []
+                    },
+                    {
+                      "meta": {},
+                      "id": "_default_community__id__settings_members_register_item_svelte",
+                      "name": "register-item",
+                      "module": () => import('../src/routes/community/[id]/settings/members/register-item.svelte'),
+                      "file": {
+                        "path": "src/routes/community/[id]/settings/members/register-item.svelte",
+                        "dir": "src/routes/community/[id]/settings/members",
+                        "base": "register-item.svelte",
+                        "ext": ".svelte",
+                        "name": "register-item"
+                      },
+                      "children": []
+                    }
+                  ]
                 }
               ]
             },

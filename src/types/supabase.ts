@@ -130,11 +130,11 @@ export interface paths {
           description?: parameters["rowFilter.Community.description"];
           currency?: parameters["rowFilter.Community.currency"];
           color?: parameters["rowFilter.Community.color"];
+          thumbURL?: parameters["rowFilter.Community.thumbURL"];
+          imageURL?: parameters["rowFilter.Community.imageURL"];
           createdAt?: parameters["rowFilter.Community.createdAt"];
           updatedAt?: parameters["rowFilter.Community.updatedAt"];
           deletedAt?: parameters["rowFilter.Community.deletedAt"];
-          thumbURL?: parameters["rowFilter.Community.thumbURL"];
-          ImageURL?: parameters["rowFilter.Community.ImageURL"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -191,11 +191,11 @@ export interface paths {
           description?: parameters["rowFilter.Community.description"];
           currency?: parameters["rowFilter.Community.currency"];
           color?: parameters["rowFilter.Community.color"];
+          thumbURL?: parameters["rowFilter.Community.thumbURL"];
+          imageURL?: parameters["rowFilter.Community.imageURL"];
           createdAt?: parameters["rowFilter.Community.createdAt"];
           updatedAt?: parameters["rowFilter.Community.updatedAt"];
           deletedAt?: parameters["rowFilter.Community.deletedAt"];
-          thumbURL?: parameters["rowFilter.Community.thumbURL"];
-          ImageURL?: parameters["rowFilter.Community.ImageURL"];
         };
         header: {
           /** Preference */
@@ -216,11 +216,11 @@ export interface paths {
           description?: parameters["rowFilter.Community.description"];
           currency?: parameters["rowFilter.Community.currency"];
           color?: parameters["rowFilter.Community.color"];
+          thumbURL?: parameters["rowFilter.Community.thumbURL"];
+          imageURL?: parameters["rowFilter.Community.imageURL"];
           createdAt?: parameters["rowFilter.Community.createdAt"];
           updatedAt?: parameters["rowFilter.Community.updatedAt"];
           deletedAt?: parameters["rowFilter.Community.deletedAt"];
-          thumbURL?: parameters["rowFilter.Community.thumbURL"];
-          ImageURL?: parameters["rowFilter.Community.ImageURL"];
         };
         body: {
           /** Community */
@@ -499,6 +499,7 @@ export interface paths {
           id?: parameters["rowFilter.Feed.id"];
           isPublic?: parameters["rowFilter.Feed.isPublic"];
           title?: parameters["rowFilter.Feed.title"];
+          content?: parameters["rowFilter.Feed.content"];
           date?: parameters["rowFilter.Feed.date"];
           price?: parameters["rowFilter.Feed.price"];
           localizedPrice?: parameters["rowFilter.Feed.localizedPrice"];
@@ -510,7 +511,6 @@ export interface paths {
           communityId?: parameters["rowFilter.Feed.communityId"];
           userId?: parameters["rowFilter.Feed.userId"];
           creditCardId?: parameters["rowFilter.Feed.creditCardId"];
-          content?: parameters["rowFilter.Feed.content"];
           /** Filtering Columns */
           select?: parameters["select"];
           /** Ordering */
@@ -564,6 +564,7 @@ export interface paths {
           id?: parameters["rowFilter.Feed.id"];
           isPublic?: parameters["rowFilter.Feed.isPublic"];
           title?: parameters["rowFilter.Feed.title"];
+          content?: parameters["rowFilter.Feed.content"];
           date?: parameters["rowFilter.Feed.date"];
           price?: parameters["rowFilter.Feed.price"];
           localizedPrice?: parameters["rowFilter.Feed.localizedPrice"];
@@ -575,7 +576,6 @@ export interface paths {
           communityId?: parameters["rowFilter.Feed.communityId"];
           userId?: parameters["rowFilter.Feed.userId"];
           creditCardId?: parameters["rowFilter.Feed.creditCardId"];
-          content?: parameters["rowFilter.Feed.content"];
         };
         header: {
           /** Preference */
@@ -593,6 +593,7 @@ export interface paths {
           id?: parameters["rowFilter.Feed.id"];
           isPublic?: parameters["rowFilter.Feed.isPublic"];
           title?: parameters["rowFilter.Feed.title"];
+          content?: parameters["rowFilter.Feed.content"];
           date?: parameters["rowFilter.Feed.date"];
           price?: parameters["rowFilter.Feed.price"];
           localizedPrice?: parameters["rowFilter.Feed.localizedPrice"];
@@ -604,7 +605,6 @@ export interface paths {
           communityId?: parameters["rowFilter.Feed.communityId"];
           userId?: parameters["rowFilter.Feed.userId"];
           creditCardId?: parameters["rowFilter.Feed.creditCardId"];
-          content?: parameters["rowFilter.Feed.content"];
         };
         body: {
           /** Feed */
@@ -1452,114 +1452,6 @@ export interface paths {
       };
     };
   };
-  "/_prisma_migrations": {
-    get: {
-      parameters: {
-        query: {
-          id?: parameters["rowFilter._prisma_migrations.id"];
-          checksum?: parameters["rowFilter._prisma_migrations.checksum"];
-          finished_at?: parameters["rowFilter._prisma_migrations.finished_at"];
-          migration_name?: parameters["rowFilter._prisma_migrations.migration_name"];
-          logs?: parameters["rowFilter._prisma_migrations.logs"];
-          rolled_back_at?: parameters["rowFilter._prisma_migrations.rolled_back_at"];
-          started_at?: parameters["rowFilter._prisma_migrations.started_at"];
-          applied_steps_count?: parameters["rowFilter._prisma_migrations.applied_steps_count"];
-          /** Filtering Columns */
-          select?: parameters["select"];
-          /** Ordering */
-          order?: parameters["order"];
-          /** Limiting and Pagination */
-          offset?: parameters["offset"];
-          /** Limiting and Pagination */
-          limit?: parameters["limit"];
-        };
-        header: {
-          /** Limiting and Pagination */
-          Range?: parameters["range"];
-          /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
-          /** Preference */
-          Prefer?: parameters["preferCount"];
-        };
-      };
-      responses: {
-        /** OK */
-        200: {
-          schema: definitions["_prisma_migrations"][];
-        };
-        /** Partial Content */
-        206: unknown;
-      };
-    };
-    post: {
-      parameters: {
-        body: {
-          /** _prisma_migrations */
-          _prisma_migrations?: definitions["_prisma_migrations"];
-        };
-        query: {
-          /** Filtering Columns */
-          select?: parameters["select"];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferReturn"];
-        };
-      };
-      responses: {
-        /** Created */
-        201: unknown;
-      };
-    };
-    delete: {
-      parameters: {
-        query: {
-          id?: parameters["rowFilter._prisma_migrations.id"];
-          checksum?: parameters["rowFilter._prisma_migrations.checksum"];
-          finished_at?: parameters["rowFilter._prisma_migrations.finished_at"];
-          migration_name?: parameters["rowFilter._prisma_migrations.migration_name"];
-          logs?: parameters["rowFilter._prisma_migrations.logs"];
-          rolled_back_at?: parameters["rowFilter._prisma_migrations.rolled_back_at"];
-          started_at?: parameters["rowFilter._prisma_migrations.started_at"];
-          applied_steps_count?: parameters["rowFilter._prisma_migrations.applied_steps_count"];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferReturn"];
-        };
-      };
-      responses: {
-        /** No Content */
-        204: never;
-      };
-    };
-    patch: {
-      parameters: {
-        query: {
-          id?: parameters["rowFilter._prisma_migrations.id"];
-          checksum?: parameters["rowFilter._prisma_migrations.checksum"];
-          finished_at?: parameters["rowFilter._prisma_migrations.finished_at"];
-          migration_name?: parameters["rowFilter._prisma_migrations.migration_name"];
-          logs?: parameters["rowFilter._prisma_migrations.logs"];
-          rolled_back_at?: parameters["rowFilter._prisma_migrations.rolled_back_at"];
-          started_at?: parameters["rowFilter._prisma_migrations.started_at"];
-          applied_steps_count?: parameters["rowFilter._prisma_migrations.applied_steps_count"];
-        };
-        body: {
-          /** _prisma_migrations */
-          _prisma_migrations?: definitions["_prisma_migrations"];
-        };
-        header: {
-          /** Preference */
-          Prefer?: parameters["preferReturn"];
-        };
-      };
-      responses: {
-        /** No Content */
-        204: never;
-      };
-    };
-  };
 }
 
 export interface definitions {
@@ -1620,6 +1512,10 @@ export interface definitions {
      * @default #28DB98
      */
     color?: string;
+    /** Format: character varying */
+    thumbURL?: string;
+    /** Format: character varying */
+    imageURL?: string;
     /**
      * Format: timestamp without time zone
      * @default CURRENT_TIMESTAMP
@@ -1632,10 +1528,6 @@ export interface definitions {
     updatedAt?: string;
     /** Format: timestamp without time zone */
     deletedAt?: string;
-    /** Format: character varying */
-    thumbURL?: string;
-    /** Format: character varying */
-    ImageURL?: string;
   };
   CreditCard: {
     /**
@@ -1758,6 +1650,8 @@ export interface definitions {
     isPublic: boolean;
     /** Format: character varying */
     title: string;
+    /** Format: text */
+    content: string;
     /** Format: timestamp without time zone */
     date?: string;
     /** Format: double precision */
@@ -1798,15 +1692,12 @@ export interface definitions {
      * This is a Foreign Key to `CreditCard.id`.<fk table='CreditCard' column='id'/>
      */
     creditCardId?: string;
-    /** Format: text */
-    content: string;
   };
   Image: {
     /**
      * Format: uuid
      * @description Note:
      * This is a Primary Key.<pk/>
-     * @default extensions.uuid_generate_v4()
      */
     id: string;
     /** Format: text */
@@ -2029,7 +1920,6 @@ export interface definitions {
      * Format: uuid
      * @description Note:
      * This is a Foreign Key to `Category.id`.<fk table='Category' column='id'/>
-     * @default extensions.uuid_generate_v4()
      */
     A: string;
     /**
@@ -2038,31 +1928,6 @@ export interface definitions {
      * This is a Foreign Key to `Feed.id`.<fk table='Feed' column='id'/>
      */
     B: string;
-  };
-  _prisma_migrations: {
-    /**
-     * Format: character varying
-     * @description Note:
-     * This is a Primary Key.<pk/>
-     */
-    id: string;
-    /** Format: character varying */
-    checksum: string;
-    /** Format: timestamp with time zone */
-    finished_at?: string;
-    /** Format: character varying */
-    migration_name: string;
-    /** Format: text */
-    logs?: string;
-    /** Format: timestamp with time zone */
-    rolled_back_at?: string;
-    /**
-     * Format: timestamp with time zone
-     * @default now()
-     */
-    started_at: string;
-    /** Format: integer */
-    applied_steps_count: number;
   };
 }
 
@@ -2122,16 +1987,16 @@ export interface parameters {
   "rowFilter.Community.currency": string;
   /** Format: text */
   "rowFilter.Community.color": string;
+  /** Format: character varying */
+  "rowFilter.Community.thumbURL": string;
+  /** Format: character varying */
+  "rowFilter.Community.imageURL": string;
   /** Format: timestamp without time zone */
   "rowFilter.Community.createdAt": string;
   /** Format: timestamp without time zone */
   "rowFilter.Community.updatedAt": string;
   /** Format: timestamp without time zone */
   "rowFilter.Community.deletedAt": string;
-  /** Format: character varying */
-  "rowFilter.Community.thumbURL": string;
-  /** Format: character varying */
-  "rowFilter.Community.ImageURL": string;
   /** @description CreditCard */
   "body.CreditCard": definitions["CreditCard"];
   /** Format: uuid */
@@ -2202,6 +2067,8 @@ export interface parameters {
   "rowFilter.Feed.isPublic": string;
   /** Format: character varying */
   "rowFilter.Feed.title": string;
+  /** Format: text */
+  "rowFilter.Feed.content": string;
   /** Format: timestamp without time zone */
   "rowFilter.Feed.date": string;
   /** Format: double precision */
@@ -2224,8 +2091,6 @@ export interface parameters {
   "rowFilter.Feed.userId": string;
   /** Format: uuid */
   "rowFilter.Feed.creditCardId": string;
-  /** Format: text */
-  "rowFilter.Feed.content": string;
   /** @description Image */
   "body.Image": definitions["Image"];
   /** Format: uuid */
@@ -2348,24 +2213,6 @@ export interface parameters {
   "rowFilter._CategoryToFeed.A": string;
   /** Format: uuid */
   "rowFilter._CategoryToFeed.B": string;
-  /** @description _prisma_migrations */
-  "body._prisma_migrations": definitions["_prisma_migrations"];
-  /** Format: character varying */
-  "rowFilter._prisma_migrations.id": string;
-  /** Format: character varying */
-  "rowFilter._prisma_migrations.checksum": string;
-  /** Format: timestamp with time zone */
-  "rowFilter._prisma_migrations.finished_at": string;
-  /** Format: character varying */
-  "rowFilter._prisma_migrations.migration_name": string;
-  /** Format: text */
-  "rowFilter._prisma_migrations.logs": string;
-  /** Format: timestamp with time zone */
-  "rowFilter._prisma_migrations.rolled_back_at": string;
-  /** Format: timestamp with time zone */
-  "rowFilter._prisma_migrations.started_at": string;
-  /** Format: integer */
-  "rowFilter._prisma_migrations.applied_steps_count": string;
 }
 
 export interface operations {}

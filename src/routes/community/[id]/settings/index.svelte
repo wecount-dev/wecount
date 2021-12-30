@@ -8,7 +8,7 @@
   .wrap {
     width: 620px;
     @media (--mobile) {
-      width: 100%;
+      width: 90%;
     }
   }
 
@@ -22,6 +22,7 @@
 
   input,
   textarea {
+    text-align: left;
     width: 100%;
     border: 1px solid var(--border);
     border-radius: 4px;

@@ -18,6 +18,7 @@
       'line line'
       'menu menu';
   }
+
   .card {
     grid-area: card;
     border-radius: 30px;
@@ -27,6 +28,7 @@
     text-align: center;
     overflow: hidden;
   }
+
   .content {
     grid-area: content;
     justify-items: start;
@@ -42,23 +44,28 @@
       margin-top: 4px;
     }
   }
+
   .menu {
     grid-area: menu;
     display: grid;
     align-content: center;
     grid-auto-flow: column;
+
     .balance {
       display: grid;
       grid-auto-flow: column;
       justify-self: start;
+
       p {
         line-height: 130%;
         text-align: center;
         justify-self: center;
         padding: 0 4px;
+
         span {
           color: var(--primary);
         }
+
         &:nth-child(2) {
           padding: 0 24px;
         }
@@ -73,6 +80,7 @@
       justify-self: end;
     }
   }
+
   .line {
     grid-area: line;
     height: 1px;
