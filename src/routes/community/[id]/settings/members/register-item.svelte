@@ -9,6 +9,8 @@
     .user {
       padding-left: 24px;
       padding-right: 12px;
+      justify-self: left;
+
       display: grid;
       grid-auto-flow: column;
       align-items: center;
@@ -21,6 +23,8 @@
       }
 
       p {
+        text-align: left;
+
         overflow: hidden;
         padding: 0 16px;
       }
@@ -33,6 +37,7 @@
 
     div:nth-child(2) {
       display: grid;
+      justify-self: right;
       grid-auto-flow: column;
 
       p {
@@ -70,8 +75,8 @@
   export let member: definitions['User'];
 
   const thumbURL = member?.avatarUrlThumb || member?.avatarUrl || SvgNoProfile;
-  const dispatch = createEventDispatcher();
   const displayName = member?.displayName || member?.name || $_('unnamed');
+  const dispatch = createEventDispatcher();
 
   const handleImageError = (e: any) => {
     e.target.src = SvgNoProfile;

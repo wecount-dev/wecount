@@ -89,9 +89,9 @@
   import RegisterItem from './register-item.svelte';
 
   const members: definitions['User'][] = [
-    {id: '123'},
-    {id: '123'},
-    {id: '123'},
+    {id: '123', displayName: 'Hello'},
+    {id: '123', displayName: 'Chu'},
+    {id: '123', displayName: '123123123214asdflakjasdf'},
     {id: '123'},
     {id: '123'},
     {id: '123'},
@@ -133,39 +133,8 @@
     <div class="head">
       <p>{$_('settings.members')}</p>
     </div>
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
-    <MemberItem />
+    {#each members as member, i}
+      <MemberItem member={member} on:delete={() => console.log('delete')} />
+    {/each}
   </div>
 </div>

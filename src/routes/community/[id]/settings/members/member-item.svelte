@@ -33,46 +33,63 @@
       }
     }
 
-    .trash-wrapper {
-      padding-top: 4px;
-      margin-left: 8px;
-      cursor: pointer;
+    .options {
+      justify-self: right;
+      display: grid;
+      grid-auto-flow: column;
 
-      &:hover {
-        opacity: 0.7;
+      .trash-wrapper {
+        padding-top: 4px;
+        margin-left: 8px;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
       }
     }
   }
 </style>
 
 <script lang="ts">
+  import type {definitions} from '../../../../../types/supabase';
+
+  import {createEventDispatcher} from 'svelte';
   import {_} from 'svelte-i18n';
   import Select from '../../../../../layouts/select.svelte';
-  import {SvgTrash} from '../../../../../utils/icons';
+  import {SvgNoProfile, SvgTrash} from '../../../../../utils/icons';
 
+  export let member: definitions['User'];
+
+  const thumbURL = member?.avatarUrlThumb || member?.avatarUrl || SvgNoProfile;
+  const displayName = member?.displayName || member?.name || $_('unnamed');
   const roleOptions = [$_('role.owner'), $_('role.admin'), $_('role.member')];
   let selectedRoleOption = roleOptions[0];
+  const dispatch = createEventDispatcher();
 
   const selectRoleOption = (e: CustomEvent<string>) =>
     (selectedRoleOption = e.detail);
+
+  function handleDelete() {
+    dispatch('delete');
+  }
 </script>
 
 <div class="register-item">
   <div class="user">
-    <img
-      src="https://images.chosun.com/resizer/CqTgVIhmyyEt7Se3PyW6IHF7bxQ=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/ZPLDCQJGKDMAMSQE6EYTEDLSCI.jpg"
-      alt="chu"
-    />
-    <p>Megan Theeasdfasdfaslkfdjasdflaskjfdasdflkj</p>
+    <img src={thumbURL} alt="" />
+    <p>{displayName}</p>
   </div>
-  <Select
-    slot="input"
-    style={'width: 100%'}
-    value={selectedRoleOption}
-    options={roleOptions}
-    on:change={selectRoleOption}
-  />
-  <div class="trash-wrapper">
-    <img src={SvgTrash} alt="trash" />
+  <div class="options">
+    <Select
+      slot="input"
+      style={'width: 100%'}
+      value={selectedRoleOption}
+      options={roleOptions}
+      on:change={selectRoleOption}
+    />
+    <div class="trash-wrapper" on:click={handleDelete}>
+      <img src={SvgTrash} alt="trash" />
+    </div>
   </div>
 </div>
