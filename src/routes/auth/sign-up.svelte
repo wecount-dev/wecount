@@ -74,13 +74,19 @@
 
       .input-container {
         display: flex;
+        align-items: center;
         flex-direction: row;
 
         .label {
           width: 160px;
+
           @media (--mobile) {
             display: none;
           }
+        }
+
+        :global(.edit-text) {
+          height: 48px;
         }
       }
       .terms {

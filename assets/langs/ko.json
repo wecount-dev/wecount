@@ -26,6 +26,12 @@
   "cancel": "취소",
   "add": "추가",
   "confirm": "확인",
+  "category": "구분",
+  "income": "수입",
+  "consume": "지출",
+  "price": "금액",
+  "content": "내용",
+  "picture": "사진",
   "auth": {
     "sign-in": {
       "email_hint": "이메일을 입력하세요",

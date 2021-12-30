@@ -4,7 +4,7 @@
     padding: 28px;
     border-radius: 16px;
     min-width: 472px;
-    min-height: 720px;
+    min-height: 500px;
     text-align: left;
 
     display: grid;
@@ -49,14 +49,14 @@
       display: grid;
       grid-auto-flow: row;
       row-gap: 20px;
-      grid-template-rows: repeat(auto-fill, minmax(40px, auto));
 
       .wrapper {
         display: grid;
         grid-auto-flow: column;
         grid-template-columns: 88px 1fr;
+        align-items: center;
 
-        .input {
+        .category {
           display: grid;
           grid-auto-flow: column;
           justify-items: center;
@@ -84,6 +84,7 @@
   import {SvgClose, SvgNoProfile} from '../../../../utils/icons';
   import Button from '../../../../layouts/button.svelte';
   import {createEventDispatcher} from 'svelte';
+  import EditText from '../../../../layouts/edit-text.svelte';
 
   export let user: definitions['User'];
 
@@ -111,11 +112,23 @@
   </div>
   <div class="content">
     <div class="wrapper">
-      <div class="label">구분</div>
-      <div class="input">
-        <div>수입</div>
-        <div>지출</div>
+      <div class="label">{$_('category')}</div>
+      <div class="category">
+        <div>{$_('income')}</div>
+        <div>{$_('consume')}</div>
       </div>
+    </div>
+    <div class="wrapper">
+      <div class="label">{$_('price')}</div>
+      <EditText />
+    </div>
+    <div class="wrapper">
+      <div class="label">{$_('content')}</div>
+      <EditText numOfLines={6} />
+    </div>
+    <div class="wrapper">
+      <div class="label">{$_('picture')}</div>
+      <div class="picture" />
     </div>
   </div>
   <div class="foot">

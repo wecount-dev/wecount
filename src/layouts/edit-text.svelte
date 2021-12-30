@@ -1,12 +1,11 @@
 <!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
-  .container {
+  .edit-text {
     display: grid;
     grid-template-rows: 1fr min-content;
-    row-gap: 10px;
 
     &:focus-within {
-      border: 1px solid var(--input-focus);
+      border: 1px solid var(--text);
     }
 
     .input-wrapper {
@@ -19,7 +18,8 @@
       align-items: center;
     }
 
-    input {
+    input,
+    textarea {
       background-color: var(--background-color);
       color: var(--text);
       caret-color: var(--text);
@@ -42,6 +42,7 @@
     .errorText {
       color: red;
       font-size: var(--font-size, 14px);
+      margin-top: 10px;
 
       display: grid;
       justify-self: start;
@@ -57,8 +58,8 @@
   export let containerStyle = '';
   export let inputStyle = '';
   export let errorText = '';
-
   export let value = '';
+  export let numOfLines = 1;
 
   const dispatch = createEventDispatcher();
 
@@ -70,20 +71,32 @@
   };
 </script>
 
-<div class="container" style={containerStyle}>
+<div class="edit-text" style={containerStyle}>
   <div class="input-wrapper">
     <slot name="leftElement" />
-    <input
-      style={inputStyle}
-      type={type}
-      placeholder={placeholder}
-      on:input={onChanged}
-    />
+    {#if numOfLines === 1}
+      <input
+        style={inputStyle}
+        type={type}
+        placeholder={placeholder}
+        on:input={onChanged}
+      />
+    {:else if numOfLines > 1}
+      <textarea
+        style={inputStyle}
+        type={type}
+        placeholder={placeholder}
+        rows={numOfLines}
+        on:input={onChanged}
+      />
+    {/if}
     <slot name="rightElement" />
   </div>
-  <div class="errorText">
-    <span style="margin-left: 15px">
-      {errorText}
-    </span>
-  </div>
+  {#if errorText}
+    <div class="errorText">
+      <span style="margin-left: 15px">
+        {errorText}
+      </span>
+    </div>
+  {/if}
 </div>

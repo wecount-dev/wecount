@@ -26,6 +26,12 @@
   "cancel": "Cancel",
   "add": "Add",
   "confirm": "Confirm",
+  "category": "Category",
+  "income": "Income",
+  "consume": "Consume",
+  "price": "Price",
+  "content": "Content",
+  "picture": "Picture",
   "auth": {
     "sign-in": {
       "email_hint": "Write your email address",
