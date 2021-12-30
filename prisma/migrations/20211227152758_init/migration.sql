@@ -19,7 +19,7 @@ CREATE TYPE "MessageType" AS ENUM ('text', 'photo', 'movie', 'file');
 -- CreateTable
 CREATE TABLE "User" (
     "id" UUID NOT NULL DEFAULT uuid_generate_v4(),
-    "aud" VARCHAR(255) NOT NULL,
+    "aud" VARCHAR(255),
     "confirmation_sent_at" TIMESTAMP(3),
     "recovery_sent_at" TIMESTAMP(3),
     "email" VARCHAR(255),
@@ -28,7 +28,7 @@ CREATE TABLE "User" (
     "avatarUrlThumb" VARCHAR(255),
     "displayName" VARCHAR(255),
     "name" VARCHAR(255),
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "confirmed_at" TIMESTAMP(3),
     "email_confirmed_at" TIMESTAMP(3),

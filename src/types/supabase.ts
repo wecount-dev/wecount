@@ -1877,7 +1877,7 @@ export interface definitions {
      */
     id: string;
     /** Format: character varying */
-    aud: string;
+    aud?: string;
     /** Format: timestamp without time zone */
     confirmation_sent_at?: string;
     /** Format: timestamp without time zone */
@@ -1898,7 +1898,7 @@ export interface definitions {
      * Format: timestamp without time zone
      * @default CURRENT_TIMESTAMP
      */
-    created_at: string;
+    created_at?: string;
     /**
      * Format: timestamp without time zone
      * @default CURRENT_TIMESTAMP
