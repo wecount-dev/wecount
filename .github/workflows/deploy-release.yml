@@ -20,10 +20,10 @@ jobs:
           yarn install --immutable
           yarn build
         env:
-          SUPABASE_URL: ${{ secrets.PROD_SUPABASE_URL }}
-          SUPABASE_PUBLIC_KEY: ${{ secrets.PROD_SUPABASE_PUBLIC_KEY }}
-          SUPABASE_PRIVATE_KEY: ${{ secrets.PROD_SUPABASE_PRIVATE_KEY }}
-          SUPABASE_JWT_SECRET: ${{ secrets.PROD_SUPABASE_JWT_SECRET }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLIC_KEY: ${{ secrets.SUPABASE_PUBLIC_KEY }}
+          SUPABASE_PRIVATE_KEY: ${{ secrets.SUPABASE_PRIVATE_KEY }}
+          SUPABASE_JWT_SECRET: ${{ secrets.SUPABASE_JWT_SECRET }}
 
       - name: CP 404.html
         run: cp ./dist/index.html ./dist/404.html
