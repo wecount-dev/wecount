@@ -9,7 +9,7 @@ datasource db {
 
 model User {
   id                   String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  aud                  String    @db.VarChar(255)
+  aud                  String?   @db.VarChar(255)
   confirmation_sent_at DateTime?
   recovery_sent_at     DateTime?
   email                String?   @db.VarChar(255)
@@ -19,7 +19,7 @@ model User {
   displayName          String?   @db.VarChar(255)
   name                 String?   @db.VarChar(255)
 
-  created_at         DateTime  @default(now())
+  created_at         DateTime? @default(now())
   updated_at         DateTime? @default(now())
   confirmed_at       DateTime?
   email_confirmed_at DateTime?
@@ -43,7 +43,7 @@ model Community {
   currency    String   @db.VarChar(4)
   color       String?  @default("#28DB98")
   thumbURL    String?  @db.VarChar(1024)
-  ImageURL    String?  @db.VarChar(1024)
+  imageURL    String?  @db.VarChar(1024)
 
   createdAt DateTime  @default(now())
   updatedAt DateTime? @default(now())

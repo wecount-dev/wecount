@@ -10,6 +10,8 @@
     width: 40%;
 
     @media (--mobile) {
+      text-align: left;
+      padding-left: 6px;
       width: 100%;
       margin-bottom: 5px;
     }

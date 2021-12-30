@@ -1,4 +1,9 @@
 <style lang="postcss">
+  .container {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+  }
+
   ul.breadcrumb {
     padding: 10px 16px;
     list-style: none;
@@ -37,27 +42,29 @@
   const communityId = $params.id;
 </script>
 
-<ul class="breadcrumb">
-  <li>
-    <a
-      class={!$isActive(
-        $url('/community/[id]/settings/members', {id: communityId}),
-      )
-        ? 'active'
-        : ''}
-      href="/community/{communityId}/settings">{$_('settings.community')}</a
-    >
-  </li>
-  <li>
-    <a
-      class={$isActive(
-        $url('/community/[id]/settings/members', {id: communityId}),
-      )
-        ? 'active'
-        : ''}
-      href="/community/{communityId}/settings/members"
-      >{$_('settings.members')}</a
-    >
-  </li>
-</ul>
-<slot />
+<div class="container">
+  <ul class="breadcrumb">
+    <li>
+      <a
+        class={!$isActive(
+          $url('/community/[id]/settings/members', {id: communityId}),
+        )
+          ? 'active'
+          : ''}
+        href="/community/{communityId}/settings">{$_('settings.community')}</a
+      >
+    </li>
+    <li>
+      <a
+        class={$isActive(
+          $url('/community/[id]/settings/members', {id: communityId}),
+        )
+          ? 'active'
+          : ''}
+        href="/community/{communityId}/settings/members"
+        >{$_('settings.members')}</a
+      >
+    </li>
+  </ul>
+  <slot />
+</div>

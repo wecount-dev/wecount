@@ -75,7 +75,22 @@
     "settings": "설정",
     "manager_members": "멤버관리"
   },
-  "write": "피드 작성하기",
+  "role": {
+    "owner": "주인",
+    "admin": "관리자",
+    "member": "멤버"
+  },
+  "settings": {
+    "community": "커뮤니티",
+    "members": "멤버",
+    "request_join": "가입 요청",
+    "accept_all": "전부 수락하기",
+    "accept": "수락하기",
+    "reject": "거절하기"
+  },
+  "feed": {
+    "write": "피드 작성하기"
+  },
   "header": {
     "explore_community": "커뮤니티를 탐색해보세요!"
   }

@@ -1,6 +1,7 @@
 <style lang="postcss">
   button {
     background-color: var(--paper);
+    border: 1px solid var(--paper);
     color: var(--text);
 
     display: flex;
@@ -10,6 +11,11 @@
 
     &:hover {
       cursor: pointer;
+      opacity: 0.7;
+    }
+
+    &:focus {
+      background-color: var(--paper);
     }
   }
 
@@ -28,30 +34,42 @@
     border-radius: 4px;
     padding: 0.5rem;
     height: 40px;
-
-    &:hover {
-      opacity: 0.7;
-    }
   }
 
   .primary {
     background-color: var(--primary);
     color: white;
+
+    &:focus {
+      background-color: var(--primary);
+    }
   }
 
   .secondary {
     background-color: var(--secondary);
     color: white;
+
+    &:focus {
+      background-color: var(--secondary);
+    }
   }
 
   .positive {
     background-color: var(--brand);
     color: white;
+
+    &:focus {
+      background-color: var(--brand);
+    }
   }
 
   .negative {
     background-color: var(--danger);
     color: white;
+
+    &:focus {
+      background-color: var(--danger);
+    }
   }
 
   .loader {

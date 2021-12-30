@@ -69,13 +69,22 @@
       "settings": "Settings"
     },
     "no_more": "No more community!",
-    "update": "수정",
-    "settings": "설정",
-    "manager_members": "멤버관리"
+    "update": "Update",
+    "settings": "Settings",
+    "manager_members": "Manager members"
+  },
+  "role": {
+    "owner": "Owner",
+    "admin": "Admin",
+    "member": "Member"
   },
   "settings": {
     "community": "Community",
-    "members": "Members"
+    "members": "Members",
+    "request_join": "Request to join",
+    "accept_all": "Accept all",
+    "accept": "Accept",
+    "reject": "Reject"
   },
   "feed": {
     "write": "Write Feed"

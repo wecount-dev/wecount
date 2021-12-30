@@ -28,7 +28,7 @@ import svgRightAngleBracket from '../../assets/svgs/right_angle_bracket.svg';
 import svgSearch from '../../assets/svgs/search.svg';
 import svgShoppingBag from '../../assets/svgs/shopping_bag.svg';
 import svgSmallRightAngleBracket from '../../assets/svgs/small_right_angle_bracket.svg';
-import svgTrashCan from '../../assets/svgs/trash_can.svg';
+import svgTrash from '../../assets/svgs/trash.svg';
 import svgUploadClose from '../../assets/svgs/upload_close.svg';
 import svgUploadPlus from '../../assets/svgs/upload_plus.svg';
 
@@ -38,7 +38,7 @@ export const SvgKey = svgKey;
 export const SvgLogo = svgLogo;
 export const SvgMail = svgMail;
 export const SvgArrowDown = svgArrowDown;
-export const SvgTrashcan = svgTrashCan;
+export const SvgTrash = svgTrash;
 export const SvgBadgeCrown = svgBadgeCrown;
 export const SvgUploadPlus = svgUploadPlus;
 export const SvgUploadClose = svgUploadClose;

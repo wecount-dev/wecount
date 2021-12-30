@@ -12,12 +12,12 @@
   import {SvgNoProfile} from '../utils/icons';
 
   export let alt = 'Image';
-  export let src: string;
+  export let src: string = SvgNoProfile;
   export let style: string | undefined = undefined;
 </script>
 
 {#if src}
   <img src={src} alt={alt} style={style} />
 {:else}
-  <img src={SvgNoProfile} alt="logo" />
+  <img src={SvgNoProfile} alt="" />
 {/if}
