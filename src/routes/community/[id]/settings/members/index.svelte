@@ -82,10 +82,35 @@
 </style>
 
 <script lang="ts">
+  import type {definitions} from '../../../../../types/supabase';
   import {_} from 'svelte-i18n';
   import Button from '../../../../../layouts/button.svelte';
   import MemberItem from './member-item.svelte';
   import RegisterItem from './register-item.svelte';
+
+  const members: definitions['User'][] = [
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+    {id: '123'},
+  ];
 </script>
 
 <div class="container">
@@ -96,27 +121,13 @@
         <p>{$_('settings.accept_all')}</p>
       </Button>
     </div>
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
-    <RegisterItem />
+    {#each members as member, i}
+      <RegisterItem
+        member={member}
+        on:accept={() => console.log('accept')}
+        on:reject={() => console.log('reject')}
+      />
+    {/each}
   </div>
   <div class="members">
     <div class="head">

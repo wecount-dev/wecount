@@ -107,12 +107,13 @@
   import {user} from '../stores/sessionStore';
   import {onMount} from 'svelte';
   import {goto, url} from '@roxi/routify';
+  import {SvgNoProfile} from '../utils/icons';
 
   let loading = true;
   let files: HTMLInputElement;
   let name = '';
   let displayName = '';
-  let avatarUrl = '';
+  let avatarUrl = SvgNoProfile;
 
   onMount(() => {
     if (!$user) {

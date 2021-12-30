@@ -17,6 +17,7 @@
         width: 48px;
         height: 48px;
         border-radius: 24px;
+        background-color: var(--disabled);
       }
 
       p {
@@ -60,20 +61,38 @@
   }
 </style>
 
-<script>
+<script lang="ts">
+  import type {definitions} from '../../../../../types/supabase';
   import {_} from 'svelte-i18n';
+  import {createEventDispatcher} from 'svelte';
+  import {SvgNoProfile} from '../../../../../utils/icons';
+
+  export let member: definitions['User'];
+
+  const thumbURL = member?.avatarUrlThumb || member?.avatarUrl || SvgNoProfile;
+  const dispatch = createEventDispatcher();
+  const displayName = member?.displayName || member?.name || $_('unnamed');
+
+  const handleImageError = (e: any) => {
+    e.target.src = SvgNoProfile;
+  };
+
+  function handleAccept() {
+    dispatch('accept');
+  }
+
+  function handleReject() {
+    dispatch('reject');
+  }
 </script>
 
 <div class="register-item">
   <div class="user">
-    <img
-      src="https://images.chosun.com/resizer/CqTgVIhmyyEt7Se3PyW6IHF7bxQ=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/ZPLDCQJGKDMAMSQE6EYTEDLSCI.jpg"
-      alt="chu"
-    />
-    <p>Megan Theeasdfasdfaslkfdjasdflaskjfdasdflkj</p>
+    <img src={thumbURL} alt="" on:error={handleImageError} />
+    <p>{displayName}</p>
   </div>
   <div>
-    <p>{$_('settings.accept')}</p>
-    <p>{$_('settings.reject')}</p>
+    <p on:click={handleAccept}>{$_('settings.accept')}</p>
+    <p on:click={handleReject}>{$_('settings.reject')}</p>
   </div>
 </div>
