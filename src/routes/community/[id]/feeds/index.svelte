@@ -36,10 +36,12 @@
 </style>
 
 <script lang="ts">
-  import type {FeedWithUserAndImages} from '../../../services/feedService';
+  import type {FeedWithUserAndImages} from '../../../../services/feedService';
   import {_} from 'svelte-i18n';
-  import Button from '../../../layouts/button.svelte';
-  import FeedItem from '../../../layouts/feed-item.svelte';
+  import FeedAdd from './add.svelte';
+  import Button from '../../../../layouts/button.svelte';
+  import FeedItem from '../../../../layouts/feed-item.svelte';
+  import Modal from '../../../../layouts/modal.svelte';
 
   const feeds: FeedWithUserAndImages[] = [
     {
@@ -245,12 +247,15 @@
       ],
     },
   ];
+
+  let showModal = false;
+  const onToggle = () => (showModal = !showModal);
 </script>
 
 <div class="container">
   <div class="wrapper">
     <div class="header">
-      <Button primary>
+      <Button primary on:click={onToggle}>
         <div class="text">
           {$_('feed.write')}
         </div>
@@ -262,4 +267,13 @@
       {/each}
     </div>
   </div>
+  <Modal visible={showModal} on:close={() => (showModal = false)}>
+    <FeedAdd
+      user={{
+        id: 'id',
+        displayName: 'User1',
+      }}
+      on:close={() => (showModal = false)}
+    />
+  </Modal>
 </div>
