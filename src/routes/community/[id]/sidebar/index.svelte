@@ -26,7 +26,6 @@
   section {
     position: fixed;
     left: 70px;
-    position: 100;
 
     overflow: auto;
     background-color: var(--card);
@@ -34,6 +33,11 @@
     box-shadow: 2px 12px 12px var(--box-shadow02);
     transition: width 0.15s;
     transition-timing-function: ease-in-out;
+
+    .footer {
+      height: 8px;
+      background-color: var(--background);
+    }
 
     display: flex;
     flex-direction: column;
@@ -162,6 +166,7 @@
     {#if $user}
       <MenuAdd on:click={handleAdd} />
     {/if}
+    <div style="height: 8px;" />
   </aside>
   <section bind:this={menuElement} class:close={!isOpen} style={menuStyle}>
     <div class="close-arr" on:click={toggleMenu}>
@@ -178,5 +183,6 @@
         </a>
       {/each}
     {/if}
+    <div class="footer" />
   </section>
 </div>

@@ -162,6 +162,45 @@ export const getCommunity = async (
   }
 };
 
+export const getCommunityOwner = async (
+  id: string,
+): Promise<definitions['User'] | null> => {
+  try {
+    const {data, error} = await supabase
+      .from<definitions['Permission']>('Permission')
+      .select('userId')
+      .match({
+        communityId: id,
+        type: 'owner',
+      })
+      .single();
+
+    if (error) {throw error;}
+
+    if (data) {
+      const {data: userData, error: userError} = await supabase
+        .from<definitions['User']>('User')
+        .select()
+        .match({
+          id: data.userId,
+        })
+        .single();
+
+      if (userError) {throw userError;}
+
+      return userData;
+    }
+
+    return null;
+
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+
+    return null;
+  }
+};
+
 export const isUserCommunity = async (
   id: string,
   userId: string,
@@ -175,8 +214,6 @@ export const isUserCommunity = async (
       .or('type.eq.owner,type.eq.admin');
     
     if (error) {throw error;}
-
-    console.log('data', data);
 
     if (data) {return true;}
 

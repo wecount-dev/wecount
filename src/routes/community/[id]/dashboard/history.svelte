@@ -54,9 +54,14 @@
 
 <script lang="ts">
   import {_} from 'svelte-i18n';
+  import {goto, params} from '@roxi/routify';
+
+  const communityId: string = $params.id;
 
   const clickMore = () => {
-    console.log('click more');
+    if (communityId) {
+      $goto('/community/[id]/feeds', {id: communityId});
+    }
   };
 </script>
 

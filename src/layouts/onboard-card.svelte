@@ -2,6 +2,7 @@
   .container {
     width: 250px;
     cursor: pointer;
+
     @media (--mobile) {
       width: 100%;
     }
@@ -15,9 +16,6 @@
     border-radius: 16px;
     box-shadow: 0px 24px 42px rgba(0, 0, 0, 0.08);
     padding: 54px 26px;
-    @media (--mobile) {
-      border-radius: 0px;
-    }
   }
   .card-content {
     width: 100%;

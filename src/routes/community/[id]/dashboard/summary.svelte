@@ -117,13 +117,19 @@
 </style>
 
 <script lang="ts">
+  import type {definitions} from '../../../../types/supabase';
   import {_} from 'svelte-i18n';
 
-  import {GREEN, RED} from '../../../../theme';
+  import {RED} from '../../../../theme';
   import {decoPrice} from '../../../../utils/functions';
   import Button from '../../../../layouts/button.svelte';
   import CommunityCard from '../../../../layouts/community-card.svelte';
   import ProgressBar from '../../../../layouts/progress-bar.svelte';
+  import {onMount} from 'svelte';
+  import {getCommunityOwner} from '../../../../services/communityService';
+
+  export let community: definitions['Community'] | null = null;
+  let owner: definitions['User'] | null;
 
   const amounts = [400000, -300000, 400000, 1400000, 1400000];
 
@@ -140,60 +146,69 @@
 
     percentage += 10;
   };
+
+  onMount(async () => {
+    if (community) {
+      owner = await getCommunityOwner(community.id);
+    }
+  });
 </script>
 
 <div class="container">
-  <div class="title">
-    <div class="body1">dooboolab 커뮤니티</div>
-    <div class="manage body3" on:click={clickManage}>
-      {$_('manage')}
-      <i class="material-icons md-18">chevron_right</i>
-    </div>
-  </div>
-  <CommunityCard
-    --color={GREEN}
-    style="grid-area: card;"
-    name="dooboolab"
-    currency="KRW"
-    description="dooboolab card"
-    balance={100000}
-  />
-  <div class="usage">
-    <div class="head body3">{$_('recent_history')}</div>
-    <hr />
-    {#each amounts as amount}
-      <div class="body3 price" style={`--price: ${amount < 0 ? RED : ''};`}>
-        {decoPrice({
-          price: amount,
-          currency: 'KRW',
-        })}
+  {#if community}
+    <div class="title">
+      <div class="body1">{community.name}</div>
+      <div class="manage body3" on:click={clickManage}>
+        {$_('manage')}
+        <i class="material-icons md-18">chevron_right</i>
       </div>
-    {/each}
-  </div>
-  <div class="amount">
-    <ProgressBar percentage={percentage} />
-    <div class="current">
-      <div class="body3 placeholder">{$_('remaining_amount')}</div>
-      <div class="body3">
-        <pre class="placeholder">{decoPrice({
-            price: 100000,
+    </div>
+    <CommunityCard
+      --color={community.color}
+      style="grid-area: card;"
+      name={owner?.name || owner?.displayName || ''}
+      currency={community.currency}
+      description={community.description}
+      balance={100000}
+      profileURL={owner?.avatarUrlThumb || owner?.avatarUrl || ''}
+    />
+    <div class="usage">
+      <div class="head body3">{$_('recent_history')}</div>
+      <hr />
+      {#each amounts as amount}
+        <div class="body3 price" style={`--price: ${amount < 0 ? RED : ''};`}>
+          {decoPrice({
+            price: amount,
+            currency: 'KRW',
+          })}
+        </div>
+      {/each}
+    </div>
+    <div class="amount">
+      <ProgressBar percentage={percentage} />
+      <div class="current">
+        <div class="body3 placeholder">{$_('remaining_amount')}</div>
+        <div class="body3">
+          <pre class="placeholder">{decoPrice({
+              price: 100000,
+              currency: 'KRW',
+              currencyDisplay: null,
+              style: null,
+            })}</pre>
+          &nbsp;/&nbsp;
+          {decoPrice({
+            price: 400000,
             currency: 'KRW',
             currencyDisplay: null,
             style: null,
-          })}</pre>
-        &nbsp;/&nbsp;
-        {decoPrice({
-          price: 400000,
-          currency: 'KRW',
-          currencyDisplay: null,
-          style: null,
-        })}
+          })}
+        </div>
       </div>
     </div>
-  </div>
-  <div class="sponsor">
-    <Button on:click={clickSponsoring} primary type="submit" style="flex: 1;">
-      <div class="body3">{$_('sponsor')}</div>
-    </Button>
-  </div>
+    <div class="sponsor">
+      <Button on:click={clickSponsoring} primary type="submit" style="flex: 1;">
+        <div class="body3">{$_('sponsor')}</div>
+      </Button>
+    </div>
+  {/if}
 </div>
