@@ -125,9 +125,8 @@ export const getMycommunities = async (
         )
       `,
       )
-      .match({
-        userId,
-      });
+      .match({userId})
+      .order('createdAt', {ascending: false});
 
     if (error) {throw error;}
 

@@ -24,6 +24,8 @@
       }
 
       .content {
+        margin-bottom: 80px;
+
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: min-content;

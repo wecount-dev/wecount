@@ -2,7 +2,6 @@
   .container {
     display: grid;
     justify-items: center;
-    align-items: center;
   }
 
   .wrap {
@@ -39,7 +38,7 @@
   }
 
   .input-wrapper {
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
   }

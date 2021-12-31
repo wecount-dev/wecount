@@ -22,6 +22,7 @@
     border-radius: 16px;
     box-shadow: 0px 24px 42px var(--box-shadow22);
     overflow: auto;
+    padding-bottom: 20px;
 
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(48px, auto));
@@ -59,6 +60,7 @@
     border-radius: 16px;
     box-shadow: 0px 24px 42px var(--box-shadow22);
     overflow: auto;
+    padding-bottom: 20px;
 
     display: grid;
     grid-template-rows: repeat(auto-fill, minmax(48px, auto));

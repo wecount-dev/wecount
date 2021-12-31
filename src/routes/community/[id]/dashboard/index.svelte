@@ -1,7 +1,7 @@
 <style lang="postcss">
   .container {
     max-width: 1200px;
-    padding: 20px;
+    padding: 20px 20px 80px 20px;
 
     display: grid;
     gap: 16px;

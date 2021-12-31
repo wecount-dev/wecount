@@ -9,9 +9,10 @@
   }
 
   .container {
+    position: sticky;
+    overflow: auto;
     display: inline-flex;
     background-color: var(--background);
-    height: 100%;
   }
 
   aside {
@@ -22,6 +23,7 @@
   }
 
   section {
+    overflow: auto;
     background-color: var(--card);
     width: 144px;
     box-shadow: 2px 12px 12px var(--box-shadow02);
@@ -71,7 +73,7 @@
   import Menu from './menu.svelte';
   import MenuAdd from './menu-add.svelte';
   import MenuList from './menu-list.svelte';
-  import {params, isActive, goto, url} from '@roxi/routify';
+  import {params, goto, url} from '@roxi/routify';
   import {user} from '../../../../stores/sessionStore';
 
   export let communities: definitions['Community'][];
@@ -80,7 +82,7 @@
 
   const {node} = context;
 
-  let isOpen = true;
+  let isOpen = false;
   let isLoading = false;
   let isMenuVisible = isOpen;
   let menuElement: HTMLElement;

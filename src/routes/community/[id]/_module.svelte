@@ -2,20 +2,30 @@
   .container {
     background-color: var(--paper);
     overflow: hidden;
+    padding-bottom: 56px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-auto-flow: column;
 
     nav {
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
+      position: fixed;
+      height: calc(100% - 56px);
+      top: 56px;
+      z-index: 98;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;
+      }
     }
 
     section {
-      width: 100%;
+      width: calc(100% - 80px);
       height: 100%;
+      left: 80px;
+      position: fixed;
       overflow-y: auto;
       overflow-x: hidden;
 
@@ -27,7 +37,6 @@
 <script lang="ts">
   import type {definitions} from '../../../types/supabase';
   import Sidebar from './sidebar/index.svelte';
-  import {GREEN, SKY_BLUE} from '../../../theme';
   import {context} from '@roxi/routify';
   import {user} from '../../../stores/sessionStore';
   import {getMycommunities} from '../../../services/communityService';
@@ -43,11 +52,9 @@
 </script>
 
 <div class="container">
-  {#if $user}
-    <nav>
-      <Sidebar context={$context} communities={communities || []} />
-    </nav>
-  {/if}
+  <nav>
+    <Sidebar context={$context} communities={communities || []} />
+  </nav>
   <section>
     <slot />
   </section>
