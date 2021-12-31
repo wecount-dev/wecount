@@ -26,7 +26,6 @@
   section {
     position: fixed;
     left: 70px;
-    position: 100;
 
     overflow: auto;
     background-color: var(--card);
@@ -34,6 +33,11 @@
     box-shadow: 2px 12px 12px var(--box-shadow02);
     transition: width 0.15s;
     transition-timing-function: ease-in-out;
+
+    .footer {
+      height: 8px;
+      background-color: var(--background);
+    }
 
     display: flex;
     flex-direction: column;
@@ -179,5 +183,6 @@
         </a>
       {/each}
     {/if}
+    <div class="footer" />
   </section>
 </div>
