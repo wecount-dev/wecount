@@ -71,7 +71,8 @@
   import Menu from './menu.svelte';
   import MenuAdd from './menu-add.svelte';
   import MenuList from './menu-list.svelte';
-  import {goto, url} from '@roxi/routify';
+  import {params, isActive, goto, url} from '@roxi/routify';
+  import {user} from '../../../../stores/sessionStore';
 
   export let communities: definitions['Community'][];
   export let menuStyle: string | undefined = undefined;
@@ -82,8 +83,8 @@
   let isOpen = true;
   let isLoading = false;
   let isMenuVisible = isOpen;
-  let communityId = communities?.[0].id;
   let menuElement: HTMLElement;
+  let communityId: string = $params.id;
 
   const subMenus = [
     {
@@ -145,7 +146,9 @@
         />
       </a>
     {/each}
-    <MenuAdd on:click={handleAdd} />
+    {#if $user}
+      <MenuAdd on:click={handleAdd} />
+    {/if}
   </aside>
   <section bind:this={menuElement} class:close={!isOpen} style={menuStyle}>
     <div class="close-arr" on:click={toggleMenu}>

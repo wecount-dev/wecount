@@ -62,6 +62,8 @@
   {#if imageURL}
     <img class="icon" src={imageURL} alt={community.name.substring(0, 1)} />
   {:else}
-    <div class="icon">{community.name.substring(0, 1)}</div>
+    <div class="icon">
+      {community.name.substring(0, 1)}
+    </div>
   {/if}
 </div>

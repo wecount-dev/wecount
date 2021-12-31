@@ -116,6 +116,7 @@ export const getMycommunities = async (
       .select(
         `
         Community (
+          id,
           isPublic,
           name,
           description,

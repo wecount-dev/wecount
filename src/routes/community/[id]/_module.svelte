@@ -25,37 +25,29 @@
 </style>
 
 <script lang="ts">
+  import type {definitions} from '../../../types/supabase';
   import Sidebar from './sidebar/index.svelte';
   import {GREEN, SKY_BLUE} from '../../../theme';
   import {context} from '@roxi/routify';
+  import {user} from '../../../stores/sessionStore';
+  import {getMycommunities} from '../../../services/communityService';
+  import {onMount} from 'svelte';
+
+  let communities: definitions['Community'][] | null = null;
+
+  onMount(async () => {
+    if ($user) {
+      communities = await getMycommunities($user?.id);
+    }
+  });
 </script>
 
 <div class="container">
-  <nav>
-    <Sidebar
-      context={$context}
-      communities={[
-        {
-          id: '100',
-          name: 'com',
-          isPublic: true,
-          currency: 'USD',
-          description: 'community description',
-          color: GREEN,
-          createdAt: new Date().toISOString(),
-        },
-        {
-          id: '101',
-          name: 'Hello',
-          isPublic: true,
-          currency: 'USD',
-          description: 'community description',
-          color: SKY_BLUE,
-          createdAt: new Date().toISOString(),
-        },
-      ]}
-    />
-  </nav>
+  {#if $user}
+    <nav>
+      <Sidebar context={$context} communities={communities || []} />
+    </nav>
+  {/if}
   <section>
     <slot />
   </section>
