@@ -24,6 +24,10 @@
   }
 
   section {
+    position: fixed;
+    left: 70px;
+    position: 100;
+
     overflow: auto;
     background-color: var(--card);
     width: 144px;
