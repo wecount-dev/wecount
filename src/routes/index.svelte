@@ -11,6 +11,7 @@
 
     @media (--mobile) {
       background-color: var(--paper);
+      padding: 0 40px;
     }
   }
   .greeting {
