@@ -22,16 +22,30 @@
   }
 </style>
 
-<script>
+<script lang="ts">
+  import type {definitions} from '../../../../types/supabase';
   import Summary from './summary.svelte';
   import History from './history.svelte';
   import MemberList from './member-list.svelte';
   import Statistics from './statistics.svelte';
+  import {getCommunity} from '../../../../services/communityService';
+  import {params} from '@roxi/routify';
+
+  let community: definitions['Community'] | null = null;
+
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  params.subscribe(async (params) => {
+    if (params.id) {
+      community = await getCommunity(params.id);
+    }
+  });
 </script>
 
 <div class="container">
-  <Summary />
-  <History />
-  <MemberList />
-  <Statistics />
+  {#if community}
+    <Summary community={community} />
+    <History />
+    <MemberList />
+    <Statistics />
+  {/if}
 </div>

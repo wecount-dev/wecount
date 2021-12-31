@@ -162,6 +162,7 @@
     {#if $user}
       <MenuAdd on:click={handleAdd} />
     {/if}
+    <div style="height: 8px;" />
   </aside>
   <section bind:this={menuElement} class:close={!isOpen} style={menuStyle}>
     <div class="close-arr" on:click={toggleMenu}>

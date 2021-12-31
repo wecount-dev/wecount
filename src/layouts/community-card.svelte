@@ -75,6 +75,7 @@
   .balance {
     margin-top: 8px;
     align-self: flex-end;
+    text-align: left;
     color: white;
 
     flex-direction: column;
