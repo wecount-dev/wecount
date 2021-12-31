@@ -161,3 +161,31 @@ export const getCommunity = async (
     return null;
   }
 };
+
+export const isUserCommunity = async (
+  id: string,
+  userId: string,
+): Promise<boolean> => {
+
+  try {
+    const {data, error} = await supabase
+      .from<definitions['Permission']>('Permission')
+      .select()
+      .match({userId, communityId: id})
+      .or('type.eq.owner,type.eq.admin');
+    
+    if (error) {throw error;}
+
+    console.log('data', data);
+
+    if (data) {return true;}
+
+    return false;
+
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+
+    return false;
+  }
+};

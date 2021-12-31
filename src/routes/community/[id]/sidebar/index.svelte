@@ -9,6 +9,7 @@
   }
 
   .container {
+    height: 100%;
     position: sticky;
     overflow: auto;
     display: inline-flex;
@@ -75,6 +76,7 @@
   import MenuList from './menu-list.svelte';
   import {params, goto, url} from '@roxi/routify';
   import {user} from '../../../../stores/sessionStore';
+  import {isUserCommunity} from '../../../../services/communityService';
 
   export let communities: definitions['Community'][];
   export let menuStyle: string | undefined = undefined;
@@ -96,10 +98,6 @@
     {
       name: $_('community.sidebar.feeds'),
       path: `/community/${communityId}/feeds`,
-    },
-    {
-      name: $_('community.sidebar.settings'),
-      path: `/community/${communityId}/settings`,
     },
   ];
 
@@ -131,7 +129,16 @@
     });
   };
 
-  onMount(postTransition);
+  onMount(async () => {
+    if (await isUserCommunity(communityId, $user?.id || '')) {
+      subMenus.push({
+        name: $_('community.sidebar.settings'),
+        path: `/community/${communityId}/settings`,
+      });
+    }
+
+    postTransition();
+  });
 </script>
 
 <div class="container">
