@@ -1,5 +1,6 @@
 <style lang="postcss">
   @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+  @custom-media --mobile-sm (max-width: 400px);
   @custom-media --mobile (max-width: 640px);
   main {
     background-color: var(--background);

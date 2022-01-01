@@ -2,9 +2,10 @@
   .container {
     display: grid;
     justify-items: center;
+    margin-right: 10px;
 
     .wrapper {
-      width: 90%;
+      width: 100%;
       max-width: 800px;
       padding-bottom: 40px;
 

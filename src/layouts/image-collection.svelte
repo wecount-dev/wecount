@@ -5,7 +5,6 @@
     max-width: 740px;
     max-height: 620px;
     position: relative;
-
     overflow: hidden;
 
     display: grid;

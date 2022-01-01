@@ -11,17 +11,21 @@
     row-gap: 24px;
 
     @media (--mobile) {
+      width: 100%;
       grid-template-rows: 48px 1fr 80px;
     }
   }
 
   .header {
     padding: 0 24px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: start;
     align-items: center;
+
+    @media (--mobile-sm) {
+      width: 76%;
+    }
 
     .title {
       color: var(--text);
@@ -48,6 +52,10 @@
     display: grid;
     row-gap: 20px;
     grid-auto-flow: row;
+
+    @media (--mobile-sm) {
+      width: 76%;
+    }
   }
 
   .footer {
@@ -57,7 +65,9 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
 
-    @media (--mobile) {
+    @media (--mobile-sm) {
+      width: 76%;
+
       display: flex;
       flex-direction: column-reverse;
       align-items: flex-start;

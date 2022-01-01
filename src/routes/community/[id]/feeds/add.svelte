@@ -10,6 +10,15 @@
     display: grid;
     grid-template-rows: min-content 1fr min-content;
 
+    @media (--mobile) {
+      padding: 12px;
+      margin-left: 64px;
+      margin-right: 10px;
+      min-width: 100px;
+      width: 80%;
+      z-index: 1000;
+    }
+
     .head {
       .user {
         &:hover {
@@ -67,6 +76,11 @@
           grid-auto-flow: row-dence;
           grid-auto-rows: min-content;
           grid-template-columns: repeat(auto-fill, minmax(72px, auto));
+
+          @media (--mobile) {
+            overflow-x: auto;
+            grid-auto-flow: column;
+          }
         }
       }
     }
@@ -137,19 +151,6 @@
     <div class="wrapper">
       <div class="label">{$_('picture')}</div>
       <div class="picture">
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
-        <UploadablePhotoCard />
         <UploadablePhotoCard />
         <UploadablePhotoCard />
         <UploadablePhotoCard />

@@ -9,7 +9,7 @@
   }
 
   .container {
-    height: 100%;
+    min-height: 100%;
     position: sticky;
     overflow: auto;
     display: inline-flex;
@@ -24,11 +24,9 @@
   }
 
   section {
-    position: fixed;
     left: 64px;
     z-index: 100;
 
-    overflow: auto;
     background-color: var(--card);
     width: 144px;
     box-shadow: 2px 12px 12px var(--box-shadow02);
