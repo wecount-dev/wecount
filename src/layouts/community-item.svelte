@@ -1,11 +1,14 @@
 <style lang="postcss">
   .container {
     height: 172px;
-    min-width: 420px;
     max-width: 540px;
     background-color: var(--background);
     border-radius: 30px;
     padding: 12px 18px;
+
+    @media (--mobile) {
+      width: 63%;
+    }
 
     display: grid;
     row-gap: 8px;
@@ -34,14 +37,17 @@
     justify-items: start;
     align-content: start;
 
-    display: grid;
-
     .heading5 {
       margin: 2px 0;
+      text-align: left;
     }
 
     .body2 {
       margin-top: 4px;
+      text-align: left;
+
+      display: flex;
+      flex-wrap: wrap;
     }
   }
 
@@ -55,6 +61,12 @@
       display: grid;
       grid-auto-flow: column;
       justify-self: start;
+
+      .body3:nth-child(2) {
+        @media (--mobile) {
+          display: none;
+        }
+      }
 
       p {
         line-height: 130%;

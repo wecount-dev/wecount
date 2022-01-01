@@ -8,6 +8,7 @@
     padding: 26px;
     max-height: 212px;
     width: 330px;
+    text-align: left;
 
     display: flex;
     flex-direction: column;
@@ -96,6 +97,7 @@
 
   export let name = '';
   export let description = '';
+  export let owner = '';
   export let profileURL = '';
   export let isPublic = true;
   export let balance: number | undefined = undefined;
@@ -126,7 +128,7 @@
     </div>
     <div class="user">
       <div class="user-role">{$_('owner')}</div>
-      <div class="user-name">{name}</div>
+      <div class="user-name">{owner}</div>
     </div>
   </div>
   {#if balance}

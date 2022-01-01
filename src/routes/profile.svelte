@@ -4,19 +4,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     form {
       width: 400px;
       flex: 1;
       align-self: center;
       padding: 80px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      button {
-        cursor: pointer;
+      @media (--mobile) {
+        width: 80%;
+        padding: 0;
       }
+
       div {
         width: 100%;
 
@@ -31,6 +35,7 @@
           width: 100%;
         }
       }
+
       .profile-image-container {
         position: relative;
         width: 140px;
@@ -81,19 +86,6 @@
             -webkit-user-select: none;
           }
         }
-      }
-      input[type='submit'] {
-        background-color: var(--positive);
-        cursor: pointer;
-        width: 100%;
-        color: white;
-        font-size: 16px;
-      }
-
-      .btn-signout {
-        background-color: var(--negative);
-        width: 100%;
-        font-size: 16px;
       }
     }
   }

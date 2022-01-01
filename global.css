@@ -6,6 +6,8 @@ body {
   font-family: Roboto;
   transition: background-color 0.3s;
   font-size: 16px;
+  overflow-wrap: break-word;
+  word-break: break-all;
 
   display: grid;
 }

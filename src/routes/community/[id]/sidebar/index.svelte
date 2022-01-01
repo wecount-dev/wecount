@@ -25,7 +25,8 @@
 
   section {
     position: fixed;
-    left: 70px;
+    left: 64px;
+    z-index: 100;
 
     overflow: auto;
     background-color: var(--card);

@@ -6,7 +6,7 @@
   .wrap {
     width: 620px;
     @media (--mobile) {
-      width: 100%;
+      width: 88%;
     }
   }
   .title {
@@ -47,9 +47,6 @@
     border-radius: 16px;
     /* padding: 20px; */
     width: 100%;
-    @media (--mobile) {
-      border-radius: 0px;
-    }
   }
 </style>
 

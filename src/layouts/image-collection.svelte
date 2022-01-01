@@ -35,6 +35,11 @@
       grid-template-rows: 368px 1fr;
       grid-template-columns: 1fr;
 
+      @media (--mobile) {
+        height: 320px;
+        grid-template-rows: 200px 120px;
+      }
+
       .head {
         display: grid;
         gap: 10px;
@@ -55,6 +60,11 @@
         img {
           width: 100%;
           height: 100%;
+          max-height: 242px;
+
+          @media (--mobile) {
+            height: 120px;
+          }
         }
       }
     }
@@ -77,7 +87,6 @@
         color: white;
         font-size: 28px;
         font-weight: bold;
-        margin-bottom: 160px;
       }
     }
   }
