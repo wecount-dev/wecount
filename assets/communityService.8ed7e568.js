@@ -1,0 +1,10 @@
+var m=Object.defineProperty;var a=Object.getOwnPropertySymbols;var u=Object.prototype.hasOwnProperty,l=Object.prototype.propertyIsEnumerable;var i=(e,t,r)=>t in e?m(e,t,{enumerable:!0,configurable:!0,writable:!0,value:r}):e[t]=r,c=(e,t)=>{for(var r in t||(t={}))u.call(t,r)&&i(e,r,t[r]);if(a)for(var r of a(t))l.call(t,r)&&i(e,r,t[r]);return e};import{s as n}from"./index.713fa5bd.js";const d=async(e,t)=>{if(!e||!t)return console.error("no userId or community"),null;try{const{data:r,error:o}=await n.from("Community").insert([c({},t)]).single();if(o)throw o;return r&&await n.from("Permission").insert([{communityId:r.id,type:"owner",userId:e}]),r}catch(r){return console.error(r),null}},w=async(e,t)=>{try{const{data:r,error:o}=await n.from("Community").select().match({isPublic:!0}).lt("createdAt",e||new Date().toISOString()).order("createdAt",{ascending:!1}).limit(t||10);if(o)throw o;return r}catch(r){return console.error(r),null}},h=async e=>{if(!e)return[];try{const{data:t,error:r}=await n.from("Permission").select(`
+        Community (
+          id,
+          isPublic,
+          name,
+          description,
+          currency,
+          color
+        )
+      `).match({userId:e}).order("createdAt",{ascending:!1});if(r)throw r;return t==null?void 0:t.map(o=>o.Community)}catch(t){return console.error(t),null}},g=async e=>{try{const{data:t,error:r}=await n.from("Community").select().match({id:e}).single();if(r)throw r;return t}catch(t){return console.error(t),null}},C=async e=>{try{const{data:t,error:r}=await n.from("Permission").select("userId").match({communityId:e,type:"owner"}).single();if(r)throw r;if(t){const{data:o,error:s}=await n.from("User").select().match({id:t.userId}).single();if(s)throw s;return o}return null}catch(t){return console.error(t),null}},p=async(e,t)=>{try{const{data:r,error:o}=await n.from("Permission").select().match({userId:t,communityId:e}).or("type.eq.owner,type.eq.admin");if(o)throw o;return!!r}catch(r){return console.error(r),!1}};export{g as a,C as b,d as c,w as d,h as g,p as i};
