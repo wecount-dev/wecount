@@ -31,7 +31,7 @@ jobs:
       - name: Deploy hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GH_TOKEN }}`
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_WECOUNT_BF552 }}'
+          repoToken: ${{ secrets.GH_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_WECOUNT_BF552 }}
           projectId: wecount-bf552
           channelId: live
