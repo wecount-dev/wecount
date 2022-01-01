@@ -102,6 +102,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        div:nth-child(1) {
+          @media (--mobile) {
+            display: none;
+          }
+        }
       }
     }
 
@@ -166,7 +172,8 @@
     <CommunityCard
       --color={community.color}
       style="grid-area: card;"
-      name={owner?.name || owner?.displayName || ''}
+      name={community?.name || ''}
+      owner={owner?.displayName || owner?.name || ''}
       currency={community.currency}
       description={community.description}
       balance={100000}
