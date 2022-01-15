@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
-    require('precss'),
+    require("tailwindcss"), 
     require('postcss-import'),
     require('postcss-cssnext'),
     require('postcss-preset-env'),
