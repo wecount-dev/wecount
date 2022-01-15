@@ -18,7 +18,9 @@ export default defineConfig({
         postcss: true,
         sourceMap: !production,
       }),
-      hot: !production,
+      hot: !production && {
+        injectCss: true,
+      },
     }),
   ],
 });
